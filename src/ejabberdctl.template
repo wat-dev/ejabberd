@@ -56,21 +56,13 @@ if [ "$ERLANG_NODE_ARG" != "" ] ; then
 fi
 
 # check the proper system user is used
-ID=`id -g`
-GIDS=`id -G`
-EJID=`id -g $INSTALLUSER`
-EXEC_CMD="false"
-for GID in $GIDS; do
-    if [ $GID -eq 0 ] ; then
-	EXEC_CMD="su ${INSTALLUSER} -p -c"
-    fi
-done
-if [ "$ID" -eq "$EJID" ] ; then
+CURRENT_USER=`id -u`
+INSTALL_USER=`id -u $INSTALLUSER`
+
+if [ $CURRENT_USER -eq $INSTALL_USER ]; then
 	EXEC_CMD="sh -c"
-fi
-if [ "$EXEC_CMD" = "false" ] ; then
-	echo "This command can only be run by root or the user $INSTALLUSER" >&2
-	exit 4
+else
+	EXEC_CMD="su $INSTALLUSER -p -c"
 fi
 
 NAME=-name
