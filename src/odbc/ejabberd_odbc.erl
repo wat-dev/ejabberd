@@ -78,6 +78,7 @@
 -define(TRANSACTION_TIMEOUT, 60000). % milliseconds
 -define(KEEPALIVE_TIMEOUT, 60000).
 -define(KEEPALIVE_QUERY, "SELECT 1;").
+-define(DEFAULT_QUERY_TIMEOUT, 7000). % milliseconds
 
 %%-define(DBGFSM, true).
 
@@ -203,6 +204,7 @@ init([Host, StartInterval]) ->
 			    start_interval = StartInterval}}.
 
 connecting(connect, #state{host = Host} = State) ->
+    ?INFO_MSG("Establishing connection to ~p", [Host]),
     ConnectRes = case db_opts(Host) of
 		     [mysql | Args] ->
 			 apply(fun mysql_connect/5, Args);
@@ -232,6 +234,8 @@ connecting(connect, #state{host = Host} = State) ->
 				      connect),
 	    {next_state, connecting, State}
     end;
+connecting({sql_cmd, Command, From, Timestamp}, State) ->
+    connecting({sql_cmd, Command, Timestamp}, From, State);
 connecting(Event, State) ->
     ?WARNING_MSG("unexpected event in 'connecting': ~p", [Event]),
     {next_state, connecting, State}.
@@ -284,11 +288,17 @@ code_change(_OldVsn, StateName, State, _Extra) ->
 
 %% We receive the down signal when we loose the MySQL connection (we are
 %% monitoring the connection)
-handle_info({'DOWN', _MonitorRef, process, _Pid, _Info}, _StateName, State) ->
-    ?GEN_FSM:send_event(self(), connect),
-    {next_state, connecting, State};
+handle_info({'DOWN', _MonitorRef, process, Pid, Reason}, StateName, State) ->
+    case {StateName, State#state.db_ref} of
+        {session_established, Pid} ->
+            ?WARNING_MSG("current ODBC connection (Pid ~p) is down: ~p. Reconnecting", [Pid, Reason]),
+            reconnect(State);
+        _ ->
+            ?INFO_MSG("received old ODBC connection down report (Pid ~p, reason ~p). Ignored", [Pid, Reason]),
+            {next_state, StateName, State}
+    end;
 handle_info(Info, StateName, State) ->
-    ?WARNING_MSG("unexpected info in ~p: ~p", [StateName, Info]),
+    ?INFO_MSG("unexpected info in ~p: ~p", [StateName, Info]),
     {next_state, StateName, State}.
 
 terminate(_Reason, _StateName, State) ->
@@ -319,7 +329,16 @@ run_sql_cmd(Command, From, State, Timestamp) ->
 	Age when Age  < ?TRANSACTION_TIMEOUT ->
 	    put(?NESTING_KEY, ?TOP_LEVEL_TXN),
 	    put(?STATE_KEY, State),
-	    abort_on_driver_error(outer_op(Command), From);
+	    Reply = outer_op(Command),
+	    ?GEN_FSM:reply(From, Reply),
+	    case get_driver_error(Reply) of
+		    false ->
+			    {next_state, session_established, State};
+		    Reason ->
+			    ?WARNING_MSG("received ODBC driver error ~p (ODBC Pid ~p), reconnecting", [Reason, State#state.db_ref]),
+			    catch mysql_conn:stop(State#state.db_ref), %% TODO: check DB type (could be non-mysql in future)
+			    reconnect(State)
+	    end;
 	Age ->
 	    ?ERROR_MSG("Database was not available or too slow,"
 		       " discarding ~p milliseconds old request~n~p~n",
@@ -332,7 +351,7 @@ run_sql_cmd(Command, From, State, Timestamp) ->
 outer_op({sql_query, Query}) ->
     sql_query_internal(Query);
 outer_op({sql_transaction, F}) ->
-    outer_transaction(F, ?MAX_TRANSACTION_RESTARTS, "");
+    catch outer_transaction(F, ?MAX_TRANSACTION_RESTARTS, "");
 outer_op({sql_bloc, F}) ->
     execute_bloc(F).
 
@@ -347,13 +366,17 @@ nested_op({sql_transaction, F}) ->
     NestingLevel = get(?NESTING_KEY),
     if NestingLevel =:= ?TOP_LEVEL_TXN ->
             %% First transaction inside a (series of) sql_blocs
-            outer_transaction(F, ?MAX_TRANSACTION_RESTARTS, "");
+            catch outer_transaction(F, ?MAX_TRANSACTION_RESTARTS, "");
        true ->
             %% Transaction inside a transaction
             inner_transaction(F)
     end;
 nested_op({sql_bloc, F}) ->
     execute_bloc(F).
+
+reconnect(State) ->
+    ?GEN_FSM:send_event(self(), connect),
+    {next_state, connecting, State}.
 
 %% Never retry nested transactions - only outer transactions
 inner_transaction(F) ->
@@ -391,14 +414,14 @@ outer_transaction(F, NRestarts, _Reason) ->
 		       [T]),
             erlang:exit(implementation_faulty)
     end,
-    sql_query_internal("begin;"),
+    throw_on_driver_error(sql_query_internal("begin;")),
     put(?NESTING_KEY, PreviousNestingLevel + 1),
     Result = (catch F()),
     put(?NESTING_KEY, PreviousNestingLevel),
     case Result of
         {aborted, Reason} when NRestarts > 0 ->
             %% Retry outer transaction upto NRestarts times.
-            sql_query_internal("rollback;"),
+            throw_on_driver_error(sql_query_internal("rollback;")),
             outer_transaction(F, NRestarts - 1, Reason);
         {aborted, Reason} when NRestarts =:= 0 ->
             %% Too many retries of outer transaction.
@@ -409,15 +432,15 @@ outer_transaction(F, NRestarts, _Reason) ->
                        "** When State == ~p",
                        [?MAX_TRANSACTION_RESTARTS, Reason,
                         erlang:get_stacktrace(), get(?STATE_KEY)]),
-            sql_query_internal("rollback;"),
+            throw_on_driver_error(sql_query_internal("rollback;")),
             {aborted, Reason};
         {'EXIT', Reason} ->
             %% Abort sql transaction on EXIT from outer txn only.
-            sql_query_internal("rollback;"),
+            throw_on_driver_error(sql_query_internal("rollback;")),
             {aborted, Reason};
         Res ->
             %% Commit successful outer txn
-            sql_query_internal("commit;"),
+            throw_on_driver_error(sql_query_internal("commit;")),
             {atomic, Res}
     end.
 
@@ -434,6 +457,9 @@ execute_bloc(F) ->
     end.
 
 sql_query_internal(Query) ->
+    sql_query_internal(Query, ?DEFAULT_QUERY_TIMEOUT).
+
+sql_query_internal(Query, Timeout) ->
     State = get(?STATE_KEY),
     Res = case State#state.db_type of
               odbc ->
@@ -442,9 +468,16 @@ sql_query_internal(Query) ->
                   pgsql_to_odbc(pgsql:squery(State#state.db_ref, Query));
               mysql ->
                   ?DEBUG("MySQL, Send query~n~p~n", [Query]),
+                  QueryStartTime = now(),
                   R = mysql_to_odbc(mysql_conn:fetch(State#state.db_ref,
-						     Query, self())),
+						     Query, self(), Timeout)),
                   %% ?INFO_MSG("MySQL, Received result~n~p~n", [R]),
+                  QueryExecutionTime = timer:now_diff(now(), QueryStartTime) div 1000,
+                  if QueryExecutionTime >= Timeout ->
+                      ?WARNING_MSG("sql query ~p executed ~p msecs and seemed to expire timeout ~p",
+                          [Query, QueryExecutionTime, Timeout]);
+                      true -> ok
+                  end,
                   R
           end,
     case Res of
@@ -454,20 +487,23 @@ sql_query_internal(Query) ->
         _Else -> Res
     end.
 
-%% Generate the OTP callback return tuple depending on the driver result.
-abort_on_driver_error({error, "query timed out"} = Reply, From) ->
+%% Generate the atom for OTP callback return tuple depending on the driver result.
+get_driver_error({error, "query timed out"}) ->
     %% mysql driver error
-    ?GEN_FSM:reply(From, Reply),
-    {stop, timeout, get(?STATE_KEY)};
-abort_on_driver_error({error, "Failed sending data on socket" ++ _} = Reply,
-		      From) ->
+    timeout;
+get_driver_error({error, "Failed sending data on socket" ++ _}) ->
     %% mysql driver error
-    ?GEN_FSM:reply(From, Reply),
-    {stop, closed, get(?STATE_KEY)};
-abort_on_driver_error(Reply, From) ->
-    ?GEN_FSM:reply(From, Reply),
-    {next_state, session_established, get(?STATE_KEY)}.
+    closed;
+get_driver_error(_Reply) ->
+    false.
 
+throw_on_driver_error(Reply) ->
+    case get_driver_error(Reply) of
+        false ->
+            ok;
+        _Reason ->
+            throw(Reply)
+    end.
 
 %% == pure ODBC code
 
