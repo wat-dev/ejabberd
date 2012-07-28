@@ -101,7 +101,7 @@ loop(Host, AccessMaxOfflineMsgs) ->
 	    Len = length(Msgs),
 	    MaxOfflineMsgs = get_max_user_messages(AccessMaxOfflineMsgs,
 						   UserServer, Host),
-            store_offline_msg(Host, UserServer, Msgs, Len, MaxOfflineMsgs, DBType),
+            catch store_offline_msg(Host, UserServer, Msgs, Len, MaxOfflineMsgs, DBType),
             loop(Host, AccessMaxOfflineMsgs);
         _ ->
 	    loop(Host, AccessMaxOfflineMsgs)
@@ -223,7 +223,7 @@ stop(Host) ->
     ejabberd_hooks:delete(webadmin_user_parse_query, Host,
                           ?MODULE, webadmin_user_parse_query, 50),
     Proc = gen_mod:get_module_proc(Host, ?PROCNAME),
-    exit(whereis(Proc), stop),
+	catch exit(whereis(Proc), stop),
     {wait, Proc}.
 
 get_sm_features(Acc, _From, _To, "", _Lang) ->
