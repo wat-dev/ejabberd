@@ -619,7 +619,9 @@ parse_items([{xmlelement, "item", Attrs, SubEls} | Els], Res) ->
 						     value = to};
 				     _ ->
 					 false
-				 end
+				 end;
+			     _ ->
+				 false
 			 end;
 		     {{value, _}, false} ->
 			 false;
