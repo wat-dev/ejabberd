@@ -164,6 +164,8 @@ CREATE TABLE privacy_list_data (
     match_presence_out boolean NOT NULL
 ) CHARACTER SET utf8;
 
+CREATE INDEX i_privacy_list_data_id ON privacy_list_data(id);
+
 CREATE TABLE private_storage (
     username varchar(250) NOT NULL,
     namespace varchar(250) NOT NULL,
