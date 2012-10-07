@@ -4018,6 +4018,15 @@ Options:
 \begin{description}
 \iqdiscitem{Roster Management (\ns{jabber:iq:roster})}
 \dbtype
+  \titem{\{managers, [Domainname]\}} \ind{options!managers}
+  List of components (or servers) that can manage users rosters using
+  \footahref{http://jkaluza.fedorapeople.org/remote-roster.html}{XEP-xxxx: Remote Roster Management}.
+  The protocol sections implemented are:
+  \term{2.3. Component requests user's roster},
+  \term{2.4. Client sends roster update},
+  \term{2.5. Component sends roster update}.
+  A component only gets or can modify roster items that have the same domain as the component.
+  Default value is: \term{[]}.
   \titem{\{versioning, false|true\}} \ind{options!versioning}Enables
   Roster Versioning.
   This option is disabled by default.
@@ -4032,12 +4041,13 @@ Options:
   you must disable this option.
 \end{description}
 
-This example configuration enables Roster Versioning with storage of current id:
+This example configuration enables Roster Versioning with storage of current id.
+The ICQ and MSN transports can get ICQ and MSN contacts, add them, or remove them for any local account:
 \begin{verbatim}
 {modules,
  [
   ...
-  {mod_roster, [{versioning, true}, {store_current_id, true}]},
+  {mod_roster, [{versioning, true}, {store_current_id, true}, {["icq.example.org", "msn.example.org"]} ]},
   ...
  ]}.
 \end{verbatim}
