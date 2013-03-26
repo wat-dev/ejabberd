@@ -120,6 +120,13 @@ INET_DIST_INTERFACE={127,0,0,1}
 #ERL_OPTIONS=""
 
 #.
+#' MNESIA_OPTIONS: Additional Mnesia options
+#
+# Default: ""
+#
+#MNESIA_OPTIONS=""
+
+#.
 #' ERLANG_NODE: Erlang node name
 #
 # The next variable allows to explicitly specify erlang node for ejabberd

@@ -143,6 +143,7 @@ start ()
       -noinput -detached \
       -pa $EJABBERD_EBIN_PATH \
       -mnesia dir \"\\\"$SPOOLDIR\\\"\" \
+      $MNESIA_OPTIONS \
       $KERNEL_OPTS \
       -s ejabberd \
       -sasl sasl_error_logger \\{file,\\\"$SASL_LOG_PATH\\\"\\} \
