@@ -1,0 +1,3 @@
+[submodule "contrib/ejabberd-modules"]
+	path = contrib/ejabberd-modules
+	url = https://github.com/dotdoom/ejabberd-modules.git
