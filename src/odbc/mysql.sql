@@ -17,9 +17,6 @@
 -- 02111-1307 USA
 --
 
--- Needs MySQL (at least 4.0.x) with innodb back-end
-SET table_type=InnoDB;
-
 CREATE TABLE users (
     username varchar(250) PRIMARY KEY,
     password text NOT NULL,
@@ -30,7 +27,7 @@ CREATE TABLE users (
 CREATE TABLE last (
     username varchar(250) PRIMARY KEY,
     seconds text NOT NULL,
-    state text NOT NULl
+    state text NOT NULL
 ) CHARACTER SET utf8;
 
 
