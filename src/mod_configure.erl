@@ -203,12 +203,6 @@ get_local_features(Acc, From, #jid{lserver = LServer} = _To, Node, _Lang) ->
 		    ?INFO_RESULT(Allow, []);
 		["user"] ->
 		    ?INFO_RESULT(Allow, []);
-		["online users"] ->
-		    ?INFO_RESULT(Allow, []);
-		["all users"] ->
-		    ?INFO_RESULT(Allow, []);
-		["all users", [$@ | _]] ->
-		    ?INFO_RESULT(Allow, []);
 		["outgoing s2s" | _] ->
 		    ?INFO_RESULT(Allow, []);
 		["running nodes"] ->
@@ -343,12 +337,6 @@ adhoc_local_items(Acc, From, #jid{lserver = LServer, server = Server} = To,
 	    Acc
     end.
 
-recursively_get_local_items(_PermLev, _LServer, "online users", _Server, _Lang) ->
-    [];
-
-recursively_get_local_items(_PermLev, _LServer, "all users", _Server, _Lang) ->
-    [];
-
 recursively_get_local_items(PermLev, LServer, Node, Server, Lang) ->
     LNode = tokenize(Node),
     Items = case get_local_items({PermLev, LServer}, LNode, Server, Lang) of
@@ -431,12 +419,6 @@ get_local_items(Acc, From, #jid{lserver = LServer} = To, Node, Lang) ->
 		    ?ITEMS_RESULT(Allow, LNode, {error, ?ERR_FORBIDDEN});
 		["user"] ->
 		    ?ITEMS_RESULT(Allow, LNode, {error, ?ERR_FORBIDDEN});
-		["online users"] ->
-		    ?ITEMS_RESULT(Allow, LNode, {error, ?ERR_FORBIDDEN});
-		["all users"] ->
-		    ?ITEMS_RESULT(Allow, LNode, {error, ?ERR_FORBIDDEN});
-		["all users", [$@ | _]] ->
-		    ?ITEMS_RESULT(Allow, LNode, {error, ?ERR_FORBIDDEN});
 		["outgoing s2s" | _] ->
 		    ?ITEMS_RESULT(Allow, LNode, {error, ?ERR_FORBIDDEN});
 		["running nodes"] ->
@@ -497,8 +479,6 @@ get_local_items(_Host, [], Server, Lang) ->
     {result,
      [?NODE("Configuration",            "config"),
       ?NODE("User Management",          "user"),
-      ?NODE("Online Users",             "online users"),
-      ?NODE("All Users",                "all users"),
       ?NODE("Outgoing s2s Connections", "outgoing s2s"),
       ?NODE("Running Nodes",            "running nodes"),
       ?NODE("Stopped Nodes",            "stopped nodes")
@@ -528,36 +508,6 @@ get_local_items(_Host, ["user"], Server, Lang) ->
 
 get_local_items(_Host, ["http:" | _], _Server, _Lang) ->
     {result, []};
-
-get_local_items({_, Host}, ["online users"], _Server, _Lang) ->
-    {result, get_online_vh_users(Host)};
-
-get_local_items({_, Host}, ["all users"], _Server, _Lang) ->
-    {result, get_all_vh_users(Host)};
-
-get_local_items({_, Host}, ["all users", [$@ | Diap]], _Server, _Lang) ->
-    case catch ejabberd_auth:get_vh_registered_users(Host) of
-	{'EXIT', _Reason} ->
-	    ?ERR_INTERNAL_SERVER_ERROR;
-	Users ->
-	    SUsers = lists:sort([{S, U} || {U, S} <- Users]),
-	    case catch begin
-			   [S1, S2] = ejabberd_regexp:split(Diap, "-"),
-			   N1 = list_to_integer(S1),
-			   N2 = list_to_integer(S2),
-			   Sub = lists:sublist(SUsers, N1, N2 - N1 + 1),
-			   lists:map(fun({S, U}) ->
-					     {xmlelement, "item",
-					      [{"jid", U ++ "@" ++ S},
-					       {"name", U ++ "@" ++ S}], []}
-				     end, Sub)
-		       end of
-			       {'EXIT', _Reason} ->
-			 ?ERR_NOT_ACCEPTABLE;
-		       Res ->
-			 {result, Res}
-		 end
-    end;
 
 get_local_items({_, Host}, ["outgoing s2s"], _Server, Lang) ->
     {result, get_outgoing_s2s(Host, Lang)};
@@ -628,57 +578,6 @@ get_local_items(_Host, ["running nodes", _ENode, "shutdown"], _Server, _Lang) ->
 get_local_items(_Host, _, _Server, _Lang) ->
     {error, ?ERR_ITEM_NOT_FOUND}.
 
-
-get_online_vh_users(Host) ->
-    case catch ejabberd_sm:get_vh_session_list(Host) of
-	{'EXIT', _Reason} ->
-	    [];
-	USRs ->
-	    SURs = lists:sort([{S, U, R} || {U, S, R} <- USRs]),
-	    lists:map(fun({S, U, R}) ->
-			      {xmlelement, "item",
-			       [{"jid", U ++ "@" ++ S ++ "/" ++ R},
-				{"name", U ++ "@" ++ S}], []}
-		      end, SURs)
-    end.
-
-get_all_vh_users(Host) ->
-    case catch ejabberd_auth:get_vh_registered_users(Host) of
-	{'EXIT', _Reason} ->
-	    [];
-	Users ->
-	    SUsers = lists:sort([{S, U} || {U, S} <- Users]),
-	    case length(SUsers) of
-		N when N =< 100 ->
-		    lists:map(fun({S, U}) ->
-				      {xmlelement, "item",
-				       [{"jid", U ++ "@" ++ S},
-					{"name", U ++ "@" ++ S}], []}
-			      end, SUsers);
-		N ->
-		    NParts = trunc(math:sqrt(N * 0.618)) + 1,
-		    M = trunc(N / NParts) + 1,
-		    lists:map(fun(K) ->
-				      L = K + M - 1,
-				      Node =
-					  "@" ++ integer_to_list(K) ++
-					  "-" ++ integer_to_list(L),
-				      {FS, FU} = lists:nth(K, SUsers),
-				      {LS, LU} =
-					  if L < N -> lists:nth(L, SUsers);
-					     true -> lists:last(SUsers)
-					  end,
-				      Name = 
-					  FU ++ "@" ++ FS ++
-					  " -- " ++
-					  LU ++ "@" ++ LS,
-				      {xmlelement, "item",
-				       [{"jid", Host},
-					{"node", "all users/" ++ Node},
-					{"name", Name}], []}
-			      end, lists:seq(1, N, M))
-	    end
-    end.
 
 get_outgoing_s2s(Host, Lang) ->
     case catch ejabberd_s2s:dirty_get_connections() of

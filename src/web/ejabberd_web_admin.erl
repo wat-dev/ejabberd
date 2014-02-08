@@ -1035,29 +1035,6 @@ process_admin(global,
     make_xhtml(?H1GL(?T("Virtual Hosts"), "virtualhost", "Virtual Hosting") ++ Res, global, Lang, AJID);
 
 process_admin(Host,
-	      #request{path = ["users"],
-		       q = Query,
-		       auth = {_, _Auth, AJID},
-		       lang = Lang}) when is_list(Host) ->
-    Res = list_users(Host, Query, Lang, fun url_func/1),
-    make_xhtml([?XCT("h1", "Users")] ++ Res, Host, Lang, AJID);
-
-process_admin(Host,
-	      #request{path = ["users", Diap],
-		       auth = {_, _Auth, AJID},
-		       lang = Lang}) when is_list(Host) ->
-    Res = list_users_in_diapason(Host, Diap, Lang, fun url_func/1),
-    make_xhtml([?XCT("h1", "Users")] ++ Res, Host, Lang, AJID);
-
-process_admin(Host,
-	      #request{
-		       path = ["online-users"],
-		       auth = {_, _Auth, AJID},
-		       lang = Lang}) when is_list(Host) ->
-    Res = list_online_users(Host, Lang),
-    make_xhtml([?XCT("h1", "Online Users")] ++ Res, Host, Lang, AJID);
-
-process_admin(Host,
 	      #request{path = ["last-activity"],
 		       auth = {_, _Auth, AJID},
 		       q = Query,
@@ -1673,16 +1650,6 @@ get_stats(Host, Lang) ->
 	       ])
 	  ])].
 
-
-list_online_users(Host, _Lang) ->
-    Users = [{S, U} || {U, S, _R} <- ejabberd_sm:get_vh_session_list(Host)],
-    SUsers = lists:usort(Users),
-    lists:flatmap(
-      fun({_S, U} = SU) ->
-	      [?AC("../user/" ++ ejabberd_http:url_encode(U) ++ "/",
-		   su_to_list(SU)),
-	       ?BR]
-      end, SUsers).
 
 user_info(User, Server, Query, Lang) ->
     LServer = jlib:nameprep(Server),
@@ -2683,13 +2650,6 @@ list_to_element(List) ->
     [{_, _, Element}] = Tokens,
     Element.
 
-url_func({user_diapason, From, To}) ->
-    integer_to_list(From) ++ "-" ++ integer_to_list(To) ++ "/";
-url_func({users_queue, Prefix, User, _Server}) ->
-    Prefix ++ "user/" ++ User ++ "/queue/";
-url_func({user, Prefix, User, _Server}) ->
-    Prefix ++ "user/" ++ User ++ "/".
-
 last_modified() ->
     {"Last-Modified", "Mon, 25 Feb 2008 13:23:30 GMT"}.
 cache_control_public() ->
@@ -2765,9 +2725,7 @@ make_host_menu(global, _HostNodeMenu, _Lang, _JID) ->
 make_host_menu(Host, HostNodeMenu, Lang, JID) ->
     HostBase = get_base_path(Host, cluster),
     HostFixed = [{"acls", "Access Control Lists"},
-		 {"access", "Access Rules"},
-		 {"users", "Users"},
-		 {"online-users", "Online Users"}]
+		{"access", "Access Rules"}]
 		++ get_lastactivity_menuitem_list(Host) ++
 		[{"nodes", "Nodes", HostNodeMenu},
 		 {"stats", "Statistics"}]
