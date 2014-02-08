@@ -50,6 +50,7 @@
 		 max_users = ?MAX_USERS_DEFAULT,
 		 logging = false,
          captcha_whitelist = ?SETS:empty(),
+		 filter_jid,
 		 owner_jid
 		}).
 
@@ -83,7 +84,8 @@
 		just_created = false,
 		activity = treap:empty(),
 		room_shaper,
-		room_queue = queue:new()}).
+		room_queue = queue:new(),
+		ids = treap:empty()}).
 
 -record(muc_online_users, {us,
 			   resource,

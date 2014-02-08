@@ -52,6 +52,7 @@
 
 -define(MAX_USERS_DEFAULT_LIST,
 	[5, 10, 20, 30, 50, 100, 200, 500, 1000, 2000, 5000]).
+-define(NS_MUC_FILTER, "http://jabber.ru/muc-filter").
 
 %-define(DBGFSM, true).
 
@@ -422,13 +423,13 @@ normal_state({route, From, "",
 normal_state({route, From, "",
 	      {xmlelement, "iq", _Attrs, _Els} = Packet},
 	     StateData) ->
-    case jlib:iq_query_info(Packet) of
+    case jlib:iq_query_or_response_info(Packet) of
 	#iq{type = Type, xmlns = XMLNS, lang = Lang, sub_el = SubEl} = IQ when
-	      (XMLNS == ?NS_MUC_ADMIN) or
-	      (XMLNS == ?NS_MUC_OWNER) or
-	      (XMLNS == ?NS_DISCO_INFO) or
-	      (XMLNS == ?NS_DISCO_ITEMS) or
-	      (XMLNS == ?NS_CAPTCHA) ->
+	((XMLNS == ?NS_MUC_ADMIN) or
+	 (XMLNS == ?NS_MUC_OWNER) or
+	 (XMLNS == ?NS_DISCO_INFO) or
+	 (XMLNS == ?NS_DISCO_ITEMS) or
+	 (XMLNS == ?NS_CAPTCHA)) and ((Type == get) or (Type == set))->
 	    Res1 = case XMLNS of
 		       ?NS_MUC_ADMIN ->
 			   process_iq_admin(From, Type, Lang, SubEl, StateData);
@@ -464,13 +465,16 @@ normal_state({route, From, "",
 		_ ->
 		    {next_state, normal_state, NewStateData}
 	    end;
-	reply ->
-	    {next_state, normal_state, StateData};
-	_ ->
-	    Err = jlib:make_error_reply(
-		    Packet, ?ERR_FEATURE_NOT_IMPLEMENTED),
-	    ejabberd_router:route(StateData#state.jid, From, Err),
-	    {next_state, normal_state, StateData}
+	#iq{type = Type, xmlns = ?NS_MUC_FILTER} = IQ when Type == result;
+                                                           Type == error ->
+            process_filter_response(From, IQ, StateData);
+        #iq{type = Type} when Type == get; Type == set ->
+            Err = jlib:make_error_reply(
+                    Packet, ?ERR_FEATURE_NOT_IMPLEMENTED),
+            ejabberd_router:route(StateData#state.jid, From, Err),
+            {next_state, normal_state, StateData};
+        _ ->
+            {next_state, normal_state, StateData}
     end;
 
 normal_state({route, From, Nick,
@@ -485,9 +489,11 @@ normal_state({route, From, Nick,
     if
 	(Now >= Activity#activity.presence_time + MinPresenceInterval) and
 	(Activity#activity.presence == undefined) ->
-	    NewActivity = Activity#activity{presence_time = Now},
-	    StateData1 = store_user_activity(From, NewActivity, StateData),
-	    process_presence(From, Nick, Packet, StateData1);
+	    %NewActivity = Activity#activity{presence_time = Now},
+            NewActivity = Activity#activity{presence = {Nick, Packet}},
+            StateData1 = store_user_activity(From, NewActivity, StateData),
+            handle_info({process_user_presence, From}, normal_state,
+                        StateData1);
 	true ->
 	    if
 		Activity#activity.presence == undefined ->
@@ -532,41 +538,11 @@ normal_state({route, From, ToNick,
 			      jlib:jid_replace_resource(
 				StateData#state.jid,
 				ToNick),
-			      From, Err);
+			      From, Err),
+			    next_state(StateData);
 			_ ->
-			    case find_jids_by_nick(ToNick, StateData) of
-				false ->
-				    ErrText = "Recipient is not in the conference room",
-				    Err = jlib:make_error_reply(
-					    Packet, ?ERRT_ITEM_NOT_FOUND(Lang, ErrText)),
-				    ejabberd_router:route(
-				      jlib:jid_replace_resource(
-					StateData#state.jid,
-					ToNick),
-				      From, Err);
-				ToJIDs ->
-				    SrcIsVisitor = is_visitor(From, StateData),
-				    DstIsModerator = is_moderator(hd(ToJIDs), StateData),
-				    PmFromVisitors = (StateData#state.config)#config.allow_private_messages_from_visitors,
-				    if SrcIsVisitor == false;
-				       PmFromVisitors == anyone;
-				       (PmFromVisitors == moderators) and (DstIsModerator) ->
-					    {ok, #user{nick = FromNick}} =
-						?DICT:find(jlib:jid_tolower(From),
-							   StateData#state.users),
-					    FromNickJID = jlib:jid_replace_resource(StateData#state.jid, FromNick),
-					    [ejabberd_router:route(FromNickJID, ToJID, Packet) || ToJID <- ToJIDs];
-				       true ->
-					    ErrText = "It is not allowed to send private messages",
-					    Err = jlib:make_error_reply(
-						    Packet, ?ERRT_FORBIDDEN(Lang, ErrText)),
-					    ejabberd_router:route(
-					      jlib:jid_replace_resource(
-						StateData#state.jid,
-						ToNick),
-					      From, Err)
-				    end
-			    end
+			    process_private_message(
+                              From, ToNick, Packet, StateData)
 		    end;
 		{true, false} ->
 		    ErrText = "Only occupants are allowed to send messages to the conference",
@@ -576,7 +552,8 @@ normal_state({route, From, ToNick,
 		      jlib:jid_replace_resource(
 			StateData#state.jid,
 			ToNick),
-		      From, Err);
+		      From, Err),
+		    next_state(StateData);
 		{false, _} ->
 		    ErrText = "It is not allowed to send private messages",
 		    Err = jlib:make_error_reply(
@@ -585,9 +562,9 @@ normal_state({route, From, ToNick,
 		      jlib:jid_replace_resource(
 			StateData#state.jid,
 			ToNick),
-		      From, Err)
-	    end,
-	    {next_state, normal_state, StateData}
+		      From, Err),
+		    next_state(StateData)
+	    end
     end;
 
 normal_state({route, From, ToNick,
@@ -824,8 +801,16 @@ handle_info(process_room_queue, normal_state = StateName, StateData) ->
 	    StateData2 =
 		StateData1#state{
 		  room_queue = RoomQueue},
-	    StateData3 = prepare_room_queue(StateData2),
-	    process_presence(From, Nick, Packet, StateData3);
+	    case process_presence(From, Nick, Packet, StateData2) of
+                {next_state, StateName, StateData2} ->
+                    StateData3 = prepare_room_queue(StateData2, false),
+                    {next_state, StateName, StateData3};
+                {next_state, StateName, StateData3} ->
+                    StateData4 = prepare_room_queue(StateData3, true),
+                    {next_state, StateName, StateData4};
+                Res ->
+                    Res
+            end;
 	{empty, _} ->
 	    {next_state, StateName, StateData}
     end;
@@ -909,8 +894,63 @@ terminate(Reason, _StateName, StateData) ->
 route(Pid, From, ToNick, Packet) ->
     gen_fsm:send_event(Pid, {route, From, ToNick, Packet}).
 
+process_private_message(From, ToNick, Packet, StateData) ->
+    process_private_message(From, ToNick, Packet, StateData, true).
+
+process_private_message(From, ToNick,
+                        {xmlelement, "message", Attrs, _} = Packet,
+                        StateData, NeedFilter) ->
+    Lang = xml:get_attr_s("xml:lang", Attrs),
+    case find_jids_by_nick(ToNick, StateData) of
+        false ->
+            ErrText = "Recipient is not in the conference room",
+            Err = jlib:make_error_reply(
+                    Packet, ?ERRT_ITEM_NOT_FOUND(Lang, ErrText)),
+            ejabberd_router:route(
+              jlib:jid_replace_resource(
+                StateData#state.jid,
+                ToNick),
+              From, Err),
+            next_state(StateData);
+        ToJIDs ->
+            SrcIsVisitor = is_visitor(From, StateData),
+            DstIsModerator = is_moderator(hd(ToJIDs), StateData),
+            PmFromVisitors = (StateData#state.config)#config.allow_private_messages_from_visitors,
+            if SrcIsVisitor == false;
+               PmFromVisitors == anyone;
+               (PmFromVisitors == moderators) and (DstIsModerator) ->
+                    {ok, #user{nick = FromNick}} =
+                        ?DICT:find(jlib:jid_tolower(From),
+                                   StateData#state.users),
+                    {NewStateData, IsAllowed} =
+                        filter_packet(From, Packet, StateData, NeedFilter),
+                    if IsAllowed ->
+                            FromNickJID = jlib:jid_replace_resource(
+                                            StateData#state.jid, FromNick),
+                            [ejabberd_router:route(FromNickJID, ToJID, Packet)
+                             || ToJID <- ToJIDs];
+                       true ->
+                            ok
+                    end,
+                    next_state(NewStateData);
+               true ->
+                    ErrText = "It is not allowed to send private messages",
+                    Err = jlib:make_error_reply(
+                            Packet, ?ERRT_FORBIDDEN(Lang, ErrText)),
+                    ejabberd_router:route(
+                      jlib:jid_replace_resource(
+                        StateData#state.jid,
+                        ToNick),
+                      From, Err),
+                    next_state(StateData)
+            end
+    end.
+
+process_groupchat_message(From, Packet, StateData) ->
+    process_groupchat_message(From, Packet, StateData, true).
+
 process_groupchat_message(From, {xmlelement, "message", Attrs, _Els} = Packet,
-			  StateData) ->
+			  StateData, NeedFilter) ->
     Lang = xml:get_attr_s("xml:lang", Attrs),
     case is_user_online(From, StateData) orelse
 	is_user_allowed_message_nonparticipant(From, StateData) of
@@ -922,7 +962,7 @@ process_groupchat_message(From, {xmlelement, "message", Attrs, _Els} = Packet,
 		    {NewStateData1, IsAllowed} =
 			case check_subject(Packet) of
 			    false ->
-				{StateData, true};
+				filter_packet(From, Packet, StateData, NeedFilter);
 			    Subject ->
 				case can_change_subject(Role,
 							StateData) of
@@ -965,6 +1005,8 @@ process_groupchat_message(From, {xmlelement, "message", Attrs, _Els} = Packet,
 						       Packet,
 						       NewStateData1),
 			    {next_state, normal_state, NewStateData2};
+			pass ->
+                            {next_state, normal_state, NewStateData1};
 			_ ->
 			    Err =
 				case (StateData#state.config)#config.allow_change_subj of
@@ -1026,9 +1068,11 @@ get_participant_data(From, StateData) ->
 	    {"", moderator}
     end.
 
+process_presence(From, Nick, Packet, StateData) ->
+    process_presence(From, Nick, Packet, StateData, true).
 
 process_presence(From, Nick, {xmlelement, "presence", Attrs, _Els} = Packet,
-		 StateData) ->
+                 StateData, NeedFilter) ->
     Type = xml:get_attr_s("type", Attrs),
     Lang = xml:get_attr_s("xml:lang", Attrs),
     StateData1 =
@@ -1115,7 +1159,15 @@ process_presence(From, Nick, {xmlelement, "presence", Attrs, _Els} = Packet,
 					  From, Err),
 					StateData;
 				    _ ->
-					change_nick(From, Nick, StateData)
+					{NewStateData, Action} =
+                                            filter_packet(From, Packet,
+                                                          StateData, NeedFilter),
+                                        case Action of
+                                            pass ->
+                                                NewStateData;
+                                            _ ->
+                                                change_nick(From, Nick, NewStateData)
+                                        end
 				end;
 			    _NotNickChange ->
                                 Stanza = case {(StateData#state.config)#config.allow_visitor_status,
@@ -1125,9 +1177,18 @@ process_presence(From, Nick, {xmlelement, "presence", Attrs, _Els} = Packet,
                                              _Allowed ->
                                                  Packet
                                          end,
-                                NewState = add_user_presence(From, Stanza, StateData),
-                                send_new_presence(From, NewState),
-                                NewState
+				{NewStateData, Action} =
+                                    filter_packet(From, Stanza,
+                                                  StateData, NeedFilter),
+                                case Action of
+                                    pass ->
+                                        NewStateData;
+                                    _ ->
+                                        NewState = add_user_presence(
+                                                     From, Stanza, NewStateData),
+                                        send_new_presence(From, NewState),
+                                        NewState
+                                end
 			end;
 		    _ ->
 			add_new_user(From, Nick, Packet, StateData)
@@ -1574,8 +1635,10 @@ clean_treap(Treap, CleanPriority) ->
 	    end
     end.
 
-
 prepare_room_queue(StateData) ->
+    prepare_room_queue(StateData, true).
+
+prepare_room_queue(StateData, UseShaper) ->
     case queue:out(StateData#state.room_queue) of
 	{{value, {message, From}}, _RoomQueue} ->
 	    Activity = get_user_activity(From, StateData),
@@ -1593,7 +1656,12 @@ prepare_room_queue(StateData) ->
 	    {_Nick, Packet} = Activity#activity.presence,
 	    Size = element_size(Packet),
 	    {RoomShaper, RoomShaperInterval} =
-		shaper:update(StateData#state.room_shaper, Size),
+		if
+                    UseShaper ->
+                        shaper:update(StateData#state.room_shaper, Size);
+                    true ->
+                        {StateData#state.room_shaper, 0}
+                end,
 	    erlang:send_after(
 	      RoomShaperInterval, self(),
 	      process_room_queue),
@@ -1777,7 +1845,11 @@ nick_collision(User, Nick, StateData) ->
 	jlib:jid_remove_resource(jlib:jid_tolower(UserOfNick)) /=
 	jlib:jid_remove_resource(jlib:jid_tolower(User)).
 
-add_new_user(From, Nick, {xmlelement, _, Attrs, Els} = Packet, StateData) ->
+add_new_user(From, Nick, Packet, StateData) ->
+    add_new_user(From, Nick, Packet, StateData, true).
+
+add_new_user(From, Nick, {xmlelement, _, Attrs, Els} = Packet,
+             StateData, NeedFilter) ->
     Lang = xml:get_attr_s("xml:lang", Attrs),
     MaxUsers = get_max_users(StateData),
     MaxAdminUsers = MaxUsers + get_max_users_admin_threshold(StateData),
@@ -1799,7 +1871,7 @@ add_new_user(From, Nick, {xmlelement, _, Attrs, Els} = Packet, StateData) ->
             StateData#state.host, From, Nick),
 	  get_default_role(Affiliation, StateData)} of
 	{false, _, _, _} ->
-	    % max user reached and user is not admin or owner
+	    %% max user reached and user is not admin or owner
 	    Err = jlib:make_error_reply(
 		    Packet,
 		    ?ERR_SERVICE_UNAVAILABLE),
@@ -1826,7 +1898,7 @@ add_new_user(From, Nick, {xmlelement, _, Attrs, Els} = Packet, StateData) ->
 	    ErrText = "That nickname is already in use by another occupant",
 	    Err = jlib:make_error_reply(Packet, ?ERRT_CONFLICT(Lang, ErrText)),
 	    ejabberd_router:route(
-	      % TODO: s/Nick/""/
+						% TODO: s/Nick/""/
 	      jlib:jid_replace_resource(StateData#state.jid, Nick),
 	      From, Err),
 	    StateData;
@@ -1834,7 +1906,7 @@ add_new_user(From, Nick, {xmlelement, _, Attrs, Els} = Packet, StateData) ->
 	    ErrText = "That nickname is registered by another person",
 	    Err = jlib:make_error_reply(Packet, ?ERRT_CONFLICT(Lang, ErrText)),
 	    ejabberd_router:route(
-	      % TODO: s/Nick/""/
+						% TODO: s/Nick/""/
 	      jlib:jid_replace_resource(StateData#state.jid, Nick),
 	      From, Err),
 	    StateData;
@@ -1842,40 +1914,74 @@ add_new_user(From, Nick, {xmlelement, _, Attrs, Els} = Packet, StateData) ->
 	    case check_password(ServiceAffiliation, Affiliation,
 				Els, From, StateData) of
 		true ->
-		    NewState =
-			add_user_presence(
-			  From, Packet,
-			  add_online_user(From, Nick, Role, StateData)),
-		    if not (NewState#state.config)#config.anonymous ->
-			    WPacket = {xmlelement, "message", [{"type", "groupchat"}],
-				       [{xmlelement, "body", [],
-					 [{xmlcdata, translate:translate(
-						       Lang,
-						       "This room is not anonymous")}]},
-					{xmlelement, "x", [{"xmlns", ?NS_MUC_USER}],
-					 [{xmlelement, "status", [{"code", "100"}], []}]}]},
-			    ejabberd_router:route(
-			      StateData#state.jid,
-			      From, WPacket);
-			true ->
-			    ok
-		    end,
-		    send_existing_presences(From, NewState),
-		    send_new_presence(From, NewState),
-		    Shift = count_stanza_shift(Nick, Els, NewState),
-		    case send_history(From, Shift, NewState) of
-			true ->
-			    ok;
-			_ ->
-			    send_subject(From, Lang, StateData)
-		    end,
-		    case NewState#state.just_created of
-			true ->
-			    NewState#state{just_created = false};
-			false ->
-			    Robots = ?DICT:erase(From, StateData#state.robots),
-			    NewState#state{robots = Robots}
-		    end;
+		    {NewStateData, Action} =
+                        filter_packet(From, Packet, StateData, NeedFilter),
+                    case Action of
+                        pass ->
+                            NewStateData;
+                        _ ->
+                            NewState =
+                                add_user_presence(
+                                  From, Packet,
+                                  add_online_user(From, Nick,
+                                                  Role, NewStateData)),
+                            if not (NewState#state.config)#config.anonymous ->
+                                    WPacket = {xmlelement, "message",
+                                               [{"type", "groupchat"}],
+                                               [{xmlelement, "body", [],
+                                                 [{xmlcdata,
+                                                   translate:translate(
+                                                     Lang,
+                                                     "This room is not anonymous")}]},
+                                                {xmlelement, "x",
+                                                 [{"xmlns", ?NS_MUC_USER}],
+                                                 [{xmlelement, "status",
+                                                   [{"code", "100"}], []}]}]},
+                                    ejabberd_router:route(
+                                      NewStateData#state.jid,
+                                      From, WPacket);
+                               true ->
+                                    ok
+                            end,
+                            case (NewState#state.config)#config.filter_jid of
+                                #jid{} ->
+                                    FPacket = {xmlelement, "message",
+                                               [{"type", "groupchat"}],
+                                               [{xmlelement, "body", [],
+                                                 [{xmlcdata,
+                                                   translate:translate(
+                                                     Lang,
+                                                     "This room is filtered "
+                                                     "by external service")}]},
+                                                {xmlelement, "x",
+                                                 [{"xmlns", ?NS_MUC_USER}],
+                                                 [{xmlelement, "status",
+                                                   [{"code", "100"}], []}]}]},
+                                    ejabberd_router:route(
+                                      NewStateData#state.jid,
+                                      From, FPacket);
+                                _ ->
+                                    ok
+                            end,
+                            send_existing_presences(From, NewState),
+                            send_new_presence(From, NewState),
+                            Shift = count_stanza_shift(Nick, Els, NewState),
+                            case send_history(From, Shift, NewState) of
+                                true ->
+                                    ok;
+                                _ ->
+                                    send_subject(From, Lang, NewStateData)
+                            end,
+                            case NewState#state.just_created of
+                                true ->
+                                    NewState#state{just_created = false};
+                                false ->
+                                    Robots = ?DICT:erase(
+                                                From,
+                                                NewStateData#state.robots),
+                                    NewState#state{robots = Robots}
+			    end
+                    end;
 		nopass ->
 		    ErrText = "A password is required to enter this room",
 		    Err = jlib:make_error_reply(
@@ -1926,7 +2032,7 @@ add_new_user(From, Nick, {xmlelement, _, Attrs, Els} = Packet, StateData) ->
 			StateData#state.jid, Nick),
 		      From, Err),
 		    StateData
-	   end
+	    end
     end.
 
 check_password(owner, _Affiliation, _Els, _From, _StateData) ->
@@ -3316,6 +3422,13 @@ get_config(Lang, StateData, From) ->
 	    [{xmlelement, "value", [], [{xmlcdata, "moderators"}]}]},
 	   {xmlelement, "option", [{"label", translate:translate(Lang, "anyone")}],
 	    [{xmlelement, "value", [], [{xmlcdata, "anyone"}]}]}]},
+	 ?STRINGXFIELD("Filter messages from unaffiliated users through Jabber ID",
+                       "muc#roomconfig_filter_jid",
+                       if is_record(Config#config.filter_jid, jid) ->
+                               jlib:jid_to_string(Config#config.filter_jid);
+                          true ->
+                               ""
+                       end),
 	 ?BOOLXFIELD("Make room members-only",
 		     "muc#roomconfig_membersonly",
 		     Config#config.members_only),
@@ -3535,6 +3648,17 @@ set_xoption([{"muc#roomconfig_enablelogging", [Val]} | Opts], Config) ->
 set_xoption([{"muc#roomconfig_captcha_whitelist", Vals} | Opts], Config) ->
     JIDs = [jlib:string_to_jid(Val) || Val <- Vals],
     ?SET_JIDMULTI_XOPT(captcha_whitelist, JIDs);
+set_xoption([{"muc#roomconfig_filter_jid", [Val]} | Opts], Config) ->
+    if Val == "" ->
+            ?SET_STRING_XOPT(filter_jid, undefined);
+       true ->
+            case jlib:string_to_jid(Val) of
+                JID when is_record(JID, jid) ->
+                    ?SET_STRING_XOPT(filter_jid, JID);
+                _ ->
+                    {error, ?ERR_BAD_REQUEST}
+            end
+    end;
 set_xoption([{"FORM_TYPE", _} | Opts], Config) ->
     %% Ignore our FORM_TYPE
     set_xoption(Opts, Config);
@@ -3610,6 +3734,7 @@ set_opts([{Opt, Val} | Opts], StateData) ->
               captcha_whitelist -> StateData#state{config = (StateData#state.config)#config{captcha_whitelist = ?SETS:from_list(Val)}};
 	      allow_voice_requests -> StateData#state{config = (StateData#state.config)#config{allow_voice_requests = Val}};
 	      voice_request_min_interval -> StateData#state{config = (StateData#state.config)#config{voice_request_min_interval = Val}};
+	      filter_jid -> StateData#state{config = (StateData#state.config)#config{filter_jid = Val}};
 	      max_users ->
 		  ServiceMaxUsers = get_service_max_users(StateData),
 		  MaxUsers = if
@@ -3668,6 +3793,7 @@ make_opts(StateData) ->
      ?MAKE_CONFIG_OPT(voice_request_min_interval),
      {captcha_whitelist,
       ?SETS:to_list((StateData#state.config)#config.captcha_whitelist)},
+     ?MAKE_CONFIG_OPT(filter_jid),
      ?MAKE_CONFIG_OPT(owner_jid),
      {affiliations, ?DICT:to_list(StateData#state.affiliations)},
      {subject, StateData#state.subject},
@@ -3799,11 +3925,18 @@ get_title(StateData) ->
 
 get_roomdesc_reply(JID, StateData, Tail) ->
     IsOccupantOrAdmin = is_occupant_or_admin(JID, StateData),
-    if (StateData#state.config)#config.public or IsOccupantOrAdmin ->
-	    if (StateData#state.config)#config.public_list or IsOccupantOrAdmin ->
-		    {item, get_title(StateData) ++ Tail};
+    MinOccupants = 5,
+    Len = ?DICT:fold(fun(_, _, Acc) -> Acc + 1 end, 0, StateData#state.users),
+    if (StateData#state.config)#config.public ->
+	    if (Len >= MinOccupants) or IsOccupantOrAdmin ->
+		    if (StateData#state.config)#config.public_list
+		       or IsOccupantOrAdmin ->
+			    {item, get_title(StateData) ++ Tail};
+		       true ->
+			    {item, get_title(StateData)}
+		    end;
 	       true ->
-		    {item, get_title(StateData)}
+		    false
 	    end;
        true ->
 	    false
@@ -4164,3 +4297,190 @@ tab_count_user(JID) ->
 
 element_size(El) ->
     size(xml:element_to_binary(El)).
+
+filter_packet(_From, _Packet, StateData, false) ->
+    {StateData, true};
+filter_packet(From, {xmlelement, Tag, _, _} = Packet, StateData, _) ->
+    FilterJID = (StateData#state.config)#config.filter_jid,
+    Affiliation = get_affiliation(From, StateData),
+    if is_record(FilterJID, jid), Affiliation == none ->
+            case jlib:jid_tolower(FilterJID) == jlib:jid_tolower(From) of
+                false ->
+                    case is_user_online(FilterJID, StateData) of
+                        true ->
+			    IsFilterNeeded =
+				if Tag == "message" ->
+					case xml:get_subtag(Packet, "body") of
+					    false ->
+						false;
+					    _ ->
+						true
+					end;
+				   true ->
+					true
+				end,
+			    if IsFilterNeeded ->
+				    {ID, NewStateData} =
+					make_id(StateData, {Tag, From}),
+				    ejabberd_router:route(
+				      StateData#state.jid,
+				      FilterJID,
+				      {xmlelement, "iq",
+				       [{"id", ID}, {"type", "set"}],
+				       [{xmlelement, "query",
+					 [{"xmlns", ?NS_MUC_FILTER}],
+					 [jlib:replace_from(From, Packet)]}]}),
+				    {NewStateData, pass};
+			       true ->
+				    {StateData, true}
+			    end;
+                        false ->
+                            {StateData, true}
+                    end;
+                _ ->
+                    {StateData, true}
+            end;
+       true ->
+            {StateData, true}
+    end.
+
+make_id(#state{ids = Treap} = StateData, Val) ->
+    ID = randoms:get_string(),
+    {MSec, Sec, _USec} = now(),
+    Priority = -(MSec * 1000000 + Sec),
+    CleanPriority = Priority + 30,
+    Treap1 = clean_treap(Treap, CleanPriority),
+    Treap2 = treap:insert(ID, Priority, Val, Treap1),
+    {ID, StateData#state{ids = Treap2}}.
+
+process_filter_response(From, #iq{id = ID, type = Type, sub_el = SubEl},
+                        #state{config = #config{
+                                 filter_jid = FilterJID}} = StateData)
+  when is_record(FilterJID, jid) ->
+    Treap = StateData#state.ids,
+    case treap:lookup(ID, Treap) of
+        error ->
+            next_state(StateData);
+        {ok, _, Val} ->
+            {Name, OrigFrom} = case Val of
+                                   [] ->
+                                       {"message", undefined};
+                                   _ ->
+                                       Val
+                               end,
+            case jlib:jid_tolower(From) == jlib:jid_tolower(FilterJID) of
+                true ->
+                    NewTreap = treap:delete(ID, Treap),
+                    NewStateData = StateData#state{ids = NewTreap},
+                    case SubEl of
+                        [Query] when Type == result, Name == "presence" ->
+                            case xml:get_path_s(Query, [{elem, "presence"}]) of
+                                {xmlelement, "presence", _Attrs, _Els} = Msg ->
+                                    process_filter_stanza(
+                                      FilterJID, OrigFrom, Msg, NewStateData);
+                                _ ->
+                                    next_state(NewStateData)
+                            end;
+                        [Query] when Type == result, Name == "message" ->
+                            case xml:get_path_s(Query, [{elem, "message"}]) of
+                                {xmlelement, "message", _Attrs, _Els} = Msg ->
+                                    process_filter_stanza(
+                                      FilterJID, OrigFrom, Msg, NewStateData);
+                                _ ->
+                                    next_state(NewStateData)
+                            end;
+                        _ ->
+                            next_state(NewStateData)
+                    end;
+                false ->
+                    next_state(StateData)
+            end
+    end;
+process_filter_response(_From, _IQ, StateData) ->
+    next_state(StateData).
+
+process_filter_stanza(FilterJID, OrigFrom,
+                      {xmlelement, Name, Attrs, _} = Msg, StateData) ->
+    case is_user_online(FilterJID, StateData) of
+        true ->
+            {U, S, _} = jlib:jid_tolower(StateData#state.jid),
+            case {jlib:string_to_jid(xml:get_attr_s("from", Attrs)),
+                  jlib:string_to_jid(xml:get_attr_s("to", Attrs))} of
+                {#jid{} = From, #jid{lresource = ToNick} = To} ->
+                    case jlib:jid_tolower(From) of
+                        {U, S, _} ->
+                            case is_user_online(To, StateData) of
+                                true ->
+                                    ejabberd_router:route(
+                                      From, To, Msg);
+                                false when Name == "presence" ->
+                                    case jlib:jid_tolower(OrigFrom) ==
+                                        jlib:jid_tolower(To) of
+                                        true ->
+                                            ejabberd_router:route(
+                                              From, To, Msg);
+                                        false ->
+                                            ok
+                                    end;
+                                _ ->
+                                    ok
+                            end,
+                            next_state(StateData);
+                        _ ->
+                            case jlib:jid_tolower(To) of
+                                {U, S, _} ->
+                                    Type = xml:get_attr_s("type", Attrs),
+                                    case is_user_online(From, StateData) of
+                                        true when Name == "message",
+                                                  ToNick /= "",
+                                                  Type == "chat" ->
+                                            case find_jid_by_nick(
+                                                   ToNick, StateData) of
+                                                false ->
+                                                    next_state(StateData);
+                                                _ ->
+                                                    process_private_message(
+                                                      From, ToNick,
+                                                      Msg, StateData, false)
+                                            end;
+                                        true when Name == "message",
+                                                  ToNick == "",
+                                                  Type == "groupchat" ->
+                                            process_groupchat_message(
+                                              From, Msg,
+                                              StateData, false);
+                                        true when Name == "presence",
+                                                  ToNick /= "",
+                                                  Type == "" ->
+                                            process_presence(
+                                              From, ToNick, Msg,
+                                              StateData, false);
+                                        false when Name == "presence",
+                                                   ToNick /= "",
+                                                   Type == "" ->
+                                            case jlib:jid_tolower(OrigFrom) ==
+                                                jlib:jid_tolower(From) of
+                                                true ->
+                                                    next_state(
+                                                      add_new_user(
+                                                        From, ToNick, Msg,
+                                                        StateData, false));
+                                                false ->
+                                                    next_state(StateData)
+                                            end;
+                                        _ ->
+                                            next_state(StateData)
+                                    end;
+                                _ ->
+                                    next_state(StateData)
+                            end
+                    end;
+                _ ->
+                    next_state(StateData)
+            end;
+        _ ->
+            next_state(StateData)
+    end.
+
+next_state(StateData) ->
+    {next_state, normal_state, StateData}.
