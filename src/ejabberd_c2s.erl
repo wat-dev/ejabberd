@@ -648,7 +648,7 @@ wait_for_feature_request({xmlstreamelement, El}, StateData) ->
 				     sasl_state = NewSASLState});
 		{error, Error, Username} ->
 		    IP = peerip(StateData#state.sockmod, StateData#state.socket),
-		    ?INFO_MSG(
+		    ?WARNING_MSG(
 		       "(~w) Failed authentication for ~s@~s from IP ~s (~w)",
 		       [StateData#state.socket,
 			Username, StateData#state.server, jlib:ip_to_list(IP), IP]),
