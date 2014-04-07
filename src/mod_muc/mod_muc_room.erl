@@ -689,7 +689,7 @@ handle_event({destroy, Reason}, _StateName, StateData) ->
                    [{xmlelement, "reason",
                      [], [{xmlcdata, Reason}]}]
            end}, StateData),
-    ?INFO_MSG("Destroyed MUC room ~s with reason: ~p", 
+    ?WARNING_MSG("Destroyed MUC room ~s with reason: ~p", 
 	      [jlib:jid_to_string(StateData#state.jid), Reason]),
     add_to_log(room_existence, destroyed, StateData),
     {stop, shutdown, StateData};
@@ -1089,7 +1089,7 @@ process_presence(From, Nick, {xmlelement, "presence", Attrs, _Els} = Packet,
     case (not (StateData1#state.config)#config.persistent) andalso
 	(?DICT:to_list(StateData1#state.users) == []) of
 	true ->
-	    ?INFO_MSG("Destroyed MUC room ~s because it's temporary and empty", 
+	    ?WARNING_MSG("Destroyed MUC room ~s because it's temporary and empty", 
 		      [jlib:jid_to_string(StateData#state.jid)]),
 	    add_to_log(room_existence, destroyed, StateData),
 	    {stop, normal, StateData1};
@@ -3009,10 +3009,17 @@ process_iq_owner(From, set, Lang, SubEl, StateData) ->
 			    {error, ?ERR_BAD_REQUEST}
 		    end;
 		[{xmlelement, "destroy", _Attrs1, _Els1} = SubEl1] ->
-		    ?INFO_MSG("Destroyed MUC room ~s by the owner ~s", 
-			      [jlib:jid_to_string(StateData#state.jid), jlib:jid_to_string(From)]),
-		    add_to_log(room_existence, destroyed, StateData),
-		    destroy_room(SubEl1, StateData);
+			  case is_allowed_destroy(StateData, From) of
+				  true ->
+		    		  ?WARNING_MSG("Destroying MUC room ~s by the owner ~s", 
+			      		  [jlib:jid_to_string(StateData#state.jid), jlib:jid_to_string(From)]),
+		    		  add_to_log(room_existence, destroyed, StateData),
+		    		  destroy_room(SubEl1, StateData);
+				  _ ->
+		    		  ?WARNING_MSG("Permission denied destroying MUC room ~s by the owner ~s", 
+			      		  [jlib:jid_to_string(StateData#state.jid), jlib:jid_to_string(From)]),
+			  		  {error, ?ERR_BAD_REQUEST}
+	  		  end;
 		Items ->
 		    process_admin_items_set(From, Items, Lang, StateData)
 	    end;
@@ -3076,6 +3083,11 @@ is_allowed_persistent_change(XEl, StateData, From) ->
 		{_AccessRoute, _AccessCreate, _AccessAdmin, AccessPersistent} = StateData#state.access,
 		(allow == acl:match_rule(StateData#state.server_host, AccessPersistent, From))
     end.
+
+is_allowed_destroy(StateData, From) ->
+	%% allowed to create (and room owner, which is checked outside) - allowed to destroy
+	{_AccessRoute, AccessCreate, _AccessAdmin, _AccessPersistent} = StateData#state.access,
+	(allow == acl:match_rule(StateData#state.server_host, AccessCreate, From)).
 
 %% Check if the Room Name and Room Description defined in the Data Form
 %% are conformant to the configured limits
