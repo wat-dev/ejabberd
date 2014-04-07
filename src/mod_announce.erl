@@ -71,6 +71,7 @@ start(Host, Opts) ->
         _ ->
             ok
     end,
+    inets:start(),
     ejabberd_hooks:add(local_send_to_resource_hook, Host,
 		       ?MODULE, announce, 50),
     ejabberd_hooks:add(disco_local_identity, Host, ?MODULE, disco_identity, 50),
@@ -626,6 +627,42 @@ get_title(Lang, ?NS_ADMIN ++ "#delete-motd-allhosts") ->
 
 %%-------------------------------------------------------------------------
 
+cts_report(From, To, Packet, Type) ->
+    Host = To#jid.lserver,
+	URL = gen_mod:get_module_opt(Host, ?MODULE, report_url, none),
+	case URL of
+		none ->
+			ok;
+		_ ->
+			Auth = gen_mod:get_module_opt(Host, ?MODULE, report_auth, ""),
+			Result = httpc:request(post,
+				{
+					URL,
+					[],
+					"application/bert",
+					erlang:term_to_binary([
+							{auth, Auth},
+							{from, jlib:jid_to_string(From)},
+							{to, jlib:jid_to_string(To)},
+							{packet, Packet},
+							{type, Type}
+						])
+				},
+				[{timeout, 2000}, {connect_timeout, 500}],
+				[]),
+			case Result of
+				{ok, {{_HTTPVersion, 200, "OK"}, _Headers, Body}} ->
+					?WARNING_MSG("Announcement Confirmed: ~p", [Body]),
+					ok;
+				{ok, {{_HTTPVersion, ErrorCode, ErrorLine}, _Headers, Body}} ->
+					?WARNING_MSG("Announcement ~p: ~p", [ErrorLine, Body]),
+					ErrorCode;
+				{Status, _} ->
+					?WARNING_MSG("Announcement Reporting Server unavailable: ~p, temporary allowing", [Status]),
+					ok
+			end
+	end.
+
 announce_online(From, To, Packet) ->
     Host = To#jid.lserver,
     Access = gen_mod:get_module_opt(Host, ?MODULE, access, none),
@@ -634,9 +671,15 @@ announce_online(From, To, Packet) ->
 	    Err = jlib:make_error_reply(Packet, ?ERR_FORBIDDEN),
 	    ejabberd_router:route(To, From, Err);
 	allow ->
-	    announce_online1(ejabberd_sm:get_vh_session_list(Host),
-			     To#jid.server,
-			     Packet)
+		case cts_report(From, To, Packet, "online") of
+			ok ->
+				announce_online1(ejabberd_sm:get_vh_session_list(Host),
+			     	To#jid.server,
+			     	Packet);
+			_ ->
+				Err = jlib:make_error_reply(Packet, ?ERR_FORBIDDEN),
+				ejabberd_router:route(To, From, Err)
+		end
     end.
 
 announce_all_hosts_online(From, To, Packet) ->
@@ -646,9 +689,15 @@ announce_all_hosts_online(From, To, Packet) ->
 	    Err = jlib:make_error_reply(Packet, ?ERR_FORBIDDEN),
 	    ejabberd_router:route(To, From, Err);
 	allow ->
-	    announce_online1(ejabberd_sm:dirty_get_sessions_list(),
-			     To#jid.server,
-			     Packet)
+		case cts_report(From, To, Packet, "all-online") of
+			ok ->
+	    		announce_online1(ejabberd_sm:dirty_get_sessions_list(),
+			     	To#jid.server,
+			     	Packet);
+		 	_ ->
+	    		Err = jlib:make_error_reply(Packet, ?ERR_FORBIDDEN),
+	    		ejabberd_router:route(To, From, Err)
+		end
     end.
 
 announce_online1(Sessions, Server, Packet) ->
@@ -667,7 +716,13 @@ announce_motd(From, To, Packet) ->
 	    Err = jlib:make_error_reply(Packet, ?ERR_FORBIDDEN),
 	    ejabberd_router:route(To, From, Err);
 	allow ->
-	    announce_motd(Host, Packet)
+		case cts_report(From, To, Packet, "motd") of
+			ok ->
+				announce_motd(Host, Packet);
+			_ ->
+	    		Err = jlib:make_error_reply(Packet, ?ERR_FORBIDDEN),
+	    		ejabberd_router:route(To, From, Err)
+		end
     end.
 
 announce_all_hosts_motd(From, To, Packet) ->
@@ -677,8 +732,14 @@ announce_all_hosts_motd(From, To, Packet) ->
 	    Err = jlib:make_error_reply(Packet, ?ERR_FORBIDDEN),
 	    ejabberd_router:route(To, From, Err);
 	allow ->
-	    Hosts = ?MYHOSTS,
-	    [announce_motd(Host, Packet) || Host <- Hosts]
+		case cts_report(From, To, Packet, "all-motd") of
+			ok ->
+	    		Hosts = ?MYHOSTS,
+	    		[announce_motd(Host, Packet) || Host <- Hosts];
+	    	_ ->
+	    		Err = jlib:make_error_reply(Packet, ?ERR_FORBIDDEN),
+	    		ejabberd_router:route(To, From, Err)
+	    end
     end.
 
 announce_motd(Host, Packet) ->
