@@ -1690,7 +1690,8 @@ user_info(User, Server, Query, Lang) ->
 				       ?LI([?C(R ++ FIP)])
 			       end, lists:sort(Resources)))]
 	end,
-    Password = ejabberd_auth:get_password_s(User, Server),
+    Password = "********", %% hide password for security reasons;
+                           %% use ejabberd_auth:get_password_s(User, Server) to get one
     FPassword = [?INPUT("password", "password", Password), ?C(" "),
 		 ?INPUTT("submit", "chpassword", "Change Password")],
     UserItems = ejabberd_hooks:run_fold(webadmin_user, LServer, [],
