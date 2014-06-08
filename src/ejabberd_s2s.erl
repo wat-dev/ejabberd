@@ -94,7 +94,7 @@ list_temporarily_blocked_hosts() ->
 	ets:tab2list(temporarily_blocked).
 
 external_host_overloaded(Host) ->
-	?INFO_MSG("Disabling connections from ~s for ~p seconds", [Host, ?S2S_OVERLOAD_BLOCK_PERIOD]),
+	?WARNING_MSG("Disabling connections from ~s for ~p seconds", [Host, ?S2S_OVERLOAD_BLOCK_PERIOD]),
 	mnesia:transaction( fun() ->
 		mnesia:write(#temporarily_blocked{host = Host, timestamp = now()})
 	end).
