@@ -147,8 +147,6 @@ get_local_identity(Acc, _From, _To, Node, Lang) ->
 	    ?INFO_COMMAND("Delete User", Lang);
 	?NS_ADMINL("end-user-session") ->
 	    ?INFO_COMMAND("End User Session", Lang);
-	?NS_ADMINL("get-user-password") ->
-	    ?INFO_COMMAND("Get User Password", Lang);
 	?NS_ADMINL("change-user-password") ->
 	    ?INFO_COMMAND("Change User Password", Lang);
 	?NS_ADMINL("get-user-lastlogin") ->
@@ -236,8 +234,6 @@ get_local_features(Acc, From, #jid{lserver = LServer} = _To, Node, _Lang) ->
 		?NS_ADMINL("delete-user") ->
 		    ?INFO_RESULT(Allow, [?NS_COMMANDS]);
 		?NS_ADMINL("end-user-session") ->
-		    ?INFO_RESULT(Allow, [?NS_COMMANDS]);
-		?NS_ADMINL("get-user-password") ->
 		    ?INFO_RESULT(Allow, [?NS_COMMANDS]);
 		?NS_ADMINL("change-user-password") ->
 		    ?INFO_RESULT(Allow, [?NS_COMMANDS]);
@@ -453,8 +449,6 @@ get_local_items(Acc, From, #jid{lserver = LServer} = To, Node, Lang) ->
 		    ?ITEMS_RESULT(Allow, LNode, {error, ?ERR_FORBIDDEN});
 		?NS_ADMINL("end-user-session") ->
 		    ?ITEMS_RESULT(Allow, LNode, {error, ?ERR_FORBIDDEN});
-		?NS_ADMINL("get-user-password") ->
-		    ?ITEMS_RESULT(Allow, LNode, {error, ?ERR_FORBIDDEN});
 		?NS_ADMINL("change-user-password") ->
 		    ?ITEMS_RESULT(Allow, LNode, {error, ?ERR_FORBIDDEN});
 		?NS_ADMINL("get-user-lastlogin") ->
@@ -498,7 +492,6 @@ get_local_items(_Host, ["user"], Server, Lang) ->
      [?NODE("Add User",            ?NS_ADMINX("add-user")),
       ?NODE("Delete User",         ?NS_ADMINX("delete-user")),
       ?NODE("End User Session",    ?NS_ADMINX("end-user-session")),
-      ?NODE("Get User Password",   ?NS_ADMINX("get-user-password")),
       ?NODE("Change User Password",?NS_ADMINX("change-user-password")),
       ?NODE("Get User Last Login Time",   ?NS_ADMINX("get-user-lastlogin")),
       ?NODE("Get User Statistics",   ?NS_ADMINX("user-stats")),
@@ -731,6 +724,8 @@ adhoc_local_commands(From, #jid{lserver = LServer} = _To,
 		Fields ->
 		    case catch set_form(From, LServer, LNode, Lang, Fields) of
 			{result, Res} ->
+				?WARNING_MSG("~p has submitted admin form to ~p > ~p:~n~p",
+					[jlib:jid_to_string(From), LServer, LNode, Fields]),
 			    adhoc:produce_response(
 			      #adhoc_response{lang = Lang,
 			                      node = Node,
@@ -1135,18 +1130,6 @@ get_form(_Host, ?NS_ADMINL("end-user-session"), Lang) ->
 		 [{xmlelement, "required", [], []}]}
 	       ]}]};
 
-get_form(_Host, ?NS_ADMINL("get-user-password"), Lang) ->
-    {result, [{xmlelement, "x", [{"xmlns", ?NS_XDATA}],
-	       [?HFIELD(),
-		{xmlelement, "title", [],
-		 [{xmlcdata, ?T(Lang, "Get User Password")}]},
-	        {xmlelement, "field", 
-		 [{"type", "jid-single"},
-		  {"label", ?T(Lang, "Jabber ID")},
-		  {"var", "accountjid"}],
-		 [{xmlelement, "required", [], []}]}
-	       ]}]};
-
 get_form(_Host, ?NS_ADMINL("change-user-password"), Lang) ->
     {result, [{xmlelement, "x", [{"xmlns", ?NS_XDATA}],
 	       [?HFIELD(),
@@ -1534,21 +1517,6 @@ set_form(From, Host, ?NS_ADMINL("end-user-session"), _Lang, XData) ->
 	    Pid ! replaced
     end, 
     {result, []};
-
-set_form(From, Host, ?NS_ADMINL("get-user-password"), Lang, XData) ->
-    AccountString = get_value("accountjid", XData),
-    JID = jlib:string_to_jid(AccountString),
-    [_|_] = JID#jid.luser,
-    User = JID#jid.luser, 
-    Server = JID#jid.lserver, 
-    true = (Server == Host) orelse (get_permission_level(From) == global),
-    Password = ejabberd_auth:get_password(User, Server),
-    true = is_list(Password),
-    {result, [{xmlelement, "x", [{"xmlns", ?NS_XDATA}],
-	       [?HFIELD(),
-		?XFIELD("jid-single", "Jabber ID", "accountjid", AccountString),
-	        ?XFIELD("text-single", "Password", "password", Password)
-	       ]}]};
 
 set_form(From, Host, ?NS_ADMINL("change-user-password"), _Lang, XData) ->
     AccountString = get_value("accountjid", XData),
