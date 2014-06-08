@@ -543,7 +543,7 @@ handle_adhoc_form(From, #jid{lserver = LServer} = To,
 			       node = Node,
 			       sessionid = SessionID,
 			       status = completed},
-    Packet = {xmlelement, "message", [{"type", "headline"}],
+    Packet = {xmlelement, "message", [{"type", "chat"}],
 	      if Subject /= [] ->
 		      [{xmlelement, "subject", [], 
 			[{xmlcdata, Subject}]}];
@@ -955,7 +955,7 @@ send_announcement_to_all(Host, SubjectS, BodyS) ->
 		 true ->
 		      []
 	      end,
-    Packet = {xmlelement, "message", [{"type", "headline"}], SubjectEls ++ BodyEls},
+    Packet = {xmlelement, "message", [{"type", "chat"}], SubjectEls ++ BodyEls},
     Sessions = ejabberd_sm:dirty_get_sessions_list(),
     Local = jlib:make_jid("", Host, ""),
     lists:foreach(
