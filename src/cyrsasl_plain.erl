@@ -66,7 +66,9 @@ prepare(ClientIn) ->
 		    [UserMaybeDomain, User, Password];
 		%% <NUL>login<NUL>pwd
 		[User] ->
-		    ["", User, Password]
+		    ["", User, Password];
+		_ ->
+			error
 	    end;
 	%% login@domain<NUL>login<NUL>pwd
 	[AuthzId, User, Password] ->
