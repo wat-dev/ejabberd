@@ -35,7 +35,7 @@
 	 del_last/2,
 	 get_password/2,
 	 set_password_t/3,
-	 add_user/3,
+	 add_user/4,
 	 del_user/2,
 	 del_user_return_password/3,
 	 list_users/1,
@@ -179,16 +179,23 @@ set_password_t(LServer, Username, Pass) ->
 		       ["username='", Username ,"'"])
       end).
 
-add_user(LServer, Username, Pass) ->
+add_user(LServer, Username, Pass, Source) ->
     ejabberd_odbc:sql_query(
       LServer,
-      ["insert into users(username, password) "
-       "values ('", Username, "', '", Pass, "');"]).
+      ["insert into users(username, password, source) "
+       "values ('", Username, "', '", Pass, "', '", Source, "');"]).
 
 del_user(LServer, Username) ->
-    ejabberd_odbc:sql_query(
-      LServer,
-      ["delete from users where username='", Username ,"';"]).
+    LockedPassword = string:concat("locked ", lists:flatten(io_lib:format("~p", [erlang:localtime()]))),
+    LockedPasswordRandomized = string:concat(LockedPassword, get_random_string(15, "0123456789ABCDEF")),
+    set_password_t(LServer, Username, LockedPasswordRandomized).
+
+get_random_string(Length, AllowedChars) ->
+    lists:foldl(fun(_, Acc) ->
+                [lists:nth(random:uniform(length(AllowedChars)),
+                        AllowedChars)]
+                ++ Acc
+        end, [], lists:seq(1, Length)).
 
 del_user_return_password(_LServer, Username, Pass) ->
     P = ejabberd_odbc:sql_query_t(

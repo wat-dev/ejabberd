@@ -32,7 +32,7 @@
 	 set_password/3,
 	 check_password/3,
 	 check_password/5,
-	 try_register/3,
+	 try_register/4,
 	 dirty_get_registered_users/0,
 	 get_vh_registered_users/1,
 	 get_vh_registered_users/2,
@@ -134,7 +134,7 @@ set_password(User, Server, Password) ->
 
 
 %% @spec (User, Server, Password) -> {atomic, ok} | {atomic, exists} | {error, invalid_jid}
-try_register(User, Server, Password) ->
+try_register(User, Server, Password, Source) ->
     case jlib:nodeprep(User) of
 	error ->
 	    {error, invalid_jid};
@@ -142,7 +142,7 @@ try_register(User, Server, Password) ->
 	    Username = ejabberd_odbc:escape(LUser),
 	    Pass = ejabberd_odbc:escape(Password),
 	    LServer = jlib:nameprep(Server),
-	    case catch odbc_queries:add_user(LServer, Username, Pass) of
+	    case catch odbc_queries:add_user(LServer, Username, Pass, Source) of
 		{updated, 1} ->
 		    {atomic, ok};
 		_ ->

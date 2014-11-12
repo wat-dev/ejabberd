@@ -1519,7 +1519,7 @@ list_users_parse_query(Query, Host) ->
 		error ->
 		    error;
 		#jid{user = User, server = Server} ->
-		    case ejabberd_auth:try_register(User, Server, Password) of
+		    case ejabberd_auth:try_register(User, Server, Password, "admin-web") of
 			{error, _Reason} ->
 			    error;
 			_ ->

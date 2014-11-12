@@ -541,7 +541,7 @@ register_account(Username, Host, Password) ->
 	_ -> register_account2(Username, Host, Password)
     end.
 register_account2(Username, Host, Password) ->
-    case ejabberd_auth:try_register(Username, Host, Password) of
+    case ejabberd_auth:try_register(Username, Host, Password, "register-web") of
 	{atomic, Res} ->
 	    {success, Res, {Username, Host, Password}};
 	Other ->

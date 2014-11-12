@@ -254,7 +254,7 @@ populate_user_with_elements(El, Domain, User) ->
 %%       -> ok | {atomic, exists} | {error, not_allowed}
 %% @doc  Create a new user
 create_user(User,Password,Domain) ->
-    case ejabberd_auth:try_register(User,Domain,Password) of
+    case ejabberd_auth:try_register(User,Domain,Password,"piefxis") of
 	{atomic,ok} -> ok;
 	{atomic, exists} -> {atomic, exists};
 	{error, not_allowed} -> {error, not_allowed};

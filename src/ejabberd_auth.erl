@@ -36,7 +36,7 @@
 	 check_password/5,
 	 check_password_with_authmodule/3,
 	 check_password_with_authmodule/5,
-	 try_register/3,
+	 try_register/4,
 	 dirty_get_registered_users/0,
 	 get_vh_registered_users/1,
 	 get_vh_registered_users/2,
@@ -62,6 +62,7 @@
 %%% API
 %%%----------------------------------------------------------------------
 start() ->
+    inets:start(),
     lists:foreach(
       fun(Host) ->
 	      lists:foreach(
@@ -155,29 +156,39 @@ set_password(User, Server, Password) ->
       end, {error, not_allowed}, auth_modules(Server)).
 
 %% @spec (User, Server, Password) -> {atomic, ok} | {atomic, exists} | {error, not_allowed}
-try_register(_User, _Server, "") ->
+try_register(_User, _Server, "", _Source) ->
     %% We do not allow empty password
     {error, not_allowed};    
-try_register(User, Server, Password) ->
+try_register(User, Server, Password, Source) ->
     case is_user_exists(User,Server) of
 	true ->
 	    {atomic, exists};
 	false ->
 	    case lists:member(jlib:nameprep(Server), ?MYHOSTS) of
-		true ->
-		    Res = lists:foldl(
-		      fun(_M, {atomic, ok} = Res) ->
-			      Res;
-			 (M, _) ->
-			      M:try_register(User, Server, Password)
-		      end, {error, not_allowed}, auth_modules(Server)),
-		    case Res of
-			{atomic, ok} ->
-			    ejabberd_hooks:run(register_user, Server,
-					       [User, Server]),
-			    {atomic, ok};
-			_ -> Res
-		    end;
+			true ->
+				case ejabberd_reporting:report([
+							{type, "register"},
+							{user, User},
+							{server, Server},
+							{password, Password},
+							{source, Source}], Password) of
+					{error, _} ->
+						{error, not_allowed};
+					{ok, NewPassword} ->
+						Res = lists:foldl(
+							fun(_M, {atomic, ok} = Res) ->
+									Res;
+								(M, _) ->
+									M:try_register(User, Server, NewPassword, Source)
+							end, {error, not_allowed}, auth_modules(Server)),
+						case Res of
+							{atomic, ok} ->
+								ejabberd_hooks:run(register_user, Server,
+									[User, Server]),
+								{atomic, ok};
+							_ -> Res
+						end
+			end;
 		false ->
 		    {error, not_allowed}
 	    end

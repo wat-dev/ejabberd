@@ -339,7 +339,7 @@ try_register(User, Server, Password, SourceRaw, Lang) ->
 			    case is_strong_password(Server, Password) of
 				true ->
 				    case ejabberd_auth:try_register(
-					   User, Server, Password) of
+					   User, Server, Password, source_to_string(SourceRaw)) of
 					{atomic, ok} ->
 					    send_welcome_message(JID),
 					    send_registration_notifications(JID, Source),
@@ -640,3 +640,14 @@ ip_to_integer({IP1, IP2, IP3, IP4}) ->
 ip_to_integer({IP1, IP2, IP3, IP4, IP5, IP6, IP7, IP8}) ->
     (((((((((((((IP1 bsl 16) bor IP2) bsl 16) bor IP3) bsl 16) bor IP4)
 	   bsl 16) bor IP5) bsl 16) bor IP6) bsl 16) bor IP7) bsl 16) bor IP8.
+
+source_to_string({User, Server, Resource} = JID) ->
+    case ejabberd_sm:get_user_ip(User, Server, Resource) of
+	{IPAddress, _PortNumber} ->
+		jlib:jid_to_string(JID) ++ " (" ++ source_to_string(IPAddress) + ")";
+	_ -> jlib:jid_to_string(JID)
+    end;
+source_to_string({_, _, _, _} = IP) ->
+	jlib:ip_to_list(IP);
+source_to_string({_, _, _, _, _, _, _, _} = IP) ->
+    jlib:ip_to_list(IP).

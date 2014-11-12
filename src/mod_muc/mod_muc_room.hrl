@@ -49,7 +49,8 @@
 		 voice_request_min_interval = 1800,
 		 max_users = ?MAX_USERS_DEFAULT,
 		 logging = false,
-                 captcha_whitelist = ?SETS:empty()
+         captcha_whitelist = ?SETS:empty(),
+		 owner_jid
 		}).
 
 -record(user, {jid,

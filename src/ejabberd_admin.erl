@@ -332,7 +332,7 @@ update_module(ModuleNameString) ->
 %%%
 
 register(User, Host, Password) ->
-    case ejabberd_auth:try_register(User, Host, Password) of
+    case ejabberd_auth:try_register(User, Host, Password, "admin-command") of
 	{atomic, ok} ->
 	    {ok, io_lib:format("User ~s@~s successfully registered", [User, Host])};
 	{atomic, exists} ->

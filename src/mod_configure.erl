@@ -1478,7 +1478,7 @@ set_form(From, Host, ?NS_ADMINL("add-user"), _Lang, XData) ->
     Server = AccountJID#jid.lserver,
     true = lists:member(Server, ?MYHOSTS),
     true = (Server == Host) orelse (get_permission_level(From) == global),
-    ejabberd_auth:try_register(User, Server, Password),
+    ejabberd_auth:try_register(User, Server, Password, "admin-console"),
     {result, []};
 
 set_form(From, Host, ?NS_ADMINL("delete-user"), _Lang, XData) ->

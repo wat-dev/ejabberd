@@ -20,9 +20,9 @@
 CREATE TABLE users (
     username varchar(250) PRIMARY KEY,
     password text NOT NULL,
-    created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+    created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    source varchar(250)
 ) CHARACTER SET utf8;
-
 
 CREATE TABLE last (
     username varchar(250) PRIMARY KEY,

@@ -696,6 +696,9 @@ handle_event({destroy, Reason}, _StateName, StateData) ->
 handle_event(destroy, StateName, StateData) ->
     handle_event({destroy, none}, StateName, StateData);
 
+handle_event({set_owner, Owner}, StateName, StateData) ->
+	{next_state, StateName, StateData#state{config = StateData#state.config#config{owner_jid = jlib:jid_tolower(Owner)}}};
+
 handle_event({set_affiliations, Affiliations}, StateName, StateData) ->
     {next_state, StateName, StateData#state{affiliations = Affiliations}};
 
@@ -1287,29 +1290,35 @@ get_affiliation(JID, StateData) ->
 		owner;
 	    _ ->
 		LJID = jlib:jid_tolower(JID),
-		case ?DICT:find(LJID, StateData#state.affiliations) of
-		    {ok, Affiliation} ->
-			Affiliation;
-		    _ ->
-			LJID1 = jlib:jid_remove_resource(LJID),
-			case ?DICT:find(LJID1, StateData#state.affiliations) of
-			    {ok, Affiliation} ->
-				Affiliation;
-			    _ ->
-				LJID2 = setelement(1, LJID, ""),
-				case ?DICT:find(LJID2, StateData#state.affiliations) of
-				    {ok, Affiliation} ->
+		LJIDNR = jlib:jid_remove_resource(LJID),
+		case LJIDNR == StateData#state.config#config.owner_jid of
+			true ->
+				owner;
+			_ ->
+				case ?DICT:find(LJID, StateData#state.affiliations) of
+		    		{ok, Affiliation} ->
 					Affiliation;
-				    _ ->
-					LJID3 = jlib:jid_remove_resource(LJID2),
-					case ?DICT:find(LJID3, StateData#state.affiliations) of
-					    {ok, Affiliation} ->
+		    		_ ->
+					LJID1 = jlib:jid_remove_resource(LJID),
+					case ?DICT:find(LJID1, StateData#state.affiliations) of
+			    		{ok, Affiliation} ->
 						Affiliation;
-					    _ ->
-						none
+			    		_ ->
+						LJID2 = setelement(1, LJID, ""),
+						case ?DICT:find(LJID2, StateData#state.affiliations) of
+				    		{ok, Affiliation} ->
+							Affiliation;
+				    		_ ->
+							LJID3 = jlib:jid_remove_resource(LJID2),
+							case ?DICT:find(LJID3, StateData#state.affiliations) of
+					    		{ok, Affiliation} ->
+								Affiliation;
+					    		_ ->
+								none
+							end
+						end
 					end
 				end
-			end
 		end
 	end,
     case Res of

@@ -558,19 +558,21 @@ wait_for_auth({xmlstreamelement, El}, StateData) ->
 			_ ->
 			    IP = peerip(StateData#state.sockmod, StateData#state.socket),
 			    ?INFO_MSG(
-			       "(~w) Failed legacy authentication for ~s from IP ~s (~w)",
-			       [StateData#state.socket,
-				jlib:jid_to_string(JID), jlib:ip_to_list(IP), IP]),
+			       "Failed legacy authentication for ~s from IP ~s",
+			       [jlib:jid_to_string(JID), jlib:ip_to_list(IP)]),
+			    ejabberd_hooks:run(c2s_auth_failure, StateData#state.server, [IP, U, "legacy-failed"]),
 			    Err = jlib:make_error_reply(
 				    El, ?ERR_NOT_AUTHORIZED),
 			    send_element(StateData, Err),
 			    fsm_next_state(wait_for_auth, StateData)
 		    end;
 		_ ->
+		    IP = peerip(StateData#state.sockmod, StateData#state.socket),
+		    ejabberd_hooks:run(c2s_auth_failure, StateData#state.server, [IP, U, "legacy-forbidden"]),
 		    if
 			JID == error ->
 			    ?INFO_MSG(
-			       "(~w) Forbidden legacy authentication for "
+			       "Forbidden legacy authentication for "
 			       "username '~s' with resource '~s'",
 			       [StateData#state.socket, U, R]),
 			    Err = jlib:make_error_reply(El, ?ERR_JID_MALFORMED),
@@ -629,8 +631,10 @@ wait_for_feature_request({xmlstreamelement, El}, StateData) ->
 				  [{"xmlns", ?NS_SASL}], []}),
 		    U = xml:get_attr_s(username, Props),
 		    AuthModule = xml:get_attr_s(auth_module, Props),
-		    ?INFO_MSG("(~w) Accepted authentication for ~s by ~p",
-			      [StateData#state.socket, U, AuthModule]),
+		    IP = peerip(StateData#state.sockmod, StateData#state.socket),
+		    ?INFO_MSG("(~s) Accepted authentication for ~s by ~p",
+			      [jlib:ip_to_list(IP), U, AuthModule]),
+		    ejabberd_hooks:run(c2s_auth_success, StateData#state.server, [IP, U, ""]),
 		    fsm_next_state(wait_for_stream,
 				   StateData#state{
 				     streamid = new_id(),
@@ -648,10 +652,7 @@ wait_for_feature_request({xmlstreamelement, El}, StateData) ->
 				     sasl_state = NewSASLState});
 		{error, Error, Username} ->
 		    IP = peerip(StateData#state.sockmod, StateData#state.socket),
-		    ?WARNING_MSG(
-		       "(~w) Failed authentication for ~s@~s from IP ~s (~w)",
-		       [StateData#state.socket,
-			Username, StateData#state.server, jlib:ip_to_list(IP), IP]),
+		    ejabberd_hooks:run(c2s_auth_failure, StateData#state.server, [IP, Username, ""]),
 		    send_element(StateData,
 				 {xmlelement, "failure",
 				  [{"xmlns", ?NS_SASL}],
@@ -659,6 +660,8 @@ wait_for_feature_request({xmlstreamelement, El}, StateData) ->
 		    {next_state, wait_for_feature_request, StateData,
 		     ?C2S_OPEN_TIMEOUT};
 		{error, Error} ->
+		    IP = peerip(StateData#state.sockmod, StateData#state.socket),
+		    ejabberd_hooks:run(c2s_auth_failure, StateData#state.server, [IP, "", ""]),
 		    send_element(StateData,
 				 {xmlelement, "failure",
 				  [{"xmlns", ?NS_SASL}],
@@ -753,6 +756,7 @@ wait_for_feature_request(closed, StateData) ->
 
 wait_for_sasl_response({xmlstreamelement, El}, StateData) ->
     {xmlelement, Name, Attrs, Els} = El,
+    IP = peerip(StateData#state.sockmod, StateData#state.socket),
     case {xml:get_attr_s("xmlns", Attrs), Name} of
 	{?NS_SASL, "response"} ->
 	    ClientIn = jlib:decode_base64(xml:get_cdata(Els)),
@@ -766,8 +770,9 @@ wait_for_sasl_response({xmlstreamelement, El}, StateData) ->
 				  [{"xmlns", ?NS_SASL}], []}),
 		    U = xml:get_attr_s(username, Props),
 		    AuthModule = xml:get_attr_s(auth_module, Props),
-		    ?INFO_MSG("(~w) Accepted authentication for ~s by ~p",
-			      [StateData#state.socket, U, AuthModule]),
+		    ?INFO_MSG("(~s) Accepted authentication for ~s by ~p",
+			      [jlib:ip_to_list(IP), U, AuthModule]),
+		    ejabberd_hooks:run(c2s_auth_success, StateData#state.server, [IP, U, ""]),
 		    fsm_next_state(wait_for_stream,
 				   StateData#state{
 				     streamid = new_id(),
@@ -784,8 +789,9 @@ wait_for_sasl_response({xmlstreamelement, El}, StateData) ->
 				    jlib:encode_base64(ServerOut)}]}),
 		    U = xml:get_attr_s(username, Props),
 		    AuthModule = xml:get_attr_s(auth_module, Props),
-		    ?INFO_MSG("(~w) Accepted authentication for ~s by ~p",
-			      [StateData#state.socket, U, AuthModule]),
+		    ?INFO_MSG("(~s) Accepted authentication for ~s by ~p",
+			      [jlib:ip_to_list(IP), U, AuthModule]),
+		    ejabberd_hooks:run(c2s_auth_success, StateData#state.server, [IP, U, ""]),
 		    fsm_next_state(wait_for_stream,
 				   StateData#state{
 				     streamid = new_id(),
@@ -801,17 +807,17 @@ wait_for_sasl_response({xmlstreamelement, El}, StateData) ->
 		    fsm_next_state(wait_for_sasl_response,
 		     StateData#state{sasl_state = NewSASLState});
 		{error, Error, Username} ->
-		    IP = peerip(StateData#state.sockmod, StateData#state.socket),
 		    ?INFO_MSG(
-		       "(~w) Failed authentication for ~s@~s from IP ~s (~w)",
-		       [StateData#state.socket,
-			Username, StateData#state.server, jlib:ip_to_list(IP), IP]),
+		       "Failed authentication for ~s@~s from IP ~s",
+		       [Username, StateData#state.server, jlib:ip_to_list(IP)]),
+		    ejabberd_hooks:run(c2s_auth_failure, StateData#state.server, [IP, Username, "cyrsasl-failed"]),
 		    send_element(StateData,
 				 {xmlelement, "failure",
 				  [{"xmlns", ?NS_SASL}],
 				  [{xmlelement, Error, [], []}]}),
 		    fsm_next_state(wait_for_feature_request, StateData);
 		{error, Error} ->
+		    ejabberd_hooks:run(c2s_auth_failure, StateData#state.server, [IP, "", "cyrsasl-failed"]),
 		    send_element(StateData,
 				 {xmlelement, "failure",
 				  [{"xmlns", ?NS_SASL}],
