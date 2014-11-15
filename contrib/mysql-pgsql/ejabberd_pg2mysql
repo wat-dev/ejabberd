@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+if [ $# -lt 2 ]; then
+	echo "Usage: $0 <database> <mysql_db_schema_script.sql>" >&2
+	exit 1
+fi
+
+DATABASE="$1"
+MY_SCHEMA_SCRIPT="$2"
+
+if [ "$NEW_DATABASE" = "" ]; then
+	NEW_DATABASE="$DATABASE"
+fi
+
+TMP_PREFIX="/tmp/pg2mysql_$DATABASE"
+
+echo '(1/4) Dumping PostgreSQL database.'
+#sudo su - postgres -c "pg_dump --data-only --inserts --no-privileges --no-tablespaces --schema=public $DATABASE" | sed -n '/^-- Data for Name/,/^-- PostgreSQL database dump complete$/p' >"$TMP_PREFIX.original"
+cp "$DATABASE.pgsql" "$TMP_PREFIX.original"
+
+echo '(2/4) Adding MySQL schema creation script.'
+cat - "$MY_SCHEMA_SCRIPT" <<PREFIX |
+SET sql_mode='ANSI,NO_BACKSLASH_ESCAPES';
+PREFIX
+grep -Fv 'SET table_type=InnoDB;' | cat - "$TMP_PREFIX.original" | grep -Fv pg_catalog.setval >"$TMP_PREFIX.ready"
+rm -f "$TMP_PREFIX.original"
+
+echo '(3/4) Creating MySQL database.'
+echo "DROP DATABASE IF EXISTS $DATABASE; CREATE DATABASE $DATABASE" | mysql -p
+
+echo '(4/4) Importing PostgreSQL database.'
+mysql -fp "$DATABASE" <"$TMP_PREFIX.ready" 2>&1 | tee pg2mysql_$DATABASE.stdio
+rm "$TMP_PREFIX.ready"

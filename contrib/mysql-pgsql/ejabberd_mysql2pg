@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+if [ $# -lt 2 ]; then
+	echo "Usage: $0 <database> <pg_db_schema_script.sql> [<new_database>]" >&2
+	exit 1
+fi
+
+DATABASE="$1"
+PG_SCHEMA_SCRIPT="$2"
+NEW_DATABASE="$3"
+
+if [ "$NEW_DATABASE" = "" ]; then
+	NEW_DATABASE="$DATABASE"
+fi
+
+TMP_PREFIX="/tmp/pg2sql_$DATABASE"
+
+echo '(1/5) Dumping MySQL database. Please enter your (mysql root) password.'
+mysqldump -uroot -p --default-character-set=utf8 --skip-lock-tables --skip-opt --compatible=postgresql --no-create-info "$DATABASE" >"$TMP_PREFIX.original"
+
+echo '(2/5) Adding postgre schema creation script.'
+cat - "$PG_SCHEMA_SCRIPT" <<PREFIX |
+SET standard_conforming_strings = 'off';
+SET backslash_quote = 'on';
+PREFIX
+sed 's/boolean/INT/' | cat - "$TMP_PREFIX.original" >"$TMP_PREFIX.with_prefix"
+rm -f "$TMP_PREFIX.original"
+
+function revert_bool_columns() {
+	table="$1"
+	shift
+	for column in "$@"; do
+		cat <<SQL
+ALTER TABLE $table ADD COLUMN ${column}_bool boolean;
+UPDATE $table SET ${column}_bool = CAST($column AS boolean);
+ALTER TABLE $table DROP COLUMN $column;
+ALTER TABLE $table RENAME COLUMN ${column}_bool TO $column;
+ALTER TABLE $table ALTER COLUMN $column SET NOT NULL;
+SQL
+	done
+}
+
+echo '(3/5) Adding postgre column types revert.'
+cat "$TMP_PREFIX.with_prefix" - >"$TMP_PREFIX.ready" <<PG
+$(revert_bool_columns privacy_list_data match_all match_iq match_message match_presence_in match_presence_out)
+PG
+rm -f "$TMP_PREFIX.with_prefix"
+
+echo '(4/5) Creating PostgreSQL database.'
+sudo sudo -i -upostgres dropdb "$NEW_DATABASE"
+sudo sudo -i -upostgres createdb "$NEW_DATABASE"
+echo "ALTER DATABASE $NEW_DATABASE OWNER TO ejabberd;" | sudo sudo -i -upostgres psql
+
+echo '(5/5) Importing PostgreSQL database.'
+sudo chown postgres "$TMP_PREFIX.ready"
+sudo sudo -i -upostgres psql -U ejabberd "$NEW_DATABASE" -f "$TMP_PREFIX.ready" 2>&1 | tee mysql2pg_$DATABASE.stdio | grep ERROR
+sudo rm -f "$TMP_PREFIX.ready"
