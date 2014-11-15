@@ -71,7 +71,6 @@ start(Host, Opts) ->
         _ ->
             ok
     end,
-    inets:start(),
     ejabberd_hooks:add(local_send_to_resource_hook, Host,
 		       ?MODULE, announce, 50),
     ejabberd_hooks:add(disco_local_identity, Host, ?MODULE, disco_identity, 50),
