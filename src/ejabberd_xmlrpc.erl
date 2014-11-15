@@ -3,7 +3,7 @@
 %%%----------------------------------------------------------------------
 
 -module(ejabberd_xmlrpc).
--author('mail@example.org').b
+-author('mail@example.org').
 
 -export([
 	 start_listener/2,
