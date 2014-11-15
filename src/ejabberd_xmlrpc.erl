@@ -1,13 +1,9 @@
 %%%----------------------------------------------------------------------
 %%% File    : ejabberd_xmlrpc.erl
-%%% Author  : Badlop <badlop@process-one.net>
-%%% Purpose : XML-RPC server that frontends ejabberd commands
-%%% Created : 21 Aug 2007 by Badlop <badlop@ono.com>
-%%% Id      : $Id: ejabberd_xmlrpc.erl 595 2008-05-20 11:39:31Z badlop $
 %%%----------------------------------------------------------------------
 
 -module(ejabberd_xmlrpc).
--author('badlop@process-one.net').
+-author('mail@example.org').b
 
 -export([
 	 start_listener/2,
