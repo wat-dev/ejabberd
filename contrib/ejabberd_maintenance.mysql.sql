@@ -303,8 +303,8 @@ DROP PROCEDURE IF EXISTS autoclean;
 CREATE PROCEDURE autoclean()
 BEGIN
 	CALL optimization_copy();
-	CALL autoclean_users(6);
-	CALL autoclean_spool(3);
+	CALL autoclean_users(12);
+	CALL autoclean_spool(6);
 	CALL optimization_apply();
 END//
 
