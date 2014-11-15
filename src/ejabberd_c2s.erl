@@ -818,7 +818,7 @@ wait_for_sasl_response({xmlstreamelement, El}, StateData) ->
 		       "Failed authentication for ~s@~s from IP ~s",
 		       [Username, StateData#state.server, jlib:ip_to_list(IP)]),
 		    ejabberd_hooks:run(c2s_auth_failure, StateData#state.server,
-		    				   [IP, #jid{user = Username, server = StateData#state.servier, resource = ""}, "cyrsasl-failed"]),
+		    				   [IP, #jid{user = Username, server = StateData#state.server, resource = ""}, "cyrsasl-failed"]),
 		    send_element(StateData,
 				 {xmlelement, "failure",
 				  [{"xmlns", ?NS_SASL}],

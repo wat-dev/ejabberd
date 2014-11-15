@@ -254,12 +254,26 @@ handler(_State, auth, {call, s2s_list, [{struct, [
 										From = {array, proplists:get_value(domains, StateInfos)},
 										To = "localhost"
 								end,
+								CurrentPortValue = proplists:get_value(port, StateInfos),
+								CurrentPort = case is_atom(CurrentPortValue) of
+									true ->
+										atom_to_list(CurrentPortValue);
+									_ ->
+										CurrentPortValue
+								end,
+								CurrentStreamIDValue = proplists:get_value(streamid, StateInfos),
+								CurrentStreamID = case is_atom(CurrentStreamIDValue) of
+									true ->
+										atom_to_list(CurrentStreamIDValue);
+									_ ->
+										CurrentStreamIDValue
+								end,
 								{struct, [
 										{direction, atom_to_list(CurrentDir)},
 										{state, atom_to_list(proplists:get_value(statename, StateInfos))},
 										{addr, jlib:ip_to_list(proplists:get_value(addr, StateInfos))},
-										{port, proplists:get_value(port, StateInfos)},
-										{stream_id, proplists:get_value(streamid, StateInfos)},
+										{port, CurrentPort}, 
+										{stream_id, CurrentStreamID},
 										{from, From},
 										{to, To},
 										{tls, proplists:get_value(tls_enabled, StateInfos)}
