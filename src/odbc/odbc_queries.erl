@@ -80,6 +80,7 @@
 	 set_vcard/26,
 	 get_vcard/2,
 	 escape/1,
+	 add_security_log/7,
 	 count_records_where/3,
 	 get_roster_version/2,
 	 set_roster_version/2]).
@@ -566,6 +567,11 @@ del_privacy_lists(LServer, Server, Username) ->
     ejabberd_odbc:sql_query(
       LServer,
       ["delete from privacy_default_list where username='", Username, "';"]).
+
+add_security_log(LServer, Username, Server, Source, Action, Description, Timestamp) ->
+	ejabberd_odbc:sql_query(LServer,
+		["INSERT INTO security_logs.ejabberd (username, server, source, action, description, timestamp) "
+		"VALUES ('", Username, "', '", Server, "', '", Source, "', '", Action, "', '", Description, "', '", Timestamp, "');"]).
 
 %% Characters to escape
 escape($\0) -> "\\0";

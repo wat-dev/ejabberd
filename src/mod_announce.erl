@@ -633,10 +633,10 @@ report(From, To, Packet, Type) ->
 				{packet, Packet},
 				{type, Type}]) of
 		{ok, Data} ->
-			?WARNING_MSG("Announcement confirmed: ~p", Data),
+			?WARNING_MSG("Announcement confirmed: ~p", [Data]),
 			ok;
 		{error, Data} ->
-			?WARNING_MSG("Announcement forbidden: ~p", Data),
+			?WARNING_MSG("Announcement forbidden: ~p", [Data]),
 			forbidden
 	end.
 
