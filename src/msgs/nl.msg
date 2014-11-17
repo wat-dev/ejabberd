@@ -23,7 +23,6 @@
 {"Allow visitors to send private messages to","Gebruikers mogen privéberichten verzenden aan"}.
 {"Allow visitors to send status text in presence updates","Sta bezoekers toe hun statusbericht in te stellen"}.
 {"Allow visitors to send voice requests","Gebruikers mogen stemaanvragen verzenden"}.
-{"All Users","Alle gebruikers"}.
 {"Announcements","Mededelingen"}.
 {"anyone","iedereen"}.
 {"A password is required to enter this room","U hebt een wachtwoord nodig om deze chatruimte te kunnen betreden"}.
@@ -311,8 +310,6 @@
 {"Search users in ","Gebruikers zoeken in "}.
 {"Send announcement to all online users","Mededeling verzenden naar alle online gebruikers"}.
 {"Send announcement to all online users on all hosts","Mededeling verzenden naar alle online gebruikers op alle virtuele hosts"}.
-{"Send announcement to all users","Mededeling verzenden naar alle gebruikers"}.
-{"Send announcement to all users on all hosts","Stuur aankondiging aan alle gebruikers op alle hosts"}.
 {"September","September"}.
 {"Server ~b","Server ~b"}.
 {"Server:","Server:"}.
@@ -394,7 +391,6 @@
 {"User Management","Gebruikersbeheer"}.
 {"Username:","Gebruikersnaam:"}.
 {"Users are not allowed to register accounts so quickly","Het is gebruikers niet toegestaan zo snel achter elkaar te registreren"}.
-{"Users","Gebruikers"}.
 {"Users Last Activity","Laatste activiteit van gebruikers"}.
 {"Validate","Bevestigen"}.
 {"vCard User Search","Gebruikers zoeken"}.

@@ -23,7 +23,6 @@
 {"Allow visitors to send private messages to","Ziyaretçilerin özel mesaj göndermelerine izin ver"}.
 {"Allow visitors to send status text in presence updates","Ziyaretçilerin varlık (presence) güncellemelerinde durum metni göndermelerine izin ver"}.
 {"Allow visitors to send voice requests","Ziyaretçilerin ses isteğine göndermelerine izin ver"}.
-{"All Users","Tüm Kullanıcılar"}.
 {"Announcements","Duyurular"}.
 {"anyone","herkes"}.
 {"A password is required to enter this room","Bu odaya girmek için parola gerekiyor"}.
@@ -311,8 +310,6 @@
 {"Search users in ","Kullanıcılarda arama yap : "}.
 {"Send announcement to all online users","Duyuruyu tüm bağlı kullanıcılara yolla"}.
 {"Send announcement to all online users on all hosts","Duyuruyu tüm sunuculardaki tüm bağlı kullanıcılara yolla"}.
-{"Send announcement to all users","Duyuruyu tüm kullanıcılara yolla"}.
-{"Send announcement to all users on all hosts","Tüm sunuculardaki tüm kullanıcılara duyuru yolla"}.
 {"September","Eylül"}.
 {"Server ~b","Sunucu ~b"}.
 {"Server:","Sunucu:"}.
@@ -394,7 +391,6 @@
 {"User Management","Kullanıcı Yönetimi"}.
 {"Username:","Kullanıcı adı:"}.
 {"Users are not allowed to register accounts so quickly","Kullanıcıların bu kadar hızlı hesap açmalarına izin verilmiyor"}.
-{"Users","Kullanıcılar"}.
 {"Users Last Activity","Kullanıcıların Son Aktiviteleri"}.
 {"Validate","Geçerli"}.
 {"vCard User Search","vCard Kullanıcı Araması"}.

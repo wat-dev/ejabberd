@@ -17,7 +17,6 @@
 {"Allow users to query other users","อนุญาตให้ผู้ใช้ถามคำถามกับผู้ใช้คนอื่นๆ ได้"}.
 {"Allow users to send invites","อนุญาตให้ผู้ใช้ส่งคำเชิญถึงกันได้"}.
 {"Allow users to send private messages","อนุญาตให้ผู้ใช้ส่งข้อความส่วนตัว"}.
-{"All Users","ผู้ใช้ทั้งหมด"}.
 {"Announcements","ประกาศ"}.
 {"anyone","ทุกคน"}.
 {"April","เมษายน"}.
@@ -237,8 +236,6 @@
 {"Search users in ","ค้นหาผู้ใช้ใน "}.
 {"Send announcement to all online users","ส่งประกาศถึงผู้ใช้ออนไลน์ทั้งหมด"}.
 {"Send announcement to all online users on all hosts","ส่งประกาศถึงผู้ใช้ออนไลน์ทั้งหมดบนโฮสต์ทั้งหมด"}.
-{"Send announcement to all users","ส่งประกาศถึงผู้ใช้ทั้งหมด"}.
-{"Send announcement to all users on all hosts","ส่งประกาศถึงผู้ใช้ทั้งหมดบนโฮสต์ทั้งหมด"}.
 {"September","กันยายน"}.
 {"Set message of the day and send to online users","ตั้งค่าข้อความของวันและส่งถึงผู้ใช้ออนไลน์"}.
 {"Set message of the day on all hosts and send to online users","ตั้งค่าข้อความของวันบนโฮสต์ทั้งหมดและส่งถึงผู้ใช้ออนไลน์"}.
@@ -292,7 +289,6 @@
 {"User ","ผู้ใช้"}.
 {"User","ผู้ใช้"}.
 {"User Management","การจัดการผู้ใช้"}.
-{"Users","ผู้ใช้"}.
 {"Users Last Activity","กิจกรรมล่าสุดของผู้ใช้"}.
 {"Validate","ตรวจสอบ"}.
 {"vCard User Search","ค้นหาผู้ใช้ vCard "}.

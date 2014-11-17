@@ -21,7 +21,6 @@
 {"Allow users to send private messages","Permitir aos usuarios enviar mensaxes privadas"}.
 {"Allow visitors to change nickname","Permitir aos visitantes cambiarse o alcume"}.
 {"Allow visitors to send status text in presence updates","Permitir aos visitantes enviar texto de estado nas actualizacións depresenza"}.
-{"All Users","Todos os usuarios"}.
 {"Announcements","Anuncios"}.
 {"anyone","calquera"}.
 {"A password is required to enter this room","Necesítase contrasinal para entrar nesta sala"}.
@@ -285,8 +284,6 @@
 {"Search users in ","Buscar usuarios en "}.
 {"Send announcement to all online users","Enviar anuncio a todos los usuarios conectados"}.
 {"Send announcement to all online users on all hosts","Enviar anuncio a todos os usuarios conectados en todos os dominios"}.
-{"Send announcement to all users","Enviar anuncio a todos os usuarios"}.
-{"Send announcement to all users on all hosts","Enviar anuncio a todos os usuarios en todos os dominios"}.
 {"September","Setembro"}.
 {"Server ~b","Servidor ~b"}.
 {"Set message of the day and send to online users","Pór mensaxe do dia e enviar a todos os usuarios conectados"}.
@@ -349,7 +346,6 @@
 {"User Management","Administración de usuarios"}.
 {"Users are not allowed to register accounts so quickly","Os usuarios non están autorizados a rexistrar contas con tanta rapidez"}.
 {"Users Last Activity","Última actividade dos usuarios"}.
-{"Users","Usuarios"}.
 {"User ","Usuario "}.
 {"User","Usuario"}.
 {"Validate","Validar"}.

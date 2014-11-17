@@ -21,7 +21,6 @@
 {"Allow users to send private messages","Tillåt användare att skicka privata meddelanden"}.
 {"Allow visitors to change nickname","Tillåt gäster att kunna ändra smeknamn"}.
 {"Allow visitors to send status text in presence updates","Tillåt gäster att skicka statustext som uppdatering"}.
-{"All Users","Alla användare"}.
 {"Announcements","Meddelanden"}.
 {"anyone","Vemsomhelst"}.
 {"April","April"}.
@@ -279,8 +278,6 @@
 {"Search users in ","Sök efter användare på "}.
 {"Send announcement to all online users on all hosts","Sänd meddelanden till alla inloggade användare på alla värdar"}.
 {"Send announcement to all online users","Sänd meddelanden till alla inloggade användare"}.
-{"Send announcement to all users on all hosts","Sänd meddelanden till alla  användare på alla värdar"}.
-{"Send announcement to all users","Sänd meddelanden till alla användare"}.
 {"September","September"}.
 {"Server ~b","Server ~b"}.
 {"Set message of the day and send to online users","Sätt dagens status meddelande och skicka till alla användare"}.
@@ -341,7 +338,6 @@
 {"User ","Användare "}.
 {"User","Användarnamn"}.
 {"User Management","Användarmanagement"}.
-{"Users","Användare"}.
 {"Users are not allowed to register accounts so quickly","Det är inte tillåtet för användare att skapa konton så fort"}.
 {"Users Last Activity","Användarens senaste aktivitet"}.
 {"Validate","Validera"}.

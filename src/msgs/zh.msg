@@ -23,7 +23,6 @@
 {"Allow visitors to send private messages to","允许访客发送私聊消息至"}.
 {"Allow visitors to send status text in presence updates","更新在线状态时允许用户发送状态文本"}.
 {"Allow visitors to send voice requests","允许访客发送声音请求"}.
-{"All Users","所有用户"}.
 {"Announcements","通知"}.
 {"anyone","任何人"}.
 {"A password is required to enter this room","进入此房间需要密码"}.
@@ -311,8 +310,6 @@
 {"Search users in ","搜索用户于 "}.
 {"Send announcement to all online users on all hosts","发送通知给所有主机的在线用户"}.
 {"Send announcement to all online users","发送通知给所有在线用户"}.
-{"Send announcement to all users on all hosts","发送通知给所有主机上的所有用户"}.
-{"Send announcement to all users","发送通知给所有用户"}.
 {"September","九月"}.
 {"Server ~b","服务器 ~b"}.
 {"Server:","服务器:"}.
@@ -393,7 +390,6 @@
 {"Username:","用户名:"}.
 {"Users are not allowed to register accounts so quickly","不允许用户太频繁地注册帐户"}.
 {"Users Last Activity","用户上次活动"}.
-{"Users","用户"}.
 {"User ","用户 "}.
 {"User","用户"}.
 {"Validate","确认"}.

@@ -23,7 +23,6 @@
 {"Allow visitors to send private messages to","Permesu uzantojn sendi privatajn mesaĝojn al"}.
 {"Allow visitors to send status text in presence updates","Permesu al vizitantoj sendi statmesaĝon en ĉeest-sciigoj"}.
 {"Allow visitors to send voice requests","Permesu uzantojn sendi voĉ-petojn"}.
-{"All Users","Ĉiuj Uzantoj"}.
 {"Announcements","Anoncoj"}.
 {"anyone","iu ajn"}.
 {"A password is required to enter this room","Pasvorto estas bezonata por eniri ĉi tiun babilejon"}.
@@ -310,8 +309,6 @@
 {"Search users in ","Serĉu uzantojn en "}.
 {"Send announcement to all online users on all hosts","Sendu anoncon al ĉiu konektata uzanto de ĉiu gastigo"}.
 {"Send announcement to all online users","Sendu anoncon al ĉiu konektata uzanto"}.
-{"Send announcement to all users on all hosts","Sendu anoncon al ĉiu uzanto de ĉiu gastigo"}.
-{"Send announcement to all users","Sendu anoncon al ĉiu uzanto"}.
 {"September","Septembro"}.
 {"Server ~b","Servilo ~b"}.
 {"Server:","Servilo:"}.
@@ -392,7 +389,6 @@
 {"Username:","Uzantnomo"}.
 {"Users are not allowed to register accounts so quickly","Ne estas permesata al uzantoj registri tiel rapide"}.
 {"Users Last Activity","Lasta aktiveco de uzanto"}.
-{"Users","Uzantoj"}.
 {"User ","Uzanto "}.
 {"User","Uzanto"}.
 {"Validate","Validigu"}.

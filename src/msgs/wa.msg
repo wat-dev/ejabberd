@@ -20,7 +20,6 @@
 {"Allow users to send private messages","Les uzeus polèt evoyî des messaedjes privés"}.
 {"Allow visitors to change nickname","Permete ki les viziteus candjexhe leus metous nos"}.
 {"Allow visitors to send status text in presence updates","Permete ki les viziteus evoyexhe des tecse d' estat dins leus messaedjes di prezince"}.
-{"All Users","Tos les uzeus"}.
 {"Announcements","Anonces"}.
 {"anyone","tot l' minme kî"}.
 {"April","avri"}.
@@ -247,8 +246,6 @@
 {"Search users in ","Cweri des uzeus dins "}.
 {"Send announcement to all online users","Evoyî l' anonce a tos les uzeus raloyîs"}.
 {"Send announcement to all online users on all hosts","Evoyî l' anonce a tos les uzeus raloyîs so tos les lodjoes"}.
-{"Send announcement to all users","Evoyî l' anonce a tos les uzeus"}.
-{"Send announcement to all users on all hosts","Evoyî l' anonce a tos les uzeus so tos les lodjoes"}.
 {"September","setimbe"}.
 {"Set message of the day and send to online users","Defini l' messaedje do djoû et l' evoyî åzès uzeus raloyîs"}.
 {"Set message of the day on all hosts and send to online users","Defini l' messaedje do djoû so tos les lodjoes et l' evoyî åzès uzeus raloyîs"}.
@@ -304,7 +301,6 @@
 {"Use of STARTTLS required","L' eployaedje di STARTTL est oblidjî"}.
 {"User Management","Manaedjaedje des uzeus"}.
 {"Users Last Activity","Dierinne activité des uzeus"}.
-{"Users","Uzeus"}.
 {"User ","Uzeu "}.
 {"User","Uzeu"}.
 {"Validate","Valider"}.

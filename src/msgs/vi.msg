@@ -17,7 +17,6 @@
 {"Allow users to query other users","Cho phép người sử dụng hỏi người sử dụng khác"}.
 {"Allow users to send invites","Cho phép người sử dụng gửi lời mời"}.
 {"Allow users to send private messages","Cho phép người sử dụng gửi thư riêng"}.
-{"All Users","Tất Cả Người Sử Dụng"}.
 {"Announcements","Thông báo"}.
 {"anyone","bất kỳ ai"}.
 {"April","Tháng Tư"}.
@@ -237,8 +236,6 @@
 {"Search users in ","Tìm kiếm người sử dụng trong"}.
 {"Send announcement to all online users","Gửi thông báo đến tất cả người sử dụng trực tuyến"}.
 {"Send announcement to all online users on all hosts","Gửi thông báo đến tất cả người sử dụng trực tuyến trên tất cả các máy chủ"}.
-{"Send announcement to all users","Gửi thông báo đến tất cả người sử dụng"}.
-{"Send announcement to all users on all hosts","Gửi thông báo đến tất cả người sử dụng trên tất cả các máy chủ"}.
 {"September","Tháng Chín"}.
 {"Set message of the day and send to online users","Tạo lập thư trong ngày và gửi đến những người sử dụng trực tuyến"}.
 {"Set message of the day on all hosts and send to online users","Tạo lập thư trong ngày trên tất cả các máy chủ và gửi đến những người sử dụng trực tuyến"}.
@@ -293,7 +290,6 @@
 {"User ","Người sử dụng "}.
 {"User","Người sử dụng"}.
 {"Users Last Activity","Hoạt Động Cuối Cùng Của Người Sử Dụng"}.
-{"Users","Người sử dụng"}.
 {"Validate","Xác nhận hợp lệ"}.
 {"vCard User Search","Tìm Kiếm Người Sử Dụng vCard"}.
 {"Virtual Hosts","Máy Chủ Ảo"}.

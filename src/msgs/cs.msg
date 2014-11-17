@@ -23,7 +23,6 @@
 {"Allow visitors to send private messages to","Povolit návštěvníkům odesílat soukromé zprávy"}.
 {"Allow visitors to send status text in presence updates","Povolit návštěvníkům posílat stavové zprávy ve statusu"}.
 {"Allow visitors to send voice requests","Povolit uživatelům posílat žádosti o voice práva"}.
-{"All Users","Všichni uživatelé"}.
 {"Announcements","Oznámení"}.
 {"anyone","každému"}.
 {"A password is required to enter this room","Pro vstup do místnosti musíte zadat heslo"}.
@@ -311,8 +310,6 @@
 {"Search users in ","Hledat uživatele v "}.
 {"Send announcement to all online users","Odeslat oznámení všem online uživatelům"}.
 {"Send announcement to all online users on all hosts","Odeslat oznámení všem online uživatelům na všech hostitelích"}.
-{"Send announcement to all users","Odeslat oznámení všem uživatelům"}.
-{"Send announcement to all users on all hosts","Odeslat oznámení všem uživatelům na všech hostitelích"}.
 {"September",". září"}.
 {"Server ~b","Server ~b"}.
 {"Server:","Server:"}.
@@ -393,7 +390,6 @@
 {"Username:","Uživatelské jméno:"}.
 {"Users are not allowed to register accounts so quickly","Je zakázáno registrovat účty v tak rychlém sledu"}.
 {"Users Last Activity","Poslední aktivita uživatele"}.
-{"Users","Uživatelé"}.
 {"User ","Uživatel "}.
 {"User","Uživatel"}.
 {"Validate","Ověřit"}.

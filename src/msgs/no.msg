@@ -23,7 +23,6 @@
 {"Allow visitors to send private messages to","Tillat brukere å sende private meldinger til"}.
 {"Allow visitors to send status text in presence updates","Tillat besøkende å sende status tekst i "}.
 {"Allow visitors to send voice requests","Tillat brukere å sende lyd forespørsler"}.
-{"All Users","Alle Brukere"}.
 {"Announcements","Kunngjøringer"}.
 {"anyone","hvem som helst"}.
 {"A password is required to enter this room","Et passord kreves for tilgang til samtalerommet"}.
@@ -311,8 +310,6 @@
 {"Search users in ","Søk etter brukere i "}.
 {"Send announcement to all online users on all hosts","Send kunngjøring til alle tilkoblede brukere på alle "}.
 {"Send announcement to all online users","Send kunngjøring alle tilkoblede brukere"}.
-{"Send announcement to all users on all hosts","Send kunngjøring til alle brukere på alle maskiner"}.
-{"Send announcement to all users","Send kunngjøring til alle brukere"}.
 {"September","september"}.
 {"Server ~b","Server ~b"}.
 {"Server:","Server:"}.
@@ -394,7 +391,6 @@
 {"User Management","Bruker Behandling"}.
 {"Username:","Brukernavn:"}.
 {"Users are not allowed to register accounts so quickly","Brukere får ikke lov til  registrere kontoer så fort"}.
-{"Users","Brukere"}.
 {"Users Last Activity","Brukers Siste Aktivitet"}.
 {"Validate","Bekrefte gyldighet"}.
 {"vCard User Search","vCard Bruker Søk"}.

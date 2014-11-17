@@ -23,7 +23,6 @@
 {"Allow visitors to send private messages to","Разрешить посетителям посылать приватные сообщения"}.
 {"Allow visitors to send status text in presence updates","Разрешить посетителям вставлять текcт статуса в сообщения о присутствии"}.
 {"Allow visitors to send voice requests","Разрешить посетителям запрашивать право голоса"}.
-{"All Users","Все пользователи"}.
 {"Announcements","Объявления"}.
 {"anyone","всем участникам"}.
 {"A password is required to enter this room","Чтобы войти в эту конференцию, нужен пароль"}.
@@ -311,8 +310,6 @@
 {"Search users in ","Поиск пользователей в "}.
 {"Send announcement to all online users on all hosts","Разослать объявление всем подключённым пользователям на всех виртуальных серверах"}.
 {"Send announcement to all online users","Разослать объявление всем подключённым пользователям"}.
-{"Send announcement to all users on all hosts","Разослать объявление всем пользователям на всех виртуальных серверах"}.
-{"Send announcement to all users","Разослать объявление всем пользователям"}.
 {"September","сентября"}.
 {"Server ~b","Сервер ~b"}.
 {"Server:","Сервер:"}.
@@ -393,7 +390,6 @@
 {"Username:","Имя пользователя:"}.
 {"Users are not allowed to register accounts so quickly","Пользователи не могут регистрировать учётные записи так быстро"}.
 {"Users Last Activity","Статистика последнего подключения пользователей"}.
-{"Users","Пользователи"}.
 {"User ","Пользователь "}.
 {"User","Пользователь"}.
 {"Validate","Утвердить"}.

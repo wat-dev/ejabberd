@@ -23,7 +23,6 @@
 {"Allow visitors to send private messages to","Επιτρέψετε στους χρήστες να αποστέλλουν ιδιωτικά μηνύματα σε"}.
 {"Allow visitors to send status text in presence updates","Επιτρέψτε στους επισκέπτες να αποστέλλουν κατάσταση στις ενημερώσεις παρουσίας"}.
 {"Allow visitors to send voice requests","Επιτρέψτε στους επισκέπτες να στέλνουν αιτήματα φωνής"}.
-{"All Users","Όλοι οι χρήστες"}.
 {"Announcements","Ανακοινώσεις"}.
 {"anyone","οποιοσδήποτε"}.
 {"A password is required to enter this room","Απαιτείται κωδικός πρόσβασης για είσοδο σε αυτή την αίθουσα"}.
@@ -311,8 +310,6 @@
 {"Search users in ","Αναζήτηση χρηστών στο"}.
 {"Send announcement to all online users on all hosts","Αποστολή ανακοίνωσης σε όλους τους συνδεδεμένους χρήστες σε όλους τους κεντρικούς υπολογιστές"}.
 {"Send announcement to all online users","Αποστολή ανακοίνωσης σε όλους τους συνδεδεμένους χρήστες"}.
-{"Send announcement to all users on all hosts","Αποστολή ανακοίνωσης σε όλους τους χρήστες σε όλους τους κεντρικούς υπολογιστές"}.
-{"Send announcement to all users","Αποστολή ανακοίνωσης σε όλους τους χρήστες"}.
 {"September","Σεπτέμβριος"}.
 {"Server ~b","Διακομιστής  ~b"}.
 {"Server:","Διακομιστής:"}.
@@ -393,7 +390,6 @@
 {"Username:","Όνομα χρήστη"}.
 {"Users are not allowed to register accounts so quickly","Οι χρήστες δεν επιτρέπεται να εγγραφούν λογαριασμούς τόσο γρήγορα"}.
 {"Users Last Activity","Τελευταία Δραστηριότητα Χρήστη"}.
-{"Users","Χρήστες"}.
 {"User ","Χρήστης"}.
 {"User","Χρήστης"}.
 {"Validate","Επαληθεύστε"}.

@@ -23,7 +23,6 @@
 {"Allow visitors to send private messages to","傍聴者によるプライベートメッセージの送信を次の相手に許可"}.
 {"Allow visitors to send status text in presence updates","傍聴者によるプレゼンス更新のステータス文の送信を許可"}.
 {"Allow visitors to send voice requests","傍聴者による発言権の要求を許可"}.
-{"All Users","全ユーザー"}.
 {"Announcements","アナウンス"}.
 {"anyone","誰にでも"}.
 {"A password is required to enter this room","この談話室に入るにはパスワードが必要です"}.
@@ -311,8 +310,6 @@
 {"Search users in ","ユーザーの検索: "}.
 {"Send announcement to all online users on all hosts","全ホストのオンラインユーザーにアナウンスを送信"}.
 {"Send announcement to all online users","すべてのオンラインユーザーにアナウンスを送信"}.
-{"Send announcement to all users on all hosts","全ホストのユーザーにアナウンスを送信"}.
-{"Send announcement to all users","すべてのユーザーにアナウンスを送信"}.
 {"September","9月"}.
 {"Server:","サーバー:"}.
 {"Server ~b","サーバー ~b"}.
@@ -393,7 +390,6 @@
 {"User JID","ユーザー JID"}.
 {"User Management","ユーザー管理"}.
 {"Username:","ユーザー名:"}.
-{"Users","ユーザー"}.
 {"Users are not allowed to register accounts so quickly","それほど速くアカウントを登録することはできません"}.
 {"Users Last Activity","ユーザーの活動履歴"}.
 {"Validate","検証"}.

@@ -10,7 +10,6 @@
 {"Add User","Adicionar utilizador"}.
 {"Administration of ","Administração de "}.
 {"Administrator privileges required","São necessários privilégios de administrador"}.
-{"All Users","Todos os utilizadores"}.
 {"Backup","Guardar cópia de segurança"}.
 {"Backup Management","Gestão de cópias de segurança"}.
 {"Backup to File at ","Guardar cópia de segurança para ficheiro em "}.
@@ -127,7 +126,6 @@
 {"To","Para"}.
 {"To ~s","A ~s"}.
 {"Update","Actualizar"}.
-{"Users","Utilizadores"}.
 {"User ","Utilizador"}.
 {"User","Utilizador"}.
 {"Visitors are not allowed to send messages to all occupants","Os visitantes não podem enviar mensagens para todos os ocupantes"}.

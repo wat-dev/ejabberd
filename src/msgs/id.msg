@@ -21,7 +21,6 @@
 {"Allow users to send private messages","perbolehkan pengguna mengirimkan pesan ke pengguna lain secara pribadi"}.
 {"Allow visitors to change nickname","Perbolehkan visitor mengganti nama julukan"}.
 {"Allow visitors to send status text in presence updates","Izinkan pengunjung untuk mengirim teks status terbaru"}.
-{"All Users","Semua Pengguna"}.
 {"Announcements","Pengumuman"}.
 {"anyone","Siapapun"}.
 {"A password is required to enter this room","Diperlukan kata sandi untuk masuk ruangan ini"}.
@@ -301,8 +300,6 @@
 {"Search users in ","Pencarian pengguna dalam"}.
 {"Send announcement to all online users","Kirim pengumuman untuk semua pengguna yang online"}.
 {"Send announcement to all online users on all hosts","Kirim pengumuman untuk semua pengguna yang online pada semua host"}.
-{"Send announcement to all users","Kirim pengumuman untuk semua pengguna"}.
-{"Send announcement to all users on all hosts","Kirim pengumuman untuk semua pengguna pada semua host"}.
 {"September","September"}.
 {"Server ~b","Layanan ~b"}.
 {"Server:","Layanan:"}.
@@ -383,7 +380,6 @@
 {"User","Pengguna"}.
 {"Users are not allowed to register accounts so quickly","Pengguna tidak diperkenankan untuk mendaftar akun begitu cepat"}.
 {"Users Last Activity","Aktifitas terakhir para pengguna"}.
-{"Users","Pengguna"}.
 {"Validate","Mengesahkan"}.
 {"vCard User Search","vCard Pencarian Pengguna"}.
 {"Virtual Hosts","Virtual Hosts"}.

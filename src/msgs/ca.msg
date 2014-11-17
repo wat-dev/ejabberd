@@ -23,7 +23,6 @@
 {"Allow visitors to send private messages to","Permetre als visitants enviar missatges privats a"}.
 {"Allow visitors to send status text in presence updates","Permetre als visitants enviar text d'estat en les actualitzacions de presència"}.
 {"Allow visitors to send voice requests","Permetre als visitants enviar peticions de veu"}.
-{"All Users","Tots els usuaris"}.
 {"Announcements","Anuncis"}.
 {"anyone","qualsevol"}.
 {"A password is required to enter this room","Es necessita contrasenya per a entrar en aquesta sala"}.
@@ -311,8 +310,6 @@
 {"Search users in ","Cerca usuaris en "}.
 {"Send announcement to all online users","Enviar anunci a tots els usuaris connectats"}.
 {"Send announcement to all online users on all hosts","Enviar anunci a tots els usuaris connectats a tots els hosts"}.
-{"Send announcement to all users","Enviar anunci a tots els usuaris"}.
-{"Send announcement to all users on all hosts","Enviar anunci a tots els usuaris de tots els hosts"}.
 {"September","Setembre"}.
 {"Server ~b","Servidor ~b"}.
 {"Server:","Servidor:"}.
@@ -393,7 +390,6 @@
 {"Username:","Nom d'usuari:"}.
 {"Users are not allowed to register accounts so quickly","Els usuaris no tenen permís per a crear comptes tan depresa"}.
 {"Users Last Activity","Última activitat d'usuari"}.
-{"Users","Usuaris"}.
 {"User ","Usuari "}.
 {"User","Usuari"}.
 {"Validate","Validar"}.

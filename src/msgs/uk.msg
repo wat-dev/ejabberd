@@ -21,7 +21,6 @@
 {"Allow users to send private messages","Дозволити приватні повідомлення"}.
 {"Allow visitors to change nickname","Дозволити відвідувачам змінювати псевдонім"}.
 {"Allow visitors to send status text in presence updates","Дозволити відвідувачам відсилати текст статусу в оновленнях присутності"}.
-{"All Users","Всі користувачі"}.
 {"Announcements","Сповіщення"}.
 {"anyone","всім учасникам"}.
 {"A password is required to enter this room","Щоб зайти в цю конференцію, необхідно ввести пароль"}.
@@ -302,8 +301,6 @@
 {"Search users in ","Пошук користувачів в "}.
 {"Send announcement to all online users on all hosts","Надіслати сповіщення всім підключеним користувачам на всіх віртуальних серверах"}.
 {"Send announcement to all online users","Надіслати сповіщення всім підключеним користувачам"}.
-{"Send announcement to all users on all hosts","Надіслати сповіщення до усіх користувачів на усіх хостах"}.
-{"Send announcement to all users","Надіслати сповіщення всім користувачам"}.
 {"September","вересня"}.
 {"Server ~b","Сервер ~b"}.
 {"Server:","Сервер:"}.
@@ -383,7 +380,6 @@
 {"Username:","Ім'я користувача:"}.
 {"Users are not allowed to register accounts so quickly","Користувачам не дозволено так часто реєструвати облікові записи"}.
 {"Users Last Activity","Статистика останнього підключення користувачів"}.
-{"Users","Користувачі"}.
 {"User ","Користувач "}.
 {"User","Користувач"}.
 {"Validate","Затвердити"}.

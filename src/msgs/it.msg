@@ -23,7 +23,6 @@
 {"Allow visitors to send private messages to","Consentire agli ospiti l'invio di messaggi privati a"}.
 {"Allow visitors to send status text in presence updates","Consentire ai visitatori l'invio di testo sullo stato in aggiornamenti sulla presenza"}.
 {"Allow visitors to send voice requests","Consentire agli ospiti l'invio di richieste di parola"}.
-{"All Users","Tutti gli utenti"}.
 {"Announcements","Annunci"}.
 {"anyone","tutti"}.
 {"A password is required to enter this room","Per entrare in questa stanza è prevista una password"}.
@@ -311,8 +310,6 @@
 {"Search users in ","Cercare utenti in "}.
 {"Send announcement to all online users","Inviare l'annuncio a tutti gli utenti online"}.
 {"Send announcement to all online users on all hosts","Inviare l'annuncio a tutti gli utenti online su tutti gli host"}.
-{"Send announcement to all users","Inviare l'annuncio a tutti gli utenti"}.
-{"Send announcement to all users on all hosts","Inviare l'annuncio a tutti gli utenti su tutti gli host"}.
 {"September","Settembre"}.
 {"Server ~b","Server ~b"}.
 {"Server:","Server:"}.
@@ -393,7 +390,6 @@
 {"Username:","Nome utente:"}.
 {"Users are not allowed to register accounts so quickly","Non è consentito agli utenti registrare account così rapidamente"}.
 {"Users Last Activity","Ultima attività degli utenti"}.
-{"Users","Utenti"}.
 {"User ","Utente "}.
 {"User","Utente"}.
 {"Validate","Validare"}.
