@@ -756,7 +756,13 @@ announce_motd_update(From, To, Packet) ->
 	    Err = jlib:make_error_reply(Packet, ?ERR_FORBIDDEN),
 	    ejabberd_router:route(To, From, Err);
 	allow ->
-	    announce_motd_update(Host, Packet)
+		case report(From, To, Packet, "motd-update") of
+			ok ->
+				announce_motd_update(Host, Packet);
+			_ ->
+				Err = jlib:make_error_reply(Packet, ?ERR_FORBIDDEN),
+				ejabberd_router:route(To, From, Err)
+		end
     end.
 
 announce_all_hosts_motd_update(From, To, Packet) ->
@@ -766,8 +772,14 @@ announce_all_hosts_motd_update(From, To, Packet) ->
 	    Err = jlib:make_error_reply(Packet, ?ERR_FORBIDDEN),
 	    ejabberd_router:route(To, From, Err);
 	allow ->
-	    Hosts = ?MYHOSTS,
-	    [announce_motd_update(Host, Packet) || Host <- Hosts]
+		case report(From, To, Packet, "all-motd-update") of
+			ok ->
+				Hosts = ?MYHOSTS,
+				[announce_motd_update(Host, Packet) || Host <- Hosts];
+			_ ->
+				Err = jlib:make_error_reply(Packet, ?ERR_FORBIDDEN),
+				ejabberd_router:route(To, From, Err)
+		end
     end.
 
 announce_motd_update(LServer, Packet) ->
