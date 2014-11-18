@@ -25,7 +25,7 @@ BEAMS = $(addprefix $(OUTDIR)/,$(SOURCES:.erl=.beam))
 all:    $(BEAMS)
 
 $(OUTDIR)/%.beam:       %.erl
-	@ERLC@ -W $(EFLAGS) -D@db_type@ -o $(OUTDIR) $<
+	@ERLC@ -W $(EFLAGS) -o $(OUTDIR) $<
 
 clean:
 	rm -f $(BEAMS)

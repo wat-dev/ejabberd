@@ -68,15 +68,6 @@ AC_ARG_ENABLE(roster_gateway_workaround,
 esac],[roster_gateway_workaround=false])
 AC_SUBST(roster_gateway_workaround)
 
-AC_ARG_ENABLE(mssql,
-[AC_HELP_STRING([--enable-mssql], [use Microsoft SQL Server database (default: no, requires --enable-odbc)])],
-[case "${enableval}" in
-  yes) db_type=mssql ;;
-  no)  db_type=generic ;;
-  *) AC_MSG_ERROR(bad value ${enableval} for --enable-mssql) ;;
-esac],[db_type=generic])
-AC_SUBST(db_type)
-
 AC_ARG_ENABLE(transient_supervisors,
 [AC_HELP_STRING([--enable-transient_supervisors], [use Erlang supervision for transient process (default: yes)])],
 [case "${enableval}" in
