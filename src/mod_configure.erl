@@ -724,8 +724,13 @@ adhoc_local_commands(From, #jid{lserver = LServer} = _To,
 		Fields ->
 		    case catch set_form(From, LServer, LNode, Lang, Fields) of
 			{result, Res} ->
-				?WARNING_MSG("~p has submitted admin form to ~p > ~p:~n~p",
-					[jlib:jid_to_string(From), LServer, LNode, Fields]),
+				odbc_queries:add_security_log(LServer,
+					ejabberd_odbc:escape(From#jid.user),
+					ejabberd_odbc:escape(From#jid.server),
+					"mod_configure",
+					"submit_form",
+					io_lib:format("~p", [Fields]),
+					now()),
 			    adhoc:produce_response(
 			      #adhoc_response{lang = Lang,
 			                      node = Node,

@@ -30,11 +30,8 @@ addlog(Timestamp, IP, JID, Source, Action) ->
 	SSource = ejabberd_odbc:escape("Authentication source: " ++ Source),
 	SAction = ejabberd_odbc:escape(Action),
 	SIP = ejabberd_odbc:escape(jlib:ip_to_list(IP)),
-	{{TYear, TMonth, TDay}, {THour, TMin, TSec}} = calendar:now_to_local_time(Timestamp),
-	STimestamp = lists:flatten(io_lib:format("~4..0b-~2..0b-~2..0b ~2..0b:~2..0b:~2..0b",
-											 [TYear, TMonth, TDay, THour, TMin, TSec])),
 	odbc_queries:add_security_log(LServer,
-		SUser, SServer, SIP, SAction, SSource, STimestamp),
+		SUser, SServer, SIP, SAction, SSource, Timestamp),
 	ok.
 
 auth_success_log(IP, JID, Source) ->

@@ -570,9 +570,12 @@ del_privacy_lists(LServer, Server, Username) ->
       ["delete from privacy_default_list where username='", Username, "';"]).
 
 add_security_log(LServer, Username, Server, Source, Action, Description, Timestamp) ->
+	{{TYear, TMonth, TDay}, {THour, TMin, TSec}} = calendar:now_to_local_time(Timestamp),
+	STimestamp = lists:flatten(io_lib:format("~4..0b-~2..0b-~2..0b ~2..0b:~2..0b:~2..0b",
+			[TYear, TMonth, TDay, THour, TMin, TSec])),
 	ejabberd_odbc:sql_query(LServer,
 		["INSERT INTO security_logs.ejabberd (username, server, source, action, description, timestamp) "
-		"VALUES ('", Username, "', '", Server, "', '", Source, "', '", Action, "', '", Description, "', '", Timestamp, "');"]).
+		"VALUES ('", Username, "', '", Server, "', '", Source, "', '", Action, "', '", Description, "', '", STimestamp, "');"]).
 
 %% Characters to escape
 escape($\0) -> "\\0";
