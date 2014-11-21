@@ -436,6 +436,8 @@ process_term(Term, State) ->
 	    add_option(captcha_host, Host, State);
         {captcha_limit, Limit} ->
             add_option(captcha_limit, Limit, State);
+    {reporting, ReportingOptions} ->
+    	add_option(reporting, ReportingOptions, State);
 	{ejabberdctl_access_commands, ACs} ->
 	    add_option(ejabberdctl_access_commands, ACs, State);
 	{loglevel, Loglevel} ->

@@ -450,7 +450,7 @@ adhoc_local_commands(From, #jid{lserver = LServer} = _To,
 					ejabberd_odbc:escape(From#jid.server),
 					"mod_configure",
 					"submit_form",
-					io_lib:format("~p", [Fields]),
+					io_lib:format("~p: ~p", [LNode, Fields]),
 					now()),
 			    adhoc:produce_response(
 			      #adhoc_response{lang = Lang,

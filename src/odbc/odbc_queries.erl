@@ -87,7 +87,8 @@
 
 -include("ejabberd.hrl").
 
--define(PASSWORD_ENCRYPTION_KEY, "SHA2('" ++ ejabberd_odbc:escape(ejabberd_config:get_global_option(odbc_encryption_key)) ++ "', 512)").
+-define(PASSWORD_ENCRYPTION_KEY(LServer),
+	"SHA2('" ++ ejabberd_odbc:escape(ejabberd_config:get_local_option({odbc_encryption_key, LServer})) ++ "', 512)").
 
 %% Almost a copy of string:join/2.
 %% We use this version because string:join/2 is relatively
@@ -170,7 +171,7 @@ del_last(LServer, Username) ->
 get_password(LServer, Username) ->
     ejabberd_odbc:sql_query(
       LServer,
-      ["select AES_DECRYPT(UNHEX(password), " ?PASSWORD_ENCRYPTION_KEY ") AS password from users "
+      ["select AES_DECRYPT(UNHEX(password), " ?PASSWORD_ENCRYPTION_KEY(LServer) ") AS password from users "
        "where username='", Username, "';"]).
 
 set_password_t(LServer, Username, Pass) ->
@@ -178,7 +179,7 @@ set_password_t(LServer, Username, Pass) ->
       LServer,
       fun() ->
 	      update_t_noesc("users", ["username", "password"],
-		    ["'" ++ Username ++ "'", "HEX(AES_ENCRYPT('" ++ Pass ++ "', " ?PASSWORD_ENCRYPTION_KEY "))"],
+		    ["'" ++ Username ++ "'", "HEX(AES_ENCRYPT('" ++ Pass ++ "', " ?PASSWORD_ENCRYPTION_KEY(LServer) "))"],
 		       ["username='", Username ,"'"])
       end).
 
@@ -186,7 +187,7 @@ add_user(LServer, Username, Pass, Source) ->
     ejabberd_odbc:sql_query(
       LServer,
       ["insert into users(username, password, source) "
-      	"values ('", Username, "', HEX(AES_ENCRYPT('", Pass, "', " ?PASSWORD_ENCRYPTION_KEY ")), '", Source, "');"]).
+      	"values ('", Username, "', HEX(AES_ENCRYPT('", Pass, "', " ?PASSWORD_ENCRYPTION_KEY(LServer) ")), '", Source, "');"]).
 
 del_user(LServer, Username) ->
     LockedPassword = string:concat("locked ", lists:flatten(io_lib:format("~p", [erlang:localtime()]))),
@@ -200,12 +201,12 @@ get_random_string(Length, AllowedChars) ->
                 ++ Acc
         end, [], lists:seq(1, Length)).
 
-del_user_return_password(_LServer, Username, Pass) ->
+del_user_return_password(LServer, Username, Pass) ->
     P = ejabberd_odbc:sql_query_t(
-	  	["select AES_DECRYPT(UNHEX(password), " ?PASSWORD_ENCRYPTION_KEY ") AS password from users where username='",
+	  	["select AES_DECRYPT(UNHEX(password), " ?PASSWORD_ENCRYPTION_KEY(LServer) ") AS password from users where username='",
 	   Username, "';"]),
     ejabberd_odbc:sql_query_t(["delete from users "
-			"where username='", Username, "' and password = HEX(AES_ENCRYPT('", Pass, "', " ?PASSWORD_ENCRYPTION_KEY, "));"]),
+			"where username='", Username, "' and password = HEX(AES_ENCRYPT('", Pass, "', " ?PASSWORD_ENCRYPTION_KEY(LServer), "));"]),
     P.
 
 list_users(LServer) ->
