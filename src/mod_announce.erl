@@ -97,20 +97,11 @@ loop() ->
 	{announce_motd, From, To, Packet} ->
 	    announce_motd(From, To, Packet),
 	    loop();
-	{announce_all_hosts_motd, From, To, Packet} ->
-	    announce_all_hosts_motd(From, To, Packet),
-	    loop();
 	{announce_motd_update, From, To, Packet} ->
 	    announce_motd_update(From, To, Packet),
 	    loop();
-	{announce_all_hosts_motd_update, From, To, Packet} ->
-	    announce_all_hosts_motd_update(From, To, Packet),
-	    loop();
 	{announce_motd_delete, From, To, Packet} ->
 	    announce_motd_delete(From, To, Packet),
-	    loop();
-	{announce_all_hosts_motd_delete, From, To, Packet} ->
-	    announce_all_hosts_motd_delete(From, To, Packet),
 	    loop();
 	_ ->
 	    loop()
@@ -146,20 +137,11 @@ announce(From, To, Packet) ->
 		{"announce/motd", "message"} ->
 		    Proc ! {announce_motd, From, To, Packet},
 		    stop;
-		{"announce/all-hosts/motd", "message"} ->
-		    Proc ! {announce_all_hosts_motd, From, To, Packet},
-		    stop;
 		{"announce/motd/update", "message"} ->
 		    Proc ! {announce_motd_update, From, To, Packet},
 		    stop;
-		{"announce/all-hosts/motd/update", "message"} ->
-		    Proc ! {announce_all_hosts_motd_update, From, To, Packet},
-		    stop;
 		{"announce/motd/delete", "message"} ->
 		    Proc ! {announce_motd_delete, From, To, Packet},
-		    stop;
-		{"announce/all-hosts/motd/delete", "message"} ->
-		    Proc ! {announce_all_hosts_motd_delete, From, To, Packet},
 		    stop;
 		_ ->
 		    ok
@@ -185,15 +167,9 @@ disco_identity(Acc, _From, _To, Node, Lang) ->
 	    ?INFO_COMMAND(Lang, Node);
 	?NS_ADMINL("set-motd") ->
 	    ?INFO_COMMAND(Lang, Node);
-	?NS_ADMINL("set-motd-allhosts") ->
-	    ?INFO_COMMAND(Lang, Node);
 	?NS_ADMINL("edit-motd") ->
 	    ?INFO_COMMAND(Lang, Node);
-	?NS_ADMINL("edit-motd-allhosts") ->
-	    ?INFO_COMMAND(Lang, Node);
 	?NS_ADMINL("delete-motd") ->
-	    ?INFO_COMMAND(Lang, Node);
-	?NS_ADMINL("delete-motd-allhosts") ->
 	    ?INFO_COMMAND(Lang, Node);
 	_ ->
 	    Acc
@@ -246,12 +222,6 @@ disco_features(Acc, From, #jid{lserver = LServer} = _To,
 		?NS_ADMIN ++ "#delete-motd" ->
 		    ?INFO_RESULT(Allow, [?NS_COMMANDS]);
 		?NS_ADMIN ++ "#announce-allhosts" ->
-		    ?INFO_RESULT(AllowGlobal, [?NS_COMMANDS]);
-		?NS_ADMIN ++ "#set-motd-allhosts" ->
-		    ?INFO_RESULT(AllowGlobal, [?NS_COMMANDS]);
-		?NS_ADMIN ++ "#edit-motd-allhosts" ->
-		    ?INFO_RESULT(AllowGlobal, [?NS_COMMANDS]);
-		?NS_ADMIN ++ "#delete-motd-allhosts" ->
 		    ?INFO_RESULT(AllowGlobal, [?NS_COMMANDS]);
 		_ ->
 		    Acc
@@ -325,12 +295,6 @@ disco_items(Acc, From, #jid{lserver = LServer} = _To, Node, _Lang) ->
 		    ?ITEMS_RESULT(Allow, []);
 		?NS_ADMIN ++ "#announce-allhosts" ->
 		    ?ITEMS_RESULT(AllowGlobal, []);
-		?NS_ADMIN ++ "#set-motd-allhosts" ->
-		    ?ITEMS_RESULT(AllowGlobal, []);
-		?NS_ADMIN ++ "#edit-motd-allhosts" ->
-		    ?ITEMS_RESULT(AllowGlobal, []);
-		?NS_ADMIN ++ "#delete-motd-allhosts" ->
-		    ?ITEMS_RESULT(AllowGlobal, []);
 		_ ->
 		    Acc
 	    end
@@ -352,10 +316,7 @@ announce_items(Acc, From, #jid{lserver = LServer, server = Server} = _To, Lang) 
     Access2 = gen_mod:get_module_opt(global, ?MODULE, access, none),
     Nodes2 = case acl:match_rule(global, Access2, From) of
 		 allow ->
-		     [?NODE_TO_ITEM(Lang, Server, ?NS_ADMIN ++ "#announce-allhosts"),
-		      ?NODE_TO_ITEM(Lang, Server, ?NS_ADMIN ++ "#set-motd-allhosts"),
-		      ?NODE_TO_ITEM(Lang, Server, ?NS_ADMIN ++ "#edit-motd-allhosts"),
-		      ?NODE_TO_ITEM(Lang, Server, ?NS_ADMIN ++ "#delete-motd-allhosts")];
+		    [?NODE_TO_ITEM(Lang, Server, ?NS_ADMIN ++ "#announce-allhosts")];
 		 deny ->
 		     []
 	     end,
@@ -391,9 +352,6 @@ announce_commands(Acc, From, #jid{lserver = LServer} = To,
 	end,
     R = case LNode of
 	    ?NS_ADMINL("announce-allhosts") -> F();
-	    ?NS_ADMINL("set-motd-allhosts") -> F();
-	    ?NS_ADMINL("edit-motd-allhosts") -> F();
-	    ?NS_ADMINL("delete-motd-allhosts") -> F();
 	    _ ->
 		Access = gen_mod:get_module_opt(LServer, ?MODULE, access, none),
 		Allow = acl:match_rule(LServer, Access, From),
@@ -467,8 +425,7 @@ vvaluel(Val) ->
 
 generate_adhoc_form(Lang, Node, ServerHost) ->
     LNode = tokenize(Node),
-    {OldSubject, OldBody} = if (LNode == ?NS_ADMINL("edit-motd")) 
-			       or (LNode == ?NS_ADMINL("edit-motd-allhosts")) ->
+    {OldSubject, OldBody} = if LNode == ?NS_ADMINL("edit-motd") ->
 				    get_stored_motd(ServerHost);
 			       true -> 
 				    {[], []}
@@ -479,8 +436,7 @@ generate_adhoc_form(Lang, Node, ServerHost) ->
      [?HFIELD(),
       {xmlelement, "title", [], [{xmlcdata, get_title(Lang, Node)}]}]
      ++
-     if (LNode == ?NS_ADMINL("delete-motd"))
-	or (LNode == ?NS_ADMINL("delete-motd-allhosts")) ->
+     if LNode == ?NS_ADMINL("delete-motd") ->
 	     [{xmlelement, "field",
 	       [{"var", "confirm"},
 		{"type", "boolean"},
@@ -565,13 +521,6 @@ handle_adhoc_form(From, #jid{lserver = LServer} = To,
 		true ->
 		    adhoc:produce_response(Response)
 	    end;
-	{?NS_ADMIN ++ "#delete-motd-allhosts", _} ->
-	    if	Confirm ->
-		    Proc ! {announce_all_hosts_motd_delete, From, To, Packet},
-		    adhoc:produce_response(Response);
-		true ->
-		    adhoc:produce_response(Response)
-	    end;
 	{_, []} ->
 	    %% An announce message with no body is definitely an operator error.
 	    %% Throw an error and give him/her a chance to send message again.
@@ -590,14 +539,8 @@ handle_adhoc_form(From, #jid{lserver = LServer} = To,
 	{?NS_ADMIN ++ "#set-motd", _} ->
 	    Proc ! {announce_motd, From, To, Packet},
 	    adhoc:produce_response(Response);
-	{?NS_ADMIN ++ "#set-motd-allhosts", _} ->	    
-	    Proc ! {announce_all_hosts_motd, From, To, Packet},
-	    adhoc:produce_response(Response);
 	{?NS_ADMIN ++ "#edit-motd", _} ->
 	    Proc ! {announce_motd_update, From, To, Packet},
-	    adhoc:produce_response(Response);
-	{?NS_ADMIN ++ "#edit-motd-allhosts", _} ->	    
-	    Proc ! {announce_all_hosts_motd_update, From, To, Packet},
 	    adhoc:produce_response(Response);
 	_ ->
 	    %% This can't happen, as we haven't registered any other
@@ -613,16 +556,10 @@ get_title(Lang, ?NS_ADMIN ++ "#announce-allhosts") ->
     translate:translate(Lang, "Send announcement to all online users on all hosts");
 get_title(Lang, ?NS_ADMIN ++ "#set-motd") ->
     translate:translate(Lang, "Set message of the day and send to online users");
-get_title(Lang, ?NS_ADMIN ++ "#set-motd-allhosts") ->
-    translate:translate(Lang, "Set message of the day on all hosts and send to online users");
 get_title(Lang, ?NS_ADMIN ++ "#edit-motd") ->
     translate:translate(Lang, "Update message of the day (don't send)");
-get_title(Lang, ?NS_ADMIN ++ "#edit-motd-allhosts") ->
-    translate:translate(Lang, "Update message of the day on all hosts (don't send)");
 get_title(Lang, ?NS_ADMIN ++ "#delete-motd") ->
-    translate:translate(Lang, "Delete message of the day");
-get_title(Lang, ?NS_ADMIN ++ "#delete-motd-allhosts") ->
-    translate:translate(Lang, "Delete message of the day on all hosts").
+    translate:translate(Lang, "Delete message of the day").
 
 %%-------------------------------------------------------------------------
 
@@ -702,23 +639,6 @@ announce_motd(From, To, Packet) ->
 		end
     end.
 
-announce_all_hosts_motd(From, To, Packet) ->
-    Access = gen_mod:get_module_opt(global, ?MODULE, access, none),
-    case acl:match_rule(global, Access, From) of
-	deny ->
-	    Err = jlib:make_error_reply(Packet, ?ERR_FORBIDDEN),
-	    ejabberd_router:route(To, From, Err);
-	allow ->
-		case report(From, To, Packet, "all-motd") of
-			ok ->
-	    		Hosts = ?MYHOSTS,
-	    		[announce_motd(Host, Packet) || Host <- Hosts];
-	    	_ ->
-	    		Err = jlib:make_error_reply(Packet, ?ERR_FORBIDDEN),
-	    		ejabberd_router:route(To, From, Err)
-	    end
-    end.
-
 announce_motd(Host, Packet) ->
     LServer = jlib:nameprep(Host),
     announce_motd_update(LServer, Packet),
@@ -765,23 +685,6 @@ announce_motd_update(From, To, Packet) ->
 		end
     end.
 
-announce_all_hosts_motd_update(From, To, Packet) ->
-    Access = gen_mod:get_module_opt(global, ?MODULE, access, none),
-    case acl:match_rule(global, Access, From) of
-	deny ->
-	    Err = jlib:make_error_reply(Packet, ?ERR_FORBIDDEN),
-	    ejabberd_router:route(To, From, Err);
-	allow ->
-		case report(From, To, Packet, "all-motd-update") of
-			ok ->
-				Hosts = ?MYHOSTS,
-				[announce_motd_update(Host, Packet) || Host <- Hosts];
-			_ ->
-				Err = jlib:make_error_reply(Packet, ?ERR_FORBIDDEN),
-				ejabberd_router:route(To, From, Err)
-		end
-    end.
-
 announce_motd_update(LServer, Packet) ->
     announce_motd_delete(LServer),
     case gen_mod:db_type(LServer, ?MODULE) of
@@ -811,17 +714,6 @@ announce_motd_delete(From, To, Packet) ->
 	    ejabberd_router:route(To, From, Err);
 	allow ->
 	    announce_motd_delete(Host)
-    end.
-
-announce_all_hosts_motd_delete(From, To, Packet) ->
-    Access = gen_mod:get_module_opt(global, ?MODULE, access, none),
-    case acl:match_rule(global, Access, From) of
-	deny ->
-	    Err = jlib:make_error_reply(Packet, ?ERR_FORBIDDEN),
-	    ejabberd_router:route(To, From, Err);
-	allow ->
-	    Hosts = ?MYHOSTS,
-	    [announce_motd_delete(Host) || Host <- Hosts]
     end.
 
 announce_motd_delete(LServer) ->
