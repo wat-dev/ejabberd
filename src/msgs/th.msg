@@ -1,9 +1,5 @@
-{"Access Configuration","การกำหนดค่าการเข้าถึง"}.
-{"Access Control List Configuration","การกำหนดค่ารายการควบคุมการเข้าถึง"}.
-{"Access control lists","รายการควบคุมการเข้าถึง"}.
 {"Access Control Lists","รายการควบคุมการเข้าถึง"}.
 {"Access denied by service policy","การเข้าถึงถูกปฏิเสธโดยนโยบายการบริการ"}.
-{"Access rules","กฎการเข้าถึง"}.
 {"Access Rules","กฎการเข้าถึง"}.
 {"Action on user","การดำเนินการกับผู้ใช้"}.
 {"Add Jabber ID","เพิ่ม Jabber ID"}.
@@ -22,9 +18,7 @@
 {"April","เมษายน"}.
 {"August","สิงหาคม"}.
 {"Backup","การสำรองข้อมูล "}.
-{"Backup Management","การจัดการข้อมูลสำรอง"}.
 {"Backup of ","การสำรองข้อมูล"}.
-{"Backup to File at ","สำรองไฟล์ข้อมูลที่"}.
 {"Bad format","รูปแบบที่ไม่ถูกต้อง"}.
 {"Birthday","วันเกิด"}.
 {"Change Password","เปลี่ยนรหัสผ่าน"}.
@@ -32,8 +26,6 @@
 {"Chatroom configuration modified","มีการปรับเปลี่ยนการกำหนดค่าของห้องสนทนา"}.
 {"Chatrooms","ห้องสนทนา"}.
 {"Choose a username and password to register with this server","เลือกชื่อผู้ใช้และรหัสผ่านเพื่อลงทะเบียนกับเซิร์ฟเวอร์นี้"}.
-{"Choose modules to stop","เลือกโมดูลเพื่อหยุดการทำงาน"}.
-{"Choose storage type of tables","เลือกชนิดการจัดเก็บของตาราง"}.
 {"Choose whether to approve this entity's subscription.","เลือกว่าจะอนุมัติการสมัครเข้าใช้งานของเอนทิตี้นี้หรือไม่"}.
 {"City","เมือง"}.
 {"Commands","คำสั่ง"}.
@@ -44,21 +36,16 @@
 {"CPU Time:","เวลาการทำงานของ CPU:"}.
 {"Database","ฐานข้อมูล"}.
 {"Database Tables at ","ตารางฐานข้อมูลที่"}.
-{"Database Tables Configuration at ","การกำหนดค่าตารางฐานข้อมูลที่"}.
 {"December","ธันวาคม"}.
 {"Default users as participants","ผู้ใช้เริ่มต้นเป็นผู้เข้าร่วม"}.
 {"Delete","ลบ"}.
 {"Delete message of the day","ลบข้อความของวัน"}.
-{"Delete message of the day on all hosts","ลบข้อความของวันบนโฮสต์ทั้งหมด"}.
 {"Delete Selected","ลบข้อความที่เลือก"}.
 {"Delete User","ลบผู้ใช้"}.
 {"Deliver event notifications","ส่งการแจ้งเตือนเหตุการณ์"}.
 {"Deliver payloads with event notifications","ส่งส่วนของข้อมูล (payload) พร้อมกับการแจ้งเตือนเหตุการณ์"}.
 {"Description:","รายละเอียด:"}.
-{"Disc only copy","คัดลอกเฉพาะดิสก์"}.
 {"Displayed Groups:","กลุ่มที่แสดง:"}.
-{"Dump Backup to Text File at ","ถ่ายโอนการสำรองข้อมูลไปยังไฟล์ข้อความที่"}.
-{"Dump to Text File","ถ่ายโอนข้อมูลไปยังไฟล์ข้อความ"}.
 {"Edit Properties","แก้ไขคุณสมบัติ"}.
 {"ejabberd IRC module","ejabberd IRC module"}.
 {"ejabberd MUC module","ejabberd MUC module"}.
@@ -68,12 +55,7 @@
 {"Email","อีเมล"}.
 {"Enable logging","เปิดใช้งานการบันทึก"}.
 {"End User Session","สิ้นสุดเซสชันของผู้ใช้"}.
-{"Enter list of {Module, [Options]}","ป้อนรายการของ {โมดูล, [ตัวเลือก]}"}.
 {"Enter nickname you want to register","ป้อนชื่อเล่นที่คุณต้องการลงทะเบียน"}.
-{"Enter path to backup file","ป้อนพาธเพื่อสำรองไฟล์ข้อมูล"}.
-{"Enter path to jabberd14 spool dir","ป้อนพาธไปยัง jabberd14 spool dir"}.
-{"Enter path to jabberd14 spool file","ป้อนพาธไปยังไฟล์เก็บพักข้อมูล jabberd14"}.
-{"Enter path to text file","ป้อนพาธของไฟล์ข้อความ"}.
 {"Erlang Jabber Server","Erlang Jabber Server"}.
 {"Family Name","นามสกุล"}.
 {"February","กุมภาพันธ์"}.
@@ -81,10 +63,7 @@
 {"Fill in the form to search for any matching Jabber User (Add * to the end of field to match substring)","กรอกข้อมูลในแบบฟอร์มเพื่อค้นหาผู้ใช้ Jabber ที่ตรงกัน (ใส่เครื่องหมาย * ที่ท้ายสุดของฟิลด์เพื่อจับคู่กับสตริงย่อย)"}.
 {"Friday","วันศุกร์"}.
 {"From","จาก"}.
-{"From ~s","จาก ~s"}.
 {"Full Name","ชื่อเต็ม"}.
-{"Get Number of Online Users","แสดงจำนวนผู้ใช้ออนไลน์"}.
-{"Get Number of Registered Users","แสดงจำนวนผู้ใช้ที่ลงทะเบียน"}.
 {"Get User Last Login Time","แสดงเวลาเข้าสู่ระบบครั้งล่าสุดของผู้ใช้"}.
 {"Get User Password","ขอรับรหัสผ่านของผู้ใช้"}.
 {"Get User Statistics","แสดงสถิติของผู้ใช้"}.
@@ -94,11 +73,6 @@
 {"has been kicked","ถูกไล่ออก"}.
 {" has set the subject to: "," ตั้งหัวข้อว่า: "}.
 {"Host","โฮสต์"}.
-{"Import Directory","อิมพอร์ตไดเร็กทอรี"}.
-{"Import File","อิมพอร์ตไฟล์"}.
-{"Import User from File at ","อิมพอร์ตผู้ใช้จากไฟล์ที่"}.
-{"Import Users from Dir at ","อิมพอร์ตผู้ใช้จาก Dir ที่"}.
-{"Import Users From jabberd14 Spool Files","อิมพอร์ตผู้ใช้จากไฟล์เก็บพักข้อมูล jabberd14"}.
 {"Improper message type","ประเภทข้อความไม่เหมาะสม"}.
 {"Incorrect password","รหัสผ่านไม่ถูกต้อง"}.
 {"Invalid affiliation: ~s","การเข้าร่วมที่ไม่ถูกต้อง: ~s"}.
@@ -122,7 +96,6 @@
 {"leaves the room","ออกจากห้อง"}.
 {"Listened Ports","พอร์ทฟัง"}.
 {"Listened Ports at ","พอร์ทฟังที่"}.
-{"List of modules to start","รายการของโมดูลที่จะเริ่มการทำงาน"}.
 {"Low level update script","อัพเดตสคริปต์ระดับต่ำ"}.
 {"Make participants list public","สร้างรายการผู้เข้าร่วมสำหรับใช้งานโดยบุคคลทั่วไป"}.
 {"Make room members-only","สร้างห้องสำหรับสมาชิกเท่านั้น"}.
@@ -164,8 +137,6 @@
 {"Notify subscribers when the node is deleted","แจ้งเตือนผู้สมัครสมาชิกเมื่อโหนดถูกลบ"}.
 {"November","พฤศจิกายน"}.
 {"Number of occupants","จำนวนผู้ครอบครองห้อง"}.
-{"Number of online users","จำนวนผู้ใช้ออนไลน์"}.
-{"Number of registered users","จำนวนผู้ใช้ที่ลงทะเบียน"}.
 {"October","ตุลาคม"}.
 {"Offline Messages:","ข้อความออฟไลน์:"}.
 {"Offline Messages","ข้อความออฟไลน์"}.
@@ -181,15 +152,12 @@
 {"Organization Name","ชื่อองค์กร"}.
 {"Organization Unit","หน่วยขององค์กร"}.
 {"Outgoing s2s Connections:","การเชื่อมต่อ s2s ขาออก:"}.
-{"Outgoing s2s Connections","การเชื่อมต่อ s2s ขาออก"}.
 {"Outgoing s2s Servers:","เซิร์ฟเวอร์ s2s ขาออก:"}.
 {"Owner privileges required","ต้องมีสิทธิพิเศษของเจ้าของ"}.
 {"Packet","แพ็กเก็ต"}.
 {"Password:","รหัสผ่าน:"}.
 {"Password","รหัสผ่าน"}.
 {"Password Verification","การตรวจสอบรหัสผ่าน"}.
-{"Path to Dir","พาธไปยัง Dir"}.
-{"Path to File","พาธของไฟล์ข้อมูล"}.
 {"Pending","ค้างอยู่"}.
 {"Period: ","ระยะเวลา:"}.
 {"Persist items to storage","ยืนยันรายการที่จะจัดเก็บ"}.
@@ -201,23 +169,17 @@
 {"Publish-Subscribe","เผยแพร่-สมัครเข้าใช้งาน"}.
 {"PubSub subscriber request","คำร้องขอของผู้สมัครเข้าใช้งาน PubSub"}.
 {"Queries to the conference members are not allowed in this room","ห้องนี้ไม่อนุญาตให้ส่งกระทู้ถามถึงสมาชิกในห้องประชุม"}.
-{"RAM and disc copy","คัดลอก RAM และดิสก์"}.
-{"RAM copy","คัดลอก RAM"}.
 {"Raw","ข้อมูลดิบ"}.
 {"Really delete message of the day?","แน่ใจว่าต้องการลบข้อความของวันหรือไม่"}.
 {"Recipient is not in the conference room","ผู้รับไม่ได้อยู่ในห้องประชุม"}.
 {"Registered Users:","ผู้ใช้ที่ลงทะเบียน:"}.
 {"Registered Users","ผู้ใช้ที่ลงทะเบียน"}.
 {"Registration in mod_irc for ","การลงทะเบียนใน mod_irc สำหรับ"}.
-{"Remote copy","คัดลอกระยะไกล"}.
 {"Remove","ลบ"}.
 {"Remove User","ลบผู้ใช้"}.
 {"Replaced by new connection","แทนที่ด้วยการเชื่อมต่อใหม่"}.
 {"Resources","ทรัพยากร"}.
 {"Restart","เริ่มต้นใหม่"}.
-{"Restart Service","เริ่มต้นการบริการใหม่อีกครั้ง"}.
-{"Restore","การคืนค่า"}.
-{"Restore Backup from File at ","คืนค่าการสำรองข้อมูลจากไฟล์ที่"}.
 {"Restore binary backup after next ejabberd restart (requires less memory):","คืนค่าข้อมูลสำรองแบบไบนารีหลังจากที่ ejabberd ถัดไปเริ่มการทำงานใหม่ (ใช้หน่วยความจำน้อยลง):"}.
 {"Restore binary backup immediately:","คืนค่าข้อมูลสำรองแบบไบนารีโดยทันที:"}.
 {"Restore plain text backup immediately:","คืนค่าข้อมูลสำรองที่เป็นข้อความธรรมดาโดยทันที:"}.
@@ -238,23 +200,17 @@
 {"Send announcement to all online users on all hosts","ส่งประกาศถึงผู้ใช้ออนไลน์ทั้งหมดบนโฮสต์ทั้งหมด"}.
 {"September","กันยายน"}.
 {"Set message of the day and send to online users","ตั้งค่าข้อความของวันและส่งถึงผู้ใช้ออนไลน์"}.
-{"Set message of the day on all hosts and send to online users","ตั้งค่าข้อความของวันบนโฮสต์ทั้งหมดและส่งถึงผู้ใช้ออนไลน์"}.
 {"Shared Roster Groups","กลุ่มบัญชีรายชื่อที่ใช้งานร่วมกัน"}.
 {"Show Integral Table","แสดงตารางรวม"}.
 {"Show Ordinary Table","แสดงตารางทั่วไป"}.
-{"Shut Down Service","ปิดการบริการ"}.
 {"~s invites you to the room ~s","~s เชิญคุณเข้าร่วมสนทนาในห้อง ~s"}.
 {"Specify the access model","ระบุโมเดลการเข้าถึง"}.
 {"Specify the publisher model","ระบุโมเดลผู้เผยแพร่"}.
 {"~s's Offline Messages Queue","~s's ลำดับข้อความออฟไลน์"}.
 {"Start","เริ่ม"}.
-{"Start Modules","เริ่มโมดูล"}.
-{"Start Modules at ","เริ่มโมดูลที่"}.
 {"Statistics","สถิติ"}.
 {"Statistics of ~p","สถิติของ ~p"}.
 {"Stop","หยุด"}.
-{"Stop Modules","หยุดโมดูล"}.
-{"Stop Modules at ","หยุดโมดูลที่"}.
 {"Stopped Nodes","โหนดที่หยุด"}.
 {"Storage Type","ชนิดที่เก็บข้อมูล"}.
 {"Store binary backup:","จัดเก็บข้อมูลสำรองแบบไบนารี:"}.
@@ -269,9 +225,7 @@
 {"This room is not anonymous","ห้องนี้ไม่ปิดบังชื่อ"}.
 {"Thursday","วันพฤหัสบดี"}.
 {"Time","เวลา"}.
-{"Time delay","การหน่วงเวลา"}.
 {"To","ถึง"}.
-{"To ~s","ถึง ~s"}.
 {"Traffic rate limit is exceeded","อัตราของปริมาณการเข้าใช้เกินขีดจำกัด"}.
 {"Transactions Aborted:","ทรานแซกชันที่ถูกยกเลิก:"}.
 {"Transactions Committed:","ทรานแซกชันที่ได้รับมอบหมาย:"}.
@@ -281,7 +235,6 @@
 {"Update ","อัพเดต "}.
 {"Update","อัพเดต"}.
 {"Update message of the day (don't send)","อัพเดตข้อความของวัน (ไม่ต้องส่ง)"}.
-{"Update message of the day on all hosts (don't send)","อัพเดตข้อความของวันบนโฮสต์ทั้งหมด (ไม่ต้องส่ง) "}.
 {"Update plan","แผนการอัพเดต"}.
 {"Update script","อัพเดตสคริปต์"}.
 {"Uptime:","เวลาการทำงานต่อเนื่อง:"}.

@@ -1,9 +1,5 @@
-{"Access Configuration","Åtkomstkonfiguration"}.
-{"Access Control List Configuration","Konfiguera ACL"}.
-{"Access control lists","ACL"}.
 {"Access Control Lists","ACL"}.
 {"Access denied by service policy","Åtkomst nekad enligt lokal policy"}.
-{"Access rules","Åtkomstregler"}.
 {"Access Rules","Åtkomstregler"}.
 {"Action on user","Handling mot användare"}.
 {"Add Jabber ID","Lägg till Jabber ID"}.
@@ -25,10 +21,8 @@
 {"anyone","Vemsomhelst"}.
 {"April","April"}.
 {"August","Augusti"}.
-{"Backup Management","Hantera säkerhetskopior"}.
 {"Backup of ","Backup av"}.
 {"Backup","Säkerhetskopiera"}.
-{"Backup to File at ","Säkerhetskopiera till fil på "}.
 {"Bad format","Dåligt format"}.
 {"Birthday","Födelsedag"}.
 {"Change Password","Ändra lösenord"}.
@@ -36,8 +30,6 @@
 {"Chatroom configuration modified","Chattrum konfiguration modifierad"}.
 {"Chatrooms","Chattrum"}.
 {"Choose a username and password to register with this server","Välj ett användarnamn och lösenord för att registrera mot denna server"}.
-{"Choose modules to stop","Välj vilka moduler som skall stoppas"}.
-{"Choose storage type of tables","Välj lagringstyp för tabeller"}.
 {"Choose whether to approve this entity's subscription.","Välj om du vill godkänna hela denna  prenumertion."}.
 {"City","Stad"}.
 {"Commands","Kommandon"}.
@@ -50,10 +42,8 @@
 {"CPU Time:","CPU tid"}.
 {"Database","Databas"}.
 {"Database Tables at ","Databas tabell pa"}.
-{"Database Tables Configuration at ","Databastabellers konfiguration"}.
 {"December","December"}.
 {"Default users as participants","Gör om användare till deltagare"}.
-{"Delete message of the day on all hosts","Ta bort dagens meddelande på alla värdar"}.
 {"Delete message of the day","Ta bort dagens meddelande"}.
 {"Delete Selected","Tabort valda"}.
 {"Delete","Ta bort"}.
@@ -61,10 +51,7 @@
 {"Deliver event notifications","Skicka eventnotifikation"}.
 {"Deliver payloads with event notifications","Skicka innehåll tillsammans med notifikationer"}.
 {"Description:","Beskrivning:"}.
-{"Disc only copy","Endast diskkopia"}.
 {"Displayed Groups:","Visade grupper:"}.
-{"Dump Backup to Text File at ","Dumpa säkerhetskopia till textfil på "}.
-{"Dump to Text File","Dumpa till textfil"}.
 {"Edit Properties","Redigera egenskaper"}.
 {"ejabberd IRC module","ejabberd IRC-modul"}.
 {"ejabberd MUC module","ejabberd MUC modul"}.
@@ -77,12 +64,7 @@
 {"Enable logging","Möjliggör login"}.
 {"Encoding for server ~b","Encoding för server ~b"}.
 {"End User Session","Avsluta användarsession"}.
-{"Enter list of {Module, [Options]}","Skriv in en lista av {Module, [Options]}"}.
 {"Enter nickname you want to register","Skriv in smeknamnet du vill registrera"}.
-{"Enter path to backup file","Skriv in sökväg till fil för säkerhetskopia"}.
-{"Enter path to jabberd14 spool dir","Skriv in sökväg till spoolkatalog från jabberd14"}.
-{"Enter path to jabberd14 spool file","Skriv in sökväg till spoolfil från jabberd14"}.
-{"Enter path to text file","Skriv in sökväg till textfil"}.
 {"Enter the text you see","Skriv in sökväg till textfil"}.
 {"Enter username, encodings, ports and passwords you wish to use for connecting to IRC servers","Skriv in användarnamn och textkodning du vill använda för att ansluta till IRC-servrar"}.
 {"Erlang Jabber Server","Erlang Jabber Server"}.
@@ -96,10 +78,7 @@
 {"Fill in the form to search for any matching Jabber User (Add * to the end of field to match substring)","Fyll i formuläret för att söka efter en användare (lägg till * på slutet av fältet för att hitta alla som börjar så)"}.
 {"Friday","Fredag"}.
 {"From","Från"}.
-{"From ~s","Från ~s"}.
 {"Full Name","Fullständigt namn"}.
-{"Get Number of Online Users","Hämta antal inloggade användare"}.
-{"Get Number of Registered Users","Hämta antal registrerade användare"}.
 {"Get User Last Login Time","Hämta användarens senast inloggade tid"}.
 {"Get User Password","Hämta användarlösenord"}.
 {"Get User Statistics","Hämta användarstatistik"}.
@@ -113,14 +92,9 @@
 {" has set the subject to: "," har satt ämnet till: "}.
 {"Host","Server"}.
 {"If you want to specify different ports, passwords, encodings for IRC servers, fill this list with values in format '{\"irc server\", \"encoding\", port, \"password\"}'.  By default this service use \"~s\" encoding, port ~p, empty password.","Om du vill specifiera textkodning för IRC-servrar, fyll i listan med värden i formatet '{\"irc server\", \"encoding\", port, \"password\"}'. Som standard används \"~s\", port ~p, no password."}.
-{"Import Directory","Importera katalog"}.
-{"Import File","Importera fil"}.
 {"Import user data from jabberd14 spool file:","Importera användare från jabberd14 Spool filer"}.
-{"Import User from File at ","Importera användare från fil på "}.
 {"Import users data from a PIEFXIS file (XEP-0227):","Importera användardata från en PIEFXIS fil (XEP-0227):"}.
 {"Import users data from jabberd14 spool directory:","Importera användare från jabberd14 Spool directory:"}.
-{"Import Users from Dir at ","Importera användare från katalog på "}.
-{"Import Users From jabberd14 Spool Files","Importera användare från jabberd14 Spool filer"}.
 {"Improper message type","Felaktig medelandetyp"}.
 {"Incorrect password","Fel lösenord"}.
 {"Invalid affiliation: ~s","Ogiltlig rang: ~s"}.
@@ -153,7 +127,6 @@
 {"leaves the room","lämnar rummet"}.
 {"Listened Ports at ","Lyssnande portar på "}.
 {"Listened Ports","Lyssnarport"}.
-{"List of modules to start","Lista av moduler som skall startas"}.
 {"Low level update script","Uppdaterade laglevel skript"}.
 {"Make participants list public","Gör deltagarlistan publik"}.
 {"Make room members-only","Gör om rummet till endast medlemmar"}.
@@ -199,8 +172,6 @@
 {"Notify subscribers when the node is deleted","Meddela prenumeranter när noden tas bort"}.
 {"November","November"}.
 {"Number of occupants","Antal besökare"}.
-{"Number of online users","Antal inloggade användare"}.
-{"Number of registered users","Antal registrerade användare"}.
 {"October","Oktober"}.
 {"Offline Messages:","Offline meddelanden:"}.
 {"Offline Messages","Offline meddelanden"}.
@@ -216,7 +187,6 @@
 {"Options","Parametrar"}.
 {"Organization Name","Organisationsnamn"}.
 {"Organization Unit","Organisationsenhet"}.
-{"Outgoing s2s Connections","Utgaende s2s anslutning"}.
 {"Outgoing s2s Connections:","Utgående s2s anslutning"}.
 {"Outgoing s2s Servers:","Utgående s2s server"}.
 {"Owner privileges required","Ägarprivilegier krävs"}.
@@ -225,8 +195,6 @@
 {"Password:","Lösenord:"}.
 {"Password","Lösenord"}.
 {"Password Verification","Lösenordsverifikation"}.
-{"Path to Dir","Sökväg till katalog"}.
-{"Path to File","Sökväg till fil"}.
 {"Pending","Ännu inte godkända"}.
 {"Period: ","Period: "}.
 {"Persist items to storage","Spara dataposter permanent"}.
@@ -241,23 +209,17 @@
 {"Publish-Subscribe","Publikprenumeration"}.
 {"PubSub subscriber request","Pubsub prenumerationsforfrågan"}.
 {"Queries to the conference members are not allowed in this room","Det är förbjudet att skicka iq-queries till konferensdeltagare"}.
-{"RAM and disc copy","RAM- och diskkopia"}.
-{"RAM copy","RAM-kopia"}.
 {"Raw","Ra"}.
 {"Really delete message of the day?","Verkligen ta bort dagens meddelanden?"}.
 {"Recipient is not in the conference room","Mottagaren finns inte i rummet"}.
 {"Registered Users:","Registrerade användare"}.
 {"Registered Users","Registrerade användare"}.
 {"Registration in mod_irc for ","mod_irc-registrering för "}.
-{"Remote copy","Sparas inte lokalt"}.
 {"Remove","Ta bort"}.
 {"Remove User","Ta bort användare"}.
 {"Replaced by new connection","Ersatt av ny anslutning"}.
 {"Resources","Resurser"}.
 {"Restart","Omstart"}.
-{"Restart Service","Starta om servicen"}.
-{"Restore","Återställ"}.
-{"Restore Backup from File at ","Återställ säkerhetskopia från fil på "}.
 {"Restore binary backup after next ejabberd restart (requires less memory):","återställ den binära backupen efter nästa ejabberd omstart"}.
 {"Restore binary backup immediately:","återställ den binära backupen omedelbart"}.
 {"Restore plain text backup immediately:","återställ textbackup omedelbart"}.
@@ -281,22 +243,16 @@
 {"September","September"}.
 {"Server ~b","Server ~b"}.
 {"Set message of the day and send to online users","Sätt dagens status meddelande och skicka till alla användare"}.
-{"Set message of the day on all hosts and send to online users","Sätt dagens status meddelande pa alla värdar och skicka till alla användare"}.
 {"Shared Roster Groups","Delade Rostergrupper"}.
 {"Show Integral Table","Visa kumulativ tabell"}.
 {"Show Ordinary Table","Visa normal tabell"}.
-{"Shut Down Service","Stäng ner servicen"}.
 {"~s invites you to the room ~s","~s bjöd in dig till rummet ~s"}.
 {"Specify the access model","Specificera accessmodellen"}.
 {"Specify the publisher model","Ange publiceringsmodell"}.
 {"~s's Offline Messages Queue","~s's offline meddelandekö"}.
-{"Start Modules at ","Starta moduler på "}.
-{"Start Modules","Starta moduler"}.
 {"Start","Starta"}.
 {"Statistics of ~p","Statistik på ~p"}.
 {"Statistics","Statistik"}.
-{"Stop Modules at ","Stoppa moduler på "}.
-{"Stop Modules","Stanna moduler"}.
 {"Stopped Nodes","Stannade noder"}.
 {"Stop","Stoppa"}.
 {"Storage Type","Lagringstyp"}.
@@ -316,9 +272,7 @@
 {"This participant is kicked from the room because he sent an error presence","Denna deltagaren är kickad från rummet p.g.a att han skickade en errorstatus"}.
 {"This room is not anonymous","Detta rum är inte anonymt"}.
 {"Thursday","Torsdag"}.
-{"Time delay","Tidsförsening"}.
 {"Time","Tid"}.
-{"To ~s","Till ~s"}.
 {"To","Till"}.
 {"Traffic rate limit is exceeded","Trafikgränsen har överstigits"}.
 {"Transactions Aborted:","Transaktioner borttagna"}.
@@ -328,7 +282,6 @@
 {"Tuesday","Tisdag"}.
 {"Unauthorized","Ej auktoriserad"}.
 {"Update message of the day (don't send)","Uppdatera dagens status meddelande (skicka inte)"}.
-{"Update message of the day on all hosts (don't send)","Uppdatera dagens status meddelande på alla värdar (skicka inte)"}.
 {"Update plan","Uppdateringsplan"}.
 {"Update script","Uppdatera skript"}.
 {"Update ","Uppdatera"}.

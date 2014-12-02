@@ -1,9 +1,5 @@
-{"Access Configuration","Tilgangskonfigurasjon"}.
-{"Access Control List Configuration","Konfigurasjon for Tilgangskontroll lister"}.
 {"Access Control Lists","Tilgangskontrollister"}.
-{"Access control lists","Tilgangskontroll lister"}.
 {"Access denied by service policy","Tilgang nektes på grunn av en tjeneste regel"}.
-{"Access rules","Tilgangsregler"}.
 {"Access Rules","Tilgangsregler"}.
 {"Action on user","Handling på bruker"}.
 {"Add Jabber ID","Legg til Jabber ID"}.
@@ -28,10 +24,8 @@
 {"A password is required to enter this room","Et passord kreves for tilgang til samtalerommet"}.
 {"April","april"}.
 {"August","august"}.
-{"Backup Management","Håndtere Sikkerehetskopiering"}.
 {"Backup of ","Sikkerhetskopi av "}.
 {"Backup","Sikkerhetskopier"}.
-{"Backup to File at ","Sikkerhetskopiere til Fil på "}.
 {"Bad format","Feil format"}.
 {"Birthday","Fødselsdag"}.
 {"CAPTCHA web page","CAPTCHA web side"}.
@@ -45,8 +39,6 @@
 {"Chatroom is stopped","Samtalerom er stoppet"}.
 {"Chatrooms","Samtalerom"}.
 {"Choose a username and password to register with this server","Velg et brukernavn og passord for å registrere på "}.
-{"Choose modules to stop","Velg hvilke moduler som skal stoppes"}.
-{"Choose storage type of tables","Velg lagringstype for tabeller"}.
 {"Choose whether to approve this entity's subscription.","Velg om du vil godkjenne denne eksistensens abonement"}.
 {"City","By"}.
 {"Commands","Kommandoer"}.
@@ -59,10 +51,8 @@
 {"CPU Time:","CPU Tid:"}.
 {"Database","Database"}.
 {"Database Tables at ","Database Tabeller på "}.
-{"Database Tables Configuration at ","Database Tabell Konfigurasjon på "}.
 {"December","desember"}.
 {"Default users as participants","Standard brukere som deltakere"}.
-{"Delete message of the day on all hosts","Slett melding for dagen på alle maskiner"}.
 {"Delete message of the day","Slett melding for dagen"}.
 {"Delete Selected","Slett valgte"}.
 {"Delete","Slett"}.
@@ -70,11 +60,8 @@
 {"Deliver event notifications","Lever begivenhets kunngjøringer"}.
 {"Deliver payloads with event notifications","Send innhold sammen med kunngjøringer"}.
 {"Description:","Beskrivelse:"}.
-{"Disc only copy","Kun diskkopi"}.
 {"Displayed Groups:","Viste grupper:"}.
 {"Don't tell your password to anybody, not even the administrators of the Jabber server.","Ikke fortell passordet til noen, ikke en gang til administratoren av Jabber serveren."}.
-{"Dump Backup to Text File at ","Dump Sikkerhetskopi til Tekstfil på "}.
-{"Dump to Text File","Dump til Tekstfil"}.
 {"Edit Properties","Redigere Egenskaper"}.
 {"Either approve or decline the voice request.","Enten godkjenn eller forby lyd forespørselen"}.
 {"ejabberd IRC module","ejabberd IRC modul"}.
@@ -88,12 +75,7 @@
 {"Enable logging","Slå på logging"}.
 {"Encoding for server ~b","Tekstkoding for server ~b"}.
 {"End User Session","Avslutt Bruker Sesjon"}.
-{"Enter list of {Module, [Options]}","Skriv inn en liste av {Module, [Options]}"}.
 {"Enter nickname you want to register","Skriv inn kallenavnet du ønsker å registrere"}.
-{"Enter path to backup file","Skriv inn sti til sikkerhetskopi filen"}.
-{"Enter path to jabberd14 spool dir","Skriv inn sti til jabberd14 spoolkatalog"}.
-{"Enter path to jabberd14 spool file","Skriv inn sti til jabberd14 spoolfil"}.
-{"Enter path to text file","Skriv inn sti til tekstfil"}.
 {"Enter the text you see","Skriv inn teksten du ser"}.
 {"Enter username and encodings you wish to use for connecting to IRC servers.  Press 'Next' to get more fields to fill in.  Press 'Complete' to save settings.","Angi brukernavn og kodinger du ønsker å bruke for å koble til IRC servere. Trykk 'Neste' for å få flere felt for å fylle i. Trykk 'Fullfør' for å lagre innstillingene."}.
 {"Enter username, encodings, ports and passwords you wish to use for connecting to IRC servers","Skriv brukernavn, tekstkoding, porter og passord du ønsker å bruke for tilkobling til IRC servere"}.
@@ -110,10 +92,7 @@
 {"Fill in the form to search for any matching Jabber User (Add * to the end of field to match substring)","Fyll inn skjemaet for å søke etter Jabber bruker (Legg til * på slutten av feltet for å treffe alle som starter slik)"}.
 {"Friday","fredag"}.
 {"From","Fra"}.
-{"From ~s","Fra ~s"}.
 {"Full Name","Fullstendig Navn"}.
-{"Get Number of Online Users","Vis Antall Tilkoblede Brukere"}.
-{"Get Number of Registered Users","Vis Antall Registrerte Brukere"}.
 {"Get User Last Login Time","Vis Brukers Siste Påloggings Tidspunkt"}.
 {"Get User Password","Hent Brukers Passord"}.
 {"Get User Statistics","Vis Bruker Statistikk"}.
@@ -129,14 +108,9 @@
 {"Host","Maskin"}.
 {"If you don't see the CAPTCHA image here, visit the web page.","Dersom du ikke ser CAPTCHA bilde her, besøk web siden. "}.
 {"If you want to specify different ports, passwords, encodings for IRC servers, fill this list with values in format '{\"irc server\", \"encoding\", port, \"password\"}'.  By default this service use \"~s\" encoding, port ~p, empty password.","Om du ønsker å spesifisere tekstkoding for IRC tjenere, fyller du ut en liste med verdier i formatet '{\"irc server\", \"encoding\", port, \"password\"}'. Denne tjenesten bruker \"~s\" som standard, port ~p, empty password."}.
-{"Import Directory","Importer Katalog"}.
-{"Import File","Importer File"}.
 {"Import user data from jabberd14 spool file:","Importer bruker data fra jabberd14 spoolfiler:"}.
-{"Import User from File at ","Importer Bruker fra Fil på "}.
 {"Import users data from a PIEFXIS file (XEP-0227):","Importer brukeres data fra en PIEFXIS fil (XEP-0227):"}.
 {"Import users data from jabberd14 spool directory:","Importer brukeres data fra jabberd14 spoolfil katalog:"}.
-{"Import Users from Dir at ","Importer Brukere fra Katalog på "}.
-{"Import Users From jabberd14 Spool Files","Importer Brukere Fra jabberd14 Spoolfiler"}.
 {"Improper message type","Feilaktig meldingstype"}.
 {"Incorrect password","Feil passord"}.
 {"Invalid affiliation: ~s","Ugyldig rang: ~s"}.
@@ -170,7 +144,6 @@
 {"leaves the room","forlater rommet"}.
 {"Listened Ports at ","Lyttende Porter på "}.
 {"Listened Ports","Lyttende Porter"}.
-{"List of modules to start","Liste over moduler som skal startes"}.
 {"Low level update script","Lavnivå oppdaterings skript"}.
 {"Make participants list public","Gjør deltakerlisten offentlig"}.
 {"Make room CAPTCHA protected","Gjør rommet CAPTCHA beskyttet"}.
@@ -221,8 +194,6 @@
 {"Notify subscribers when the node is deleted","Informer abonnenter når noden slettes"}.
 {"November","november"}.
 {"Number of occupants","Antall deltakere"}.
-{"Number of online users","Antall tilkoblede brukere"}.
-{"Number of registered users","Antall registrerte brukere"}.
 {"October","oktober"}.
 {"Offline Messages:","Frakoblede Meldinger:"}.
 {"Offline Messages","Frakoblede Meldinger"}.
@@ -242,7 +213,6 @@
 {"Organization Name","Organisasjonsnavn"}.
 {"Organization Unit","Organisasjonsenhet"}.
 {"Outgoing s2s Connections:","Utgående s2s Koblinger"}.
-{"Outgoing s2s Connections","Utgående s2s Koblinger"}.
 {"Outgoing s2s Servers:","Utgående s2s Tjenere"}.
 {"Owner privileges required","Eierprivilegier kreves"}.
 {"Packet","Pakke"}.
@@ -251,8 +221,6 @@
 {"Password","Passord"}.
 {"Password Verification:","Passord Bekreftelse:"}.
 {"Password Verification","Passord Bekreftelse"}.
-{"Path to Dir","Sti til Katalog"}.
-{"Path to File","Sti til Fil"}.
 {"Pending","Ventende"}.
 {"Period: ","Periode: "}.
 {"Persist items to storage","Vedvarende elementer til lagring"}.
@@ -269,8 +237,6 @@
 {"PubSub subscriber request","PubSub abonements forespørsel"}.
 {"Purge all items when the relevant publisher goes offline","Rydd alle elementer når den aktuelle utgiveren logger av"}.
 {"Queries to the conference members are not allowed in this room","Forespørsler til konferanse medlemmene er ikke tillat i dette rommet"}.
-{"RAM and disc copy","RAM og diskkopi"}.
-{"RAM copy","RAM kopi"}.
 {"Raw","Rå"}.
 {"Really delete message of the day?","Virkelig slette melding for dagen?"}.
 {"Recipient is not in the conference room","Mottakeren er ikke i konferanserommet"}.
@@ -279,18 +245,14 @@
 {"Registered Users","Registrerte Brukere"}.
 {"Register","Registrer"}.
 {"Registration in mod_irc for ","Registrering i mod_irc for "}.
-{"Remote copy","Lagres ikke lokalt"}.
 {"Remove All Offline Messages","Fjern Alle Frakoblede Meldinger"}.
 {"Remove","Fjern"}.
 {"Remove User","Fjern Bruker"}.
 {"Replaced by new connection","Erstattet av en ny tilkobling"}.
 {"Resources","Ressurser"}.
-{"Restart Service","Start Tjeneste på Nytt"}.
 {"Restart","Starte på nytt"}.
-{"Restore Backup from File at ","Gjenopprett fra Sikkerhetsopifil på "}.
 {"Restore binary backup after next ejabberd restart (requires less memory):","Gjenopprette binær backup etter neste ejabberd omstart (krever mindre minne):"}.
 {"Restore binary backup immediately:","Gjenopprette binær backup umiddelbart:"}.
-{"Restore","Gjenopprett"}.
 {"Restore plain text backup immediately:","Gjenopprette rentekst sikkerhetskopi umiddelbart:"}.
 {"Room Configuration","Rom Konfigurasjon"}.
 {"Room creation is denied by service policy","Oppretting av rom nektes av en tjenste regel"}.
@@ -314,24 +276,18 @@
 {"Server ~b","Server ~b"}.
 {"Server:","Server:"}.
 {"Set message of the day and send to online users","Angi melding for dagen og send til tilkoblede brukere"}.
-{"Set message of the day on all hosts and send to online users","Angi melding for dagen på alle maskiner og send til "}.
 {"Shared Roster Groups","Delte Kontaktgrupper"}.
 {"Show Integral Table","Vis Integral Tabell"}.
 {"Show Ordinary Table","Vis Ordinær Tabell"}.
-{"Shut Down Service","Avslutt Tjeneste"}.
 {"~s invites you to the room ~s","~s inviterer deg til rommet ~s"}.
 {"Some Jabber clients can store your password in your computer. Use that feature only if you trust your computer is safe.","Noen Jabber klienter kan lagre passordet på datamaskinen. Bruk bare den funksjonen dersom du er sikker på at maskinen er trygg."}.
 {"Specify the access model","Spesifiser aksess modellen"}.
 {"Specify the event message type","Spesifiser hendelsesbeskjed type"}.
 {"Specify the publisher model","Angi publiserings modell"}.
 {"~s's Offline Messages Queue","~ss kø for Frakoblede Meldinger"}.
-{"Start Modules at ","Start Moduler på "}.
-{"Start Modules","Start Moduler"}.
 {"Start","Start"}.
 {"Statistics of ~p","Statistikk for ~p"}.
 {"Statistics","Statistikk"}.
-{"Stop Modules at ","Stopp Moduler på "}.
-{"Stop Modules","Stop Moduler"}.
 {"Stopped Nodes","Stoppede Noder"}.
 {"Stop","Stoppe"}.
 {"Storage Type","Lagringstype"}.
@@ -362,10 +318,8 @@
 {"This participant is kicked from the room because he sent an error presence","Denne deltakeren er kastet ut av rommet fordi han sendte feil tilstederværelse"}.
 {"This room is not anonymous","Dette rommet er ikke anonymt"}.
 {"Thursday","torsdag"}.
-{"Time delay","Tids forsinkelse"}.
 {"Time","Tid"}.
 {"Too many CAPTCHA requests","For mange CAPTCHA forespørsler"}.
-{"To ~s","Til ~s"}.
 {"To","Til"}.
 {"Traffic rate limit is exceeded","Trafikkmengde grense overskredet"}.
 {"Transactions Aborted:","Avbrutte Transasksjoner:"}.
@@ -378,7 +332,6 @@
 {"Unregister a Jabber account","Avregistrer en Jabber konto"}.
 {"Unregister","Avregistrer"}.
 {"Update message of the day (don't send)","Oppdater melding for dagen (ikke send)"}.
-{"Update message of the day on all hosts (don't send)","Oppdater melding for dagen på alle maskiner (ikke send)"}.
 {"Update ","Oppdater "}.
 {"Update","Oppdatere"}.
 {"Update plan","Oppdaterings plan"}.

@@ -1,9 +1,5 @@
-{"Access Configuration","アクセス設定"}.
-{"Access Control List Configuration","アクセスコントロールリスト設定"}.
-{"Access control lists","アクセスコントロールリスト"}.
 {"Access Control Lists","アクセスコントロールリスト"}.
 {"Access denied by service policy","サービスポリシーによってアクセスが禁止されました"}.
-{"Access rules","アクセスルール"}.
 {"Access Rules","アクセスルール"}.
 {"Action on user","ユーザー操作"}.
 {"Add Jabber ID","Jabber ID を追加"}.
@@ -29,9 +25,7 @@
 {"April","4月"}.
 {"August","8月"}.
 {"Backup","バックアップ"}.
-{"Backup Management","バックアップ管理"}.
 {"Backup of ","バックアップ: "}.
-{"Backup to File at ","ファイルにバックアップ: "}.
 {"Bad format","不正なフォーマット"}.
 {"Birthday","誕生日"}.
 {"CAPTCHA web page","CAPTCHA ウェブページ"}.
@@ -45,8 +39,6 @@
 {"Chatroom is stopped","談話室を停止しました"}.
 {"Chatrooms","談話室"}.
 {"Choose a username and password to register with this server","サーバーに登録するユーザー名とパスワードを選択してください"}.
-{"Choose modules to stop","停止するモジュールを選択"}.
-{"Choose storage type of tables","テーブルのストレージタイプを選択"}.
 {"Choose whether to approve this entity's subscription.","このエントリを承認するかどうかを選択してください"}.
 {"City","都道府県"}.
 {"Commands","コマンド"}.
@@ -59,10 +51,8 @@
 {"CPU Time:","CPU時間:"}.
 {"Database","データーベース"}.
 {"Database Tables at ","データーベーステーブル: "}.
-{"Database Tables Configuration at ","データーベーステーブル設定 "}.
 {"December","12月"}.
 {"Default users as participants","デフォルトのユーザーは参加者"}.
-{"Delete message of the day on all hosts","全ホストのお知らせメッセージを削除"}.
 {"Delete message of the day","お知らせメッセージを削除"}.
 {"Delete Selected","選択した項目を削除"}.
 {"Delete User","ユーザーを削除"}.
@@ -70,11 +60,8 @@
 {"Deliver event notifications","イベント通知を配送する"}.
 {"Deliver payloads with event notifications","イベント通知と同時にペイロードを配送する"}.
 {"Description:","説明:"}.
-{"Disc only copy","ディスクだけのコピー"}.
 {"Displayed Groups:","表示グループ"}.
 {"Don't tell your password to anybody, not even the administrators of the Jabber server.","パスワードは誰にも教えないようにしてください。Jabber サーバーの管理者があなたにパスワードを尋ねることはありません。"}.
-{"Dump Backup to Text File at ","テキストファイルにバックアップ: "}.
-{"Dump to Text File","テキストファイルに出力"}.
 {"Edit Properties","プロパティを編集"}.
 {"Either approve or decline the voice request.","発言権の要求を承認または却下します。"}.
 {"ejabberd IRC module","ejabberd IRC module"}.
@@ -88,12 +75,7 @@
 {"Enable logging","ロギングを有効"}.
 {"Encoding for server ~b","サーバーのエンコーディング ~b"}.
 {"End User Session","エンドユーザーセッション"}.
-{"Enter list of {Module, [Options]}","{モジュール, [オプション]}のリストを入力してください"}.
 {"Enter nickname you want to register","登録するニックネームを入力してください"}.
-{"Enter path to backup file","バックアップファイルのパスを入力してください"}.
-{"Enter path to jabberd14 spool dir","jabberd14 spool ディレクトリのディレクトリを入力してください"}.
-{"Enter path to jabberd14 spool file","jabberd14 spool ファイルのパスを入力してください"}.
-{"Enter path to text file","テキストファイルのパスを入力してください"}.
 {"Enter the text you see","見えているテキストを入力してください"}.
 {"Enter username and encodings you wish to use for connecting to IRC servers.  Press 'Next' to get more fields to fill in.  Press 'Complete' to save settings.","IRC サーバーに接続先するためのユーザー名と文字エンコーディングを入力してください。'Next' を押して次の項目に進みます。'Complete' を押すと設定が保存されます。"}.
 {"Enter username, encodings, ports and passwords you wish to use for connecting to IRC servers","IRC サーバーに接続先するために使用するユーザー名、文字エンコーディング、ポート、パスワードを入力してください"}.
@@ -109,11 +91,8 @@
 {"Fill in fields to search for any matching Jabber User","欄を埋めて Jabber User を検索してください"}.
 {"Fill in the form to search for any matching Jabber User (Add * to the end of field to match substring)","欄を埋めて Jabber User を検索してください (* を使用すると部分文字列にマッチします)"}.
 {"Friday","金曜日"}.
-{"From ~s","差出人 ~s"}.
 {"From","差出人"}.
 {"Full Name","氏名"}.
-{"Get Number of Online Users","オンラインユーザー数を取得"}.
-{"Get Number of Registered Users","登録ユーザー数を取得"}.
 {"Get User Last Login Time","最終ログイン時間を取得"}.
 {"Get User Password","パスワードを取得"}.
 {"Get User Statistics","ユーザー統計を取得"}.
@@ -129,14 +108,9 @@
 {"Host","ホスト"}.
 {"If you don't see the CAPTCHA image here, visit the web page.","ここに CAPTCHA 画像が表示されない場合、ウェブページを参照してください。"}.
 {"If you want to specify different ports, passwords, encodings for IRC servers, fill this list with values in format '{\"irc server\", \"encoding\", port, \"password\"}'.  By default this service use \"~s\" encoding, port ~p, empty password.","別のポートやパスワード、文字エンコーディングを使用したい場合、'{\"irc server\", \"encoding\", port, \"password\"}' という形式のリストを入力してください。デフォルトでエンコーディングは \"~s\" を使用し、ポートは ~p、パスワードは空になっています。"}.
-{"Import Directory","ディレクトリインポート"}.
-{"Import File","ファイルからインポート"}.
 {"Import user data from jabberd14 spool file:","ユーザーデータを jabberd14 Spool ファイルからインポート:"}.
-{"Import User from File at ","ファイルからユーザーをインポート: "}.
 {"Import users data from a PIEFXIS file (XEP-0227):","ユーザーデータを PIEFXIS ファイルからインポート (XEP-0227):"}.
 {"Import users data from jabberd14 spool directory:","ユーザーデータを jabberd14 Spool ディレクトリからインポート:"}.
-{"Import Users from Dir at ","ディレクトリからユーザーをインポート: "}.
-{"Import Users From jabberd14 Spool Files","jabberd14 Spool ファイルからユーザーをインポート"}.
 {"Improper message type","誤ったメッセージタイプです"}.
 {"Incorrect password","パスワードが違います"}.
 {"Invalid affiliation: ~s","無効な分掌です: ~s"}.
@@ -170,7 +144,6 @@
 {"leaves the room","が談話室から退出しました"}.
 {"Listened Ports at ","Listen ポート "}.
 {"Listened Ports","Listen ポート"}.
-{"List of modules to start","起動モジュールの一覧"}.
 {"Low level update script","低レベル更新スクリプト"}.
 {"Make participants list public","参加者一覧を公開"}.
 {"Make room CAPTCHA protected","談話室を CAPTCHA で保護"}.
@@ -221,8 +194,6 @@
 {"Notify subscribers when the node is deleted","ノードが削除された時に購読者へ通知する"}.
 {"November","11月"}.
 {"Number of occupants","在室者の数"}.
-{"Number of online users","オンラインユーザー数"}.
-{"Number of registered users","登録ユーザー数"}.
 {"October","10月"}.
 {"Offline Messages:","オフラインメッセージ:"}.
 {"Offline Messages","オフラインメッセージ"}.
@@ -242,7 +213,6 @@
 {"Organization Name","会社名"}.
 {"Organization Unit","部署名"}.
 {"Outgoing s2s Connections:","外向き s2s コネクション:"}.
-{"Outgoing s2s Connections","外向き s2s コネクション"}.
 {"Outgoing s2s Servers:","外向き s2s サービス:"}.
 {"Owner privileges required","主宰者の権限が必要です"}.
 {"Packet","パケット"}.
@@ -251,8 +221,6 @@
 {"Password ~b","パスワード ~b"}.
 {"Password Verification:","パスワード (確認):"}.
 {"Password Verification","パスワード (確認)"}.
-{"Path to Dir","ディレクトリのパス"}.
-{"Path to File","ファイルのパス"}.
 {"Pending","保留"}.
 {"Period: ","期間: "}.
 {"Persist items to storage","アイテムをストレージに保存する"}.
@@ -269,8 +237,6 @@
 {"PubSub subscriber request","PubSub 購読者のリクエスト"}.
 {"Purge all items when the relevant publisher goes offline","公開者がオフラインになるときに、すべてのアイテムを削除"}.
 {"Queries to the conference members are not allowed in this room","この談話室では、会議のメンバーへのクエリーは禁止されています"}.
-{"RAM and disc copy","RAM, ディスクコピー"}.
-{"RAM copy","RAM コピー"}.
 {"Raw","Raw"}.
 {"Really delete message of the day?","本当にお知らせメッセージを削除しますか ?"}.
 {"Recipient is not in the conference room","受信者はこの会議室にいません"}.
@@ -279,16 +245,12 @@
 {"Registered Users","登録ユーザー"}.
 {"Register","登録"}.
 {"Registration in mod_irc for ","mod_irc での登録: "}.
-{"Remote copy","リモートコピー"}.
 {"Remove All Offline Messages","すべてのオフラインメッセージを削除"}.
 {"Remove User","ユーザーを削除"}.
 {"Remove","削除"}.
 {"Replaced by new connection","新しいコネクションによって置き換えられました"}.
 {"Resources","リソース"}.
-{"Restart Service","サービスを再起動"}.
 {"Restart","再起動"}.
-{"Restore","リストア"}.
-{"Restore Backup from File at ","ファイルからバックアップをリストア: "}.
 {"Restore binary backup after next ejabberd restart (requires less memory):","ejabberd の再起動時にバイナリバックアップからリストア (メモリ少):"}.
 {"Restore binary backup immediately:","直ちにバイナリバックアップからリストア:"}.
 {"Restore plain text backup immediately:","直ちにプレーンテキストバックアップからリストア:"}.
@@ -314,24 +276,18 @@
 {"Server:","サーバー:"}.
 {"Server ~b","サーバー ~b"}.
 {"Set message of the day and send to online users","お知らせメッセージを設定し、オンラインユーザーに送信"}.
-{"Set message of the day on all hosts and send to online users","全ホストのお知らせメッセージを設定し、オンラインユーザーに送信"}.
 {"Shared Roster Groups","共有名簿グループ"}.
 {"Show Integral Table","累積の表を表示"}.
 {"Show Ordinary Table","通常の表を表示"}.
-{"Shut Down Service","サービスを停止"}.
 {"~s invites you to the room ~s","~s はあなたを談話室 ~s に招待しています"}.
 {"Some Jabber clients can store your password in your computer. Use that feature only if you trust your computer is safe.","Jabber クライアントはコンピューターにパスワードを記憶できます。コンピューターが安全であると信頼できる場合にのみ、この機能を使用してください。"}.
 {"Specify the access model","アクセスモデルを設定する"}.
 {"Specify the event message type","イベントメッセージ種別を設定"}.
 {"Specify the publisher model","公開モデルを指定する"}.
 {"~s's Offline Messages Queue","~s' のオフラインメッセージキュー"}.
-{"Start Modules at ","モジュールを開始: "}.
-{"Start Modules","モジュールを起動"}.
 {"Start","開始"}.
 {"Statistics of ~p","~p の統計"}.
 {"Statistics","統計"}.
-{"Stop Modules at ","モジュールを停止: "}.
-{"Stop Modules","モジュールを停止"}.
 {"Stopped Nodes","停止ノード"}.
 {"Stop","停止"}.
 {"Storage Type","ストレージタイプ"}.
@@ -362,10 +318,8 @@
 {"This participant is kicked from the room because he sent an error presence","エラープレゼンスを送信したため、この参加者はキックされました"}.
 {"This room is not anonymous","この談話室は非匿名です"}.
 {"Thursday","木曜日"}.
-{"Time delay","遅延時間"}.
 {"Time","時間"}.
 {"Too many CAPTCHA requests","CAPTCHA 要求が多すぎます"}.
-{"To ~s","宛先 ~s"}.
 {"To","宛先"}.
 {"Traffic rate limit is exceeded","トラフィックレートの制限を超えました"}.
 {"Transactions Aborted:","トランザクションの失敗:"}.
@@ -378,7 +332,6 @@
 {"Unregister a Jabber account","Jabber アカウントを削除"}.
 {"Unregister","削除"}.
 {"Update message of the day (don't send)","お知らせメッセージを更新 (送信しない)"}.
-{"Update message of the day on all hosts (don't send)","全ホストのお知らせメッセージを更新 (送信しない)"}.
 {"Update plan","更新計画"}.
 {"Update script","スクリプトの更新"}.
 {"Update ","更新 "}.

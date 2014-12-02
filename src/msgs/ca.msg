@@ -1,9 +1,5 @@
-{"Access Configuration","Configuració d'accesos"}.
-{"Access Control List Configuration","Configuració de la Llista de Control d'Accés"}.
 {"Access Control Lists","Llista de Control d'Accés"}.
-{"Access control lists","Llistes de Control de Accés"}.
 {"Access denied by service policy","Accés denegat per la política del servei"}.
-{"Access rules","Regles d'accés"}.
 {"Access Rules","Regles d'Accés"}.
 {"Action on user","Acció en l'usuari"}.
 {"Add Jabber ID","Afegir Jabber ID"}.
@@ -29,9 +25,7 @@
 {"April","Abril"}.
 {"August","Agost"}.
 {"Backup","Guardar còpia de seguretat"}.
-{"Backup Management","Gestió de còpia de seguretat"}.
 {"Backup of ","Còpia de seguretat de "}.
-{"Backup to File at ","Desar còpia de seguretat a fitxer en "}.
 {"Bad format","Format erroni"}.
 {"Birthday","Aniversari"}.
 {"CAPTCHA web page","Pàgina web del CAPTCHA"}.
@@ -45,8 +39,6 @@
 {"Chatroom is stopped","La sala s'ha aturat"}.
 {"Chatrooms","Sales de xat"}.
 {"Choose a username and password to register with this server","Tria nom d'usuari i contrasenya per a registrar-te en aquest servidor"}.
-{"Choose modules to stop","Selecciona mòduls a detindre"}.
-{"Choose storage type of tables","Selecciona el tipus d'almacenament de les taules"}.
 {"Choose whether to approve this entity's subscription.","Tria si aprova aquesta entitat de subscripció"}.
 {"City","Ciutat"}.
 {"Commands","Comandaments"}.
@@ -59,22 +51,17 @@
 {"CPU Time:","Temps de CPU"}.
 {"Database","Base de dades"}.
 {"Database Tables at ","Taules de la base de dades en "}.
-{"Database Tables Configuration at ","Configuració de la base de dades en "}.
 {"December","Decembre"}.
 {"Default users as participants","Els usuaris són participants per defecte"}.
 {"Delete","Eliminar"}.
 {"Delete message of the day","Eliminar el missatge del dia"}.
-{"Delete message of the day on all hosts","Elimina el missatge del dis de tots els hosts"}.
 {"Delete Selected","Eliminar els seleccionats"}.
 {"Delete User","Eliminar Usuari"}.
 {"Deliver event notifications","Entrega de notificacions d'events"}.
 {"Deliver payloads with event notifications","Enviar payloads junt a les notificacions d'events"}.
 {"Description:","Descripció:"}.
-{"Disc only copy","Còpia sols en disc"}.
 {"Displayed Groups:","Mostrar grups:"}.
 {"Don't tell your password to anybody, not even the administrators of the Jabber server.","No li donis la teva contrasenya a ningú, ni tan sols als administradors del servidor Jabber."}.
-{"Dump Backup to Text File at ","Exporta còpia de seguretat a fitxer de text en "}.
-{"Dump to Text File","Exportar a fitxer de text"}.
 {"Edit Properties","Editar propietats"}.
 {"Either approve or decline the voice request.","Aprova o denega la petició de veu"}.
 {"ejabberd IRC module","mòdul ejabberd IRC"}.
@@ -88,12 +75,7 @@
 {"Enable logging","Habilitar el registre de la conversa"}.
 {"Encoding for server ~b","Codificació pel servidor ~b"}.
 {"End User Session","Finalitzar Sesió d'Usuari"}.
-{"Enter list of {Module, [Options]}","Introdueix llista de {mòdul, [opcions]}"}.
 {"Enter nickname you want to register","Introdueix el nickname que vols registrar"}.
-{"Enter path to backup file","Introdueix ruta al fitxer de còpia de seguretat"}.
-{"Enter path to jabberd14 spool dir","Introdueix la ruta al directori de jabberd14 spools"}.
-{"Enter path to jabberd14 spool file","Introdueix ruta al fitxer jabberd14 spool"}.
-{"Enter path to text file","Introdueix ruta al fitxer de text"}.
 {"Enter the text you see","Introdueix el text que veus"}.
 {"Enter username and encodings you wish to use for connecting to IRC servers.  Press 'Next' to get more fields to fill in.  Press 'Complete' to save settings.","Introdueix el nom d'usuari i les codificacions de caràcters per a utilitzar als servidors de IRC. Apreta \"Seguent\" per veure més caps per omplir. Apreta \"Completar\" per guardar la configuració. "}.
 {"Enter username, encodings, ports and passwords you wish to use for connecting to IRC servers","Introdueix el nom d'usuari, les codificacions de caràcters, els ports i contrasenyes per a utilitzar al connectar als servidors de IRC"}.
@@ -110,10 +92,7 @@
 {"Fill in the form to search for any matching Jabber User (Add * to the end of field to match substring)","Emplena el formulari per a buscar usuaris Jabber. Afegix * al final d'un camp per a buscar subcadenes."}.
 {"Friday","Divendres"}.
 {"From","De"}.
-{"From ~s","De ~s"}.
 {"Full Name","Nom complet"}.
-{"Get Number of Online Users","Obtenir Número d'Usuaris Connectats"}.
-{"Get Number of Registered Users","Obtenir Número d'Usuaris Registrats"}.
 {"Get User Last Login Time","Obtenir la última connexió d'Usuari"}.
 {"Get User Password","Obtenir Contrasenya d'usuari"}.
 {"Get User Statistics","Obtenir Estadístiques d'Usuari"}.
@@ -129,14 +108,9 @@
 {"Host","Host"}.
 {"If you don't see the CAPTCHA image here, visit the web page.","Si no veus la imatge CAPTCHA açí, visita la pàgina web."}.
 {"If you want to specify different ports, passwords, encodings for IRC servers, fill this list with values in format '{\"irc server\", \"encoding\", port, \"password\"}'.  By default this service use \"~s\" encoding, port ~p, empty password.","Si vols especificar codificacions de caràcters diferents per a cada servidor IRC emplena aquesta llista amb els valors amb el format '{\"servidor irc\", \"codificació\", port, \"contrasenya\"}'.  Aquest servei utilitza per defecte la codificació \"~s\", port ~p, no contrasenya."}.
-{"Import Directory","Importar directori"}.
-{"Import File","Importar fitxer"}.
 {"Import user data from jabberd14 spool file:","Importar dades d'usuaris de l'arxiu de spool de jabberd14"}.
-{"Import User from File at ","Importa usuari des de fitxer en "}.
 {"Import users data from a PIEFXIS file (XEP-0227):","Importar dades d'usuaris des d'un arxiu PIEFXIS (XEP-0227):"}.
 {"Import users data from jabberd14 spool directory:","Importar dades d'usuaris del directori de spool de jabberd14:"}.
-{"Import Users from Dir at ","Importar usuaris des del directori en "}.
-{"Import Users From jabberd14 Spool Files","Importar usuaris de jabberd14"}.
 {"Improper message type","Tipus de missatge incorrecte"}.
 {"Incorrect password","Contrasenya incorrecta"}.
 {"Invalid affiliation: ~s","Afiliació invàlida: ~s"}.
@@ -170,7 +144,6 @@
 {"leaves the room","Deixar la sala"}.
 {"Listened Ports at ","Ports a la escolta en "}.
 {"Listened Ports","Ports a l'escolta"}.
-{"List of modules to start","Llista de mòduls a iniciar"}.
 {"Low level update script","Script d'actualització de baix nivell"}.
 {"Make participants list public","Crear una llista de participants pública"}.
 {"Make room CAPTCHA protected","Crear una sala protegida per CAPTCHA"}.
@@ -221,8 +194,6 @@
 {"Notify subscribers when the node is deleted","Notificar subscriptors quan el node és eliminat"}.
 {"November","Novembre"}.
 {"Number of occupants","Número d'ocupants"}.
-{"Number of online users","Número d'usuaris connectats"}.
-{"Number of registered users","Número d'Usuaris Registrats"}.
 {"October","Octubre"}.
 {"Offline Messages:","Missatges fora de línia:"}.
 {"Offline Messages","Missatges offline"}.
@@ -242,7 +213,6 @@
 {"Organization Name","Nom de la organizació"}.
 {"Organization Unit","Unitat de la organizació"}.
 {"Outgoing s2s Connections:","Connexions d'eixida s2s"}.
-{"Outgoing s2s Connections","Connexions s2s d'eixida"}.
 {"Outgoing s2s Servers:","Servidors d'eixida de s2s"}.
 {"Owner privileges required","Es requerixen privilegis de propietari de la sala"}.
 {"Packet","Paquet"}.
@@ -251,8 +221,6 @@
 {"Password","Contrasenya"}.
 {"Password Verification:","Verificació de la Contrasenya:"}.
 {"Password Verification","Verificació de la Contrasenya"}.
-{"Path to Dir","Ruta al directori"}.
-{"Path to File","Ruta al fitxer"}.
 {"Pending","Pendent"}.
 {"Period: ","Període: "}.
 {"Persist items to storage","Persistir elements al guardar"}.
@@ -269,8 +237,6 @@
 {"PubSub subscriber request","Petició de subscriptor PubSub"}.
 {"Purge all items when the relevant publisher goes offline","Eliminar tots els elements quan el publicant relevant es desconnecti"}.
 {"Queries to the conference members are not allowed in this room"," En aquesta sala no es permeten sol·licituds als membres de la conferència"}.
-{"RAM and disc copy","Còpia en RAM i disc"}.
-{"RAM copy","Còpia en RAM"}.
 {"Raw","en format text"}.
 {"Really delete message of the day?","Segur que vols eliminar el missatge del dia?"}.
 {"Recipient is not in the conference room","El receptor no està en la sala de conferència"}.
@@ -279,19 +245,15 @@
 {"Registered Users","Usuaris registrats"}.
 {"Register","Registrar"}.
 {"Registration in mod_irc for ","Registre en mod_irc per a"}.
-{"Remote copy","Còpia remota"}.
 {"Remove All Offline Messages","Eliminar tots els missatges offline"}.
 {"Remove","Borrar"}.
 {"Remove User","Eliminar usuari"}.
 {"Replaced by new connection","Reemplaçat per una nova connexió"}.
 {"Resources","Recursos"}.
 {"Restart","Reiniciar"}.
-{"Restart Service","Reiniciar el Servei"}.
-{"Restore Backup from File at ","Restaura còpia de seguretat des del fitxer en "}.
 {"Restore binary backup after next ejabberd restart (requires less memory):","Restaurar una còpia de seguretat binària després de reiniciar el ejabberd (requereix menys memòria:"}.
 {"Restore binary backup immediately:","Restaurar una còpia de seguretat binària ara mateix."}.
 {"Restore plain text backup immediately:","Restaurar una còpia de seguretat en format de text pla ara mateix:"}.
-{"Restore","Restaurar"}.
 {"Room Configuration","Configuració de la sala"}.
 {"Room creation is denied by service policy","Se t'ha denegat el crear la sala per política del servei"}.
 {"Room description","Descripció de la sala:"}.
@@ -314,11 +276,9 @@
 {"Server ~b","Servidor ~b"}.
 {"Server:","Servidor:"}.
 {"Set message of the day and send to online users","Configurar el missatge del dia i enviar a tots els usuaris"}.
-{"Set message of the day on all hosts and send to online users","Escriure missatge del dia en tots els hosts i enviar-ho als usuaris connectats"}.
 {"Shared Roster Groups","Grups de contactes compartits"}.
 {"Show Integral Table","Mostrar Taula Integral"}.
 {"Show Ordinary Table","Mostrar Taula Ordinaria"}.
-{"Shut Down Service","Apager el Servei"}.
 {"~s invites you to the room ~s","~s et convida a la sala ~s"}.
 {"Some Jabber clients can store your password in your computer. Use that feature only if you trust your computer is safe.","Alguns clients Jabber poden emmagatzemar la teva contrasenya al teu ordinador. Fes servir aquesta característica només si saps que el teu ordinador és segur."}.
 {"Specify the access model","Especificar el model d'accés"}.
@@ -326,13 +286,9 @@
 {"Specify the publisher model","Especificar el model del publicant"}.
 {"~s's Offline Messages Queue","~s's cua de missatges offline"}.
 {"Start","Iniciar"}.
-{"Start Modules at ","Iniciar mòduls en "}.
-{"Start Modules","Iniciar mòduls"}.
 {"Statistics","Estadístiques"}.
 {"Statistics of ~p","Estadístiques de ~p"}.
 {"Stop","Detindre"}.
-{"Stop Modules at ","Detindre mòduls en "}.
-{"Stop Modules","Parar mòduls"}.
 {"Stopped Nodes","Nodes parats"}.
 {"Storage Type","Tipus d'emmagatzematge"}.
 {"Store binary backup:","Guardar una còpia de seguretat binària:"}.
@@ -363,10 +319,8 @@
 {"This room is not anonymous","Aquesta sala no és anònima"}.
 {"Thursday","Dijous"}.
 {"Time","Data"}.
-{"Time delay","Temps de retard"}.
 {"Too many CAPTCHA requests","Massa peticions de CAPTCHA"}.
 {"To","Per a"}.
-{"To ~s","A ~s"}.
 {"Traffic rate limit is exceeded","El llímit de tràfic ha sigut sobrepassat"}.
 {"Transactions Aborted:","Transaccions Avortades"}.
 {"Transactions Committed:","Transaccions Realitzades:"}.
@@ -380,7 +334,6 @@
 {"Update ","Actualitzar"}.
 {"Update","Actualitzar"}.
 {"Update message of the day (don't send)","Actualitzar el missatge del dia (no enviar)"}.
-{"Update message of the day on all hosts (don't send)","Actualitza el missatge del dia en tots els hosts (no enviar)"}.
 {"Update plan","Pla d'actualització"}.
 {"Update script","Script d'actualització"}.
 {"Uptime:","Temps en marxa"}.

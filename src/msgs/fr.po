@@ -14,7 +14,7 @@ msgstr ""
 "X-Additional-Translator: Mickaël Rémond\n"
 "X-Additional-Translator: Vincent Ricard\n"
 
-#: ejabberd_c2s.erl:424 ejabberd_c2s.erl:737
+#: ejabberd_c2s.erl:424 ejabberd_c2s.erl:740
 msgid "Use of STARTTLS required"
 msgstr "L'utilisation de STARTTLS est impérative"
 
@@ -22,11 +22,11 @@ msgstr "L'utilisation de STARTTLS est impérative"
 msgid "No resource provided"
 msgstr "Aucune ressource fournie"
 
-#: ejabberd_c2s.erl:1215
+#: ejabberd_c2s.erl:1218
 msgid "Replaced by new connection"
 msgstr "Remplacé par une nouvelle connexion"
 
-#: ejabberd_c2s.erl:1903
+#: ejabberd_c2s.erl:1906
 msgid "Your active privacy list has denied the routing of this stanza."
 msgstr "Votre règle de flitrage active a empêché le routage de ce stanza."
 
@@ -63,363 +63,140 @@ msgstr "Ping"
 msgid "Pong"
 msgstr "Pong"
 
-#: mod_announce.erl:487
+#: mod_announce.erl:443
 msgid "Really delete message of the day?"
 msgstr "Confirmer la suppression du message du jour ?"
 
-#: mod_announce.erl:495 mod_configure.erl:977 mod_configure.erl:1022
+#: mod_announce.erl:451
 msgid "Subject"
 msgstr "Sujet"
 
-#: mod_announce.erl:500 mod_configure.erl:982 mod_configure.erl:1027
+#: mod_announce.erl:456
 msgid "Message body"
 msgstr "Corps du message"
 
-#: mod_announce.erl:580
+#: mod_announce.erl:529
 msgid "No body provided for announce message"
 msgstr "Pas de corps de message pour l'annonce"
 
-#: mod_announce.erl:609
+#: mod_announce.erl:552
 msgid "Announcements"
 msgstr "Annonces"
 
-#: mod_announce.erl:611
+#: mod_announce.erl:554
 msgid "Send announcement to all online users"
 msgstr "Envoyer l'annonce à tous les utilisateurs en ligne"
 
-#: mod_announce.erl:613 mod_configure.erl:972 mod_configure.erl:1017
+#: mod_announce.erl:556
 msgid "Send announcement to all online users on all hosts"
 msgstr ""
 "Envoyer l'annonce à tous les utilisateurs en ligne sur tous les serveurs"
 
-#: mod_announce.erl:615
+#: mod_announce.erl:558
 msgid "Set message of the day and send to online users"
 msgstr "Définir le message du jour et l'envoyer aux utilisateurs en ligne"
 
-#: mod_announce.erl:617
-msgid "Set message of the day on all hosts and send to online users"
-msgstr ""
-"Définir le message du jour pour tous domaines et l'envoyer aux utilisateurs "
-"en ligne"
-
-#: mod_announce.erl:619
+#: mod_announce.erl:560
 msgid "Update message of the day (don't send)"
 msgstr "Mise à jour du message du jour (pas d'envoi)"
 
-#: mod_announce.erl:621
-msgid "Update message of the day on all hosts (don't send)"
-msgstr ""
-"Mettre à jour le message du jour sur tous les domaines (ne pas envoyer)"
-
-#: mod_announce.erl:623
+#: mod_announce.erl:562
 msgid "Delete message of the day"
 msgstr "Supprimer le message du jour"
 
-#: mod_announce.erl:625
-msgid "Delete message of the day on all hosts"
-msgstr "Supprimer le message du jour sur tous les domaines"
-
-#: mod_configure.erl:114 mod_configure.erl:264 mod_configure.erl:286
-#: mod_configure.erl:474
+#: mod_configure.erl:114 mod_configure.erl:198 mod_configure.erl:220
 msgid "Configuration"
 msgstr "Configuration"
 
-#: mod_configure.erl:125 mod_configure.erl:519 web/ejabberd_web_admin.erl:1897
-msgid "Database"
-msgstr "Base de données"
-
-#: mod_configure.erl:127 mod_configure.erl:538
-msgid "Start Modules"
-msgstr "Modules de démarrage"
-
-#: mod_configure.erl:129 mod_configure.erl:539
-msgid "Stop Modules"
-msgstr "Modules d'arrêt"
-
-#: mod_configure.erl:131 mod_configure.erl:547 web/ejabberd_web_admin.erl:1898
-msgid "Backup"
-msgstr "Sauvegarde"
-
-#: mod_configure.erl:133 mod_configure.erl:548
-msgid "Restore"
-msgstr "Restauration"
-
-#: mod_configure.erl:135 mod_configure.erl:549
-msgid "Dump to Text File"
-msgstr "Sauvegarder dans un fichier texte"
-
-#: mod_configure.erl:137 mod_configure.erl:558
-msgid "Import File"
-msgstr "Importer un fichier"
-
-#: mod_configure.erl:139 mod_configure.erl:559
-msgid "Import Directory"
-msgstr "Importer une répertoire"
-
-#: mod_configure.erl:141 mod_configure.erl:524 mod_configure.erl:951
-msgid "Restart Service"
-msgstr "Redémarrer le service"
-
-#: mod_configure.erl:143 mod_configure.erl:525 mod_configure.erl:996
-msgid "Shut Down Service"
-msgstr "Arrêter le service"
-
-#: mod_configure.erl:145 mod_configure.erl:492 mod_configure.erl:1091
+#: mod_configure.erl:123 mod_configure.erl:372 mod_configure.erl:520
 #: web/ejabberd_web_admin.erl:1504
 msgid "Add User"
 msgstr "Ajouter un utilisateur"
 
-#: mod_configure.erl:147 mod_configure.erl:493 mod_configure.erl:1113
+#: mod_configure.erl:125 mod_configure.erl:373 mod_configure.erl:542
 msgid "Delete User"
 msgstr "Supprimer l'utilisateur"
 
-#: mod_configure.erl:149 mod_configure.erl:494 mod_configure.erl:1125
+#: mod_configure.erl:127 mod_configure.erl:374 mod_configure.erl:554
 msgid "End User Session"
 msgstr "Terminer la session de l'utilisateur"
 
-#: mod_configure.erl:151 mod_configure.erl:495
+#: mod_configure.erl:129 mod_configure.erl:375
 msgid "Change User Password"
 msgstr "Changer le mot de passe de l'utilisateur"
 
-#: mod_configure.erl:153 mod_configure.erl:496 mod_configure.erl:1154
+#: mod_configure.erl:131 mod_configure.erl:376 mod_configure.erl:583
 msgid "Get User Last Login Time"
 msgstr "Récupérer la dernière date de connexion de l'utilisateur"
 
-#: mod_configure.erl:155 mod_configure.erl:497 mod_configure.erl:1166
+#: mod_configure.erl:133 mod_configure.erl:377 mod_configure.erl:595
 msgid "Get User Statistics"
 msgstr "Récupérer les statistiques de l'utilisateur"
 
-#: mod_configure.erl:157 mod_configure.erl:498
-msgid "Get Number of Registered Users"
-msgstr "Récupérer le nombre d'utilisateurs enregistrés"
-
-#: mod_configure.erl:159 mod_configure.erl:499
-msgid "Get Number of Online Users"
-msgstr "Récupérer le nombre d'utilisateurs en ligne"
-
-#: mod_configure.erl:161 mod_configure.erl:483 web/ejabberd_web_admin.erl:831
-#: web/ejabberd_web_admin.erl:872
-msgid "Access Control Lists"
-msgstr "Droits (ACL)"
-
-#: mod_configure.erl:163 mod_configure.erl:484 web/ejabberd_web_admin.erl:940
-#: web/ejabberd_web_admin.erl:976
-msgid "Access Rules"
-msgstr "Règles d'accès"
-
-#: mod_configure.erl:287 mod_configure.erl:475
+#: mod_configure.erl:221
 msgid "User Management"
 msgstr "Gestion des utilisateurs"
 
-#: mod_configure.erl:476
-msgid "Outgoing s2s Connections"
-msgstr "Connexions s2s sortantes"
-
-#: mod_configure.erl:477 web/ejabberd_web_admin.erl:1868
-msgid "Running Nodes"
-msgstr "Noeuds actifs"
-
-#: mod_configure.erl:478 web/ejabberd_web_admin.erl:1870
-msgid "Stopped Nodes"
-msgstr "Noeuds arrêtés"
-
-#: mod_configure.erl:520 mod_configure.erl:530 web/ejabberd_web_admin.erl:1914
-msgid "Modules"
-msgstr "Modules"
-
-#: mod_configure.erl:521
-msgid "Backup Management"
-msgstr "Gestion des sauvegardes"
-
-#: mod_configure.erl:522
-msgid "Import Users From jabberd14 Spool Files"
-msgstr "Importer des utilisateurs depuis un fichier spool Jabberd 1.4"
-
-#: mod_configure.erl:591
-msgid "To ~s"
-msgstr "A ~s"
-
-#: mod_configure.erl:609
-msgid "From ~s"
-msgstr "De ~s"
-
-#: mod_configure.erl:807
-msgid "Database Tables Configuration at "
-msgstr "Configuration des tables de base de données sur "
-
-#: mod_configure.erl:812
-msgid "Choose storage type of tables"
-msgstr "Choisissez un type de stockage pour les tables"
-
-#: mod_configure.erl:820 mod_configure.erl:822
-msgid "Disc only copy"
-msgstr "Copie sur disque uniquement"
-
-#: mod_configure.erl:820 mod_configure.erl:822
-msgid "RAM and disc copy"
-msgstr "Copie en mémoire vive (RAM) et sur disque"
-
-#: mod_configure.erl:820 mod_configure.erl:822
-msgid "RAM copy"
-msgstr "Copie en mémoire vive (RAM)"
-
-#: mod_configure.erl:820 mod_configure.erl:822
-msgid "Remote copy"
-msgstr "Copie distante"
-
-#: mod_configure.erl:844
-msgid "Stop Modules at "
-msgstr "Arrêter les modules sur "
-
-#: mod_configure.erl:848
-msgid "Choose modules to stop"
-msgstr "Sélectionnez les modules à arrêter"
-
-#: mod_configure.erl:863
-msgid "Start Modules at "
-msgstr "Démarrer les modules sur "
-
-#: mod_configure.erl:867
-msgid "Enter list of {Module, [Options]}"
-msgstr "Entrez une liste de {Module, [Options]}"
-
-#: mod_configure.erl:868
-msgid "List of modules to start"
-msgstr "Liste des modules à démarrer"
-
-#: mod_configure.erl:877
-msgid "Backup to File at "
-msgstr "Sauvegarde sur fichier sur "
-
-#: mod_configure.erl:881 mod_configure.erl:895
-msgid "Enter path to backup file"
-msgstr "Entrez le chemin vers le fichier de sauvegarde"
-
-#: mod_configure.erl:882 mod_configure.erl:896 mod_configure.erl:910
-#: mod_configure.erl:924
-msgid "Path to File"
-msgstr "Chemin vers le fichier"
-
-#: mod_configure.erl:891
-msgid "Restore Backup from File at "
-msgstr "Restaurer la sauvegarde depuis le fichier sur "
-
-#: mod_configure.erl:905
-msgid "Dump Backup to Text File at "
-msgstr "Enregistrer la sauvegarde dans un fichier texte sur "
-
-#: mod_configure.erl:909
-msgid "Enter path to text file"
-msgstr "Entrez le chemin vers le fichier texte"
-
-#: mod_configure.erl:919
-msgid "Import User from File at "
-msgstr "Importer un utilisateur depuis le fichier sur "
-
-#: mod_configure.erl:923
-msgid "Enter path to jabberd14 spool file"
-msgstr "Entrez le chemin vers le fichier spool jabberd14"
-
-#: mod_configure.erl:933
-msgid "Import Users from Dir at "
-msgstr "Importer des utilisateurs depuis le répertoire sur "
-
-#: mod_configure.erl:937
-msgid "Enter path to jabberd14 spool dir"
-msgstr "Entrez le chemin vers le répertoire de spool jabberd14"
-
-#: mod_configure.erl:938
-msgid "Path to Dir"
-msgstr "Chemin vers le répertoire"
-
-#: mod_configure.erl:954 mod_configure.erl:999
-msgid "Time delay"
-msgstr "Délais"
-
-#: mod_configure.erl:1037
-msgid "Access Control List Configuration"
-msgstr "Configuration des droits (ACL)"
-
-#: mod_configure.erl:1041
-msgid "Access control lists"
-msgstr "Droits (ACL)"
-
-#: mod_configure.erl:1065
-msgid "Access Configuration"
-msgstr "Configuration d'accès"
-
-#: mod_configure.erl:1069
-msgid "Access rules"
-msgstr "Règles d'accès"
-
-#: mod_configure.erl:1094 mod_configure.erl:1116 mod_configure.erl:1128
-#: mod_configure.erl:1140 mod_configure.erl:1157 mod_configure.erl:1169
-#: mod_configure.erl:1567 mod_configure.erl:1588 mod_roster.erl:1349
+#: mod_configure.erl:523 mod_configure.erl:545 mod_configure.erl:557
+#: mod_configure.erl:569 mod_configure.erl:586 mod_configure.erl:598
+#: mod_configure.erl:701 mod_configure.erl:722 mod_roster.erl:1349
 #: mod_vcard.erl:543 mod_vcard_ldap.erl:554
 msgid "Jabber ID"
 msgstr "Jabber ID"
 
-#: mod_configure.erl:1099 mod_configure.erl:1145 mod_configure.erl:1728
+#: mod_configure.erl:528 mod_configure.erl:574 mod_configure.erl:814
 #: mod_muc/mod_muc_room.erl:3343 mod_register.erl:235
 #: web/ejabberd_web_admin.erl:1497
 msgid "Password"
 msgstr "Mot de passe"
 
-#: mod_configure.erl:1104
+#: mod_configure.erl:533
 msgid "Password Verification"
 msgstr "Vérification du mot de passe"
 
-#: mod_configure.erl:1137
+#: mod_configure.erl:566
 msgid "Get User Password"
 msgstr "Récupérer le mot de passe de l'utilisateur"
 
-#: mod_configure.erl:1183
-msgid "Number of registered users"
-msgstr "Nombre d'utilisateurs enregistrés"
-
-#: mod_configure.erl:1197
-msgid "Number of online users"
-msgstr "Nombre d'utilisateurs en ligne"
-
-#: mod_configure.erl:1549 web/ejabberd_web_admin.erl:1564
+#: mod_configure.erl:683 web/ejabberd_web_admin.erl:1564
 #: web/ejabberd_web_admin.erl:1704
 msgid "Never"
 msgstr "Jamais"
 
-#: mod_configure.erl:1563 web/ejabberd_web_admin.erl:1577
+#: mod_configure.erl:697 web/ejabberd_web_admin.erl:1577
 #: web/ejabberd_web_admin.erl:1717
 msgid "Online"
 msgstr "En ligne"
 
-#: mod_configure.erl:1568
+#: mod_configure.erl:702
 msgid "Last login"
 msgstr "Dernière connexion"
 
-#: mod_configure.erl:1589
+#: mod_configure.erl:723
 msgid "Roster size"
 msgstr "Taille de la liste de contacts"
 
-#: mod_configure.erl:1590
+#: mod_configure.erl:724
 msgid "IP addresses"
 msgstr "Adresses IP"
 
-#: mod_configure.erl:1591
+#: mod_configure.erl:725
 msgid "Resources"
 msgstr "Ressources"
 
-#: mod_configure.erl:1715
+#: mod_configure.erl:801
 msgid "Administration of "
 msgstr "Administration de "
 
-#: mod_configure.erl:1718
+#: mod_configure.erl:804
 msgid "Action on user"
 msgstr "Action sur l'utilisateur"
 
-#: mod_configure.erl:1722
+#: mod_configure.erl:808
 msgid "Edit Properties"
 msgstr "Modifier les propriétés"
 
-#: mod_configure.erl:1725 web/ejabberd_web_admin.erl:1730
+#: mod_configure.erl:811 web/ejabberd_web_admin.erl:1730
 msgid "Remove User"
 msgstr "Supprimer l'utilisateur"
 
@@ -1404,9 +1181,17 @@ msgstr "Console Web d'administration de ejabberd"
 msgid "Administration"
 msgstr "Administration"
 
+#: web/ejabberd_web_admin.erl:831 web/ejabberd_web_admin.erl:872
+msgid "Access Control Lists"
+msgstr "Droits (ACL)"
+
 #: web/ejabberd_web_admin.erl:878 web/ejabberd_web_admin.erl:982
 msgid "Raw"
 msgstr "Brut"
+
+#: web/ejabberd_web_admin.erl:940 web/ejabberd_web_admin.erl:976
+msgid "Access Rules"
+msgstr "Règles d'accès"
 
 #: web/ejabberd_web_admin.erl:1017
 msgid "~s access rule configuration"
@@ -1520,9 +1305,25 @@ msgstr "Aucune information disponible"
 msgid "Nodes"
 msgstr "Noeuds"
 
+#: web/ejabberd_web_admin.erl:1868
+msgid "Running Nodes"
+msgstr "Noeuds actifs"
+
+#: web/ejabberd_web_admin.erl:1870
+msgid "Stopped Nodes"
+msgstr "Noeuds arrêtés"
+
 #: web/ejabberd_web_admin.erl:1890 web/ejabberd_web_admin.erl:1912
 msgid "Node "
 msgstr "Noeud "
+
+#: web/ejabberd_web_admin.erl:1897
+msgid "Database"
+msgstr "Base de données"
+
+#: web/ejabberd_web_admin.erl:1898
+msgid "Backup"
+msgstr "Sauvegarde"
 
 #: web/ejabberd_web_admin.erl:1899
 msgid "Listened Ports"
@@ -1540,6 +1341,10 @@ msgstr "Redémarrer"
 #: web/ejabberd_web_admin.erl:1906 web/ejabberd_web_admin.erl:2532
 msgid "Stop"
 msgstr "Arrêter"
+
+#: web/ejabberd_web_admin.erl:1914
+msgid "Modules"
+msgstr "Modules"
 
 #: web/ejabberd_web_admin.erl:1920
 msgid "RPC Call Error"
@@ -1846,6 +1651,150 @@ msgstr "Cette page permet d'effacer un compte Jabber sur ce serveur Jabber."
 #: web/mod_register_web.erl:524
 msgid "Unregister"
 msgstr "Effacer"
+
+#~ msgid "Set message of the day on all hosts and send to online users"
+#~ msgstr ""
+#~ "Définir le message du jour pour tous domaines et l'envoyer aux "
+#~ "utilisateurs en ligne"
+
+#~ msgid "Update message of the day on all hosts (don't send)"
+#~ msgstr ""
+#~ "Mettre à jour le message du jour sur tous les domaines (ne pas envoyer)"
+
+#~ msgid "Delete message of the day on all hosts"
+#~ msgstr "Supprimer le message du jour sur tous les domaines"
+
+#~ msgid "Start Modules"
+#~ msgstr "Modules de démarrage"
+
+#~ msgid "Stop Modules"
+#~ msgstr "Modules d'arrêt"
+
+#~ msgid "Restore"
+#~ msgstr "Restauration"
+
+#~ msgid "Dump to Text File"
+#~ msgstr "Sauvegarder dans un fichier texte"
+
+#~ msgid "Import File"
+#~ msgstr "Importer un fichier"
+
+#~ msgid "Import Directory"
+#~ msgstr "Importer une répertoire"
+
+#~ msgid "Restart Service"
+#~ msgstr "Redémarrer le service"
+
+#~ msgid "Shut Down Service"
+#~ msgstr "Arrêter le service"
+
+#~ msgid "Get Number of Registered Users"
+#~ msgstr "Récupérer le nombre d'utilisateurs enregistrés"
+
+#~ msgid "Get Number of Online Users"
+#~ msgstr "Récupérer le nombre d'utilisateurs en ligne"
+
+#~ msgid "Outgoing s2s Connections"
+#~ msgstr "Connexions s2s sortantes"
+
+#~ msgid "Backup Management"
+#~ msgstr "Gestion des sauvegardes"
+
+#~ msgid "Import Users From jabberd14 Spool Files"
+#~ msgstr "Importer des utilisateurs depuis un fichier spool Jabberd 1.4"
+
+#~ msgid "To ~s"
+#~ msgstr "A ~s"
+
+#~ msgid "From ~s"
+#~ msgstr "De ~s"
+
+#~ msgid "Database Tables Configuration at "
+#~ msgstr "Configuration des tables de base de données sur "
+
+#~ msgid "Choose storage type of tables"
+#~ msgstr "Choisissez un type de stockage pour les tables"
+
+#~ msgid "Disc only copy"
+#~ msgstr "Copie sur disque uniquement"
+
+#~ msgid "RAM and disc copy"
+#~ msgstr "Copie en mémoire vive (RAM) et sur disque"
+
+#~ msgid "RAM copy"
+#~ msgstr "Copie en mémoire vive (RAM)"
+
+#~ msgid "Remote copy"
+#~ msgstr "Copie distante"
+
+#~ msgid "Stop Modules at "
+#~ msgstr "Arrêter les modules sur "
+
+#~ msgid "Choose modules to stop"
+#~ msgstr "Sélectionnez les modules à arrêter"
+
+#~ msgid "Start Modules at "
+#~ msgstr "Démarrer les modules sur "
+
+#~ msgid "Enter list of {Module, [Options]}"
+#~ msgstr "Entrez une liste de {Module, [Options]}"
+
+#~ msgid "List of modules to start"
+#~ msgstr "Liste des modules à démarrer"
+
+#~ msgid "Backup to File at "
+#~ msgstr "Sauvegarde sur fichier sur "
+
+#~ msgid "Enter path to backup file"
+#~ msgstr "Entrez le chemin vers le fichier de sauvegarde"
+
+#~ msgid "Path to File"
+#~ msgstr "Chemin vers le fichier"
+
+#~ msgid "Restore Backup from File at "
+#~ msgstr "Restaurer la sauvegarde depuis le fichier sur "
+
+#~ msgid "Dump Backup to Text File at "
+#~ msgstr "Enregistrer la sauvegarde dans un fichier texte sur "
+
+#~ msgid "Enter path to text file"
+#~ msgstr "Entrez le chemin vers le fichier texte"
+
+#~ msgid "Import User from File at "
+#~ msgstr "Importer un utilisateur depuis le fichier sur "
+
+#~ msgid "Enter path to jabberd14 spool file"
+#~ msgstr "Entrez le chemin vers le fichier spool jabberd14"
+
+#~ msgid "Import Users from Dir at "
+#~ msgstr "Importer des utilisateurs depuis le répertoire sur "
+
+#~ msgid "Enter path to jabberd14 spool dir"
+#~ msgstr "Entrez le chemin vers le répertoire de spool jabberd14"
+
+#~ msgid "Path to Dir"
+#~ msgstr "Chemin vers le répertoire"
+
+#~ msgid "Time delay"
+#~ msgstr "Délais"
+
+#~ msgid "Access Control List Configuration"
+#~ msgstr "Configuration des droits (ACL)"
+
+#~ msgid "Access control lists"
+#~ msgstr "Droits (ACL)"
+
+#~ msgid "Access Configuration"
+#~ msgstr "Configuration d'accès"
+
+#~ msgid "Access rules"
+#~ msgstr "Règles d'accès"
+
+#~ msgid "Number of registered users"
+#~ msgstr "Nombre d'utilisateurs enregistrés"
+
+#~ msgid "Number of online users"
+#~ msgstr "Nombre d'utilisateurs en ligne"
 
 #~ msgid "Send announcement to all users"
 #~ msgstr "Envoyer l'annonce à tous les utilisateurs"

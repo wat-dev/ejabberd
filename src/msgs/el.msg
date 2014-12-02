@@ -1,9 +1,5 @@
-{"Access Configuration","Διαμόρφωση Πρόσβασης"}.
-{"Access Control List Configuration","Διαχείριση στις Λίστες Ελέγχου Πρόσβασης"}.
-{"Access control lists","Λίστες Ελέγχου Πρόσβασης"}.
 {"Access Control Lists","Λίστες Ελέγχου Πρόσβασης"}.
 {"Access denied by service policy","Άρνηση πρόσβασης, λόγω τακτικής παροχής υπηρεσιών"}.
-{"Access rules","Κανόνες Πρόσβασης"}.
 {"Access Rules","Κανόνες Πρόσβασης"}.
 {"Action on user","Eνέργεια για το χρήστη"}.
 {"Add Jabber ID","Προσθήκη Jabber Ταυτότητας"}.
@@ -28,9 +24,7 @@
 {"A password is required to enter this room","Απαιτείται κωδικός πρόσβασης για είσοδο σε αυτή την αίθουσα"}.
 {"April","Απρίλιος"}.
 {"August","Αύγουστος"}.
-{"Backup Management","Διαχείριση Αντιγράφου Ασφαλείας"}.
 {"Backup of ","Αντιγράφο Ασφαλείας του "}.
-{"Backup to File at ","Αποθήκευση Αντιγράφου Ασφαλείας σε Αρχείο στο "}.
 {"Backup","Αποθήκευση Αντιγράφου Ασφαλείας"}.
 {"Bad format","Ακατάλληλη μορφή"}.
 {"Birthday","Γενέθλια"}.
@@ -45,8 +39,6 @@
 {"Chatroom is stopped","Η αίθουσα σύνεδριασης έχει σταματήσει"}.
 {"Chatrooms","Αίθουσες σύνεδριασης"}.
 {"Choose a username and password to register with this server","Επιλέξτε ένα όνομα χρήστη και κωδικό πρόσβασης για να εγγραφείτε σε αυτό τον διακομιστή"}.
-{"Choose modules to stop","Επιλέξτε modules για να σταματήσουν"}.
-{"Choose storage type of tables","Επιλέξτε τύπο αποθήκευσης των πινάκων"}.
 {"Choose whether to approve this entity's subscription.","Επιλέξτε αν θα εγκρίθεί η εγγραφή αυτής της οντότητας."}.
 {"City","Πόλη"}.
 {"Commands","Εντολές"}.
@@ -58,11 +50,9 @@
 {"Country","Χώρα"}.
 {"CPU Time:","Ώρα CPU:"}.
 {"Database Tables at ","Πίνακες βάσης δεδομένων στο "}.
-{"Database Tables Configuration at ","Διαμόρφωση Πίνακων βάσης δεδομένων στο "}.
 {"Database","Βάση δεδομένων"}.
 {"December","Δεκέμβριος"}.
 {"Default users as participants","Προεπιλογη χρήστων ως συμμετέχοντες"}.
-{"Delete message of the day on all hosts","Διαγράψτε το μήνυμα της ημέρας σε όλους τους κεντρικούς υπολογιστές"}.
 {"Delete message of the day","Διαγράψτε το μήνυμα της ημέρας"}.
 {"Delete Selected","Διαγραφή επιλεγμένων"}.
 {"Delete User","Διαγραφή Χρήστη"}.
@@ -70,11 +60,8 @@
 {"Deliver event notifications","Κοινοποιήσεις παράδοσης"}.
 {"Deliver payloads with event notifications","Κοινοποιήσεις με την παράδοση φορτίων"}.
 {"Description:","Περιγραφή:"}.
-{"Disc only copy","Αντίγραφο μόνο σε δίσκο"}.
 {"Displayed Groups:","Εμφανίσμενες Ομάδες:"}.
 {"Don't tell your password to anybody, not even the administrators of the Jabber server.","Μην πείτε τον κωδικό πρόσβασής σας σε κανέναν, ακόμη και στους διαχειριστές του διακομιστή Jabber."}.
-{"Dump Backup to Text File at ","Αποθήκευση Αντιγράφου Ασφαλείας σε αρχείο κειμένου στο "}.
-{"Dump to Text File","Αποθήκευση σε αρχείο κειμένου"}.
 {"Edit Properties","Επεξεργασία ιδιοτήτων"}.
 {"Either approve or decline the voice request.","Είτε εγκρίνετε ή απορρίψτε το αίτημα φωνής."}.
 {"ejabberd IRC module","ejabberd IRC module"}.
@@ -88,12 +75,7 @@
 {"Enable logging","Ενεργοποίηση καταγραφής"}.
 {"Encoding for server ~b","Κωδικοποίηση για διακομιστή ~b"}.
 {"End User Session","Τερματισμός Συνεδρίας Χρήστη"}.
-{"Enter list of {Module, [Options]}","Εισάγετε κατάλογο των (Module, [Επιλογές])"}.
 {"Enter nickname you want to register","Πληκτρολογήστε το ψευδώνυμο που θέλετε να εγγραφείτε"}.
-{"Enter path to backup file","Εισάγετε τοποθεσία αρχείου αντιγράφου ασφαλείας"}.
-{"Enter path to jabberd14 spool dir","Εισάγετε κατάλογο αρχείων σειράς jabberd14"}.
-{"Enter path to jabberd14 spool file","Εισάγετε τοποθεσία αρχείου σειράς jabberd14"}.
-{"Enter path to text file","Εισάγετε Τοποθεσία Αρχείου Κειμένου"}.
 {"Enter the text you see","Πληκτρολογήστε το κείμενο που βλέπετε"}.
 {"Enter username and encodings you wish to use for connecting to IRC servers.  Press 'Next' to get more fields to fill in.  Press 'Complete' to save settings.","Πληκτρολογήστε το όνομα χρήστη και κωδικοποιήσεις που θέλετε να χρησιμοποιήσετε για τη σύνδεση με διακομιστές IRC. Πατήστε 'Next' για να πάρετε περισσότερα πεδία να συμπληρώσετε. Πατήστε 'Complete' για να αποθηκεύσετε ρυθμίσεις."}.
 {"Enter username, encodings, ports and passwords you wish to use for connecting to IRC servers","Εισάγετε το όνομα χρήστη, κωδικοποιήσεις, τις θύρες και τους κωδικούς πρόσβασης που θέλετε να χρησιμοποιήσετε για σύνδεση με IRC διακομιστή"}.
@@ -109,11 +91,8 @@
 {"Fill in fields to search for any matching Jabber User","Συμπληρώστε τα πεδία για να αναζητήσετε οποιαδήποτε ταιριάζοντα Jabber χρήστη"}.
 {"Fill in the form to search for any matching Jabber User (Add * to the end of field to match substring)","Συμπληρώστε τη φόρμα για να αναζητήσετε οποιαδήποτε Jabber χρήστη που ταιριάζει (Προσθέστε * στο τέλος τού πεδίου για να ταιριάξει σε μεγαλύτερες γραμματοσηρές)"}.
 {"Friday","Παρασκευή"}.
-{"From ~s","Από ~s"}.
 {"From","Από"}.
 {"Full Name","Ονοματεπώνυμο"}.
-{"Get Number of Online Users","Έκθεση αριθμού συνδεδεμένων χρηστών"}.
-{"Get Number of Registered Users","Έκθεση αριθμού εγγεγραμμένων χρηστών"}.
 {"Get User Last Login Time","Έκθεση Τελευταίας Ώρας Σύνδεσης Χρήστη"}.
 {"Get User Password","Έκθεση Κωδικού Πρόσβασης Χρήστη"}.
 {"Get User Statistics","Έκθεση Στατιστικών Χρήστη"}.
@@ -129,14 +108,9 @@
 {"Host","Κεντρικός Υπολογιστής"}.
 {"If you don't see the CAPTCHA image here, visit the web page.","Εάν δεν βλέπετε την εικόνα CAPTCHA εδώ, επισκεφθείτε την ιστοσελίδα."}.
 {"If you want to specify different ports, passwords, encodings for IRC servers, fill this list with values in format '{\"irc server\", \"encoding\", port, \"password\"}'.  By default this service use \"~s\" encoding, port ~p, empty password.","Εάν θέλετε να καθορίσετε διαφορετικές θύρες, κωδικούς πρόσβασης, κωδικοποιήσεις για IRC διακομιστές, εισάγετε πληροφορίες στη μορφή '{\"irc διακομιστής\", \"κωδικοποιήσεις\", θύρα, \"κωδικός πρόσβασης\"}'.  Προεπιλεγμενα αυτή η υπηρεσία χρησιμοποιεί \"~s\" κωδικοποιήση, θύρα ~p, κενό κωδικό πρόσβασης."}.
-{"Import Directory","Εισαγωγή κατάλογου αρχείων"}.
-{"Import File","Εισαγωγή αρχείων"}.
 {"Import user data from jabberd14 spool file:","Εισαγωγή δεδομένων χρήστη από το αρχείο σειράς jabberd14:"}.
-{"Import User from File at ","Εισαγωγή χρηστών από αρχείο στο "}.
 {"Import users data from a PIEFXIS file (XEP-0227):","Εισαγωγή δεδομένων χρηστών από ένα αρχείο PIEFXIS (XEP-0227):"}.
 {"Import users data from jabberd14 spool directory:","Εισαγωγή δεδομένων χρηστών από κατάλογο αρχείων σειράς jabberd14:"}.
-{"Import Users from Dir at ","Εισαγωγή χρηστών από κατάλογο αρχείων στο "}.
-{"Import Users From jabberd14 Spool Files","Εισαγωγή Χρηστών από αρχεία σειράς jabberd14"}.
 {"Improper message type","Ακατάλληλο είδος μηνύματος"}.
 {"Incorrect password","Εσφαλμένος κωδικός πρόσβασης"}.
 {"Invalid affiliation: ~s","Άκυρη υπαγωγή: ~s"}.
@@ -170,7 +144,6 @@
 {"leaves the room","εγκαταλείπει την αίθουσα"}.
 {"Listened Ports at ","Παρακολουθούμενες Θύρες στο "}.
 {"Listened Ports","Παρακολουθούμενες Θύρες"}.
-{"List of modules to start","Λίστα των Module για Εκκίνηση"}.
 {"Low level update script","Προγράμα ενημέρωσης χαμηλού επίπεδου "}.
 {"Make participants list public","Κάντε κοινό τον κατάλογο συμμετεχόντων"}.
 {"Make room CAPTCHA protected","Κάντε την αίθουσα CAPTCHA προστατεύονομενη"}.
@@ -221,8 +194,6 @@
 {"Notify subscribers when the node is deleted","Ειδοποιηση στους συνδρομητές όταν ο κόμβος διαγράφεται"}.
 {"November","Νοέμβριος"}.
 {"Number of occupants","Αριθμός συμετεχόντων"}.
-{"Number of online users","Αριθμός συνδεδεμένων χρηστών"}.
-{"Number of registered users","Αριθμός εγγεγραμμένων χρηστών"}.
 {"October","Οκτώβριος"}.
 {"Offline Messages:","Χωρίς Σύνδεση Μηνύματα:"}.
 {"Offline Messages","Χωρίς Σύνδεση Μηνύματα"}.
@@ -242,7 +213,6 @@
 {"Organization Name","Όνομα Οργανισμού"}.
 {"Organization Unit","Μονάδα Οργανισμού"}.
 {"Outgoing s2s Connections:","Εξερχόμενες S2S Συνδέσεις:"}.
-{"Outgoing s2s Connections","Εξερχόμενες S2S Συνδέσεις"}.
 {"Outgoing s2s Servers:","Εξερχόμενοι S2S διακομιστές:"}.
 {"Owner privileges required","Aπαιτούνται προνόμια ιδιοκτήτη"}.
 {"Packet","Πακέτο"}.
@@ -251,8 +221,6 @@
 {"Password Verification","Επαλήθευση κωδικού πρόσβασης"}.
 {"Password","Κωδικός Πρόσβασης"}.
 {"Password:","Κωδικός πρόσβασης:"}.
-{"Path to Dir","Τοποθεσία κατάλογου αρχείων"}.
-{"Path to File","Τοποθεσία Αρχείου"}.
 {"Pending","Εκκρεμεί"}.
 {"Period: ","Περίοδος: "}.
 {"Persist items to storage","Μονιμη αποθήκευση στοιχείων"}.
@@ -269,8 +237,6 @@
 {"PubSub subscriber request","Αίτηση συνδρομητή Δημοσίευσης-Εγγραφής"}.
 {"Purge all items when the relevant publisher goes offline","Διαγραφή όλων των στοιχείων όταν ο σχετικός εκδότης αποσυνδέεται"}.
 {"Queries to the conference members are not allowed in this room","Ερωτήματα πρώς τα μέλη της διασκέψεως δεν επιτρέπονται σε αυτήν την αίθουσα"}.
-{"RAM and disc copy","Αντίγραφο μόνο σε RAM καί δίσκο"}.
-{"RAM copy","Αντίγραφο σε RAM"}.
 {"Raw","Ακατέργαστο"}.
 {"Really delete message of the day?","Πραγματικά να διαγράψετε το μήνυμα της ημέρας;"}.
 {"Recipient is not in the conference room","Παραλήπτης δεν είναι στην αίθουσα συνεδριάσεων"}.
@@ -279,19 +245,15 @@
 {"Registered Users","Εγγεγραμμένοι Χρήστες"}.
 {"Register","Καταχωρήστε"}.
 {"Registration in mod_irc for ","Εγγραφή στο mod_irc για "}.
-{"Remote copy","Απομεμακρυσμένο αντίγραφο"}.
 {"Remove All Offline Messages","Αφαίρεση Όλων των Χωρίς Σύνδεση Μηνύματων"}.
 {"Remove User","Αφαίρεση χρήστη"}.
 {"Remove","Αφαίρεστε"}.
 {"Replaced by new connection","Αντικαταστάθικε από νέα σύνδεση"}.
 {"Resources","Πόροι"}.
-{"Restart Service","Επανεκκίνηση Υπηρεσίας"}.
 {"Restart","Επανεκκίνηση"}.
-{"Restore Backup from File at ","Επαναφορά Αντιγράφου Ασφαλείας από αρχείο στο "}.
 {"Restore binary backup after next ejabberd restart (requires less memory):","Επαναφορά δυαδικού αντιγράφου ασφαλείας μετά την επόμενη επανεκκίνηση του ejabberd (απαιτεί λιγότερη μνήμη):"}.
 {"Restore binary backup immediately:","Επαναφορά δυαδικού αντιγράφου ασφαλείας αμέσως:"}.
 {"Restore plain text backup immediately:","Επαναφορά αντιγράφου ασφαλείας από αρχείο κειμένου αμέσως:"}.
-{"Restore","Επαναφορά Αντιγράφου Ασφαλείας"}.
 {"Room Configuration","Διαμόρφωση Αίθουσας σύνεδριασης"}.
 {"Room creation is denied by service policy","Άρνηση δημιουργίας αίθουσας , λόγω τακτικής παροχής υπηρεσιών"}.
 {"Room description","Περιγραφή Αίθουσας"}.
@@ -314,24 +276,18 @@
 {"Server ~b","Διακομιστής  ~b"}.
 {"Server:","Διακομιστής:"}.
 {"Set message of the day and send to online users","Ορίστε μήνυμα ημέρας και αποστολή στους συνδεδεμένους χρήστες"}.
-{"Set message of the day on all hosts and send to online users","Ορίστε μήνυμα ημέρας και άμεση αποστολή στους συνδεδεμένους χρήστες σε όλους τους κεντρικούς υπολογιστές"}.
 {"Shared Roster Groups","Κοινές Ομάδες Καταλόγων Επαφών"}.
 {"Show Integral Table","Δείτε Ολοκληρωτικό Πίνακα"}.
 {"Show Ordinary Table","Δείτε Κοινό Πίνακα"}.
-{"Shut Down Service","Κλείσιμο Υπηρεσίας"}.
 {"~s invites you to the room ~s","~s σας προσκαλεί στην αίθουσα ~s"}.
 {"Some Jabber clients can store your password in your computer. Use that feature only if you trust your computer is safe.","Μερικοί πελάτες Jabber μπορεί να αποθηκεύσουν τον κωδικό πρόσβασής σας στον υπολογιστή σας. Χρησιμοποιήστε αυτό το χαρακτηριστικό μόνο εάν εμπιστεύεστε την ασφάλεια του υπολογιστή σας."}.
 {"Specify the access model","Καθορίστε το μοντέλο πρόσβασης"}.
 {"Specify the event message type","Καθορίστε τον τύπο μηνύματος συμβάντος"}.
 {"Specify the publisher model","Καθορίστε το μοντέλο εκδότη"}.
 {"~s's Offline Messages Queue","Η Σειρά Χωρίς Σύνδεση Μηνύματων τού ~s"}.
-{"Start Modules at ","Εκκίνηση Modules στο "}.
-{"Start Modules","Εκκίνηση Modules"}.
 {"Start","Εκκίνηση"}.
 {"Statistics of ~p","Στατιστικές του ~p"}.
 {"Statistics","Στατιστικές"}.
-{"Stop Modules at ","Παύση Modules στο "}.
-{"Stop Modules","ΠαύσηModules"}.
 {"Stopped Nodes","Σταματημένοι Κόμβοι"}.
 {"Stop","Σταμάτημα"}.
 {"Storage Type","Τύπος Αποθήκευσης"}.
@@ -362,10 +318,8 @@
 {"This participant is kicked from the room because he sent an error presence","Αυτός ο συμμετέχων αποβλήθηκε από την αίθουσα, επειδή έστειλε σφάλμα παρουσίας "}.
 {"This room is not anonymous","Η αίθουσα αυτή δεν είναι ανώνυμη"}.
 {"Thursday","Πέμπτη"}.
-{"Time delay","Χρόνος καθυστέρησης"}.
 {"Time","Χρόνος"}.
 {"Too many CAPTCHA requests","Πάρα πολλά αιτήματα CAPTCHA"}.
-{"To ~s","Πρώς ~s"}.
 {"To","Πρώς"}.
 {"Traffic rate limit is exceeded","Υπέρφορτωση"}.
 {"Transactions Aborted:","Αποτυχημένες συναλλαγές:"}.
@@ -378,7 +332,6 @@
 {"Unregister a Jabber account","Καταργήστε την εγγραφή ενός λογαριασμού Jabber"}.
 {"Unregister","Καταργήση εγγραφής"}.
 {"Update message of the day (don't send)","Ενημέρωση μηνύματως ημέρας (χωρίς άμεση αποστολή)"}.
-{"Update message of the day on all hosts (don't send)","Ενημέρωση μηνύματως ημέρας σε όλους τους κεντρικούς υπολογιστές (χωρίς άμεση αποστολή)"}.
 {"Update plan","Σχέδιο ενημέρωσης"}.
 {"Update script","Προγράμα ενημέρωσης"}.
 {"Update ","Ενημέρωση"}.

@@ -1,9 +1,5 @@
-{"Access Configuration","Agordo de atingo"}.
-{"Access Control List Configuration","Agordo de atingokontrolo"}.
-{"Access control lists","Atingokontrol-listoj"}.
 {"Access Control Lists","Atingokontrol-listoj"}.
 {"Access denied by service policy","Atingo rifuzita de serv-politiko"}.
-{"Access rules","Atingo-reguloj"}.
 {"Access Rules","Atingo-reguloj"}.
 {"Action on user","Ago je uzanto"}.
 {"Add Jabber ID","Aldonu Jabber ID"}.
@@ -29,9 +25,7 @@
 {"April","Aprilo"}.
 {"August","Aŭgusto"}.
 {"Backup","Faru Sekurkopion"}.
-{"Backup Management","Mastrumado de sekurkopioj"}.
 {"Backup of ","Sekurkopio de "}.
-{"Backup to File at ","Faru sekurkopion je "}.
 {"Bad format","Malĝusta formo"}.
 {"Birthday","Naskiĝtago"}.
 {"CAPTCHA web page","CAPTCHA teksaĵ-paĝo"}.
@@ -45,8 +39,6 @@
 {"Chatroom is stopped","Babilejo haltita"}.
 {"Chatrooms","Babilejoj"}.
 {"Choose a username and password to register with this server","Elektu uzantnomon kaj pasvorton por registri je ĉi tiu servilo"}.
-{"Choose modules to stop","Elektu modulojn por fini"}.
-{"Choose storage type of tables","Elektu konserv-tipon de tabeloj"}.
 {"Choose whether to approve this entity's subscription.","Elektu ĉu permesi la abonon de ĉi tiu ento"}.
 {"City","Urbo"}.
 {"Commands","Ordonoj"}.
@@ -59,22 +51,17 @@
 {"CPU Time:","CPU-tempo"}.
 {"Database","Datumbazo"}.
 {"Database Tables at ","Datumbaz-tabeloj je "}.
-{"Database Tables Configuration at ","Agordo de datumbaz-tabeloj je "}.
 {"December","Decembro"}.
 {"Default users as participants","Kutime farigu uzantojn kiel partpoprenantoj"}.
 {"Delete","Forigu"}.
 {"Delete message of the day","Forigu mesaĝo de la tago"}.
-{"Delete message of the day on all hosts","Forigu mesaĝo de la tago je ĉiu gastigo"}.
 {"Delete Selected","Forigu elektata(j)n"}.
 {"Delete User","Forigu Uzanton"}.
 {"Deliver event notifications","Liveru event-sciigojn"}.
 {"Deliver payloads with event notifications","Liveru aĵojn de event-sciigoj"}.
 {"Description:","Priskribo:"}.
-{"Disc only copy","Nur disk-kopio"}.
 {"Displayed Groups:","Montrataj grupoj:"}.
 {"Don't tell your password to anybody, not even the administrators of the Jabber server.","Ne donu vian pasvorton al iun ajn, eĉ ne al la administrantoj de la Ĵabber-servilo."}.
-{"Dump Backup to Text File at ","Skribu sekurkopion en plata teksto al "}.
-{"Dump to Text File","Skribu en plata tekst-dosiero"}.
 {"Edit Properties","Redaktu atributojn"}.
 {"Either approve or decline the voice request.","Ĉu aprobu, aŭ malaprobu la voĉ-peton."}.
 {"ejabberd IRC module","ejabberd IRC-modulo"}.
@@ -88,12 +75,7 @@
 {"Enable logging","Ŝaltu protokoladon"}.
 {"Encoding for server ~b","Enkodigo por servilo ~b"}.
 {"End User Session","Haltigu Uzant-seancon"}.
-{"Enter list of {Module, [Options]}","Enmetu liston de {Modulo, [Elektebloj]}"}.
 {"Enter nickname you want to register","Enmetu kaŝnomon kiun vi volas registri"}.
-{"Enter path to backup file","Enmetu vojon por sekurkopio"}.
-{"Enter path to jabberd14 spool dir","Enmetu vojon al jabberd14-uzantdosierujo"}.
-{"Enter path to jabberd14 spool file","Enmetu vojon al jabberd14-uzantdosiero"}.
-{"Enter path to text file","Enmetu vojon al plata teksto"}.
 {"Enter the text you see","Enmetu montrita teksto"}.
 {"Enter username, encodings, ports and passwords you wish to use for connecting to IRC servers","Enmetu uzantnomon,j enkodigojn, pordojn kaj pasvortojn kiujn vi volas uzi por konektoj al IRC-serviloj"}.
 {"Erlang Jabber Server","Erlang-a Jabber-Servilo"}.
@@ -109,10 +91,7 @@
 {"Fill in the form to search for any matching Jabber User (Add * to the end of field to match substring)","Kompletigu la formon por serĉi rekonata Jabber-uzanto (Aldonu * je la fino de la kampo por rekoni subĉenon"}.
 {"Friday","Vendredo"}.
 {"From","De"}.
-{"From ~s","De ~s"}.
 {"Full Name","Plena Nomo"}.
-{"Get Number of Online Users","Montru nombron de konektataj uzantoj"}.
-{"Get Number of Registered Users","Montru nombron de registritaj uzantoj"}.
 {"Get User Last Login Time","Montru tempon de lasta ensaluto"}.
 {"Get User Password","Montru pasvorton de uzanto"}.
 {"Get User Statistics","Montru statistikojn de uzanto"}.
@@ -128,14 +107,9 @@
 {"Host","Gastigo"}.
 {"If you don't see the CAPTCHA image here, visit the web page.","Se vi ne vidas la CAPTCHA-imagon jene, vizitu la teksaĵ-paĝon."}.
 {"If you want to specify different ports, passwords, encodings for IRC servers, fill this list with values in format '{\"irc server\", \"encoding\", port, \"password\"}'.  By default this service use \"~s\" encoding, port ~p, empty password.","Se vi volas specifi diversajn pordojn, pasvortojn, enkodigojn por IRC-serviloj, kompletigu la jenan liston kun la formo '{\"irc-servilo\", \"enkodigo\", porto, \"pasvorto\"}'. Se ne specifita, ĉi tiu servilo uzas la enkodigo \"~s\", porto ~p, malplena pasvorto."}.
-{"Import Directory","Importu dosierujo"}.
-{"Import File","Importu dosieron"}.
 {"Import user data from jabberd14 spool file:","Importu uzantojn de jabberd14-uzantdosieroj"}.
-{"Import User from File at ","Importu uzanton de dosiero el "}.
 {"Import users data from a PIEFXIS file (XEP-0227):","Importu uzanto-datumojn de PIEFXIS dosiero (XEP-0227):"}.
 {"Import users data from jabberd14 spool directory:","Importu uzantojn de jabberd14-uzantdosieroj"}.
-{"Import Users from Dir at ","Importu uzantojn de dosierujo ĉe "}.
-{"Import Users From jabberd14 Spool Files","Importu uzantojn de jabberd14-uzantdosieroj"}.
 {"Improper message type","Malĝusta mesaĝo-tipo"}.
 {"Incorrect password","Nekorekta pasvorto"}.
 {"Invalid affiliation: ~s","Nevalida aparteneco: ~s"}.
@@ -169,7 +143,6 @@
 {"leaves the room","eliras la babilejo"}.
 {"Listened Ports at ","Atentataj pordoj je "}.
 {"Listened Ports","Atentataj pordoj"}.
-{"List of modules to start","Listo de moduloj por starti"}.
 {"Low level update script","Bazanivela ĝisdatigo-skripto"}.
 {"Make participants list public","Farigu partoprento-liston publika"}.
 {"Make room CAPTCHA protected","Farigu babilejon protektata per CAPTCHA"}.
@@ -220,8 +193,6 @@
 {"Notify subscribers when the node is deleted","Sciigu abonantoj kiam la nodo estas forigita"}.
 {"November","Novembro"}.
 {"Number of occupants","Nombro de ĉeestantoj"}.
-{"Number of online users","Nombro de konektataj uzantoj"}.
-{"Number of registered users","Nombro de registritaj uzantoj"}.
 {"October","Oktobro"}.
 {"Offline Messages:","Liverontaj mesaĝoj"}.
 {"Offline Messages","Liverontaj mesaĝoj"}.
@@ -241,7 +212,6 @@
 {"Organization Name","Organiz-nomo"}.
 {"Organization Unit","Organiz-parto"}.
 {"Outgoing s2s Connections:","Elirantaj s-al-s-konektoj:"}.
-{"Outgoing s2s Connections","Elirantaj s-al-s-konektoj"}.
 {"Outgoing s2s Servers:","Elirantaj s-al-s-serviloj"}.
 {"Owner privileges required","Mastraj rajtoj bezonata"}.
 {"Packet","Pakaĵo"}.
@@ -250,8 +220,6 @@
 {"Password","Pasvorto"}.
 {"Password Verification:","Pasvortkontrolo:"}.
 {"Password Verification","Pasvortkontrolo"}.
-{"Path to Dir","Vojo al dosierujo"}.
-{"Path to File","Voje de dosiero"}.
 {"Pending","Atendanta"}.
 {"Period: ","Periodo: "}.
 {"Persist items to storage","Savu erojn en konservado"}.
@@ -268,8 +236,6 @@
 {"PubSub subscriber request","PubAbo abonpeto"}.
 {"Purge all items when the relevant publisher goes offline","Forigu ĉiujn erojn kiam la rilata publikanto malkonektiĝas"}.
 {"Queries to the conference members are not allowed in this room","Malpermesas informmendoj al partoprenantoj en ĉi tiu babilejo"}.
-{"RAM and disc copy","RAM- kaj disk-kopio"}.
-{"RAM copy","RAM-kopio"}.
 {"Raw","Kruda"}.
 {"Really delete message of the day?","Ĉu vere forigi mesaĝon de la tago?"}.
 {"Recipient is not in the conference room","Ricevanto ne ĉeestas en la babilejo "}.
@@ -278,19 +244,15 @@
 {"Registered Users","Registritaj uzantoj"}.
 {"Register","Registru"}.
 {"Registration in mod_irc for ","Registraĵo en mod_irc de "}.
-{"Remote copy","Fora kopio"}.
 {"Remove All Offline Messages","Forigu ĉiujn liverontajn mesaĝojn"}.
 {"Remove","Forigu"}.
 {"Remove User","Forigu uzanton"}.
 {"Replaced by new connection","Anstataŭigita je nova konekto"}.
 {"Resources","Risurcoj"}.
 {"Restart","Restartu"}.
-{"Restart Service","Restartu Servon"}.
-{"Restore Backup from File at ","Restaŭrigu de dosiero el "}.
 {"Restore binary backup after next ejabberd restart (requires less memory):","Restaŭrigu duuman sekurkopion post sekvonta ejabberd-restarto"}.
 {"Restore binary backup immediately:","Restaŭrigu duuman sekurkopion tuj:"}.
 {"Restore plain text backup immediately:","Restaŭrigu sekurkopion el plata tekstdosiero tuj"}.
-{"Restore","Restaŭru"}.
 {"Room Configuration","Babilejo-agordo"}.
 {"Room creation is denied by service policy","Ĉi tiu serv-politiko ne permesas babilejo-kreadon"}.
 {"Room description","Babilejo-priskribo"}.
@@ -313,25 +275,19 @@
 {"Server ~b","Servilo ~b"}.
 {"Server:","Servilo:"}.
 {"Set message of the day and send to online users","Enmetu mesaĝon de la tago kaj sendu al konektataj uzantoj"}.
-{"Set message of the day on all hosts and send to online users","Enmetu mesaĝon de la tago je ĉiu gastigo kaj sendu al konektataj uzantoj"}.
 {"Shared Roster Groups","Komuna Kontaktlist-grupo"}.
 {"Show Integral Table","Montru integran tabelon"}.
 {"Show Ordinary Table","Montru ordinaran tabelon"}.
-{"Shut Down Service","Haltigu Servon"}.
 {"~s invites you to the room ~s","~s invitas vin al la babilejo ~s"}.
 {"Some Jabber clients can store your password in your computer. Use that feature only if you trust your computer is safe.","Kelkaj Ĵabber-klientoj povas memori vian pasvorton je via komputilo. Nur uzu tiun eblon se vi fidas ke via komputilo estas sekura."}.
 {"Specify the access model","Specifu atingo-modelon"}.
 {"Specify the event message type","Specifu tipo de event-mesaĝo"}.
 {"Specify the publisher model","Enmetu publikadan modelon"}.
 {"~s's Offline Messages Queue","Mesaĝo-atendovico de ~s"}.
-{"Start Modules at ","Startu modulojn je "}.
-{"Start Modules","Startu Modulojn"}.
 {"Start","Startu"}.
 {"Statistics of ~p","Statistikoj de ~p"}.
 {"Statistics","Statistikoj"}.
 {"Stop","Haltigu"}.
-{"Stop Modules at ","Haltigu modulojn je "}.
-{"Stop Modules","Haltigu Modulojn"}.
 {"Stopped Nodes","Neaktivaj Nodoj"}.
 {"Storage Type","Konserv-tipo"}.
 {"Store binary backup:","Konservu duuman sekurkopion:"}.
@@ -361,11 +317,9 @@
 {"This participant is kicked from the room because he sent an error presence","Ĉi tiu partoprenanto estas forpelata de la babilejo pro sendo de erar-ĉeesto"}.
 {"This room is not anonymous","Ĉi tiu babilejo ne estas anonima"}.
 {"Thursday","Ĵaŭdo"}.
-{"Time delay","Prokrasto"}.
 {"Time","Tempo"}.
 {"To","Ĝis"}.
 {"Too many CAPTCHA requests","Tro multaj CAPTCHA-petoj"}.
-{"To ~s","Al ~s"}.
 {"Traffic rate limit is exceeded","Trafikrapida limigo superita"}.
 {"Transactions Aborted:","Transakcioj nuligitaj"}.
 {"Transactions Committed:","Transakcioj enmetitaj"}.
@@ -379,7 +333,6 @@
 {"Update ","Ĝisdatigu "}.
 {"Update","Ĝisdatigu"}.
 {"Update message of the day (don't send)","Ŝanĝu mesaĝon de la tago (ne sendu)"}.
-{"Update message of the day on all hosts (don't send)","Ŝanĝu mesaĝon de la tago je ĉiu gastigo (ne sendu)"}.
 {"Update plan","Ĝisdatigo-plano"}.
 {"Update script","Ĝisdatigo-skripto"}.
 {"Uptime:","Daŭro de funkciado"}.

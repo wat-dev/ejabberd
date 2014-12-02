@@ -8,7 +8,7 @@ msgstr ""
 "X-Language: Czech (čeština)\n"
 "X-Additional-Translator: Milos Svasek [DuxforD] from openheads.net\n"
 
-#: ejabberd_c2s.erl:424 ejabberd_c2s.erl:737
+#: ejabberd_c2s.erl:424 ejabberd_c2s.erl:740
 msgid "Use of STARTTLS required"
 msgstr "Je vyžadováno STARTTLS"
 
@@ -16,11 +16,11 @@ msgstr "Je vyžadováno STARTTLS"
 msgid "No resource provided"
 msgstr "Nebyl poskytnut žádný zdroj"
 
-#: ejabberd_c2s.erl:1215
+#: ejabberd_c2s.erl:1218
 msgid "Replaced by new connection"
 msgstr "Nahrazeno novým spojením"
 
-#: ejabberd_c2s.erl:1903
+#: ejabberd_c2s.erl:1906
 msgid "Your active privacy list has denied the routing of this stanza."
 msgstr "Vaše nastavení soukromí znemožnilo směrování této stance."
 
@@ -56,359 +56,139 @@ msgstr "Ping"
 msgid "Pong"
 msgstr "Pong"
 
-#: mod_announce.erl:487
+#: mod_announce.erl:443
 msgid "Really delete message of the day?"
 msgstr "Skutečně smazat zprávu dne?"
 
-#: mod_announce.erl:495 mod_configure.erl:977 mod_configure.erl:1022
+#: mod_announce.erl:451
 msgid "Subject"
 msgstr "Předmět"
 
-#: mod_announce.erl:500 mod_configure.erl:982 mod_configure.erl:1027
+#: mod_announce.erl:456
 msgid "Message body"
 msgstr "Tělo zprávy"
 
-#: mod_announce.erl:580
+#: mod_announce.erl:529
 msgid "No body provided for announce message"
 msgstr "Zpráva neobsahuje text"
 
-#: mod_announce.erl:609
+#: mod_announce.erl:552
 msgid "Announcements"
 msgstr "Oznámení"
 
-#: mod_announce.erl:611
+#: mod_announce.erl:554
 msgid "Send announcement to all online users"
 msgstr "Odeslat oznámení všem online uživatelům"
 
-#: mod_announce.erl:613 mod_configure.erl:972 mod_configure.erl:1017
+#: mod_announce.erl:556
 msgid "Send announcement to all online users on all hosts"
 msgstr "Odeslat oznámení všem online uživatelům na všech hostitelích"
 
-#: mod_announce.erl:615
+#: mod_announce.erl:558
 msgid "Set message of the day and send to online users"
 msgstr "Nastavit zprávu dne a odeslat ji online uživatelům"
 
-#: mod_announce.erl:617
-msgid "Set message of the day on all hosts and send to online users"
-msgstr "Nastavit zprávu dne a odeslat ji online uživatelům"
-
-#: mod_announce.erl:619
+#: mod_announce.erl:560
 msgid "Update message of the day (don't send)"
 msgstr "Aktualizovat zprávu dne (neodesílat)"
 
-#: mod_announce.erl:621
-msgid "Update message of the day on all hosts (don't send)"
-msgstr "Aktualizovat zprávu dne pro všechny hostitele (neodesílat)"
-
-#: mod_announce.erl:623
+#: mod_announce.erl:562
 msgid "Delete message of the day"
 msgstr "Smazat zprávu dne"
 
-#: mod_announce.erl:625
-msgid "Delete message of the day on all hosts"
-msgstr "Smazat zprávu dne na všech hostitelích"
-
-#: mod_configure.erl:114 mod_configure.erl:264 mod_configure.erl:286
-#: mod_configure.erl:474
+#: mod_configure.erl:114 mod_configure.erl:198 mod_configure.erl:220
 msgid "Configuration"
 msgstr "Konfigurace"
 
-#: mod_configure.erl:125 mod_configure.erl:519 web/ejabberd_web_admin.erl:1897
-msgid "Database"
-msgstr "Databáze"
-
-#: mod_configure.erl:127 mod_configure.erl:538
-msgid "Start Modules"
-msgstr "Spustit moduly"
-
-#: mod_configure.erl:129 mod_configure.erl:539
-msgid "Stop Modules"
-msgstr "Zastavit moduly"
-
-#: mod_configure.erl:131 mod_configure.erl:547 web/ejabberd_web_admin.erl:1898
-msgid "Backup"
-msgstr "Zálohovat"
-
-#: mod_configure.erl:133 mod_configure.erl:548
-msgid "Restore"
-msgstr "Obnovit"
-
-#: mod_configure.erl:135 mod_configure.erl:549
-msgid "Dump to Text File"
-msgstr "Uložit do textového souboru"
-
-#: mod_configure.erl:137 mod_configure.erl:558
-msgid "Import File"
-msgstr "Import souboru"
-
-#: mod_configure.erl:139 mod_configure.erl:559
-msgid "Import Directory"
-msgstr "Import adresáře"
-
-#: mod_configure.erl:141 mod_configure.erl:524 mod_configure.erl:951
-msgid "Restart Service"
-msgstr "Restartovat službu"
-
-#: mod_configure.erl:143 mod_configure.erl:525 mod_configure.erl:996
-msgid "Shut Down Service"
-msgstr "Vypnout službu"
-
-#: mod_configure.erl:145 mod_configure.erl:492 mod_configure.erl:1091
+#: mod_configure.erl:123 mod_configure.erl:372 mod_configure.erl:520
 #: web/ejabberd_web_admin.erl:1504
 msgid "Add User"
 msgstr "Přidat uživatele"
 
-#: mod_configure.erl:147 mod_configure.erl:493 mod_configure.erl:1113
+#: mod_configure.erl:125 mod_configure.erl:373 mod_configure.erl:542
 msgid "Delete User"
 msgstr "Smazat uživatele"
 
-#: mod_configure.erl:149 mod_configure.erl:494 mod_configure.erl:1125
+#: mod_configure.erl:127 mod_configure.erl:374 mod_configure.erl:554
 msgid "End User Session"
 msgstr "Ukončit sezení uživatele"
 
-#: mod_configure.erl:151 mod_configure.erl:495
+#: mod_configure.erl:129 mod_configure.erl:375
 msgid "Change User Password"
 msgstr "Změnit heslo uživatele"
 
-#: mod_configure.erl:153 mod_configure.erl:496 mod_configure.erl:1154
+#: mod_configure.erl:131 mod_configure.erl:376 mod_configure.erl:583
 msgid "Get User Last Login Time"
 msgstr "Získat čas podleního přihlášení uživatele"
 
-#: mod_configure.erl:155 mod_configure.erl:497 mod_configure.erl:1166
+#: mod_configure.erl:133 mod_configure.erl:377 mod_configure.erl:595
 msgid "Get User Statistics"
 msgstr "Získat statistiky uživatele"
 
-#: mod_configure.erl:157 mod_configure.erl:498
-msgid "Get Number of Registered Users"
-msgstr "Získat počet registrovaných uživatelů"
-
-#: mod_configure.erl:159 mod_configure.erl:499
-msgid "Get Number of Online Users"
-msgstr "Získat počet online uživatelů"
-
-#: mod_configure.erl:161 mod_configure.erl:483 web/ejabberd_web_admin.erl:831
-#: web/ejabberd_web_admin.erl:872
-msgid "Access Control Lists"
-msgstr "Seznamy přístupových práv (ACL)"
-
-#: mod_configure.erl:163 mod_configure.erl:484 web/ejabberd_web_admin.erl:940
-#: web/ejabberd_web_admin.erl:976
-msgid "Access Rules"
-msgstr "Pravidla přístupů"
-
-#: mod_configure.erl:287 mod_configure.erl:475
+#: mod_configure.erl:221
 msgid "User Management"
 msgstr "Správa uživatelů"
 
-#: mod_configure.erl:476
-msgid "Outgoing s2s Connections"
-msgstr "Odchozí s2s spojení"
-
-#: mod_configure.erl:477 web/ejabberd_web_admin.erl:1868
-msgid "Running Nodes"
-msgstr "Běžící uzly"
-
-#: mod_configure.erl:478 web/ejabberd_web_admin.erl:1870
-msgid "Stopped Nodes"
-msgstr "Zastavené uzly"
-
-#: mod_configure.erl:520 mod_configure.erl:530 web/ejabberd_web_admin.erl:1914
-msgid "Modules"
-msgstr "Moduly"
-
-#: mod_configure.erl:521
-msgid "Backup Management"
-msgstr "Správa zálohování"
-
-#: mod_configure.erl:522
-msgid "Import Users From jabberd14 Spool Files"
-msgstr "Importovat uživatele z jabberd14 spool souborů"
-
-#: mod_configure.erl:591
-msgid "To ~s"
-msgstr "Pro ~s"
-
-#: mod_configure.erl:609
-msgid "From ~s"
-msgstr "Od  ~s"
-
-#: mod_configure.erl:807
-msgid "Database Tables Configuration at "
-msgstr "Konfigurace databázových tabulek "
-
-#: mod_configure.erl:812
-msgid "Choose storage type of tables"
-msgstr "Vyberte typ úložiště pro tabulky"
-
-#: mod_configure.erl:820 mod_configure.erl:822
-msgid "Disc only copy"
-msgstr "Jen kopie disku"
-
-#: mod_configure.erl:820 mod_configure.erl:822
-msgid "RAM and disc copy"
-msgstr "Kopie RAM a disku"
-
-#: mod_configure.erl:820 mod_configure.erl:822
-msgid "RAM copy"
-msgstr "Kopie RAM"
-
-#: mod_configure.erl:820 mod_configure.erl:822
-msgid "Remote copy"
-msgstr "Vzdálená kopie"
-
-#: mod_configure.erl:844
-msgid "Stop Modules at "
-msgstr "Zastavit moduly na "
-
-#: mod_configure.erl:848
-msgid "Choose modules to stop"
-msgstr "Vyberte moduly, které mají být zastaveny"
-
-#: mod_configure.erl:863
-msgid "Start Modules at "
-msgstr "Spustit moduly na "
-
-#: mod_configure.erl:867
-msgid "Enter list of {Module, [Options]}"
-msgstr "Vložte seznam modulů {Modul, [Parametry]}"
-
-#: mod_configure.erl:868
-msgid "List of modules to start"
-msgstr "Seznam modulů, které mají být spuštěné"
-
-#: mod_configure.erl:877
-msgid "Backup to File at "
-msgstr "Záloha do souboru na "
-
-#: mod_configure.erl:881 mod_configure.erl:895
-msgid "Enter path to backup file"
-msgstr "Zadajte cestu k souboru se zálohou"
-
-#: mod_configure.erl:882 mod_configure.erl:896 mod_configure.erl:910
-#: mod_configure.erl:924
-msgid "Path to File"
-msgstr "Cesta k souboru"
-
-#: mod_configure.erl:891
-msgid "Restore Backup from File at "
-msgstr "Obnovit zálohu ze souboru na "
-
-#: mod_configure.erl:905
-msgid "Dump Backup to Text File at "
-msgstr "Uložit zálohu do textového souboru na "
-
-#: mod_configure.erl:909
-msgid "Enter path to text file"
-msgstr "Zadajte cestu k textovému souboru"
-
-#: mod_configure.erl:919
-msgid "Import User from File at "
-msgstr "Importovat uživatele ze souboru na "
-
-#: mod_configure.erl:923
-msgid "Enter path to jabberd14 spool file"
-msgstr "Zadejte cestu k spool souboru jabberd14"
-
-#: mod_configure.erl:933
-msgid "Import Users from Dir at "
-msgstr "Importovat uživatele z adresáře na "
-
-#: mod_configure.erl:937
-msgid "Enter path to jabberd14 spool dir"
-msgstr "Zadejte cestu k jabberd14 spool adresáři"
-
-#: mod_configure.erl:938
-msgid "Path to Dir"
-msgstr "Cesta k adresáři"
-
-#: mod_configure.erl:954 mod_configure.erl:999
-msgid "Time delay"
-msgstr "Časový posun"
-
-#: mod_configure.erl:1037
-msgid "Access Control List Configuration"
-msgstr "Konfigurace seznamu přístupových práv (ACL)"
-
-#: mod_configure.erl:1041
-msgid "Access control lists"
-msgstr "Seznamy přístupových práv (ACL)"
-
-#: mod_configure.erl:1065
-msgid "Access Configuration"
-msgstr "Konfigurace přístupů"
-
-#: mod_configure.erl:1069
-msgid "Access rules"
-msgstr "Pravidla přístupů"
-
-#: mod_configure.erl:1094 mod_configure.erl:1116 mod_configure.erl:1128
-#: mod_configure.erl:1140 mod_configure.erl:1157 mod_configure.erl:1169
-#: mod_configure.erl:1567 mod_configure.erl:1588 mod_roster.erl:1349
+#: mod_configure.erl:523 mod_configure.erl:545 mod_configure.erl:557
+#: mod_configure.erl:569 mod_configure.erl:586 mod_configure.erl:598
+#: mod_configure.erl:701 mod_configure.erl:722 mod_roster.erl:1349
 #: mod_vcard.erl:543 mod_vcard_ldap.erl:554
 msgid "Jabber ID"
 msgstr "Jabber ID"
 
-#: mod_configure.erl:1099 mod_configure.erl:1145 mod_configure.erl:1728
+#: mod_configure.erl:528 mod_configure.erl:574 mod_configure.erl:814
 #: mod_muc/mod_muc_room.erl:3343 mod_register.erl:235
 #: web/ejabberd_web_admin.erl:1497
 msgid "Password"
 msgstr "Heslo"
 
-#: mod_configure.erl:1104
+#: mod_configure.erl:533
 msgid "Password Verification"
 msgstr "Ověření hesla"
 
-#: mod_configure.erl:1137
+#: mod_configure.erl:566
 msgid "Get User Password"
 msgstr "Získat heslo uživatele"
 
-#: mod_configure.erl:1183
-msgid "Number of registered users"
-msgstr "Počet registrovaných uživatelů"
-
-#: mod_configure.erl:1197
-msgid "Number of online users"
-msgstr "Počet online uživatelů"
-
-#: mod_configure.erl:1549 web/ejabberd_web_admin.erl:1564
+#: mod_configure.erl:683 web/ejabberd_web_admin.erl:1564
 #: web/ejabberd_web_admin.erl:1704
 msgid "Never"
 msgstr "Nikdy"
 
-#: mod_configure.erl:1563 web/ejabberd_web_admin.erl:1577
+#: mod_configure.erl:697 web/ejabberd_web_admin.erl:1577
 #: web/ejabberd_web_admin.erl:1717
 msgid "Online"
 msgstr "Online"
 
-#: mod_configure.erl:1568
+#: mod_configure.erl:702
 msgid "Last login"
 msgstr "Poslední přihlášení"
 
-#: mod_configure.erl:1589
+#: mod_configure.erl:723
 msgid "Roster size"
 msgstr "Velikost seznamu kontaktů"
 
-#: mod_configure.erl:1590
+#: mod_configure.erl:724
 msgid "IP addresses"
 msgstr "IP adresy"
 
-#: mod_configure.erl:1591
+#: mod_configure.erl:725
 msgid "Resources"
 msgstr "Zdroje"
 
-#: mod_configure.erl:1715
+#: mod_configure.erl:801
 msgid "Administration of "
 msgstr "Administrace "
 
-#: mod_configure.erl:1718
+#: mod_configure.erl:804
 msgid "Action on user"
 msgstr "Akce aplikovaná na uživatele"
 
-#: mod_configure.erl:1722
+#: mod_configure.erl:808
 msgid "Edit Properties"
 msgstr "Upravit vlastnosti"
 
-#: mod_configure.erl:1725 web/ejabberd_web_admin.erl:1730
+#: mod_configure.erl:811 web/ejabberd_web_admin.erl:1730
 msgid "Remove User"
 msgstr "Odstranit uživatele"
 
@@ -1364,9 +1144,17 @@ msgstr "Webová administrace ejabberd"
 msgid "Administration"
 msgstr "Administrace"
 
+#: web/ejabberd_web_admin.erl:831 web/ejabberd_web_admin.erl:872
+msgid "Access Control Lists"
+msgstr "Seznamy přístupových práv (ACL)"
+
 #: web/ejabberd_web_admin.erl:878 web/ejabberd_web_admin.erl:982
 msgid "Raw"
 msgstr "Zdroj"
+
+#: web/ejabberd_web_admin.erl:940 web/ejabberd_web_admin.erl:976
+msgid "Access Rules"
+msgstr "Pravidla přístupů"
 
 #: web/ejabberd_web_admin.erl:1017
 msgid "~s access rule configuration"
@@ -1480,9 +1268,25 @@ msgstr "Žádná data"
 msgid "Nodes"
 msgstr "Uzly"
 
+#: web/ejabberd_web_admin.erl:1868
+msgid "Running Nodes"
+msgstr "Běžící uzly"
+
+#: web/ejabberd_web_admin.erl:1870
+msgid "Stopped Nodes"
+msgstr "Zastavené uzly"
+
 #: web/ejabberd_web_admin.erl:1890 web/ejabberd_web_admin.erl:1912
 msgid "Node "
 msgstr "Uzel "
+
+#: web/ejabberd_web_admin.erl:1897
+msgid "Database"
+msgstr "Databáze"
+
+#: web/ejabberd_web_admin.erl:1898
+msgid "Backup"
+msgstr "Zálohovat"
 
 #: web/ejabberd_web_admin.erl:1899
 msgid "Listened Ports"
@@ -1500,6 +1304,10 @@ msgstr "Restart"
 #: web/ejabberd_web_admin.erl:1906 web/ejabberd_web_admin.erl:2532
 msgid "Stop"
 msgstr "Stop"
+
+#: web/ejabberd_web_admin.erl:1914
+msgid "Modules"
+msgstr "Moduly"
 
 #: web/ejabberd_web_admin.erl:1920
 msgid "RPC Call Error"
@@ -1797,6 +1605,147 @@ msgstr "Zde můžete zrušit registraci účtu na tomto serveru Jabberu."
 #: web/mod_register_web.erl:524
 msgid "Unregister"
 msgstr "Zrušit registraci"
+
+#~ msgid "Set message of the day on all hosts and send to online users"
+#~ msgstr "Nastavit zprávu dne a odeslat ji online uživatelům"
+
+#~ msgid "Update message of the day on all hosts (don't send)"
+#~ msgstr "Aktualizovat zprávu dne pro všechny hostitele (neodesílat)"
+
+#~ msgid "Delete message of the day on all hosts"
+#~ msgstr "Smazat zprávu dne na všech hostitelích"
+
+#~ msgid "Start Modules"
+#~ msgstr "Spustit moduly"
+
+#~ msgid "Stop Modules"
+#~ msgstr "Zastavit moduly"
+
+#~ msgid "Restore"
+#~ msgstr "Obnovit"
+
+#~ msgid "Dump to Text File"
+#~ msgstr "Uložit do textového souboru"
+
+#~ msgid "Import File"
+#~ msgstr "Import souboru"
+
+#~ msgid "Import Directory"
+#~ msgstr "Import adresáře"
+
+#~ msgid "Restart Service"
+#~ msgstr "Restartovat službu"
+
+#~ msgid "Shut Down Service"
+#~ msgstr "Vypnout službu"
+
+#~ msgid "Get Number of Registered Users"
+#~ msgstr "Získat počet registrovaných uživatelů"
+
+#~ msgid "Get Number of Online Users"
+#~ msgstr "Získat počet online uživatelů"
+
+#~ msgid "Outgoing s2s Connections"
+#~ msgstr "Odchozí s2s spojení"
+
+#~ msgid "Backup Management"
+#~ msgstr "Správa zálohování"
+
+#~ msgid "Import Users From jabberd14 Spool Files"
+#~ msgstr "Importovat uživatele z jabberd14 spool souborů"
+
+#~ msgid "To ~s"
+#~ msgstr "Pro ~s"
+
+#~ msgid "From ~s"
+#~ msgstr "Od  ~s"
+
+#~ msgid "Database Tables Configuration at "
+#~ msgstr "Konfigurace databázových tabulek "
+
+#~ msgid "Choose storage type of tables"
+#~ msgstr "Vyberte typ úložiště pro tabulky"
+
+#~ msgid "Disc only copy"
+#~ msgstr "Jen kopie disku"
+
+#~ msgid "RAM and disc copy"
+#~ msgstr "Kopie RAM a disku"
+
+#~ msgid "RAM copy"
+#~ msgstr "Kopie RAM"
+
+#~ msgid "Remote copy"
+#~ msgstr "Vzdálená kopie"
+
+#~ msgid "Stop Modules at "
+#~ msgstr "Zastavit moduly na "
+
+#~ msgid "Choose modules to stop"
+#~ msgstr "Vyberte moduly, které mají být zastaveny"
+
+#~ msgid "Start Modules at "
+#~ msgstr "Spustit moduly na "
+
+#~ msgid "Enter list of {Module, [Options]}"
+#~ msgstr "Vložte seznam modulů {Modul, [Parametry]}"
+
+#~ msgid "List of modules to start"
+#~ msgstr "Seznam modulů, které mají být spuštěné"
+
+#~ msgid "Backup to File at "
+#~ msgstr "Záloha do souboru na "
+
+#~ msgid "Enter path to backup file"
+#~ msgstr "Zadajte cestu k souboru se zálohou"
+
+#~ msgid "Path to File"
+#~ msgstr "Cesta k souboru"
+
+#~ msgid "Restore Backup from File at "
+#~ msgstr "Obnovit zálohu ze souboru na "
+
+#~ msgid "Dump Backup to Text File at "
+#~ msgstr "Uložit zálohu do textového souboru na "
+
+#~ msgid "Enter path to text file"
+#~ msgstr "Zadajte cestu k textovému souboru"
+
+#~ msgid "Import User from File at "
+#~ msgstr "Importovat uživatele ze souboru na "
+
+#~ msgid "Enter path to jabberd14 spool file"
+#~ msgstr "Zadejte cestu k spool souboru jabberd14"
+
+#~ msgid "Import Users from Dir at "
+#~ msgstr "Importovat uživatele z adresáře na "
+
+#~ msgid "Enter path to jabberd14 spool dir"
+#~ msgstr "Zadejte cestu k jabberd14 spool adresáři"
+
+#~ msgid "Path to Dir"
+#~ msgstr "Cesta k adresáři"
+
+#~ msgid "Time delay"
+#~ msgstr "Časový posun"
+
+#~ msgid "Access Control List Configuration"
+#~ msgstr "Konfigurace seznamu přístupových práv (ACL)"
+
+#~ msgid "Access control lists"
+#~ msgstr "Seznamy přístupových práv (ACL)"
+
+#~ msgid "Access Configuration"
+#~ msgstr "Konfigurace přístupů"
+
+#~ msgid "Access rules"
+#~ msgstr "Pravidla přístupů"
+
+#~ msgid "Number of registered users"
+#~ msgstr "Počet registrovaných uživatelů"
+
+#~ msgid "Number of online users"
+#~ msgstr "Počet online uživatelů"
 
 #~ msgid "Send announcement to all users"
 #~ msgstr "Odeslat oznámení všem uživatelům"

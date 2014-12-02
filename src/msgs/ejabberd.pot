@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ejabberd_c2s.erl:424 ejabberd_c2s.erl:737
+#: ejabberd_c2s.erl:424 ejabberd_c2s.erl:740
 msgid "Use of STARTTLS required"
 msgstr ""
 
@@ -15,11 +15,11 @@ msgstr ""
 msgid "No resource provided"
 msgstr ""
 
-#: ejabberd_c2s.erl:1215
+#: ejabberd_c2s.erl:1218
 msgid "Replaced by new connection"
 msgstr ""
 
-#: ejabberd_c2s.erl:1903
+#: ejabberd_c2s.erl:1906
 msgid "Your active privacy list has denied the routing of this stanza."
 msgstr ""
 
@@ -55,359 +55,139 @@ msgstr ""
 msgid "Pong"
 msgstr ""
 
-#: mod_announce.erl:487
+#: mod_announce.erl:443
 msgid "Really delete message of the day?"
 msgstr ""
 
-#: mod_announce.erl:495 mod_configure.erl:977 mod_configure.erl:1022
+#: mod_announce.erl:451
 msgid "Subject"
 msgstr ""
 
-#: mod_announce.erl:500 mod_configure.erl:982 mod_configure.erl:1027
+#: mod_announce.erl:456
 msgid "Message body"
 msgstr ""
 
-#: mod_announce.erl:580
+#: mod_announce.erl:529
 msgid "No body provided for announce message"
 msgstr ""
 
-#: mod_announce.erl:609
+#: mod_announce.erl:552
 msgid "Announcements"
 msgstr ""
 
-#: mod_announce.erl:611
+#: mod_announce.erl:554
 msgid "Send announcement to all online users"
 msgstr ""
 
-#: mod_announce.erl:613 mod_configure.erl:972 mod_configure.erl:1017
+#: mod_announce.erl:556
 msgid "Send announcement to all online users on all hosts"
 msgstr ""
 
-#: mod_announce.erl:615
+#: mod_announce.erl:558
 msgid "Set message of the day and send to online users"
 msgstr ""
 
-#: mod_announce.erl:617
-msgid "Set message of the day on all hosts and send to online users"
-msgstr ""
-
-#: mod_announce.erl:619
+#: mod_announce.erl:560
 msgid "Update message of the day (don't send)"
 msgstr ""
 
-#: mod_announce.erl:621
-msgid "Update message of the day on all hosts (don't send)"
-msgstr ""
-
-#: mod_announce.erl:623
+#: mod_announce.erl:562
 msgid "Delete message of the day"
 msgstr ""
 
-#: mod_announce.erl:625
-msgid "Delete message of the day on all hosts"
-msgstr ""
-
-#: mod_configure.erl:114 mod_configure.erl:264 mod_configure.erl:286
-#: mod_configure.erl:474
+#: mod_configure.erl:114 mod_configure.erl:198 mod_configure.erl:220
 msgid "Configuration"
 msgstr ""
 
-#: mod_configure.erl:125 mod_configure.erl:519 web/ejabberd_web_admin.erl:1897
-msgid "Database"
-msgstr ""
-
-#: mod_configure.erl:127 mod_configure.erl:538
-msgid "Start Modules"
-msgstr ""
-
-#: mod_configure.erl:129 mod_configure.erl:539
-msgid "Stop Modules"
-msgstr ""
-
-#: mod_configure.erl:131 mod_configure.erl:547 web/ejabberd_web_admin.erl:1898
-msgid "Backup"
-msgstr ""
-
-#: mod_configure.erl:133 mod_configure.erl:548
-msgid "Restore"
-msgstr ""
-
-#: mod_configure.erl:135 mod_configure.erl:549
-msgid "Dump to Text File"
-msgstr ""
-
-#: mod_configure.erl:137 mod_configure.erl:558
-msgid "Import File"
-msgstr ""
-
-#: mod_configure.erl:139 mod_configure.erl:559
-msgid "Import Directory"
-msgstr ""
-
-#: mod_configure.erl:141 mod_configure.erl:524 mod_configure.erl:951
-msgid "Restart Service"
-msgstr ""
-
-#: mod_configure.erl:143 mod_configure.erl:525 mod_configure.erl:996
-msgid "Shut Down Service"
-msgstr ""
-
-#: mod_configure.erl:145 mod_configure.erl:492 mod_configure.erl:1091
+#: mod_configure.erl:123 mod_configure.erl:372 mod_configure.erl:520
 #: web/ejabberd_web_admin.erl:1504
 msgid "Add User"
 msgstr ""
 
-#: mod_configure.erl:147 mod_configure.erl:493 mod_configure.erl:1113
+#: mod_configure.erl:125 mod_configure.erl:373 mod_configure.erl:542
 msgid "Delete User"
 msgstr ""
 
-#: mod_configure.erl:149 mod_configure.erl:494 mod_configure.erl:1125
+#: mod_configure.erl:127 mod_configure.erl:374 mod_configure.erl:554
 msgid "End User Session"
 msgstr ""
 
-#: mod_configure.erl:151 mod_configure.erl:495
+#: mod_configure.erl:129 mod_configure.erl:375
 msgid "Change User Password"
 msgstr ""
 
-#: mod_configure.erl:153 mod_configure.erl:496 mod_configure.erl:1154
+#: mod_configure.erl:131 mod_configure.erl:376 mod_configure.erl:583
 msgid "Get User Last Login Time"
 msgstr ""
 
-#: mod_configure.erl:155 mod_configure.erl:497 mod_configure.erl:1166
+#: mod_configure.erl:133 mod_configure.erl:377 mod_configure.erl:595
 msgid "Get User Statistics"
 msgstr ""
 
-#: mod_configure.erl:157 mod_configure.erl:498
-msgid "Get Number of Registered Users"
-msgstr ""
-
-#: mod_configure.erl:159 mod_configure.erl:499
-msgid "Get Number of Online Users"
-msgstr ""
-
-#: mod_configure.erl:161 mod_configure.erl:483 web/ejabberd_web_admin.erl:831
-#: web/ejabberd_web_admin.erl:872
-msgid "Access Control Lists"
-msgstr ""
-
-#: mod_configure.erl:163 mod_configure.erl:484 web/ejabberd_web_admin.erl:940
-#: web/ejabberd_web_admin.erl:976
-msgid "Access Rules"
-msgstr ""
-
-#: mod_configure.erl:287 mod_configure.erl:475
+#: mod_configure.erl:221
 msgid "User Management"
 msgstr ""
 
-#: mod_configure.erl:476
-msgid "Outgoing s2s Connections"
-msgstr ""
-
-#: mod_configure.erl:477 web/ejabberd_web_admin.erl:1868
-msgid "Running Nodes"
-msgstr ""
-
-#: mod_configure.erl:478 web/ejabberd_web_admin.erl:1870
-msgid "Stopped Nodes"
-msgstr ""
-
-#: mod_configure.erl:520 mod_configure.erl:530 web/ejabberd_web_admin.erl:1914
-msgid "Modules"
-msgstr ""
-
-#: mod_configure.erl:521
-msgid "Backup Management"
-msgstr ""
-
-#: mod_configure.erl:522
-msgid "Import Users From jabberd14 Spool Files"
-msgstr ""
-
-#: mod_configure.erl:591
-msgid "To ~s"
-msgstr ""
-
-#: mod_configure.erl:609
-msgid "From ~s"
-msgstr ""
-
-#: mod_configure.erl:807
-msgid "Database Tables Configuration at "
-msgstr ""
-
-#: mod_configure.erl:812
-msgid "Choose storage type of tables"
-msgstr ""
-
-#: mod_configure.erl:820 mod_configure.erl:822
-msgid "Disc only copy"
-msgstr ""
-
-#: mod_configure.erl:820 mod_configure.erl:822
-msgid "RAM and disc copy"
-msgstr ""
-
-#: mod_configure.erl:820 mod_configure.erl:822
-msgid "RAM copy"
-msgstr ""
-
-#: mod_configure.erl:820 mod_configure.erl:822
-msgid "Remote copy"
-msgstr ""
-
-#: mod_configure.erl:844
-msgid "Stop Modules at "
-msgstr ""
-
-#: mod_configure.erl:848
-msgid "Choose modules to stop"
-msgstr ""
-
-#: mod_configure.erl:863
-msgid "Start Modules at "
-msgstr ""
-
-#: mod_configure.erl:867
-msgid "Enter list of {Module, [Options]}"
-msgstr ""
-
-#: mod_configure.erl:868
-msgid "List of modules to start"
-msgstr ""
-
-#: mod_configure.erl:877
-msgid "Backup to File at "
-msgstr ""
-
-#: mod_configure.erl:881 mod_configure.erl:895
-msgid "Enter path to backup file"
-msgstr ""
-
-#: mod_configure.erl:882 mod_configure.erl:896 mod_configure.erl:910
-#: mod_configure.erl:924
-msgid "Path to File"
-msgstr ""
-
-#: mod_configure.erl:891
-msgid "Restore Backup from File at "
-msgstr ""
-
-#: mod_configure.erl:905
-msgid "Dump Backup to Text File at "
-msgstr ""
-
-#: mod_configure.erl:909
-msgid "Enter path to text file"
-msgstr ""
-
-#: mod_configure.erl:919
-msgid "Import User from File at "
-msgstr ""
-
-#: mod_configure.erl:923
-msgid "Enter path to jabberd14 spool file"
-msgstr ""
-
-#: mod_configure.erl:933
-msgid "Import Users from Dir at "
-msgstr ""
-
-#: mod_configure.erl:937
-msgid "Enter path to jabberd14 spool dir"
-msgstr ""
-
-#: mod_configure.erl:938
-msgid "Path to Dir"
-msgstr ""
-
-#: mod_configure.erl:954 mod_configure.erl:999
-msgid "Time delay"
-msgstr ""
-
-#: mod_configure.erl:1037
-msgid "Access Control List Configuration"
-msgstr ""
-
-#: mod_configure.erl:1041
-msgid "Access control lists"
-msgstr ""
-
-#: mod_configure.erl:1065
-msgid "Access Configuration"
-msgstr ""
-
-#: mod_configure.erl:1069
-msgid "Access rules"
-msgstr ""
-
-#: mod_configure.erl:1094 mod_configure.erl:1116 mod_configure.erl:1128
-#: mod_configure.erl:1140 mod_configure.erl:1157 mod_configure.erl:1169
-#: mod_configure.erl:1567 mod_configure.erl:1588 mod_roster.erl:1349
+#: mod_configure.erl:523 mod_configure.erl:545 mod_configure.erl:557
+#: mod_configure.erl:569 mod_configure.erl:586 mod_configure.erl:598
+#: mod_configure.erl:701 mod_configure.erl:722 mod_roster.erl:1349
 #: mod_vcard.erl:543 mod_vcard_ldap.erl:554
 msgid "Jabber ID"
 msgstr ""
 
-#: mod_configure.erl:1099 mod_configure.erl:1145 mod_configure.erl:1728
+#: mod_configure.erl:528 mod_configure.erl:574 mod_configure.erl:814
 #: mod_muc/mod_muc_room.erl:3343 mod_register.erl:235
 #: web/ejabberd_web_admin.erl:1497
 msgid "Password"
 msgstr ""
 
-#: mod_configure.erl:1104
+#: mod_configure.erl:533
 msgid "Password Verification"
 msgstr ""
 
-#: mod_configure.erl:1137
+#: mod_configure.erl:566
 msgid "Get User Password"
 msgstr ""
 
-#: mod_configure.erl:1183
-msgid "Number of registered users"
-msgstr ""
-
-#: mod_configure.erl:1197
-msgid "Number of online users"
-msgstr ""
-
-#: mod_configure.erl:1549 web/ejabberd_web_admin.erl:1564
+#: mod_configure.erl:683 web/ejabberd_web_admin.erl:1564
 #: web/ejabberd_web_admin.erl:1704
 msgid "Never"
 msgstr ""
 
-#: mod_configure.erl:1563 web/ejabberd_web_admin.erl:1577
+#: mod_configure.erl:697 web/ejabberd_web_admin.erl:1577
 #: web/ejabberd_web_admin.erl:1717
 msgid "Online"
 msgstr ""
 
-#: mod_configure.erl:1568
+#: mod_configure.erl:702
 msgid "Last login"
 msgstr ""
 
-#: mod_configure.erl:1589
+#: mod_configure.erl:723
 msgid "Roster size"
 msgstr ""
 
-#: mod_configure.erl:1590
+#: mod_configure.erl:724
 msgid "IP addresses"
 msgstr ""
 
-#: mod_configure.erl:1591
+#: mod_configure.erl:725
 msgid "Resources"
 msgstr ""
 
-#: mod_configure.erl:1715
+#: mod_configure.erl:801
 msgid "Administration of "
 msgstr ""
 
-#: mod_configure.erl:1718
+#: mod_configure.erl:804
 msgid "Action on user"
 msgstr ""
 
-#: mod_configure.erl:1722
+#: mod_configure.erl:808
 msgid "Edit Properties"
 msgstr ""
 
-#: mod_configure.erl:1725 web/ejabberd_web_admin.erl:1730
+#: mod_configure.erl:811 web/ejabberd_web_admin.erl:1730
 msgid "Remove User"
 msgstr ""
 
@@ -1348,8 +1128,16 @@ msgstr ""
 msgid "Administration"
 msgstr ""
 
+#: web/ejabberd_web_admin.erl:831 web/ejabberd_web_admin.erl:872
+msgid "Access Control Lists"
+msgstr ""
+
 #: web/ejabberd_web_admin.erl:878 web/ejabberd_web_admin.erl:982
 msgid "Raw"
+msgstr ""
+
+#: web/ejabberd_web_admin.erl:940 web/ejabberd_web_admin.erl:976
+msgid "Access Rules"
 msgstr ""
 
 #: web/ejabberd_web_admin.erl:1017
@@ -1464,8 +1252,24 @@ msgstr ""
 msgid "Nodes"
 msgstr ""
 
+#: web/ejabberd_web_admin.erl:1868
+msgid "Running Nodes"
+msgstr ""
+
+#: web/ejabberd_web_admin.erl:1870
+msgid "Stopped Nodes"
+msgstr ""
+
 #: web/ejabberd_web_admin.erl:1890 web/ejabberd_web_admin.erl:1912
 msgid "Node "
+msgstr ""
+
+#: web/ejabberd_web_admin.erl:1897
+msgid "Database"
+msgstr ""
+
+#: web/ejabberd_web_admin.erl:1898
+msgid "Backup"
 msgstr ""
 
 #: web/ejabberd_web_admin.erl:1899
@@ -1483,6 +1287,10 @@ msgstr ""
 
 #: web/ejabberd_web_admin.erl:1906 web/ejabberd_web_admin.erl:2532
 msgid "Stop"
+msgstr ""
+
+#: web/ejabberd_web_admin.erl:1914
+msgid "Modules"
 msgstr ""
 
 #: web/ejabberd_web_admin.erl:1920

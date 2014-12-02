@@ -1,9 +1,5 @@
-{"Access Configuration","Zugangskonfiguration"}.
-{"Access Control List Configuration","Konfiguration der Zugangskontrolllisten"}.
-{"Access control lists","Zugangskontroll-Listen (ACL)"}.
 {"Access Control Lists","Zugangskontroll-Listen (ACL)"}.
 {"Access denied by service policy","Zugang aufgrund der Dienstrichtlinien verweigert"}.
-{"Access rules","Zugangsregeln"}.
 {"Access Rules","Zugangsregeln"}.
 {"Action on user","Aktion auf Benutzer"}.
 {"Add Jabber ID","Jabber-ID hinzufügen"}.
@@ -29,9 +25,7 @@
 {"April","April"}.
 {"August","August"}.
 {"Backup","Datensicherung"}.
-{"Backup Management","Datensicherungsverwaltung"}.
 {"Backup of ","Sicherung von "}.
-{"Backup to File at ","Datensicherung in die Datei "}.
 {"Bad format","Ungültiges Format"}.
 {"Birthday","Geburtsdatum"}.
 {"CAPTCHA web page","CAPTCHA Webseite"}.
@@ -45,8 +39,6 @@
 {"Chatroom is stopped","Chatraum wurde beendet"}.
 {"Chatrooms","Chaträume"}.
 {"Choose a username and password to register with this server","Wählen sie zum Registrieren einen Benutzernamen und ein Passwort"}.
-{"Choose modules to stop","Wähle zu stoppende Module"}.
-{"Choose storage type of tables","Wähle Speichertyp der Tabellen"}.
 {"Choose whether to approve this entity's subscription.","Wähle Sie, ob dieses Abonnement akzeptiert werden soll."}.
 {"City","Stadt"}.
 {"Commands","Befehle"}.
@@ -59,22 +51,17 @@
 {"CPU Time:","CPU-Zeit:"}.
 {"Database","Datenbank"}.
 {"Database Tables at ","Datenbanktabellen auf "}.
-{"Database Tables Configuration at ","Datenbanktabellen-Konfiguration auf "}.
 {"December","Dezember"}.
 {"Default users as participants","Standardbenutzer als Teilnehmer"}.
 {"Delete","Löschen"}.
 {"Delete message of the day","Lösche Nachricht des Tages"}.
-{"Delete message of the day on all hosts","Lösche Nachricht des Tages auf allen Hosts"}.
 {"Delete Selected","Markierte löschen"}.
 {"Delete User","Benutzer löschen"}.
 {"Deliver event notifications","Ereignisbenachrichtigung zustellen"}.
 {"Deliver payloads with event notifications","Nachrichten mit Ereignis-Benachrichtigungen zustellen"}.
 {"Description:","Beschreibung:"}.
-{"Disc only copy","Nur auf Festplatte"}.
 {"Displayed Groups:","Angezeigte Gruppen:"}.
 {"Don't tell your password to anybody, not even the administrators of the Jabber server.","Geben sie niemandem ihr Passwort, auch nicht den Administratoren des Jabber Servers."}.
-{"Dump Backup to Text File at ","Ausgabe der Sicherung in diese Textdatei "}.
-{"Dump to Text File","Ausgabe in Textdatei"}.
 {"Edit Properties","Einstellungen ändern"}.
 {"Either approve or decline the voice request.","Diese Anfrage für Sprachrechte bestätigen oder ablehnen."}.
 {"ejabberd IRC module","ejabberd IRC-Modul"}.
@@ -88,12 +75,7 @@
 {"Enable logging","Protokollierung aktivieren"}.
 {"Encoding for server ~b","Kodierung für Server ~b"}.
 {"End User Session","Benutzer-Sitzung beenden"}.
-{"Enter list of {Module, [Options]}","Geben sie eine Liste bestehend aus {Modul, [Optionen]} ein"}.
 {"Enter nickname you want to register","Geben sie den zu registrierenden Benutzernamen ein"}.
-{"Enter path to backup file","Geben sie den Pfad zur Datensicherung ein"}.
-{"Enter path to jabberd14 spool dir","Geben Sie den Pfad zum jabberd14-Spool-Verzeichnis ein"}.
-{"Enter path to jabberd14 spool file","Geben Sie den Pfad zur jabberd14-Spool-Datei ein"}.
-{"Enter path to text file","Geben sie den Pfad zur Textdatei ein"}.
 {"Enter the text you see","Geben sie den Text den sie sehen ein"}.
 {"Enter username and encodings you wish to use for connecting to IRC servers.  Press 'Next' to get more fields to fill in.  Press 'Complete' to save settings.","Geben sie Benutzernamen und Kodierung für Verbindungen zu IRC Servern an. Drücken sie 'Mehr' um leere Felder hinzuzufügen. Drücken sie 'Beenden' um die Einstellungen zu speichern."}.
 {"Enter username, encodings, ports and passwords you wish to use for connecting to IRC servers","Geben Sie Benutzernamen und Zeichenkodierung für die Verbindung zum IRC-Server an"}.
@@ -109,11 +91,8 @@
 {"Fill in fields to search for any matching Jabber User","Füllen Sie die Felder aus, um nach passenden Jabber-Benutzern zu suchen"}.
 {"Fill in the form to search for any matching Jabber User (Add * to the end of field to match substring)","Füllen Sie die Felder aus, um nach passenden Jabber-Benutzern zu suchen (beenden Sie ein Feld mit *, um auch nach Teilzeichenketten zu suchen)"}.
 {"Friday","Freitag"}.
-{"From ~s","Von ~s"}.
 {"From","Von"}.
 {"Full Name","Vollständiger Name"}.
-{"Get Number of Online Users","Anzahl der angemeldeten Benutzer abrufen"}.
-{"Get Number of Registered Users","Anzahl der registrierten Benutzer abrufen"}.
 {"Get User Last Login Time","letzte Anmeldezeit abrufen"}.
 {"Get User Password","Benutzer-Passwort abrufen"}.
 {"Get User Statistics","Benutzer-Statistiken abrufen"}.
@@ -129,14 +108,9 @@
 {"Host","Host"}.
 {"If you don't see the CAPTCHA image here, visit the web page.","Wenn sie das CAPTCHA Bild nicht sehen, besuchen sie bitte die Webseite."}.
 {"If you want to specify different ports, passwords, encodings for IRC servers, fill this list with values in format '{\"irc server\", \"encoding\", port, \"password\"}'.  By default this service use \"~s\" encoding, port ~p, empty password.","Wenn sie verschiedene Ports, Passwörter und Kodierungen für IRC Server angeben wollen, erstellen sie die Liste mit folgendem Format '{\"IRC Server\", \"Kodierung\", Port, \"Passwort\"}'.  Standardmäßig benutzt dieser Dienst die \"~s\" Kodierung, den Port ~p und kein Passwort."}.
-{"Import Directory","Verzeichnis importieren"}.
-{"Import File","Datei importieren"}.
 {"Import user data from jabberd14 spool file:","Importiere Benutzer von jabberd14 Spool Datei:"}.
-{"Import User from File at ","Benutzer aus dieser Datei importieren "}.
 {"Import users data from a PIEFXIS file (XEP-0227):","Benutzerdaten von einer PIEFXIS Datei (XEP-0227) importieren:"}.
 {"Import users data from jabberd14 spool directory:","Importiere Benutzer von jabberd14 Spool Verzeichnis:"}.
-{"Import Users from Dir at ","Benutzer importieren aus dem Verzeichnis "}.
-{"Import Users From jabberd14 Spool Files","Importiere Benutzer aus jabberd14-Spool-Dateien"}.
 {"Improper message type","Unzulässiger Nachrichtentyp"}.
 {"Incorrect password","Falsches Passwort"}.
 {"Invalid affiliation: ~s","Ungültige Mitgliedschaft: ~s"}.
@@ -170,7 +144,6 @@
 {"leaves the room","verlässt den Raum"}.
 {"Listened Ports","Aktive Ports"}.
 {"Listened Ports at ","Aktive Ports bei"}.
-{"List of modules to start","Liste der zu startenden Module"}.
 {"Low level update script","Low level Aktualisierungsscript"}.
 {"Make participants list public","Teilnehmerliste öffentlich machen"}.
 {"Make room CAPTCHA protected","Raum mit Verifizierung (Captcha) versehen"}.
@@ -221,8 +194,6 @@
 {"Notify subscribers when the node is deleted","Abonnenten benachrichtigen, wenn der Knoten gelöscht wird"}.
 {"November","November"}.
 {"Number of occupants","Anzahl der Teilnehmer"}.
-{"Number of online users","Anzahl der angemeldeten Benutzer"}.
-{"Number of registered users","Anzahl der registrierten Benutzer"}.
 {"October","Oktober"}.
 {"Offline Messages:","Offline-Nachrichten:"}.
 {"Offline Messages","Offline-Nachrichten"}.
@@ -242,7 +213,6 @@
 {"Organization Name","Organisation"}.
 {"Organization Unit","Abteilung"}.
 {"Outgoing s2s Connections:","Ausgehende s2s-Verbindungen:"}.
-{"Outgoing s2s Connections","Ausgehende s2s-Verbindungen"}.
 {"Outgoing s2s Servers:","Ausgehende s2s-Server:"}.
 {"Owner privileges required","Besitzerrechte benötigt"}.
 {"Packet","Paket"}.
@@ -251,8 +221,6 @@
 {"Password","Passwort"}.
 {"Password Verification:","Passwort bestätigen:"}.
 {"Password Verification","Passwort bestätigen"}.
-{"Path to Dir","Pfad zum Verzeichnis"}.
-{"Path to File","Pfad zur Datei"}.
 {"Pending","anhängig"}.
 {"Period: ","Zeitraum: "}.
 {"Persist items to storage","Einträge dauerhaft speichern"}.
@@ -269,8 +237,6 @@
 {"PubSub subscriber request","PubSub-Abonnenten-Anfrage"}.
 {"Purge all items when the relevant publisher goes offline","Alle Einträge entfernen, wenn der relevante Veröffentlicher offline geht"}.
 {"Queries to the conference members are not allowed in this room","Anfragen an die Teilnehmer sind in diesem Raum nicht erlaubt"}.
-{"RAM and disc copy","RAM und Festplatte"}.
-{"RAM copy","Nur RAM"}.
 {"Raw","Unformatiert"}.
 {"Really delete message of the day?","Die Nachricht des Tages wirklich löschen?"}.
 {"Recipient is not in the conference room","Der Empfänger ist nicht im Raum"}.
@@ -279,19 +245,15 @@
 {"Registered Users:","Registrierte Benutzer:"}.
 {"Registered Users","Registrierte Benutzer"}.
 {"Registration in mod_irc for ","Registrierung in mod_irc für "}.
-{"Remote copy","Fernkopie"}.
 {"Remove All Offline Messages","Alle Offline Nachrichten löschen"}.
 {"Remove","Entfernen"}.
 {"Remove User","Benutzer löschen"}.
 {"Replaced by new connection","Durch neue Verbindung ersetzt"}.
 {"Resources","Ressourcen"}.
 {"Restart","Neustart"}.
-{"Restart Service","Dienst neustarten"}.
-{"Restore Backup from File at ","Datenwiederherstellung aus der Datei "}.
 {"Restore binary backup after next ejabberd restart (requires less memory):","Stelle binäre Sicherung beim nächsten ejabberd-Neustart wieder her (benötigt weniger Speicher):"}.
 {"Restore binary backup immediately:","Stelle binäre Sicherung sofort wieder her:"}.
 {"Restore plain text backup immediately:","Stelle Klartext-Sicherung sofort wieder her:"}.
-{"Restore","Wiederherstellung"}.
 {"Room Configuration","Raum-Konfiguration"}.
 {"Room creation is denied by service policy","Anlegen des Raumes aufgrund der Dienstrichtlinien verweigert"}.
 {"Room description","Raum Beschreibung"}.
@@ -314,24 +276,18 @@
 {"Server ~b","Server ~b"}.
 {"Server:","Server:"}.
 {"Set message of the day and send to online users","Setze Nachricht des Tages und sende sie an alle angemeldeten Benutzer"}.
-{"Set message of the day on all hosts and send to online users","Setze Nachricht des Tages auf allen Hosts und sende sie an alle angemeldeten Benutzer"}.
 {"Shared Roster Groups","Gruppen der gemeinsamen Kontaktliste"}.
 {"Show Integral Table","Vollständige Tabelle anzeigen"}.
 {"Show Ordinary Table","Normale Tabelle anzeigen"}.
-{"Shut Down Service","Dienst herunterfahren"}.
 {"~s invites you to the room ~s","~s lädt Sie in den Raum ~s ein"}.
 {"Some Jabber clients can store your password in your computer. Use that feature only if you trust your computer is safe.","Einige Jabber Client Programme speichern ihr Passwort auf ihrem Computer. Verwenden sie diese Möglichkeit nur auf Computern, die sie als sicher einstufen."}.
 {"Specify the access model","Geben sie das Zugangsmodell an"}.
 {"Specify the event message type","Geben sie den Ereignis-Nachrichtentyp an"}.
 {"Specify the publisher model","Geben sie das Publikationsmodell an"}.
 {"~s's Offline Messages Queue","~s's Offline-Nachrichten-Warteschlange"}.
-{"Start Modules at ","Starte Module auf "}.
-{"Start Modules","Module starten"}.
 {"Start","Starten"}.
 {"Statistics of ~p","Statistiken von ~p"}.
 {"Statistics","Statistik"}.
-{"Stop Modules at ","Stoppe Module auf "}.
-{"Stop Modules","Module stoppen"}.
 {"Stopped Nodes","Inaktive Knoten"}.
 {"Stop","Stoppen"}.
 {"Storage Type","Speichertyp"}.
@@ -362,11 +318,9 @@
 {"This participant is kicked from the room because he sent an error presence","Dieser Teilnehmer wurde aus dem Raum gekickt, da er einen fehlerhaften Status gesendet hat"}.
 {"This room is not anonymous","Dieser Raum ist nicht anonym"}.
 {"Thursday","Donnerstag"}.
-{"Time delay","Zeitverzögerung"}.
 {"Time","Zeit"}.
 {"To","An"}.
 {"Too many CAPTCHA requests","Zu viele CAPTCHA Anfragen"}.
-{"To ~s","An ~s"}.
 {"Traffic rate limit is exceeded","Datenratenlimit wurde überschritten"}.
 {"Transactions Aborted:","Abgebrochene Transaktionen:"}.
 {"Transactions Committed:","Durchgeführte Transaktionen:"}.
@@ -380,7 +334,6 @@
 {"Update","Aktualisieren"}.
 {"Update ","Aktualisierung "}.
 {"Update message of the day (don't send)","Aktualisiere Nachricht des Tages (nicht senden)"}.
-{"Update message of the day on all hosts (don't send)","Aktualisiere Nachricht des Tages auf allen Hosts (nicht senden)"}.
 {"Update plan","Aktualisierungsplan"}.
 {"Update script","Aktualisierungsscript"}.
 {"Uptime:","Betriebszeit:"}.

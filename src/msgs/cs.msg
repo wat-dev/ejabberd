@@ -1,9 +1,5 @@
-{"Access Configuration","Konfigurace přístupů"}.
-{"Access Control List Configuration","Konfigurace seznamu přístupových práv (ACL)"}.
-{"Access control lists","Seznamy přístupových práv (ACL)"}.
 {"Access Control Lists","Seznamy přístupových práv (ACL)"}.
 {"Access denied by service policy","Přístup byl zamítnut nastavením služby"}.
-{"Access rules","Pravidla přístupů"}.
 {"Access Rules","Pravidla přístupů"}.
 {"Action on user","Akce aplikovaná na uživatele"}.
 {"Add Jabber ID","Přidat Jabber ID"}.
@@ -28,9 +24,7 @@
 {"A password is required to enter this room","Pro vstup do místnosti musíte zadat heslo"}.
 {"April",". dubna"}.
 {"August",". srpna"}.
-{"Backup Management","Správa zálohování"}.
 {"Backup of ","Záloha na "}.
-{"Backup to File at ","Záloha do souboru na "}.
 {"Backup","Zálohovat"}.
 {"Bad format","Nesprávný formát"}.
 {"Birthday","Datum narození"}.
@@ -45,8 +39,6 @@
 {"Chatroom is stopped","Konference zastavena"}.
 {"Chatrooms","Konference"}.
 {"Choose a username and password to register with this server","Zadejte jméno uživatele a heslo pro registraci na tomto serveru"}.
-{"Choose modules to stop","Vyberte moduly, které mají být zastaveny"}.
-{"Choose storage type of tables","Vyberte typ úložiště pro tabulky"}.
 {"Choose whether to approve this entity's subscription.","Zvolte, zda chcete schválit odebírání touto entitou"}.
 {"City","Město"}.
 {"Commands","Příkazy"}.
@@ -59,10 +51,8 @@
 {"CPU Time:","Čas procesoru"}.
 {"Database","Databáze"}.
 {"Database Tables at ","Databázové tabulky na "}.
-{"Database Tables Configuration at ","Konfigurace databázových tabulek "}.
 {"December",". prosince"}.
 {"Default users as participants","Uživatelé jsou implicitně členy"}.
-{"Delete message of the day on all hosts","Smazat zprávu dne na všech hostitelích"}.
 {"Delete message of the day","Smazat zprávu dne"}.
 {"Delete Selected","Smazat vybrané"}.
 {"Delete","Smazat"}.
@@ -70,11 +60,8 @@
 {"Deliver event notifications","Doručovat upozornění na události"}.
 {"Deliver payloads with event notifications","Doručovat náklad s upozorněním na událost"}.
 {"Description:","Popis:"}.
-{"Disc only copy","Jen kopie disku"}.
 {"Displayed Groups:","Zobrazené skupiny:"}.
 {"Don't tell your password to anybody, not even the administrators of the Jabber server.","Nikdy nikomu nesdělujte své heslo, ani administrátorovi serveru Jabberu."}.
-{"Dump Backup to Text File at ","Uložit zálohu do textového souboru na "}.
-{"Dump to Text File","Uložit do textového souboru"}.
 {"Edit Properties","Upravit vlastnosti"}.
 {"Either approve or decline the voice request.","Povolit nebo odmítnout voice žádost."}.
 {"ejabberd IRC module","ejabberd IRC modul"}.
@@ -88,12 +75,7 @@
 {"Enable logging","Zaznamenávat konverzace"}.
 {"Encoding for server ~b","Kódování pro server ~b"}.
 {"End User Session","Ukončit sezení uživatele"}.
-{"Enter list of {Module, [Options]}","Vložte seznam modulů {Modul, [Parametry]}"}.
 {"Enter nickname you want to register","Zadejte přezdívku, kterou chcete zaregistrovat"}.
-{"Enter path to backup file","Zadajte cestu k souboru se zálohou"}.
-{"Enter path to jabberd14 spool dir","Zadejte cestu k jabberd14 spool adresáři"}.
-{"Enter path to jabberd14 spool file","Zadejte cestu k spool souboru jabberd14"}.
-{"Enter path to text file","Zadajte cestu k textovému souboru"}.
 {"Enter the text you see","Zadejte text, který vidíte"}.
 {"Enter username and encodings you wish to use for connecting to IRC servers.  Press 'Next' to get more fields to fill in.  Press 'Complete' to save settings.","Zadejte přezdívku a kódování, které chcete používat pro připojení k serverům IRC. Stiskněte 'Další' pro více políček k vyplnění. Stiskněte 'Dokončit' pro uložení nastavení."}.
 {"Enter username, encodings, ports and passwords you wish to use for connecting to IRC servers","Zadejte přezdívku, kódování, porty a hesla, které chcete používat pro připojení k serverům IRC"}.
@@ -110,10 +92,7 @@
 {"Fill in the form to search for any matching Jabber User (Add * to the end of field to match substring)","Pro vyhledání uživatele Jabberu vyplňte formulář (na konec přidejte znak * pro vyhledání podřetězce)"}.
 {"Friday","Pátek"}.
 {"From","Od"}.
-{"From ~s","Od  ~s"}.
 {"Full Name","Celé jméno"}.
-{"Get Number of Online Users","Získat počet online uživatelů"}.
-{"Get Number of Registered Users","Získat počet registrovaných uživatelů"}.
 {"Get User Last Login Time","Získat čas podleního přihlášení uživatele"}.
 {"Get User Password","Získat heslo uživatele"}.
 {"Get User Statistics","Získat statistiky uživatele"}.
@@ -129,14 +108,9 @@
 {"Host","Hostitel"}.
 {"If you don't see the CAPTCHA image here, visit the web page.","Pokud zde nevidíte obrázek CAPTCHA, přejděte na webovou stránku."}.
 {"If you want to specify different ports, passwords, encodings for IRC servers, fill this list with values in format '{\"irc server\", \"encoding\", port, \"password\"}'.  By default this service use \"~s\" encoding, port ~p, empty password.","Pokud chcete zadat jiné kódování pro IRC servery, vyplňte seznam s hodnotami ve formátu '{\"irc server\",\"encoding\", port, \"password\"}'. Výchozí kódování pro tuto službu je \"~s\", port ~p, empty password."}.
-{"Import Directory","Import adresáře"}.
-{"Import File","Import souboru"}.
 {"Import user data from jabberd14 spool file:","Importovat uživatele z jabberd14 spool souborů:"}.
-{"Import User from File at ","Importovat uživatele ze souboru na "}.
 {"Import users data from a PIEFXIS file (XEP-0227):","Importovat uživatele ze souboru ve formátu PIEFXIS (XEP-0227):"}.
 {"Import users data from jabberd14 spool directory:","Importovat uživatele z jabberd14 spool souborů:"}.
-{"Import Users from Dir at ","Importovat uživatele z adresáře na "}.
-{"Import Users From jabberd14 Spool Files","Importovat uživatele z jabberd14 spool souborů"}.
 {"Improper message type","Nesprávný typ zprávy"}.
 {"Incorrect password","Nesprávné heslo"}.
 {"Invalid affiliation: ~s","Neplatné přiřazení: ~s"}.
@@ -170,7 +144,6 @@
 {"leaves the room","opustil(a) místnost"}.
 {"Listened Ports at ","Otevřené porty na "}.
 {"Listened Ports","Otevřené porty"}.
-{"List of modules to start","Seznam modulů, které mají být spuštěné"}.
 {"Low level update script","Nízkoúrovňový aktualizační skript"}.
 {"Make participants list public","Nastavit seznam účastníků jako veřejný"}.
 {"Make room CAPTCHA protected","Chránit místnost pomocí CAPTCHA"}.
@@ -221,8 +194,6 @@
 {"Notify subscribers when the node is deleted","Upozornit odběratele na smazání uzlu"}.
 {"November",". listopadu"}.
 {"Number of occupants","Počet účastníků"}.
-{"Number of online users","Počet online uživatelů"}.
-{"Number of registered users","Počet registrovaných uživatelů"}.
 {"October",". října"}.
 {"Offline Messages:","Offline zprávy:"}.
 {"Offline Messages","Offline zprávy"}.
@@ -242,7 +213,6 @@
 {"Organization Name","Název firmy"}.
 {"Organization Unit","Oddělení"}.
 {"Outgoing s2s Connections:","Odchozí s2s spojení:"}.
-{"Outgoing s2s Connections","Odchozí s2s spojení"}.
 {"Outgoing s2s Servers:","Odchozí s2s servery:"}.
 {"Owner privileges required","Jsou vyžadována práva vlastníka"}.
 {"Packet","Paket"}.
@@ -251,8 +221,6 @@
 {"Password","Heslo"}.
 {"Password Verification:","Ověření hesla:"}.
 {"Password Verification","Ověření hesla"}.
-{"Path to Dir","Cesta k adresáři"}.
-{"Path to File","Cesta k souboru"}.
 {"Pending","Čekající"}.
 {"Period: ","Čas: "}.
 {"Persist items to storage","Uložit položky natrvalo do úložiště"}.
@@ -269,8 +237,6 @@
 {"PubSub subscriber request","Žádost odběratele PubSub"}.
 {"Purge all items when the relevant publisher goes offline","Smazat všechny položky, pokud se příslušný poskytovatel odpojí"}.
 {"Queries to the conference members are not allowed in this room","Požadavky (queries) na členy konference nejsou v této místnosti povolené"}.
-{"RAM and disc copy","Kopie RAM a disku"}.
-{"RAM copy","Kopie RAM"}.
 {"Raw","Zdroj"}.
 {"Really delete message of the day?","Skutečně smazat zprávu dne?"}.
 {"Recipient is not in the conference room","Příjemce se nenachází v konferenční místnosti"}.
@@ -279,18 +245,14 @@
 {"Registered Users:","Registrovaní živatelé:"}.
 {"Register","Zaregistrovat se"}.
 {"Registration in mod_irc for ","Registrace do mod_irc na "}.
-{"Remote copy","Vzdálená kopie"}.
 {"Remove All Offline Messages","Odstranit všechny offline zprávy"}.
 {"Remove","Odstranit"}.
 {"Remove User","Odstranit uživatele"}.
 {"Replaced by new connection","Nahrazeno novým spojením"}.
 {"Resources","Zdroje"}.
 {"Restart","Restart"}.
-{"Restart Service","Restartovat službu"}.
-{"Restore Backup from File at ","Obnovit zálohu ze souboru na "}.
 {"Restore binary backup after next ejabberd restart (requires less memory):","Obnovit binární zálohu při následujícím restartu ejabberd (vyžaduje méně paměti)"}.
 {"Restore binary backup immediately:","Okamžitě obnovit binární zálohu:"}.
-{"Restore","Obnovit"}.
 {"Restore plain text backup immediately:","Okamžitě obnovit zálohu z textového souboru:"}.
 {"Room Configuration","Nastavení místnosti"}.
 {"Room creation is denied by service policy","Pravidla služby nepovolují vytvořit místnost"}.
@@ -314,24 +276,18 @@
 {"Server ~b","Server ~b"}.
 {"Server:","Server:"}.
 {"Set message of the day and send to online users","Nastavit zprávu dne a odeslat ji online uživatelům"}.
-{"Set message of the day on all hosts and send to online users","Nastavit zprávu dne a odeslat ji online uživatelům"}.
 {"Shared Roster Groups","Skupiny pro sdílený seznam kontaktů"}.
 {"Show Integral Table","Zobrazit kompletní tabulku"}.
 {"Show Ordinary Table","Zobrazit běžnou tabulku"}.
-{"Shut Down Service","Vypnout službu"}.
 {"~s invites you to the room ~s","~s vás zve do místnosti ~s"}.
 {"Some Jabber clients can store your password in your computer. Use that feature only if you trust your computer is safe.","Někteří klienti umí uložit vaše heslo na disk počítače. Tuto funkci používejte, pouze pokud věříte zabezpečení svého počítače."}.
 {"Specify the access model","Uveďte přístupový model"}.
 {"Specify the event message type","Zvolte typ zpráv pro události"}.
 {"Specify the publisher model","Specifikovat model pro publikování"}.
 {"~s's Offline Messages Queue","Fronta offline zpráv uživatele ~s"}.
-{"Start Modules at ","Spustit moduly na "}.
-{"Start Modules","Spustit moduly"}.
 {"Start","Start"}.
 {"Statistics of ~p","Statistiky ~p"}.
 {"Statistics","Statistiky"}.
-{"Stop Modules at ","Zastavit moduly na "}.
-{"Stop Modules","Zastavit moduly"}.
 {"Stopped Nodes","Zastavené uzly"}.
 {"Stop","Stop"}.
 {"Storage Type","Typ úložiště"}.
@@ -363,10 +319,8 @@
 {"This room is not anonymous","Tato místnost není anonymní"}.
 {"Thursday","Čtvrtek"}.
 {"Time","Čas"}.
-{"Time delay","Časový posun"}.
 {"Too many CAPTCHA requests","Přiliš mnoho CAPTCHA žádostí"}.
 {"To","Pro"}.
-{"To ~s","Pro ~s"}.
 {"Traffic rate limit is exceeded","Byl překročen limit"}.
 {"Transactions Aborted:","Transakce zrušena"}.
 {"Transactions Committed:","Transakce potvrzena"}.
@@ -380,7 +334,6 @@
 {"Update ","Aktualizovat "}.
 {"Update","Aktualizovat"}.
 {"Update message of the day (don't send)","Aktualizovat zprávu dne (neodesílat)"}.
-{"Update message of the day on all hosts (don't send)","Aktualizovat zprávu dne pro všechny hostitele (neodesílat)"}.
 {"Update plan","Aktualizovat plán"}.
 {"Update script","Aktualizované skripty"}.
 {"Uptime:","Čas běhu:"}.

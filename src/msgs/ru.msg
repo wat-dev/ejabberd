@@ -1,9 +1,5 @@
-{"Access Configuration","Конфигурация доступа"}.
-{"Access Control List Configuration","Конфигурация списков управления доступом"}.
-{"Access control lists","Списки управления доступом"}.
 {"Access Control Lists","Списки управления доступом"}.
 {"Access denied by service policy","Доступ запрещён политикой службы"}.
-{"Access rules","Правила доступа"}.
 {"Access Rules","Правила доступа"}.
 {"Action on user","Действие над пользователем"}.
 {"Add Jabber ID","Добавить Jabber ID"}.
@@ -28,9 +24,7 @@
 {"A password is required to enter this room","Чтобы войти в эту конференцию, нужен пароль"}.
 {"April","апреля"}.
 {"August","августа"}.
-{"Backup Management","Управление резервным копированием"}.
 {"Backup of ","Резервное копирование "}.
-{"Backup to File at ","Резервное копирование в файл на "}.
 {"Backup","Резервное копирование"}.
 {"Bad format","Неправильный формат"}.
 {"Birthday","День рождения"}.
@@ -45,8 +39,6 @@
 {"Chatroom is stopped","Комната остановлена"}.
 {"Chatrooms","Комнаты"}.
 {"Choose a username and password to register with this server","Выберите имя пользователя и пароль для регистрации на этом сервере"}.
-{"Choose modules to stop","Выберите модули, которые следует остановить"}.
-{"Choose storage type of tables","Выберите тип хранения таблиц"}.
 {"Choose whether to approve this entity's subscription.","Решите: предоставить ли подписку этому объекту."}.
 {"City","Город"}.
 {"Commands","Команды"}.
@@ -58,11 +50,9 @@
 {"Country","Страна"}.
 {"CPU Time:","Процессорное время:"}.
 {"Database Tables at ","Таблицы базы данных на "}.
-{"Database Tables Configuration at ","Конфигурация таблиц базы данных на "}.
 {"Database","База данных"}.
 {"December","декабря"}.
 {"Default users as participants","Сделать пользователей участниками по умолчанию"}.
-{"Delete message of the day on all hosts","Удалить сообщение дня со всех виртуальных серверов"}.
 {"Delete message of the day","Удалить сообщение дня"}.
 {"Delete Selected","Удалить выделенные"}.
 {"Delete User","Удалить пользователя"}.
@@ -70,11 +60,8 @@
 {"Deliver event notifications","Доставлять уведомления о событиях"}.
 {"Deliver payloads with event notifications","Доставлять вместе с уведомлениями o публикациях сами публикации"}.
 {"Description:","Описание:"}.
-{"Disc only copy","только диск"}.
 {"Displayed Groups:","Видимые группы:"}.
 {"Don't tell your password to anybody, not even the administrators of the Jabber server.","Не говорите никому свой пароль, даже администраторам сервера."}.
-{"Dump Backup to Text File at ","Копирование в текстовый файл на "}.
-{"Dump to Text File","Копирование в текстовый файл"}.
 {"Edit Properties","Изменить параметры"}.
 {"Either approve or decline the voice request.","Подтвердите или отклоните право голоса."}.
 {"ejabberd IRC module","ejabberd IRC модуль"}.
@@ -88,12 +75,7 @@
 {"Enable logging","Включить журналирование"}.
 {"Encoding for server ~b","Кодировка сервера ~b"}.
 {"End User Session","Завершить сеанс пользователя"}.
-{"Enter list of {Module, [Options]}","Введите список вида {Module, [Options]}"}.
 {"Enter nickname you want to register","Введите псевдоним, который Вы хотели бы зарегистрировать"}.
-{"Enter path to backup file","Введите путь к резервному файлу"}.
-{"Enter path to jabberd14 spool dir","Введите путь к директории спула jabberd14"}.
-{"Enter path to jabberd14 spool file","Введите путь к файлу из спула jabberd14"}.
-{"Enter path to text file","Введите путь к текстовому файлу"}.
 {"Enter the text you see","Введите увиденный текст"}.
 {"Enter username and encodings you wish to use for connecting to IRC servers.  Press 'Next' to get more fields to fill in.  Press 'Complete' to save settings.","Введите имя пользователя и кодировки, которые будут использоваться при подключении к IRC-серверам. Нажмите 'Далее' для получения дополнительных полей для заполнения. Нажмите 'Завершить' для сохранения настроек."}.
 {"Enter username, encodings, ports and passwords you wish to use for connecting to IRC servers","Введите имя пользователя, кодировки, порты и пароли, которые будут использоваться при подключении к IRC-серверам"}.
@@ -109,11 +91,8 @@
 {"Fill in fields to search for any matching Jabber User","Заполните форму для поиска пользователя Jabber"}.
 {"Fill in the form to search for any matching Jabber User (Add * to the end of field to match substring)","Заполните форму для поиска пользователя Jabber (Если добавить * в конец поля, то происходит поиск подстроки)"}.
 {"Friday","Пятница"}.
-{"From ~s","От ~s"}.
 {"From","От кого"}.
 {"Full Name","Полное имя"}.
-{"Get Number of Online Users","Получить количество подключённых пользователей"}.
-{"Get Number of Registered Users","Получить количество зарегистрированных пользователей"}.
 {"Get User Last Login Time","Получить время последнего подключения пользователя"}.
 {"Get User Password","Получить пароль пользователя"}.
 {"Get User Statistics","Получить статистику по пользователю"}.
@@ -129,14 +108,9 @@
 {"Host","Хост"}.
 {"If you don't see the CAPTCHA image here, visit the web page.","Если вы не видите изображение капчи, перейдите по ссылке."}.
 {"If you want to specify different ports, passwords, encodings for IRC servers, fill this list with values in format '{\"irc server\", \"encoding\", port, \"password\"}'.  By default this service use \"~s\" encoding, port ~p, empty password.","Чтобы указать различные порты, пароли, кодировки для разных серверов IRC, заполните список значениями в формате '{\"сервер IRC\", \"кодировка\", порт, \"пароль\"}'. По умолчанию сервис использует кодировку \"~s\", порт ~p, пустой пароль."}.
-{"Import Directory","Импорт из директории"}.
-{"Import File","Импорт из файла"}.
 {"Import user data from jabberd14 spool file:","Импорт пользовательских данных из буферного файла jabberd14:"}.
-{"Import User from File at ","Импорт пользователя из файла на "}.
 {"Import users data from a PIEFXIS file (XEP-0227):","Импорт пользовательских данных из файла формата PIEFXIS (XEP-0227):"}.
 {"Import users data from jabberd14 spool directory:","Импорт пользовательских данных из буферной директории jabberd14:"}.
-{"Import Users from Dir at ","Импорт пользователей из директории на "}.
-{"Import Users From jabberd14 Spool Files","Импорт пользователей из спула jabberd14"}.
 {"Improper message type","Неправильный тип сообщения"}.
 {"Incorrect password","Неправильный пароль"}.
 {"Invalid affiliation: ~s","Недопустимый ранг: ~s"}.
@@ -170,7 +144,6 @@
 {"leaves the room","вышел(а) из комнаты"}.
 {"Listened Ports at ","Прослушиваемые порты на "}.
 {"Listened Ports","Прослушиваемые порты"}.
-{"List of modules to start","Список запускаемых модулей"}.
 {"Low level update script","Низкоуровневый сценарий обновления"}.
 {"Make participants list public","Сделать список участников видимым всем"}.
 {"Make room CAPTCHA protected","Сделать комнату защищённой капчей"}.
@@ -221,8 +194,6 @@
 {"Notify subscribers when the node is deleted","Уведомлять подписчиков об удалении сборника"}.
 {"November","ноября"}.
 {"Number of occupants","Число присутствующих"}.
-{"Number of online users","Количество подключённых пользователей"}.
-{"Number of registered users","Количество зарегистрированных пользователей"}.
 {"October","октября"}.
 {"Offline Messages:","Офлайновые сообщения:"}.
 {"Offline Messages","Офлайновые сообщения"}.
@@ -242,7 +213,6 @@
 {"Organization Name","Название организации"}.
 {"Organization Unit","Отдел организации"}.
 {"Outgoing s2s Connections:","Исходящие s2s-серверы:"}.
-{"Outgoing s2s Connections","Исходящие s2s-соединения"}.
 {"Outgoing s2s Servers:","Исходящие s2s-серверы:"}.
 {"Owner privileges required","Требуются права владельца"}.
 {"Packet","Пакет"}.
@@ -251,8 +221,6 @@
 {"Password Verification","Проверка пароля"}.
 {"Password:","Пароль:"}.
 {"Password","Пароль"}.
-{"Path to Dir","Путь к директории"}.
-{"Path to File","Путь к файлу"}.
 {"Pending","Ожидание"}.
 {"Period: ","Период"}.
 {"Persist items to storage","Сохранять публикации в хранилище"}.
@@ -269,8 +237,6 @@
 {"PubSub subscriber request","Запрос подписчика PubSub"}.
 {"Purge all items when the relevant publisher goes offline","Очищать все записи автора публикации когда он отключается"}.
 {"Queries to the conference members are not allowed in this room","Запросы к пользователям в этой конференции запрещены"}.
-{"RAM and disc copy","ОЗУ и диск"}.
-{"RAM copy","ОЗУ"}.
 {"Raw","Необработанный формат"}.
 {"Really delete message of the day?","Действительно удалить сообщение дня?"}.
 {"Recipient is not in the conference room","Адресата нет в конференции"}.
@@ -279,19 +245,15 @@
 {"Registered Users","Зарегистрированные пользователи"}.
 {"Register","Зарегистрировать"}.
 {"Registration in mod_irc for ","Регистрация в mod_irc для "}.
-{"Remote copy","не хранится локально"}.
 {"Remove All Offline Messages","Удалить все офлайновые сообщения"}.
 {"Remove User","Удалить пользователя"}.
 {"Remove","Удалить"}.
 {"Replaced by new connection","Заменено новым соединением"}.
 {"Resources","Ресурсы"}.
-{"Restart Service","Перезапустить службу"}.
 {"Restart","Перезапустить"}.
-{"Restore Backup from File at ","Восстановление из резервной копии на "}.
 {"Restore binary backup after next ejabberd restart (requires less memory):","Восстановить из бинарной резервной копии при следующем запуске (требует меньше памяти):"}.
 {"Restore binary backup immediately:","Восстановить из бинарной резервной копии немедленно:"}.
 {"Restore plain text backup immediately:","Восстановить из текстовой резервной копии немедленно:"}.
-{"Restore","Восстановление из резервной копии"}.
 {"Room Configuration","Конфигурация комнаты"}.
 {"Room creation is denied by service policy","Cоздавать конференцию запрещено политикой службы"}.
 {"Room description","Описание комнаты"}.
@@ -314,24 +276,18 @@
 {"Server ~b","Сервер ~b"}.
 {"Server:","Сервер:"}.
 {"Set message of the day and send to online users","Установить сообщение дня и разослать его подключённым пользователям"}.
-{"Set message of the day on all hosts and send to online users","Установить сообщение дня на всех виртуальных серверах и разослать его подключённым пользователям"}.
 {"Shared Roster Groups","Группы общих контактов"}.
 {"Show Integral Table","Показать интегральную таблицу"}.
 {"Show Ordinary Table","Показать обычную таблицу"}.
-{"Shut Down Service","Остановить службу"}.
 {"~s invites you to the room ~s","~s приглашает вас в комнату ~s"}.
 {"Some Jabber clients can store your password in your computer. Use that feature only if you trust your computer is safe.","Некоторые Jabber-клиенты могут сохранять пароль на Вашем компьютере. Используйте эту функцию только в том случае, если считаете это безопасным."}.
 {"Specify the access model","Укажите механизм управления доступом"}.
 {"Specify the event message type","Укажите тип сообщения о событии"}.
 {"Specify the publisher model","Условия публикации"}.
 {"~s's Offline Messages Queue","Oчередь офлайновых сообщений ~s"}.
-{"Start Modules at ","Запуск модулей на "}.
-{"Start Modules","Запуск модулей"}.
 {"Start","Запустить"}.
 {"Statistics of ~p","статистика узла ~p"}.
 {"Statistics","Статистика"}.
-{"Stop Modules at ","Остановка модулей на "}.
-{"Stop Modules","Остановка модулей"}.
 {"Stopped Nodes","Остановленные узлы"}.
 {"Stop","Остановить"}.
 {"Storage Type","Тип таблицы"}.
@@ -362,10 +318,8 @@
 {"This participant is kicked from the room because he sent an error presence","Этого участника выгнали из комнаты за то, что он послал присутствие с ошибкой"}.
 {"This room is not anonymous","Эта комната не анонимная"}.
 {"Thursday","Четверг"}.
-{"Time delay","По истечение"}.
 {"Time","Время"}.
 {"Too many CAPTCHA requests","Слишком много запросов капчи"}.
-{"To ~s","К ~s"}.
 {"To","Кому"}.
 {"Traffic rate limit is exceeded","Превышен лимит скорости посылки информации"}.
 {"Transactions Aborted:","Транзакции отмененные:"}.
@@ -378,7 +332,6 @@
 {"Unregister a Jabber account","Удалить Jabber-аккаунт"}.
 {"Unregister","Удалить"}.
 {"Update message of the day (don't send)","Обновить сообщение дня (не рассылать)"}.
-{"Update message of the day on all hosts (don't send)","Обновить сообщение дня на всех виртуальных серверах (не рассылать)"}.
 {"Update plan","План обновления"}.
 {"Update script","Сценарий обновления"}.
 {"Update","Обновить"}.

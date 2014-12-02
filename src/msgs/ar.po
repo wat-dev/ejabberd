@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.1.0-alpha\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2013-03-26 13:38+0900\n"
+"PO-Revision-Date: 2014-11-26 16:31+0200\n"
 "Last-Translator: Trek Abdallah <egproo@gmail.com>\n"
 "Language-Team: Egypt-Team <egproo@gmail.com>\n"
 "Language: ar\n"
@@ -17,11 +17,11 @@ msgstr ""
 "X-Additional-Translator: elarabawe (sayed)\n"
 "X-Additional-Translator: spider-man (mohammed)\n"
 "X-Additional-Translator: ahmed-hmada (islam)\n"
-"X-Generator: Lokalize 1.0\n"
+"X-Generator: Poedit 1.6.10\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: ejabberd_c2s.erl:424 ejabberd_c2s.erl:737
+#: ejabberd_c2s.erl:424 ejabberd_c2s.erl:740
 msgid "Use of STARTTLS required"
 msgstr "يتطلب استخدام STARTTLS"
 
@@ -29,13 +29,13 @@ msgstr "يتطلب استخدام STARTTLS"
 msgid "No resource provided"
 msgstr "لا يوجد ريسورس معروف"
 
-#: ejabberd_c2s.erl:1215
+#: ejabberd_c2s.erl:1218
 msgid "Replaced by new connection"
 msgstr "تحديث التواجد باتصال جديد"
 
-#: ejabberd_c2s.erl:1903
+#: ejabberd_c2s.erl:1906
 msgid "Your active privacy list has denied the routing of this stanza."
-msgstr "تم رفض البيانات من ادارة السيرفر."
+msgstr "الخصوصية اللتى تم تفعيلها تمنع الإضافات والغرف غير المسجله بحسابك"
 
 #: ejabberd_captcha.erl:96 ejabberd_captcha.erl:152 ejabberd_captcha.erl:178
 msgid "Enter the text you see"
@@ -43,424 +43,197 @@ msgstr "أدخل النص الذي تراه"
 
 #: ejabberd_captcha.erl:101
 msgid "Your messages to ~s are being blocked. To unblock them, visit ~s"
-msgstr "رسالتك لـ  ~s مرفوضه لعرضها قم بزيارة ~s"
+msgstr ""
 
 #: ejabberd_captcha.erl:134
 msgid "If you don't see the CAPTCHA image here, visit the web page."
-msgstr ""
-"لا ترى صورة رمز المرور قم بزيارة صفحة رمز المرور او الموقع الرسمي للسيرفر او "
-"تواصل مع ادارة السيرفر لحل المشكله"
+msgstr "إن لم تتمكن من قراءة الكابتشا هنا من فضلك ادخل الموقع"
 
 #: ejabberd_captcha.erl:146
 msgid "CAPTCHA web page"
-msgstr "صفحة رمز المرور"
+msgstr "صفحة الكابتشا"
 
 #: ejabberd_captcha.erl:307
 msgid "The CAPTCHA is valid."
-msgstr "رمز المرور صحيح"
+msgstr "الكابتشا صحيحه"
 
 #: mod_adhoc.erl:95 mod_adhoc.erl:125 mod_adhoc.erl:143 mod_adhoc.erl:161
 msgid "Commands"
-msgstr "الاوامر"
+msgstr ""
 
 #: mod_adhoc.erl:149 mod_adhoc.erl:243
 msgid "Ping"
-msgstr "سرعه"
+msgstr ""
 
 #: mod_adhoc.erl:260
 msgid "Pong"
-msgstr "سرعة"
-
-#: mod_announce.erl:487
-msgid "Really delete message of the day?"
-msgstr "أكد قرارك بحذف الرسائل"
-
-#: mod_announce.erl:495 mod_configure.erl:977 mod_configure.erl:1022
-msgid "Subject"
-msgstr "الموضوع"
-
-#: mod_announce.erl:500 mod_configure.erl:982 mod_configure.erl:1027
-msgid "Message body"
-msgstr "رسائل الروم"
-
-#: mod_announce.erl:580
-msgid "No body provided for announce message"
-msgstr "لا يوجد نص للاعلان ... اعلان قصير جدا"
-
-#: mod_announce.erl:609
-msgid "Announcements"
-msgstr "الاعلانات"
-
-#: mod_announce.erl:611
-msgid "Send announcement to all online users"
-msgstr "ارسل اعلان للمستخدمين المتصلين الآن"
-
-#: mod_announce.erl:613 mod_configure.erl:972 mod_configure.erl:1017
-msgid "Send announcement to all online users on all hosts"
-msgstr "ارسل اعلان للمستخدمين المتصلين الآن بكل السيرفرات"
-
-#: mod_announce.erl:615
-msgid "Set message of the day and send to online users"
-msgstr "وضع رسالة اليوم وارسالها للمتصلين الآن"
-
-#: mod_announce.erl:617
-msgid "Set message of the day on all hosts and send to online users"
 msgstr ""
-"وضع رسالة اليوم لجميع السيرفرات وارسالها لجميع المستخدمين المتصلين الآن"
 
-#: mod_announce.erl:619
+#: mod_announce.erl:443
+msgid "Really delete message of the day?"
+msgstr ""
+
+#: mod_announce.erl:451
+msgid "Subject"
+msgstr ""
+
+#: mod_announce.erl:456
+msgid "Message body"
+msgstr ""
+
+#: mod_announce.erl:529
+msgid "No body provided for announce message"
+msgstr ""
+
+#: mod_announce.erl:552
+msgid "Announcements"
+msgstr ""
+
+#: mod_announce.erl:554
+msgid "Send announcement to all online users"
+msgstr ""
+
+#: mod_announce.erl:556
+msgid "Send announcement to all online users on all hosts"
+msgstr ""
+
+#: mod_announce.erl:558
+msgid "Set message of the day and send to online users"
+msgstr ""
+
+#: mod_announce.erl:560
 msgid "Update message of the day (don't send)"
-msgstr "تعديل رسالة اليوم (لا ترسلها)"
+msgstr ""
 
-#: mod_announce.erl:621
-msgid "Update message of the day on all hosts (don't send)"
-msgstr "تعديل رسالة اليوم لكل السيرفرات (لا ترسلها)"
-
-#: mod_announce.erl:623
+#: mod_announce.erl:562
 msgid "Delete message of the day"
-msgstr "مسح رسالة اليوم"
+msgstr ""
 
-#: mod_announce.erl:625
-msgid "Delete message of the day on all hosts"
-msgstr "مسح رسالة اليوم لجميع السيرفرات"
-
-#: mod_configure.erl:114 mod_configure.erl:264 mod_configure.erl:286
-#: mod_configure.erl:474
+#: mod_configure.erl:114 mod_configure.erl:198 mod_configure.erl:220
 msgid "Configuration"
-msgstr "الاعدادات"
+msgstr ""
 
-#: mod_configure.erl:125 mod_configure.erl:519 web/ejabberd_web_admin.erl:1897
-msgid "Database"
-msgstr "قواعد البيانات"
-
-#: mod_configure.erl:127 mod_configure.erl:538
-msgid "Start Modules"
-msgstr "تشغيل الاضافات"
-
-#: mod_configure.erl:129 mod_configure.erl:539
-msgid "Stop Modules"
-msgstr "ايقاف الاضافات"
-
-#: mod_configure.erl:131 mod_configure.erl:547 web/ejabberd_web_admin.erl:1898
-msgid "Backup"
-msgstr "نسخ احتياطي"
-
-#: mod_configure.erl:133 mod_configure.erl:548
-msgid "Restore"
-msgstr "استعادة"
-
-#: mod_configure.erl:135 mod_configure.erl:549
-msgid "Dump to Text File"
-msgstr "الحفظ كملف نصي"
-
-#: mod_configure.erl:137 mod_configure.erl:558
-msgid "Import File"
-msgstr "استعادة نسخه احتياطيه"
-
-#: mod_configure.erl:139 mod_configure.erl:559
-msgid "Import Directory"
-msgstr "استعادة مجلد نسخه احتياطيه"
-
-#: mod_configure.erl:141 mod_configure.erl:524 mod_configure.erl:951
-msgid "Restart Service"
-msgstr "اعادة تشغيل السيرفر"
-
-#: mod_configure.erl:143 mod_configure.erl:525 mod_configure.erl:996
-msgid "Shut Down Service"
-msgstr "ايقاف السيرفر"
-
-#: mod_configure.erl:145 mod_configure.erl:492 mod_configure.erl:1091
+#: mod_configure.erl:123 mod_configure.erl:372 mod_configure.erl:520
 #: web/ejabberd_web_admin.erl:1504
 msgid "Add User"
-msgstr "اضافة مستخدم"
+msgstr ""
 
-#: mod_configure.erl:147 mod_configure.erl:493 mod_configure.erl:1113
+#: mod_configure.erl:125 mod_configure.erl:373 mod_configure.erl:542
 msgid "Delete User"
-msgstr "مسح مستخدم"
+msgstr ""
 
-#: mod_configure.erl:149 mod_configure.erl:494 mod_configure.erl:1125
+#: mod_configure.erl:127 mod_configure.erl:374 mod_configure.erl:554
 msgid "End User Session"
-msgstr "قطع اتصال المستخدم"
+msgstr ""
 
-#: mod_configure.erl:151 mod_configure.erl:495
+#: mod_configure.erl:129 mod_configure.erl:375
 msgid "Change User Password"
-msgstr "تعديل كلمة سر المستخدم"
+msgstr ""
 
-#: mod_configure.erl:153 mod_configure.erl:496 mod_configure.erl:1154
+#: mod_configure.erl:131 mod_configure.erl:376 mod_configure.erl:583
 msgid "Get User Last Login Time"
-msgstr "عرض اخر دخول للمستخدم"
+msgstr ""
 
-#: mod_configure.erl:155 mod_configure.erl:497 mod_configure.erl:1166
+#: mod_configure.erl:133 mod_configure.erl:377 mod_configure.erl:595
 msgid "Get User Statistics"
-msgstr "عرض احصائيات مستخدم"
+msgstr ""
 
-#: mod_configure.erl:157 mod_configure.erl:498
-msgid "Get Number of Registered Users"
-msgstr "عرض عدد الأعضاء المسجلين"
-
-#: mod_configure.erl:159 mod_configure.erl:499
-msgid "Get Number of Online Users"
-msgstr "عرض عدد المتصلين الآن"
-
-#: mod_configure.erl:161 mod_configure.erl:483 web/ejabberd_web_admin.erl:831
-#: web/ejabberd_web_admin.erl:872
-msgid "Access Control Lists"
-msgstr "قوائم التحكم بالصلاحيات"
-
-#: mod_configure.erl:163 mod_configure.erl:484 web/ejabberd_web_admin.erl:940
-#: web/ejabberd_web_admin.erl:976
-msgid "Access Rules"
-msgstr "قواعد الصلاحيات"
-
-#: mod_configure.erl:287 mod_configure.erl:475
+#: mod_configure.erl:221
 msgid "User Management"
-msgstr "ادارة المستخدمين"
+msgstr ""
 
-#: mod_configure.erl:476
-msgid "Outgoing s2s Connections"
-msgstr "اتصالات صادره "
-
-#: mod_configure.erl:477 web/ejabberd_web_admin.erl:1868
-msgid "Running Nodes"
-msgstr "اسماء السيرفرات الفعاله"
-
-#: mod_configure.erl:478 web/ejabberd_web_admin.erl:1870
-msgid "Stopped Nodes"
-msgstr "اسماء السيرفرات غير الفعاله"
-
-#: mod_configure.erl:520 mod_configure.erl:530 web/ejabberd_web_admin.erl:1914
-msgid "Modules"
-msgstr "الاضافات"
-
-#: mod_configure.erl:521
-msgid "Backup Management"
-msgstr "ادارة النسخ الاحتياطي"
-
-#: mod_configure.erl:522
-msgid "Import Users From jabberd14 Spool Files"
-msgstr "استعادة المستخدمين من ملف  jabberd14"
-
-#: mod_configure.erl:591
-msgid "To ~s"
-msgstr "الى ~s"
-
-#: mod_configure.erl:609
-msgid "From ~s"
-msgstr "من ~s"
-
-#: mod_configure.erl:807
-msgid "Database Tables Configuration at "
-msgstr "اعدادات جداول قواعد البيانات لـ "
-
-#: mod_configure.erl:812
-msgid "Choose storage type of tables"
-msgstr "اختر نوع تخزين البيانات بالجداول "
-
-#: mod_configure.erl:820 mod_configure.erl:822
-msgid "Disc only copy"
-msgstr "بالهارد"
-
-#: mod_configure.erl:820 mod_configure.erl:822
-msgid "RAM and disc copy"
-msgstr "بالرام والهارد"
-
-#: mod_configure.erl:820 mod_configure.erl:822
-msgid "RAM copy"
-msgstr "بالرام"
-
-#: mod_configure.erl:820 mod_configure.erl:822
-msgid "Remote copy"
-msgstr "نسخ خارجي"
-
-#: mod_configure.erl:844
-msgid "Stop Modules at "
-msgstr "ايقاف اضافة لـ "
-
-#: mod_configure.erl:848
-msgid "Choose modules to stop"
-msgstr "اختر الاضافه لايقافها"
-
-#: mod_configure.erl:863
-msgid "Start Modules at "
-msgstr "تشغيل اضافه لـ "
-
-#: mod_configure.erl:867
-msgid "Enter list of {Module, [Options]}"
-msgstr "ادخل قائمة الاضافات كالمثال {Module, [Options]}"
-
-#: mod_configure.erl:868
-msgid "List of modules to start"
-msgstr "قائمة الاضافات لتفعيلها"
-
-#: mod_configure.erl:877
-msgid "Backup to File at "
-msgstr "نسخ احتياطي كملف في  "
-
-#: mod_configure.erl:881 mod_configure.erl:895
-msgid "Enter path to backup file"
-msgstr "مسار ملف النسخ الاحتياطي"
-
-#: mod_configure.erl:882 mod_configure.erl:896 mod_configure.erl:910
-#: mod_configure.erl:924
-msgid "Path to File"
-msgstr "مسار الملف"
-
-#: mod_configure.erl:891
-msgid "Restore Backup from File at "
-msgstr "استرجاع نسخ احتياطي من "
-
-#: mod_configure.erl:905
-msgid "Dump Backup to Text File at "
-msgstr "نسخ احتياطي في صورة ملف نصي في "
-
-#: mod_configure.erl:909
-msgid "Enter path to text file"
-msgstr "ادخل مسار ملف النسخ الاحتياطي النصي"
-
-#: mod_configure.erl:919
-msgid "Import User from File at "
-msgstr "استرجاع المستخدمين من ملفي في "
-
-#: mod_configure.erl:923
-msgid "Enter path to jabberd14 spool file"
-msgstr "ادخال مسار الى ملف jabberd14"
-
-#: mod_configure.erl:933
-msgid "Import Users from Dir at "
-msgstr "استرجاع المستخدمين من مجلد في "
-
-#: mod_configure.erl:937
-msgid "Enter path to jabberd14 spool dir"
-msgstr "ادخال مسار ملف jabberd14"
-
-#: mod_configure.erl:938
-msgid "Path to Dir"
-msgstr "مسار المجلد"
-
-#: mod_configure.erl:954 mod_configure.erl:999
-msgid "Time delay"
-msgstr "زمن التأخير"
-
-#: mod_configure.erl:1037
-msgid "Access Control List Configuration"
-msgstr "اعدادات قائمة التحكم بالصلاحيات"
-
-#: mod_configure.erl:1041
-msgid "Access control lists"
-msgstr "قوائمة التحكم بالصلاحيات"
-
-#: mod_configure.erl:1065
-msgid "Access Configuration"
-msgstr "اعدادات الصلاحيات"
-
-#: mod_configure.erl:1069
-msgid "Access rules"
-msgstr "قواعد الصلاحيات"
-
-#: mod_configure.erl:1094 mod_configure.erl:1116 mod_configure.erl:1128
-#: mod_configure.erl:1140 mod_configure.erl:1157 mod_configure.erl:1169
-#: mod_configure.erl:1567 mod_configure.erl:1588 mod_roster.erl:1349
+#: mod_configure.erl:523 mod_configure.erl:545 mod_configure.erl:557
+#: mod_configure.erl:569 mod_configure.erl:586 mod_configure.erl:598
+#: mod_configure.erl:701 mod_configure.erl:722 mod_roster.erl:1349
 #: mod_vcard.erl:543 mod_vcard_ldap.erl:554
 msgid "Jabber ID"
-msgstr "Jabber ID"
+msgstr ""
 
-#: mod_configure.erl:1099 mod_configure.erl:1145 mod_configure.erl:1728
+#: mod_configure.erl:528 mod_configure.erl:574 mod_configure.erl:814
 #: mod_muc/mod_muc_room.erl:3343 mod_register.erl:235
 #: web/ejabberd_web_admin.erl:1497
 msgid "Password"
-msgstr "كلمة السر"
+msgstr ""
 
-#: mod_configure.erl:1104
+#: mod_configure.erl:533
 msgid "Password Verification"
-msgstr "تأكيد كلمة السر"
+msgstr ""
 
-#: mod_configure.erl:1137
+#: mod_configure.erl:566
 msgid "Get User Password"
-msgstr "عرض كلمة سر المستخدم"
+msgstr ""
 
-#: mod_configure.erl:1183
-msgid "Number of registered users"
-msgstr "عدد المستخدمين المسجلين"
-
-#: mod_configure.erl:1197
-msgid "Number of online users"
-msgstr "عدد الاعضاء المتصلين الآن"
-
-#: mod_configure.erl:1549 web/ejabberd_web_admin.erl:1564
+#: mod_configure.erl:683 web/ejabberd_web_admin.erl:1564
 #: web/ejabberd_web_admin.erl:1704
 msgid "Never"
-msgstr "أبدا"
+msgstr ""
 
-#: mod_configure.erl:1563 web/ejabberd_web_admin.erl:1577
+#: mod_configure.erl:697 web/ejabberd_web_admin.erl:1577
 #: web/ejabberd_web_admin.erl:1717
 msgid "Online"
-msgstr "متصل"
+msgstr ""
 
-#: mod_configure.erl:1568
+#: mod_configure.erl:702
 msgid "Last login"
-msgstr "آخر تسجيل دخول"
+msgstr ""
 
-#: mod_configure.erl:1589
+#: mod_configure.erl:723
 msgid "Roster size"
-msgstr "حجم الاضافات"
+msgstr ""
 
-#: mod_configure.erl:1590
+#: mod_configure.erl:724
 msgid "IP addresses"
-msgstr "عنوان الاي بي"
+msgstr ""
 
-#: mod_configure.erl:1591
+#: mod_configure.erl:725
 msgid "Resources"
-msgstr "الريسورس"
+msgstr ""
 
-#: mod_configure.erl:1715
+#: mod_configure.erl:801
 msgid "Administration of "
-msgstr "ادارة الـ "
+msgstr ""
 
-#: mod_configure.erl:1718
+#: mod_configure.erl:804
 msgid "Action on user"
-msgstr "تعديل المستخدم"
+msgstr ""
 
-#: mod_configure.erl:1722
+#: mod_configure.erl:808
 msgid "Edit Properties"
-msgstr "تعديل الخصائص"
+msgstr ""
 
-#: mod_configure.erl:1725 web/ejabberd_web_admin.erl:1730
+#: mod_configure.erl:811 web/ejabberd_web_admin.erl:1730
 msgid "Remove User"
-msgstr "مسح مستخدم"
+msgstr ""
 
 #: mod_irc/mod_irc.erl:207 mod_muc/mod_muc.erl:406
 msgid "Access denied by service policy"
-msgstr "الصلاحيات غير كافيه لتنفيذ المطلوب .. راجع ادارة السيرفر"
+msgstr "تم الرفض من قبل إدارة السيرفر"
 
 #: mod_irc/mod_irc.erl:409
 msgid "IRC Transport"
-msgstr "IRC ترانسبورت"
+msgstr ""
 
 #: mod_irc/mod_irc.erl:436
 msgid "ejabberd IRC module"
-msgstr "ejabberd IRC اضافة"
+msgstr ""
 
 #: mod_irc/mod_irc.erl:600
 msgid "You need an x:data capable client to configure mod_irc settings"
 msgstr ""
-"لتعديل  mod_irc, تحتاج الى برنامج وتسجيل دخولك x:data على ان يتوافق "
-"البربنامج وبروتوكول السيرفر"
 
 #: mod_irc/mod_irc.erl:607
 msgid "Registration in mod_irc for "
-msgstr "التسجيل في mod_irc من اجل "
+msgstr ""
 
 #: mod_irc/mod_irc.erl:612
 msgid ""
 "Enter username, encodings, ports and passwords you wish to use for "
 "connecting to IRC servers"
 msgstr ""
-"ادخل اللقب ونظام الترميز والبورت والباسورد التي تود استخدامها للاتصال بــ "
-"IRC سيرفرات "
 
 #: mod_irc/mod_irc.erl:617
 msgid "IRC Username"
-msgstr "اسم IRC"
+msgstr ""
 
 #: mod_irc/mod_irc.erl:627
 msgid ""
@@ -469,46 +242,40 @@ msgid ""
 "\", port, \"password\"}'.  By default this service use \"~s\" encoding, port "
 "~p, empty password."
 msgstr ""
-"If you want to specify different ports, passwords, encodings for IRC "
-"servers, fill this list with values in format '{\"irc server\", \"encoding"
-"\", port, \"password\"}'.  By default this service use \"~s\" encoding, port "
-"~p, empty password."
 
 #: mod_irc/mod_irc.erl:639
 msgid ""
 "Example: [{\"irc.lucky.net\", \"koi8-r\", 6667, \"secret\"}, {\"vendetta.fef."
 "net\", \"iso8859-1\", 7000}, {\"irc.sometestserver.net\", \"utf-8\"}]."
 msgstr ""
-"مثال: [{\"irc.lucky.net\", \"koi8-r\", 6667, \"secret\"}, {\"vendetta.fef.net"
-"\", \"iso8859-1\", 7000}, {\"irc.sometestserver.net\", \"utf-8\"}]."
 
 #: mod_irc/mod_irc.erl:644
 msgid "Connections parameters"
-msgstr "الاتصالات"
+msgstr ""
 
 #: mod_irc/mod_irc.erl:787
 msgid "Join IRC channel"
-msgstr "دخول قناة IRC"
+msgstr ""
 
 #: mod_irc/mod_irc.erl:791
 msgid "IRC channel (don't put the first #)"
-msgstr "قناة IRC (لا تضع بأول الاسم #)"
+msgstr ""
 
 #: mod_irc/mod_irc.erl:796
 msgid "IRC server"
-msgstr "سيرفر الـ IRC"
+msgstr ""
 
 #: mod_irc/mod_irc.erl:829 mod_irc/mod_irc.erl:833
 msgid "Join the IRC channel here."
-msgstr "دخول قناة IRC"
+msgstr ""
 
 #: mod_irc/mod_irc.erl:837
 msgid "Join the IRC channel in this Jabber ID: ~s"
-msgstr "دخول قناة IRC بــ Jabber ID: ~s"
+msgstr ""
 
 #: mod_irc/mod_irc.erl:915
 msgid "IRC settings"
-msgstr "خيارات IRC"
+msgstr ""
 
 #: mod_irc/mod_irc.erl:920
 msgid ""
@@ -516,29 +283,26 @@ msgid ""
 "Press 'Next' to get more fields to fill in.  Press 'Complete' to save "
 "settings."
 msgstr ""
-"Enter username and encodings you wish to use for connecting to IRC servers.  "
-"Press 'Next' to get more fields to fill in.  Press 'Complete' to save "
-"settings."
 
 #: mod_irc/mod_irc.erl:926
 msgid "IRC username"
-msgstr "اسم IRC"
+msgstr ""
 
 #: mod_irc/mod_irc.erl:975
 msgid "Password ~b"
-msgstr "كلمة السر ~b"
+msgstr ""
 
 #: mod_irc/mod_irc.erl:980
 msgid "Port ~b"
-msgstr "البورت ~b"
+msgstr ""
 
 #: mod_irc/mod_irc.erl:985
 msgid "Encoding for server ~b"
-msgstr "ترميز السيرفر ~b"
+msgstr ""
 
 #: mod_irc/mod_irc.erl:994
 msgid "Server ~b"
-msgstr "السيرفر ~b"
+msgstr ""
 
 #: mod_muc/mod_muc.erl:520
 msgid "Only service administrators are allowed to send service messages"
@@ -546,57 +310,57 @@ msgstr "فقط ادارة السيرفر تستطيع ارسال رسائل ال
 
 #: mod_muc/mod_muc.erl:564
 msgid "Room creation is denied by service policy"
-msgstr "انشاء الروم غير متاح بالوقت الحالي"
+msgstr "غير مسموح بإنشاء غرف من قبل الإدارة"
 
 #: mod_muc/mod_muc.erl:571
 msgid "Conference room does not exist"
-msgstr "الروم غير متاحه بالوقت الحالي"
+msgstr "الغرفه غير موجوده"
 
 #: mod_muc/mod_muc.erl:673
 msgid "Chatrooms"
-msgstr "الرومات"
+msgstr "الغرف"
 
 #: mod_muc/mod_muc.erl:829
 msgid "You need a client that supports x:data to register the nickname"
-msgstr "تحتاج لبرنامج تسجل به دخولك, يدعم x:data "
+msgstr ""
 
 #: mod_muc/mod_muc.erl:835
 msgid "Nickname Registration at "
-msgstr "تسجيل اللقب في "
+msgstr "تسجيل الإسم المستعار في"
 
 #: mod_muc/mod_muc.erl:839
 msgid "Enter nickname you want to register"
-msgstr "ادخل اللقب الذي تود تسجيله"
+msgstr "أدخل الإسم المستعار المراد تسجيله وإستخدامه ليتم حفظه على السيرفر"
 
 #: mod_muc/mod_muc.erl:840 mod_muc/mod_muc_room.erl:3956 mod_roster.erl:1350
 #: mod_vcard.erl:435 mod_vcard.erl:548
 msgid "Nickname"
-msgstr "اللقب"
+msgstr "الإسم المستعار"
 
 #: mod_muc/mod_muc.erl:924 mod_muc/mod_muc_room.erl:1104
 #: mod_muc/mod_muc_room.erl:1862
 msgid "That nickname is registered by another person"
-msgstr "هذا اللقب تم تسجيله من قبل مستخدم آخر"
+msgstr "الإسم المستعار تم تسجيله من قبل مستخدم آخر"
 
 #: mod_muc/mod_muc.erl:951
 msgid "You must fill in field \"Nickname\" in the form"
-msgstr "استكمل الحق  \"اللقب\" في النموذج"
+msgstr "يجب أن تدخل الإسم المستعار بالمربع"
 
 #: mod_muc/mod_muc.erl:971
 msgid "ejabberd MUC module"
-msgstr "ejabberd MUC اضافة"
+msgstr ""
 
 #: mod_muc/mod_muc_log.erl:398 mod_muc/mod_muc_log.erl:405
 msgid "Chatroom configuration modified"
-msgstr "تغّيرت اعدادات الروم"
+msgstr "تم تعديل برمجة الغرفه"
 
 #: mod_muc/mod_muc_log.erl:408
 msgid "joins the room"
-msgstr "دخل الروم"
+msgstr "إنضم للغرفه"
 
 #: mod_muc/mod_muc_log.erl:411 mod_muc/mod_muc_log.erl:414
 msgid "leaves the room"
-msgstr "غادر الروم"
+msgstr "غادر الغرفه"
 
 #: mod_muc/mod_muc_log.erl:417 mod_muc/mod_muc_log.erl:420
 msgid "has been banned"
@@ -608,40 +372,40 @@ msgstr "تم طرده"
 
 #: mod_muc/mod_muc_log.erl:429
 msgid "has been kicked because of an affiliation change"
-msgstr "выгнали из комнаты вследствие смены ранга"
+msgstr "تم طرده بسبب تغيير بالمنصب"
 
 #: mod_muc/mod_muc_log.erl:432
 msgid "has been kicked because the room has been changed to members-only"
-msgstr "تم طرده لأن الروم أصبحت للأعضاء فقط"
+msgstr "الغرفه الآن للأعضاء فقط"
 
 #: mod_muc/mod_muc_log.erl:435
 msgid "has been kicked because of a system shutdown"
-msgstr "تم طرده لأن السيرفر تم اغلاقه من قبل ادارة السيرفر"
+msgstr "تم إيقاف أو إعادة تشغيل السيرفر من قبل الإدارة"
 
 #: mod_muc/mod_muc_log.erl:438
 msgid "is now known as"
-msgstr "أصبح معروفا بـ "
+msgstr "غير إسمه المستعار إلى"
 
 #: mod_muc/mod_muc_log.erl:441 mod_muc/mod_muc_log.erl:716
 #: mod_muc/mod_muc_room.erl:2502
 msgid " has set the subject to: "
-msgstr " حدد الموضوع كــ: "
+msgstr "حدد موضوع الغرفه :"
 
 #: mod_muc/mod_muc_log.erl:476
 msgid "Chatroom is created"
-msgstr "تم انشاء الروم"
+msgstr "تم انشاء الغرفه"
 
 #: mod_muc/mod_muc_log.erl:477
 msgid "Chatroom is destroyed"
-msgstr "تم تدمير الروم"
+msgstr "تم تدمير الغرفه"
 
 #: mod_muc/mod_muc_log.erl:478
 msgid "Chatroom is started"
-msgstr "الروم فعال الآن"
+msgstr "الغرفه فعاله الآن"
 
 #: mod_muc/mod_muc_log.erl:479
 msgid "Chatroom is stopped"
-msgstr "تم ايقاف الروم"
+msgstr "تم إيقاف الغرفه"
 
 #: mod_muc/mod_muc_log.erl:483
 msgid "Monday"
@@ -693,11 +457,11 @@ msgstr "مايو"
 
 #: mod_muc/mod_muc_log.erl:498
 msgid "June"
-msgstr "يونيه"
+msgstr "يونيو"
 
 #: mod_muc/mod_muc_log.erl:499
 msgid "July"
-msgstr "يوليه"
+msgstr "يوليو"
 
 #: mod_muc/mod_muc_log.erl:500
 msgid "August"
@@ -721,32 +485,32 @@ msgstr "ديسمبر"
 
 #: mod_muc/mod_muc_log.erl:778
 msgid "Room Configuration"
-msgstr "اعدادات وبرمجة الروم"
+msgstr "اعدادات وبرمجة الغرفه"
 
 #: mod_muc/mod_muc_log.erl:787
 msgid "Room Occupants"
-msgstr "المتواجدين بالروم"
+msgstr "المتواجدين بالغرفه"
 
 #: mod_muc/mod_muc_room.erl:171
 msgid "Traffic rate limit is exceeded"
-msgstr "تجاوزت معدل تدفق البيانات المسموح به تم حجب رسالتك"
+msgstr "تم تجاوز حد معدل الإرسال بالغرفه"
 
 #: mod_muc/mod_muc_room.erl:243
 msgid ""
 "This participant is kicked from the room because he sent an error message"
-msgstr "تم طرده لارسال رسالة خطأ او نتيجه لمشاكل باتصاله"
+msgstr "تم طرد المستخدم بسبب إرساله رساله خاطئه أو نتيجه لخطأ بإتصاله"
 
 #: mod_muc/mod_muc_room.erl:252
 msgid "It is not allowed to send private messages to the conference"
-msgstr "Не разрешается посылать частные сообщения прямо в конференцию"
+msgstr "غير مسموح بدخول الخاص بهذه الغرفه"
 
 #: mod_muc/mod_muc_room.erl:329
 msgid "Please, wait for a while before sending new voice request"
-msgstr "الرجاء الانتظار لحظات قبل ارسال طلب حق تحدث جديد"
+msgstr "إنتظر فتره قبل إرسال طلب حق التحدث من جديد"
 
 #: mod_muc/mod_muc_room.erl:344
 msgid "Voice requests are disabled in this conference"
-msgstr "طلب حق التحدث غير مفعل بالروم في الوقت الحالي"
+msgstr "طلب حق التحدث غير مفعل بالغرفه في الوقت الحالي"
 
 #: mod_muc/mod_muc_room.erl:361
 msgid "Failed to extract JID from your voice request approval"
@@ -758,94 +522,94 @@ msgstr "فقط الاداره تعطي حق التحدث"
 
 #: mod_muc/mod_muc_room.erl:405
 msgid "Improper message type"
-msgstr "رساله خاطئه"
+msgstr ""
 
 #: mod_muc/mod_muc_room.erl:520
 msgid ""
 "This participant is kicked from the room because he sent an error message to "
 "another participant"
-msgstr ""
-"تم طرده لارساله رسالة خطأ او لانقطاع اتصاله عند ارساله رساله لمستخدم آخر"
+msgstr "تم طرد المستخدم بسبب إرساله رساله خاطئه لمشارك آخر"
 
 #: mod_muc/mod_muc_room.erl:533
 msgid "It is not allowed to send private messages of type \"groupchat\""
-msgstr "غير مسموح بارسال رسائل خاصه اكتب بـ  \"العام\""
+msgstr "غير مسموح بارسال رسائل خاصه"
 
 #: mod_muc/mod_muc_room.erl:548 mod_muc/mod_muc_room.erl:994
 #: mod_muc/mod_muc_room.erl:4186
 msgid "Only occupants are allowed to send messages to the conference"
-msgstr "فقط المتواجدين بالروم يستطيعو ارسال رسائل خاصه"
+msgstr "مشتركين الغرفه فقط لديهم حق التحدث"
 
 #: mod_muc/mod_muc_room.erl:558 mod_muc/mod_muc_room.erl:891
 msgid "It is not allowed to send private messages"
-msgstr "لا يمكن ارسال رسائل خاصه"
+msgstr "غير مسموح بإستخدام رسائل الخاص الآن"
 
 #: mod_muc/mod_muc_room.erl:584 mod_muc/mod_muc_room.erl:860
 msgid "Recipient is not in the conference room"
-msgstr "المستخدم غير موجود بالروم او انقطع اتصاله ولا يمكن استقبال رسالتك"
+msgstr "المستخدم غير موجود بالغرفه أو إنقطع إتصاله ولا يمكنه إستقبال رسالتك"
 
 #: mod_muc/mod_muc_room.erl:607
 msgid "Only occupants are allowed to send queries to the conference"
-msgstr "المتواجدين فقط يستطيعو ارسال الاستعلامات"
+msgstr "المتواجدين فقط يستطيعو إرسال الاستعلامات"
 
 #: mod_muc/mod_muc_room.erl:619
 msgid "Queries to the conference members are not allowed in this room"
-msgstr "الاستعلام عن اعضاء الروم غير مسموح به في هذه الغرفه"
+msgstr "غير مسموح بالإستعلام عن الأعضاء بهذه الغرفه"
 
 #: mod_muc/mod_muc_room.erl:970
 msgid ""
 "Only moderators and participants are allowed to change the subject in this "
 "room"
-msgstr "الاداره والمشتركين مسموح لهم بتغيير الموضوع بالروم"
+msgstr "فقط المديرين والأعضاء مسموح لهم بتحديد أو تغيير موضوع الغرفه"
 
 #: mod_muc/mod_muc_room.erl:975
 msgid "Only moderators are allowed to change the subject in this room"
-msgstr "ادارة الروم فقط يسمح لها بتعديل الموضوع"
+msgstr "فقط المديرين مسموح لهم بتحديد أو تغيير موضوع الغرفه"
 
 #: mod_muc/mod_muc_room.erl:985
 msgid "Visitors are not allowed to send messages to all occupants"
-msgstr "الزوار ممنوعين من ارسال رسالئل للمتواجدين"
+msgstr "ليس لديك حق التحدث"
 
 #: mod_muc/mod_muc_room.erl:1061
 msgid ""
 "This participant is kicked from the room because he sent an error presence"
-msgstr "تم طرده لوجود مشاكل باتصاله"
+msgstr "تم إستبعاده لوجود مشاكل بإتصال حسابه"
 
 #: mod_muc/mod_muc_room.erl:1080
 msgid "Visitors are not allowed to change their nicknames in this room"
-msgstr "الزوار غير مسموح لهم بتغيير ألقابهم بالروم"
+msgstr "غير مسموح للزوار بتغيير الإسم المستعار بهذه الغرفه"
 
 #: mod_muc/mod_muc_room.erl:1093 mod_muc/mod_muc_room.erl:1854
 msgid "That nickname is already in use by another occupant"
-msgstr "لقبك الحالي مستخدم بواسطة مستخدم آخر بالروم .. اختر لقب جديد"
+msgstr ""
+"الإسم المستعار مستخدم من قبل مشارك آخر بالغرفه أو تم تسجيله على السيرفر"
 
 #: mod_muc/mod_muc_room.erl:1843
 msgid "You have been banned from this room"
-msgstr "ايميلك او سيرفر  ايميلك ككل غير مصرح له بدخول الروم"
+msgstr "إيميلك أو سيرفر إيميلك مفصول بهذه الغرفه"
 
 #: mod_muc/mod_muc_room.erl:1846
 msgid "Membership is required to enter this room"
-msgstr "الروم متاح للأعضاء فقط"
+msgstr "الغرفه متاحه للأعضاء فقط"
 
 #: mod_muc/mod_muc_room.erl:1891
 msgid "This room is not anonymous"
-msgstr "الأعضاء غير المعروفين لا يمكنهم دخول الروم"
+msgstr "الأعضاء غير المعروفين لا يمكنهم دخول الغرفه"
 
 #: mod_muc/mod_muc_room.erl:1910
 msgid "This room is filtered by external service"
-msgstr ""
+msgstr "هذه الغرفه تستخدم الفلتره"
 
 #: mod_muc/mod_muc_room.erl:1942
 msgid "A password is required to enter this room"
-msgstr "ادخل كلمة سر دخول الروم لتسطيع الدخول"
+msgstr "أدخل كلمة المرور المطلوبه للدخول للغرفه"
 
 #: mod_muc/mod_muc_room.erl:1964 mod_register.erl:246
 msgid "Too many CAPTCHA requests"
-msgstr "تم طلب رمز المرور أكثر من مره ... احذر سيتم حجبك نهائيا"
+msgstr "تم طلب الكابتشا أكثر من مره ... احذر سيتم حجبك نهائيا"
 
 #: mod_muc/mod_muc_room.erl:1973 mod_register.erl:251
 msgid "Unable to generate a CAPTCHA"
-msgstr "لا يمكن تبديل رمز المرور عشوائيا .. لطفا راسل ادارة السيرفر لحل مشكلتك"
+msgstr "لا يمكن تبديل الكابتشا عشوائيا .. راسل إدارة السيرفر لحل مشكلتك"
 
 #: mod_muc/mod_muc_room.erl:1983
 msgid "Incorrect password"
@@ -861,55 +625,55 @@ msgstr "يتطلب صلاحيات المشرفين"
 
 #: mod_muc/mod_muc_room.erl:2728
 msgid "Jabber ID ~s is invalid"
-msgstr "Jabber ID ~s مقبول"
+msgstr "الحساب غير صحيح ~s"
 
 #: mod_muc/mod_muc_room.erl:2742
 msgid "Nickname ~s does not exist in the room"
-msgstr "لقب ~s غير مسموح به في الروم"
+msgstr "الإسم غير موجود بالغرفه ~s"
 
 #: mod_muc/mod_muc_room.erl:2768 mod_muc/mod_muc_room.erl:3165
 msgid "Invalid affiliation: ~s"
-msgstr "وظيفه صالحه: ~s"
+msgstr "وظيفه غير صالحه : ~s"
 
 #: mod_muc/mod_muc_room.erl:2822
 msgid "Invalid role: ~s"
-msgstr "دور صالح: ~s"
+msgstr "دور غير صالح : ~s"
 
 #: mod_muc/mod_muc_room.erl:3142 mod_muc/mod_muc_room.erl:3178
 msgid "Owner privileges required"
-msgstr "يتطلب صلاحيات مالك الروم"
+msgstr "يتطلب صلاحيات مالك الغرفه"
 
 #: mod_muc/mod_muc_room.erl:3314
 msgid "Configuration of room ~s"
-msgstr "برمجة واعدادات روم  ~s"
+msgstr "برمجة واعدادات غرفة  ~s"
 
 #: mod_muc/mod_muc_room.erl:3319
 msgid "Room title"
-msgstr "عنوان الروم"
+msgstr "عنوان الغرفه"
 
 #: mod_muc/mod_muc_room.erl:3322 mod_muc/mod_muc_room.erl:3831
 msgid "Room description"
-msgstr "وصف الروم"
+msgstr "وصف الغرفه"
 
 #: mod_muc/mod_muc_room.erl:3329
 msgid "Make room persistent"
-msgstr "تفعيل ثبات الروم وحفظ البرمجه"
+msgstr "تفعيل ثبات الغرفه وحفظ البرمجه"
 
 #: mod_muc/mod_muc_room.erl:3334
 msgid "Make room public searchable"
-msgstr "عرض الروم للجميع في البحث"
+msgstr "السماح بالبحث عن الغرفه"
 
 #: mod_muc/mod_muc_room.erl:3337
 msgid "Make participants list public"
-msgstr "عرض المتواجدين بالروم في  البحث"
+msgstr "السماح بالبحث عن المشتركين بالغرفه"
 
 #: mod_muc/mod_muc_room.erl:3340
 msgid "Make room password protected"
-msgstr "وضع كلمة سر لدخول الروم"
+msgstr "تعيين كلمة مرور للغرفه"
 
 #: mod_muc/mod_muc_room.erl:3351
 msgid "Maximum Number of Occupants"
-msgstr "أقصى عدديتواجد بنفس الوقت في الروم"
+msgstr "الحد الأقصى لعدد الزوار بالغرفه"
 
 #: mod_muc/mod_muc_room.erl:3358
 msgid "No limit"
@@ -917,43 +681,43 @@ msgstr "غير محدود"
 
 #: mod_muc/mod_muc_room.erl:3369
 msgid "Present real Jabber IDs to"
-msgstr "عرض ايميلات المتواجدين لــ"
+msgstr "عرض إيميلات المتواجدين لــ"
 
 #: mod_muc/mod_muc_room.erl:3377 mod_muc/mod_muc_room.erl:3418
 msgid "moderators only"
-msgstr "الاداره فقط"
+msgstr "الإداره فقط"
 
 #: mod_muc/mod_muc_room.erl:3379 mod_muc/mod_muc_room.erl:3420
 msgid "anyone"
-msgstr "الجميع"
+msgstr "الكل"
 
 #: mod_muc/mod_muc_room.erl:3381
 msgid "Filter messages from unaffiliated users through Jabber ID"
-msgstr ""
+msgstr "أدخل إيميل البوت كامل مع الريسورس لفلترة الغرفه"
 
 #: mod_muc/mod_muc_room.erl:3388
 msgid "Make room members-only"
-msgstr "وضع الروم للأعضائ فقط"
+msgstr "تفعيل الغرفه للأعضاء فقط"
 
 #: mod_muc/mod_muc_room.erl:3391
 msgid "Make room moderated"
-msgstr "تفعيل نظام الاشرف والاداره بالروم"
+msgstr "تفعيل نظام الإشراف والإداره بالغرفه"
 
 #: mod_muc/mod_muc_room.erl:3394
 msgid "Default users as participants"
-msgstr "منح الزوار حق التحدث"
+msgstr "منح الزوار حق التحدث تلقائيآ"
 
 #: mod_muc/mod_muc_room.erl:3397
 msgid "Allow users to change the subject"
-msgstr "السماح لغير الاداره بتغيير الروم"
+msgstr "السماح للزوار بتغيير موضوع الغرفه"
 
 #: mod_muc/mod_muc_room.erl:3400
 msgid "Allow users to send private messages"
-msgstr "السماح للمستخدمين بارسال الرسائل الخاصه"
+msgstr "السماح بإستخدام الخاص بالغرفه"
 
 #: mod_muc/mod_muc_room.erl:3405
 msgid "Allow visitors to send private messages to"
-msgstr "الزوار ترسل الرسائل الخاص لــ"
+msgstr "السماح للزوار بإرسال خاص إلى:"
 
 #: mod_muc/mod_muc_room.erl:3416
 msgid "nobody"
@@ -961,19 +725,19 @@ msgstr "لا أحد"
 
 #: mod_muc/mod_muc_room.erl:3422
 msgid "Allow users to query other users"
-msgstr "السماح للمستخدمين بالاستعلام عن المستخدمين الآخرين"
+msgstr "السماح بالتطلع على نسخة أجهزة المشتركين"
 
 #: mod_muc/mod_muc_room.erl:3425
 msgid "Allow users to send invites"
-msgstr "السماح للمستخدمين بارسال دعوات لدخول الروم"
+msgstr "السماح بإرسال الدعوات لدخول الغرفه"
 
 #: mod_muc/mod_muc_room.erl:3428
 msgid "Allow visitors to send status text in presence updates"
-msgstr "السماح للزوار بارسال تحديثات رساله الحاله"
+msgstr "السماح للزوار بإرسال تحديثات رسالة الحاله"
 
 #: mod_muc/mod_muc_room.erl:3431
 msgid "Allow visitors to change nickname"
-msgstr "السماح للزوار بتغيير اللقب"
+msgstr "السماح للزوار بتغيير الإسم المستعار"
 
 #: mod_muc/mod_muc_room.erl:3434
 msgid "Allow visitors to send voice requests"
@@ -985,19 +749,19 @@ msgstr "الفاصل الزمني بين طلبات حق التحدث بالثا
 
 #: mod_muc/mod_muc_room.erl:3443
 msgid "Make room CAPTCHA protected"
-msgstr "تفعيل حماية دخول الروم برمز مرور"
+msgstr "تفعيل حماية الكابتشا"
 
 #: mod_muc/mod_muc_room.erl:3448
 msgid "Exclude Jabber IDs from CAPTCHA challenge"
-msgstr "الاستثناءات من حماية دخول الروم برمز مرور"
+msgstr "إستبعاد السيرفرات التالية من حماية الكابتشا"
 
 #: mod_muc/mod_muc_room.erl:3455
 msgid "Enable logging"
-msgstr "تفعيل المحفوظات"
+msgstr "تفعيل تسجيل الغرفه"
 
 #: mod_muc/mod_muc_room.erl:3463
 msgid "You need an x:data capable client to configure room"
-msgstr "تحتاج برنامج وتسجيل دخولك بحساب اونر, x:data لتعدل برمجة الروم"
+msgstr ""
 
 #: mod_muc/mod_muc_room.erl:3833
 msgid "Number of occupants"
@@ -1013,7 +777,7 @@ msgstr "طلب حق تحدث"
 
 #: mod_muc/mod_muc_room.erl:3949
 msgid "Either approve or decline the voice request."
-msgstr "اقبل او ارفض طلب حق التحدث"
+msgstr "إقبل أو أرفض طلب حق التحدث"
 
 #: mod_muc/mod_muc_room.erl:3955
 msgid "User JID"
@@ -1025,18 +789,18 @@ msgstr "منح حق التحدث ؟"
 
 #: mod_muc/mod_muc_room.erl:4106
 msgid "~s invites you to the room ~s"
-msgstr "~s دعاك لدخول روم ~s"
+msgstr "~s قام بدعوتك لدخول هذه الغرفه ~s"
 
 #: mod_muc/mod_muc_room.erl:4115
 msgid "the password is"
-msgstr "كلمة السر هي:"
+msgstr "كلمة المرور هي:"
 
 #: mod_offline.erl:623
 msgid ""
 "Your contact offline message queue is full. The message has been discarded."
 msgstr ""
-"لا يمكنني استقبال رسالتك.. لا توجد ذاكره .. لذلك من فضلك اعد ارسالها عند "
-"اتصالي"
+"الرسائل فى وضع عدم الإتصال إمتلأت لهذا المستخدم يرجى إرسال رسالتك حين إتصاله "
+"مجددآ"
 
 #: mod_offline.erl:713
 msgid "~s's Offline Messages Queue"
@@ -1051,28 +815,28 @@ msgstr "ذاكرة الرسائل في وضع عدم الاتصال ~s"
 #: web/ejabberd_web_admin.erl:1992 web/ejabberd_web_admin.erl:2096
 #: web/ejabberd_web_admin.erl:2121 web/ejabberd_web_admin.erl:2209
 msgid "Submitted"
-msgstr "اعتمد التعديلات"
+msgstr ""
 
 #: mod_offline.erl:724
 msgid "Time"
-msgstr "الوقت"
+msgstr ""
 
 #: mod_offline.erl:725
 msgid "From"
-msgstr "من"
+msgstr ""
 
 #: mod_offline.erl:726
 msgid "To"
-msgstr "الى"
+msgstr ""
 
 #: mod_offline.erl:727
 msgid "Packet"
-msgstr "مجموعه"
+msgstr ""
 
 #: mod_offline.erl:740 mod_shared_roster.erl:1067
 #: web/ejabberd_web_admin.erl:882 web/ejabberd_web_admin.erl:986
 msgid "Delete Selected"
-msgstr "مسح المعلّم"
+msgstr ""
 
 #: mod_offline.erl:864
 msgid "Offline Messages:"
@@ -1080,115 +844,115 @@ msgstr "رسائل في وضع عدم الاتصال:"
 
 #: mod_offline.erl:864
 msgid "Remove All Offline Messages"
-msgstr "مسح كافة الرسائل في وضع عدم الاتصال"
+msgstr ""
 
 #: mod_proxy65/mod_proxy65_service.erl:213
 msgid "ejabberd SOCKS5 Bytestreams module"
-msgstr "ejabberd SOCKS5 Bytestreams модуль"
+msgstr ""
 
 #: mod_pubsub/mod_pubsub.erl:1120 mod_pubsub/mod_pubsub_odbc.erl:929
 msgid "Publish-Subscribe"
-msgstr "اشتراك-النشر"
+msgstr ""
 
 #: mod_pubsub/mod_pubsub.erl:1214 mod_pubsub/mod_pubsub_odbc.erl:1025
 msgid "ejabberd Publish-Subscribe module"
-msgstr "اضافة اشتراك-النشر"
+msgstr ""
 
 #: mod_pubsub/mod_pubsub.erl:1497 mod_pubsub/mod_pubsub_odbc.erl:1312
 msgid "PubSub subscriber request"
-msgstr "طلب الانضمام لـ بوب سب"
+msgstr ""
 
 #: mod_pubsub/mod_pubsub.erl:1499 mod_pubsub/mod_pubsub_odbc.erl:1314
 msgid "Choose whether to approve this entity's subscription."
-msgstr "اختار الطقس ليتم تفعيل اشتراكك"
+msgstr ""
 
 #: mod_pubsub/mod_pubsub.erl:1505 mod_pubsub/mod_pubsub_odbc.erl:1320
 msgid "Node ID"
-msgstr "عنوان السيرفر الاساسي"
+msgstr ""
 
 #: mod_pubsub/mod_pubsub.erl:1510 mod_pubsub/mod_pubsub_odbc.erl:1325
 msgid "Subscriber Address"
-msgstr "عنوان الناشر"
+msgstr ""
 
 #: mod_pubsub/mod_pubsub.erl:1516 mod_pubsub/mod_pubsub_odbc.erl:1331
 msgid "Allow this Jabber ID to subscribe to this pubsub node?"
-msgstr "اتسمح لهذا المستخدم بالاشتراك في بوب سب للسيرفر الاساسي?"
+msgstr ""
 
 #: mod_pubsub/mod_pubsub.erl:3480 mod_pubsub/mod_pubsub_odbc.erl:3287
 msgid "Deliver payloads with event notifications"
-msgstr "تسليم اشعارات مع تنبيهات الاشتراك"
+msgstr ""
 
 #: mod_pubsub/mod_pubsub.erl:3481 mod_pubsub/mod_pubsub_odbc.erl:3288
 msgid "Deliver event notifications"
-msgstr "تسليم تنبيهات الاشتراك"
+msgstr ""
 
 #: mod_pubsub/mod_pubsub.erl:3482 mod_pubsub/mod_pubsub_odbc.erl:3289
 msgid "Notify subscribers when the node configuration changes"
-msgstr "اخبار المشتركين عند تغيير السيرفر الاساسي"
+msgstr ""
 
 #: mod_pubsub/mod_pubsub.erl:3483 mod_pubsub/mod_pubsub_odbc.erl:3290
 msgid "Notify subscribers when the node is deleted"
-msgstr "اخبار المشتركين عند مسح السيرفر الاساسي"
+msgstr ""
 
 #: mod_pubsub/mod_pubsub.erl:3484 mod_pubsub/mod_pubsub_odbc.erl:3291
 msgid "Notify subscribers when items are removed from the node"
-msgstr "اخبر المشتركين عند مسحهم من السيرفر الاساسي"
+msgstr ""
 
 #: mod_pubsub/mod_pubsub.erl:3485 mod_pubsub/mod_pubsub_odbc.erl:3292
 msgid "Persist items to storage"
-msgstr "تثبيت اختيارات التخزين"
+msgstr ""
 
 #: mod_pubsub/mod_pubsub.erl:3486 mod_pubsub/mod_pubsub_odbc.erl:3293
 msgid "A friendly name for the node"
-msgstr "اسم السيرفر الاساسي كما يظهر للأصدقاء"
+msgstr ""
 
 #: mod_pubsub/mod_pubsub.erl:3487 mod_pubsub/mod_pubsub_odbc.erl:3294
 msgid "Max # of items to persist"
-msgstr "الحد الأقصى للبيانات المخزنه"
+msgstr ""
 
 #: mod_pubsub/mod_pubsub.erl:3488 mod_pubsub/mod_pubsub_odbc.erl:3295
 msgid "Whether to allow subscriptions"
-msgstr "الطقس للسماح بالاشتراك"
+msgstr ""
 
 #: mod_pubsub/mod_pubsub.erl:3489 mod_pubsub/mod_pubsub_odbc.erl:3296
 msgid "Specify the access model"
-msgstr "تعديل صلاحيات الاضافه"
+msgstr ""
 
 #: mod_pubsub/mod_pubsub.erl:3492 mod_pubsub/mod_pubsub_odbc.erl:3299
 msgid "Roster groups allowed to subscribe"
-msgstr "مجموعات الاضافات مسموح لها بالاشتراك"
+msgstr ""
 
 #: mod_pubsub/mod_pubsub.erl:3493 mod_pubsub/mod_pubsub_odbc.erl:3300
 msgid "Specify the publisher model"
-msgstr "خصائص اضافة النشر"
+msgstr ""
 
 #: mod_pubsub/mod_pubsub.erl:3495 mod_pubsub/mod_pubsub_odbc.erl:3302
 msgid "Purge all items when the relevant publisher goes offline"
-msgstr "اخبر الجميع عندما يتغير حالة الناشر لاوف لاين"
+msgstr ""
 
 #: mod_pubsub/mod_pubsub.erl:3496 mod_pubsub/mod_pubsub_odbc.erl:3303
 msgid "Specify the event message type"
-msgstr "حدد نوع الرساله المكتوبه"
+msgstr ""
 
 #: mod_pubsub/mod_pubsub.erl:3498 mod_pubsub/mod_pubsub_odbc.erl:3305
 msgid "Max payload size in bytes"
-msgstr "الحد الاقصى لحجم البيانات"
+msgstr ""
 
 #: mod_pubsub/mod_pubsub.erl:3499 mod_pubsub/mod_pubsub_odbc.erl:3306
 msgid "When to send the last published item"
-msgstr "عندما ترسل اخر تحديثات"
+msgstr ""
 
 #: mod_pubsub/mod_pubsub.erl:3501 mod_pubsub/mod_pubsub_odbc.erl:3308
 msgid "Only deliver notifications to available users"
-msgstr "فقط المستخدمين في وضع متاح من يستقبلون التنبيهات"
+msgstr ""
 
 #: mod_pubsub/mod_pubsub.erl:3502 mod_pubsub/mod_pubsub_odbc.erl:3309
 msgid "The collections with which a node is affiliated"
-msgstr "تم الارتباط كليا بالسيرفر الاساسي"
+msgstr ""
 
 #: mod_register.erl:193
 msgid "The CAPTCHA verification has failed"
-msgstr "رمز المرور الذي أدخلته غير صحيح"
+msgstr "رمزنص الكابتشا اللذى أدخلته غير صحيح"
 
 #: mod_register.erl:220
 msgid "You need a client that supports x:data and CAPTCHA to register"
@@ -1196,50 +960,50 @@ msgstr "تحتاج لبرنامج يعرض صور كلمات التحقق عند
 
 #: mod_register.erl:226 mod_register.erl:265
 msgid "Choose a username and password to register with this server"
-msgstr "حدد الاسم وكلمة السر لتسجيل حسابك بالسيرفر"
+msgstr "أكتب إسم المستخدم وكلمة المرور لتسجيل حساب جديد بالسيرفر"
 
 #: mod_register.erl:230 mod_vcard.erl:435 web/ejabberd_web_admin.erl:1492
 #: web/ejabberd_web_admin.erl:1548
 msgid "User"
-msgstr "الاسم"
+msgstr "إسم المستخدم"
 
 #: mod_register.erl:316 mod_register.erl:361
 msgid "The password is too weak"
-msgstr "كلمة السر ضعيفه"
+msgstr "كلمة المرور ضعيفه جدآ"
 
 #: mod_register.erl:365
 msgid "Users are not allowed to register accounts so quickly"
-msgstr "يجب الانتظار لمدة لاعادة تسجيل حساب جديد"
+msgstr "يجب الإنتظار مده كافيه لإعادة تسجيل حساب جديد"
 
 #: mod_roster.erl:1344 web/ejabberd_web_admin.erl:1662
 #: web/ejabberd_web_admin.erl:1847 web/ejabberd_web_admin.erl:1858
 #: web/ejabberd_web_admin.erl:2180
 msgid "None"
-msgstr "غير معروف"
+msgstr ""
 
 #: mod_roster.erl:1351
 msgid "Subscription"
-msgstr "مشترك"
+msgstr ""
 
 #: mod_roster.erl:1352
 msgid "Pending"
-msgstr "بالانتظار"
+msgstr ""
 
 #: mod_roster.erl:1353
 msgid "Groups"
-msgstr "المجموعات"
+msgstr ""
 
 #: mod_roster.erl:1380
 msgid "Validate"
-msgstr "موافق"
+msgstr ""
 
 #: mod_roster.erl:1388
 msgid "Remove"
-msgstr "حذف"
+msgstr ""
 
 #: mod_roster.erl:1391
 msgid "Roster of "
-msgstr "اضافات  "
+msgstr ""
 
 #: mod_roster.erl:1394 mod_shared_roster.erl:1061 mod_shared_roster.erl:1170
 #: web/ejabberd_web_admin.erl:834 web/ejabberd_web_admin.erl:875
@@ -1248,55 +1012,55 @@ msgstr "اضافات  "
 #: web/ejabberd_web_admin.erl:1722 web/ejabberd_web_admin.erl:1893
 #: web/ejabberd_web_admin.erl:2097 web/ejabberd_web_admin.erl:2122
 msgid "Bad format"
-msgstr "صيغه غير منسقه"
+msgstr ""
 
 #: mod_roster.erl:1401
 msgid "Add Jabber ID"
-msgstr "اضافة Jabber ID"
+msgstr ""
 
 #: mod_roster.erl:1500
 msgid "Roster"
-msgstr "اضافات"
+msgstr ""
 
 #: mod_shared_roster.erl:1016 mod_shared_roster.erl:1058
 #: mod_shared_roster.erl:1166
 msgid "Shared Roster Groups"
-msgstr "مجموعات الاضافات المشتركه"
+msgstr ""
 
 #: mod_shared_roster.erl:1054 web/ejabberd_web_admin.erl:1342
 #: web/ejabberd_web_admin.erl:2422
 msgid "Add New"
-msgstr "اضف جديد"
+msgstr ""
 
 #: mod_shared_roster.erl:1137
 msgid "Name:"
-msgstr "الاسم:"
+msgstr ""
 
 #: mod_shared_roster.erl:1142
 msgid "Description:"
-msgstr "الوصف:"
+msgstr ""
 
 #: mod_shared_roster.erl:1150
 msgid "Members:"
-msgstr "الأعضاء:"
+msgstr ""
 
 #: mod_shared_roster.erl:1158
 msgid "Displayed Groups:"
-msgstr "عرض المجموعات:"
+msgstr ""
 
 #: mod_shared_roster.erl:1167
 msgid "Group "
-msgstr "مجموعة "
+msgstr ""
 
 #: mod_shared_roster.erl:1176 web/ejabberd_web_admin.erl:840
 #: web/ejabberd_web_admin.erl:884 web/ejabberd_web_admin.erl:949
 #: web/ejabberd_web_admin.erl:1026 web/ejabberd_web_admin.erl:1978
 msgid "Submit"
-msgstr "اعتمد التعديلات"
+msgstr ""
 
 #: mod_vcard.erl:172 mod_vcard_ldap.erl:238
 msgid "Erlang Jabber Server"
-msgstr "سيرفر جابر مبني بلغة ايرلانج"
+msgstr ""
 
 #: mod_vcard.erl:435 mod_vcard.erl:549
 msgid "Birthday"
@@ -1312,23 +1076,21 @@ msgstr "الدوله"
 
 #: mod_vcard.erl:435 mod_vcard.erl:552
 msgid "Email"
-msgstr "الايميل"
+msgstr "البريد الإلكتروني"
 
 #: mod_vcard.erl:435 mod_vcard.erl:547
 msgid "Family Name"
-msgstr "اسم العائله"
+msgstr "إسم العائله"
 
 #: mod_vcard.erl:435
 msgid ""
 "Fill in the form to search for any matching Jabber User (Add * to the end of "
 "field to match substring)"
 msgstr ""
-"فشل العثور على مستخدم كما بحثت (أضف * بنهاية كلمة البحث поля, то происходит "
-"поиск подстроки)"
 
 #: mod_vcard.erl:435 mod_vcard.erl:544
 msgid "Full Name"
-msgstr "الاسم بالكامل"
+msgstr "الإسم بالكامل"
 
 #: mod_vcard.erl:435 mod_vcard.erl:546
 msgid "Middle Name"
@@ -1336,7 +1098,7 @@ msgstr "الاسم الأوسط"
 
 #: mod_vcard.erl:435 mod_vcard.erl:545 web/ejabberd_web_admin.erl:1967
 msgid "Name"
-msgstr "الاسم"
+msgstr "الإسم"
 
 #: mod_vcard.erl:435 mod_vcard.erl:553
 msgid "Organization Name"
@@ -1344,7 +1106,7 @@ msgstr "جهة العمل"
 
 #: mod_vcard.erl:435 mod_vcard.erl:554
 msgid "Organization Unit"
-msgstr "مكان جعة العمل"
+msgstr "مكان جهة العمل"
 
 #: mod_vcard.erl:435 mod_vcard_ldap.erl:462
 msgid "Search users in "
@@ -1352,201 +1114,229 @@ msgstr "بحث عن مستخدم في  "
 
 #: mod_vcard.erl:435 mod_vcard_ldap.erl:462
 msgid "You need an x:data capable client to search"
-msgstr "تحتاج لتسجيل دخولك من برنامج يدعم x:data"
+msgstr ""
 
 #: mod_vcard.erl:460 mod_vcard_ldap.erl:487
 msgid "vCard User Search"
-msgstr "بحث عن مستخدم بواسطه بيانات  vCard"
+msgstr ""
 
 #: mod_vcard.erl:516 mod_vcard_ldap.erl:541
 msgid "ejabberd vCard module"
-msgstr "vCard اضافة"
+msgstr ""
 
 #: mod_vcard.erl:540 mod_vcard_ldap.erl:551
 msgid "Search Results for "
-msgstr "نتائج البحث لــ :  "
+msgstr ""
 
 #: mod_vcard_ldap.erl:462
 msgid "Fill in fields to search for any matching Jabber User"
-msgstr "املأ الحقول لنرى ماذا يطابق بحثك"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:193 web/ejabberd_web_admin.erl:203
 #: web/ejabberd_web_admin.erl:219 web/ejabberd_web_admin.erl:229
 msgid "Unauthorized"
-msgstr "لا توجد صلاحيات ربما لم تسجل الدخول بعد"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:286 web/ejabberd_web_admin.erl:303
 msgid "ejabberd Web Admin"
-msgstr "لوحة تحكم السيرفر"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:769 web/ejabberd_web_admin.erl:780
 msgid "Administration"
-msgstr "الاداره"
+msgstr ""
+
+#: web/ejabberd_web_admin.erl:831 web/ejabberd_web_admin.erl:872
+msgid "Access Control Lists"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:878 web/ejabberd_web_admin.erl:982
 msgid "Raw"
-msgstr "الاعدادات الاساسيه الحاليه اجمالا"
+msgstr ""
+
+#: web/ejabberd_web_admin.erl:940 web/ejabberd_web_admin.erl:976
+msgid "Access Rules"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1017
 msgid "~s access rule configuration"
-msgstr "اعدادات قواعد الصلاحيات ~s"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1035
 msgid "Virtual Hosts"
-msgstr "السيرفرات المستضافه"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1055
 msgid "Users Last Activity"
-msgstr "آخر نشاطات المستخدمين"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1057
 msgid "Period: "
-msgstr "مـدة"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1067
 msgid "Last month"
-msgstr "الشهر الأخير"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1068
 msgid "Last year"
-msgstr "العام الأخير"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1069
 msgid "All activity"
-msgstr "كل النشاطات"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1071
 msgid "Show Ordinary Table"
-msgstr "عرض جدول منتظم"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1073
 msgid "Show Integral Table"
-msgstr "عرض جدول متكامل"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1082 web/ejabberd_web_admin.erl:1900
 msgid "Statistics"
-msgstr "الاحصائيات"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1094
 msgid "Not Found"
-msgstr "غير موجود"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1111
 msgid "Node not found"
-msgstr "السيرفر الاساسي غير موجود"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1437
 msgid "Host"
-msgstr "السيرفر"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1438
 msgid "Registered Users"
-msgstr "الأعضاء المسجلين"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1439
 msgid "Online Users"
-msgstr "المستخدمين المتصلين"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1549
 msgid "Offline Messages"
-msgstr "رسائل في وضع عدم اتصال"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1550 web/ejabberd_web_admin.erl:1728
 msgid "Last Activity"
-msgstr "آخر نشاط"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1630 web/ejabberd_web_admin.erl:1646
 msgid "Registered Users:"
-msgstr "المستخدمين المسجلين:"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1632 web/ejabberd_web_admin.erl:1648
 #: web/ejabberd_web_admin.erl:2153
 msgid "Online Users:"
-msgstr "المستخدمين المتصلين الآن:"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1634
 msgid "Outgoing s2s Connections:"
-msgstr "اتصالات صادرة:"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1636
 msgid "Outgoing s2s Servers:"
-msgstr "ارتباطات الاتصالات الصادره:"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1696 web/mod_register_web.erl:175
 #: web/mod_register_web.erl:372 web/mod_register_web.erl:381
 #: web/mod_register_web.erl:411
 msgid "Change Password"
-msgstr "تغيير كلمة السر"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1719
 msgid "User "
-msgstr "المستخدم "
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1726
 msgid "Connected Resources:"
-msgstr "الريسورس:"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1727 web/mod_register_web.erl:227
 #: web/mod_register_web.erl:519
 msgid "Password:"
-msgstr "كلمة السر:"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1789
 msgid "No Data"
-msgstr "لا توجد بيانات لعرضها"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1867
 msgid "Nodes"
-msgstr "السيرفرات الأساسيه"
+msgstr ""
+
+#: web/ejabberd_web_admin.erl:1868
+msgid "Running Nodes"
+msgstr ""
+
+#: web/ejabberd_web_admin.erl:1870
+msgid "Stopped Nodes"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1890 web/ejabberd_web_admin.erl:1912
 msgid "Node "
-msgstr "سيرفر اساسي  "
+msgstr ""
+
+#: web/ejabberd_web_admin.erl:1897
+msgid "Database"
+msgstr ""
+
+#: web/ejabberd_web_admin.erl:1898
+msgid "Backup"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1899
 msgid "Listened Ports"
-msgstr "البورتات "
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1901 web/ejabberd_web_admin.erl:2221
 #: web/ejabberd_web_admin.erl:2409
 msgid "Update"
-msgstr "تحديث"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1904 web/ejabberd_web_admin.erl:2530
 msgid "Restart"
-msgstr "اعادة تشغيل"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1906 web/ejabberd_web_admin.erl:2532
 msgid "Stop"
-msgstr "ايقاف"
+msgstr ""
+
+#: web/ejabberd_web_admin.erl:1914
+msgid "Modules"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1920
 msgid "RPC Call Error"
-msgstr "خطأ بالاتصال RPC"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1961
 msgid "Database Tables at "
-msgstr "جداول البيانات في  "
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1968
 msgid "Storage Type"
-msgstr "نوع التخزين"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1969
 msgid "Elements"
-msgstr "العناصر"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1970
 msgid "Memory"
-msgstr "الذاكره"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1993 web/ejabberd_web_admin.erl:2098
 msgid "Error"
-msgstr "خطأ"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1995
 msgid "Backup of "
-msgstr "نسخه احتياطيه من "
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:1997
 msgid ""
@@ -1554,13 +1344,10 @@ msgid ""
 "If you are using the ODBC module, you also need to backup your SQL database "
 "separately."
 msgstr ""
-"لاحظ هذا الخيار فقط لقولعد البيانات المدمجه  اذا كنت تستخدم قواعد بيانات "
-"odbc ستحتاج لأخذ نسخه احتياطيه من قاعدة بياناتك قد تكون من النوع mysql او من "
-"النوع postgres"
 
 #: web/ejabberd_web_admin.erl:2002
 msgid "Store binary backup:"
-msgstr "حفظ نسخه احتياطيه ثنائيه:"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:2006 web/ejabberd_web_admin.erl:2013
 #: web/ejabberd_web_admin.erl:2021 web/ejabberd_web_admin.erl:2028
@@ -1568,127 +1355,124 @@ msgstr "حفظ نسخه احتياطيه ثنائيه:"
 #: web/ejabberd_web_admin.erl:2049 web/ejabberd_web_admin.erl:2057
 #: web/ejabberd_web_admin.erl:2064 web/ejabberd_web_admin.erl:2071
 msgid "OK"
-msgstr "موافق"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:2009
 msgid "Restore binary backup immediately:"
-msgstr "استعادة نسخه احتياطيه ثنائيه:"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:2017
 msgid ""
 "Restore binary backup after next ejabberd restart (requires less memory):"
 msgstr ""
-"استعادة نسخه احتياطيه ثنايه مع اعادة تشغيل السيرفر (يتطلب  استهلاك بعض "
-"الرام):"
 
 #: web/ejabberd_web_admin.erl:2024
 msgid "Store plain text backup:"
-msgstr "حفظ نسخه احتياطيه من النصوص:"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:2031
 msgid "Restore plain text backup immediately:"
-msgstr "استرجاع نسخه احتياطيه من النصوص:"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:2038
 msgid "Import users data from a PIEFXIS file (XEP-0227):"
-msgstr "استيراد بيانات المستخدمين من ملف نوعه PIEFXIS (XEP-0227):"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:2045
 msgid "Export data of all users in the server to PIEFXIS files (XEP-0227):"
-msgstr "تصدير بيانات المستخدمين الى ملف نوعه PIEFXIS (XEP-0227):"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:2052
 msgid "Export data of users in a host to PIEFXIS files (XEP-0227):"
 msgstr ""
-"تصدير بيانات المستخدمين في جميع السيرفرات الى ملف نوعه PIEFXIS (XEP-0227):"
 
 #: web/ejabberd_web_admin.erl:2060
 msgid "Import user data from jabberd14 spool file:"
-msgstr "استيراد بيانات المستخدمين من ملف نوعه jabberd14:"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:2067
 msgid "Import users data from jabberd14 spool directory:"
-msgstr "استيراد بيانات المستخدمين من مجلد كامل من النوع  jabberd14:"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:2093
 msgid "Listened Ports at "
-msgstr "بورتات الاتصال في  "
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:2118
 msgid "Modules at "
-msgstr "الاضافات في  "
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:2144
 msgid "Statistics of ~p"
-msgstr "الاحصائيات لـ ~p"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:2147
 msgid "Uptime:"
-msgstr "قوة السيرفر:"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:2150
 msgid "CPU Time:"
-msgstr "قوة المعالج:"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:2156
 msgid "Transactions Committed:"
-msgstr "اكتمال المعالجه:"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:2159
 msgid "Transactions Aborted:"
-msgstr "عدم اكتمال المعالجه بشكل كامل:"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:2162
 msgid "Transactions Restarted:"
-msgstr "اعادة المعالجه:"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:2165
 msgid "Transactions Logged:"
-msgstr "المعالجة موثقه:"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:2207
 msgid "Update "
-msgstr "تحديث "
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:2215
 msgid "Update plan"
-msgstr "تحديث الخطه"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:2216
 msgid "Modified modules"
-msgstr "تعديل الاضافات"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:2217
 msgid "Update script"
-msgstr "تحديث السيرفر ككل"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:2218
 msgid "Low level update script"
-msgstr "المستوى الأدنى لترقية السيرفر ككل"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:2219
 msgid "Script check"
-msgstr "فحص السيرفر"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:2387
 msgid "Port"
-msgstr "البورت"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:2388
 msgid "IP"
-msgstr "اي بي"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:2389
 msgid "Protocol"
-msgstr "بروتوكول "
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:2390 web/ejabberd_web_admin.erl:2517
 msgid "Module"
-msgstr "اضافه"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:2391 web/ejabberd_web_admin.erl:2518
 msgid "Options"
-msgstr "خيارات"
+msgstr ""
 
 #: web/ejabberd_web_admin.erl:2411
 msgid "Delete"
@@ -1696,35 +1480,35 @@ msgstr "حذف"
 
 #: web/ejabberd_web_admin.erl:2540
 msgid "Start"
-msgstr "تشغيل"
+msgstr ""
 
 #: web/mod_register_web.erl:104
 msgid "Your Jabber account was successfully created."
-msgstr "تم انشاء حسابك بنجاح .... شكرا لانضمامك."
+msgstr "تم تسجيل حسابك بنجاح"
 
 #: web/mod_register_web.erl:107
 msgid "There was an error creating the account: "
-msgstr "حدث خطأ عند انشاء حسابك ... من فضلك أعد المحاوله بعد قليل:"
+msgstr "خطأ عند محاولة تسجيل الحساب :"
 
 #: web/mod_register_web.erl:115
 msgid "Your Jabber account was successfully deleted."
-msgstr "تم مسح حسابك بنجاح."
+msgstr "تم حذف حسابك بنجاح"
 
 #: web/mod_register_web.erl:118
 msgid "There was an error deleting the account: "
-msgstr "حدث خطأ عند مسح حسابك ... حاول بعد قليل:"
+msgstr "خطأ عند محاولة حذف الحساب :"
 
 #: web/mod_register_web.erl:128
 msgid "The password of your Jabber account was successfully changed."
-msgstr "تم تغيير كلمة السر لحسابك بنجاح"
+msgstr "تم تغيير كلمة مرور حسابك بنجاح"
 
 #: web/mod_register_web.erl:131
 msgid "There was an error changing the password: "
-msgstr "حدث خطأ عند تغيير كلمة سر حسابك ... حاول بعد قليل:"
+msgstr "خطأ عند محاولة تغيير كلمة مرور حسابك :"
 
 #: web/mod_register_web.erl:163 web/mod_register_web.erl:172
 msgid "Jabber Account Registration"
-msgstr "امتلك حساب بأقوى سيرفر عربي"
+msgstr "تسجيل حساب على السيرفر"
 
 #: web/mod_register_web.erl:174 web/mod_register_web.erl:192
 #: web/mod_register_web.erl:201
@@ -1734,54 +1518,55 @@ msgstr "تسجيل حساب جديد"
 #: web/mod_register_web.erl:176 web/mod_register_web.erl:493
 #: web/mod_register_web.erl:502
 msgid "Unregister a Jabber account"
-msgstr "مسح حسابك"
+msgstr "حذف حسابك"
 
 #: web/mod_register_web.erl:203
 msgid ""
 "This page allows to create a Jabber account in this Jabber server. Your JID "
 "(Jabber IDentifier) will be of the form: username@server. Please read "
 "carefully the instructions to fill correctly the fields."
-msgstr "تستطيع تسجيل حسابك بالسيرفر  بثواني معدودهفقط قم بملأ الحقول الآتيه"
+msgstr "تستطيع تسجيل حسابك الجديد من هذه الصفحه فقط قم بملأ الحقول الخاليه :"
 
 #: web/mod_register_web.erl:212 web/mod_register_web.erl:386
 #: web/mod_register_web.erl:509
 msgid "Username:"
-msgstr "اسم المستخدم:"
+msgstr "إسم المستخدم :"
 
 #: web/mod_register_web.erl:217
 msgid "This is case insensitive: macbeth is the same that MacBeth and Macbeth."
-msgstr "لا تفرق بين الحروف الكابتل والاسمول السيرفر يعاملهم نفس المعامله ."
+msgstr ""
+"لا تفرق بين الحروف الكابتل والإسمول حيث أن السيرفر يعاملهم نفس المعامله ."
 
 #: web/mod_register_web.erl:218
 msgid "Characters not allowed:"
-msgstr "هذه الحروف غير مسموح بها:"
+msgstr "هذه الحروف غير مسموح بها :"
 
 #: web/mod_register_web.erl:222 web/mod_register_web.erl:391
 #: web/mod_register_web.erl:514
 msgid "Server:"
-msgstr "السيرفر:"
+msgstr "السيرفر :"
 
 #: web/mod_register_web.erl:232
 msgid ""
 "Don't tell your password to anybody, not even the administrators of the "
 "Jabber server."
 msgstr ""
-"للمزيد من السريه لا تخبر أحد مطلقا عن كلمة سر حسابك ولا تحتاج ادارة السيرفر "
-"لها  فكن منتبها."
+"للمزيد من المروريه لا تخبر أحد مطلقا عن كلمة سر حسابك ولا تحتاج ادارة "
+"السيرفر لها  فكن منتبها."
 
 #: web/mod_register_web.erl:234
 msgid "You can later change your password using a Jabber client."
 msgstr ""
-"تستطيع تغيير كلمة السر بالمستقبل .. حاول وضع كلمة صعبه ارقام وحروف ورموز ولا "
-"تقل عن 10 حروف."
+"تستطيع تغيير كلمة المرور بالمستقبل .. حاول وضع كلمة صعبه ارقام وحروف ورموز "
+"ولا تقل عن 10 حروف."
 
 #: web/mod_register_web.erl:235
 msgid ""
 "Some Jabber clients can store your password in your computer. Use that "
 "feature only if you trust your computer is safe."
 msgstr ""
-"بعض البرامج بالحاسب او الموبايل تحتفظ بكلمة السر لذلك ننصح بازالتها عند "
-"الرغبه بتسجيل الخروج. ."
+"بعض البرامج بالحاسب او الموبايل تحتفظ بكلمة المرور لذلك ننصح بازالتها عند "
+"الرغبه بتسجيل الخروج ولذلك نرجو أن نثق فقط ببرنامج السيرفر"
 
 #: web/mod_register_web.erl:237
 msgid ""
@@ -1789,34 +1574,176 @@ msgid ""
 "Jabber there isn't an automated way to recover your password if you forget "
 "it."
 msgstr ""
-"كلمة السر يجب ان تكون معروفه لك 100% وذلك لأن ادارة السيرفر لن تعطي احد او "
-"تبدل كلمة سره حفاظا على سرية بيانات المستخدمين نكرر ضعها سهله بالنسبه لك "
-"وليس الاخرين .. توجد برامج هكر تستخرج كلمة السر بالتخمين لذا الافضل حروف "
-"وارقام ورموز ولا تقل عن 10 حروف"
+"كلمة المرور يجب ان تكون معروفه لك 100% وذلك لأن ادارة السيرفر لن تعطي احد او "
+"تبدل كلمة المرور الخاصه بحسابه حفاظا على سرية بيانات المستخدمين لذلك ضع كلمة "
+"المرور سهله بالنسبه لك وليس الاخرين .. توجد برامج هكر تستخرج كلمة المرور "
+"بالتخمين لذا الافضل حروف وارقام ورموز ولا تقل عن 10 حروف"
 
 #: web/mod_register_web.erl:242 web/mod_register_web.erl:406
 msgid "Password Verification:"
-msgstr "تأكيد كلمة السر:"
+msgstr "تأكيد كلمة المرور :"
 
 #: web/mod_register_web.erl:250
 msgid "Register"
-msgstr "التسجيل"
+msgstr "تسجيل"
 
 #: web/mod_register_web.erl:396
 msgid "Old Password:"
-msgstr "كلمة السر القديمة:"
+msgstr "كلمة المرور القديمة :"
 
 #: web/mod_register_web.erl:401
 msgid "New Password:"
-msgstr "كلمة السر الجديده:"
+msgstr "كلمة المرور الجديده :"
 
 #: web/mod_register_web.erl:504
 msgid "This page allows to unregister a Jabber account in this Jabber server."
-msgstr "تستطيع تسجيل حسابك او الغائه"
+msgstr "تستطيع من هذه الصفحه إلغاء إشتراك حسابك على هذا السيرفر"
 
 #: web/mod_register_web.erl:524
 msgid "Unregister"
-msgstr "الغاء حسابي"
+msgstr "إلغاء حسابي"
+
+#~ msgid "Set message of the day on all hosts and send to online users"
+#~ msgstr ""
+#~ "وضع رسالة اليوم لجميع السيرفرات وارسالها لجميع المستخدمين المتصلين الآن"
+
+#~ msgid "Update message of the day on all hosts (don't send)"
+#~ msgstr "تعديل رسالة اليوم لكل السيرفرات (لا ترسلها)"
+
+#~ msgid "Delete message of the day on all hosts"
+#~ msgstr "مسح رسالة اليوم لجميع السيرفرات"
+
+#~ msgid "Start Modules"
+#~ msgstr "تشغيل الاضافات"
+
+#~ msgid "Stop Modules"
+#~ msgstr "ايقاف الاضافات"
+
+#~ msgid "Restore"
+#~ msgstr "استعادة"
+
+#~ msgid "Dump to Text File"
+#~ msgstr "الحفظ كملف نصي"
+
+#~ msgid "Import File"
+#~ msgstr "استعادة نسخه احتياطيه"
+
+#~ msgid "Import Directory"
+#~ msgstr "استعادة مجلد نسخه احتياطيه"
+
+#~ msgid "Restart Service"
+#~ msgstr "اعادة تشغيل السيرفر"
+
+#~ msgid "Shut Down Service"
+#~ msgstr "ايقاف السيرفر"
+
+#~ msgid "Get Number of Registered Users"
+#~ msgstr "عرض عدد الأعضاء المسجلين"
+
+#~ msgid "Get Number of Online Users"
+#~ msgstr "عرض عدد المتصلين الآن"
+
+#~ msgid "Outgoing s2s Connections"
+#~ msgstr "اتصالات صادره "
+
+#~ msgid "Backup Management"
+#~ msgstr "ادارة النسخ الاحتياطي"
+
+#~ msgid "Import Users From jabberd14 Spool Files"
+#~ msgstr "استعادة المستخدمين من ملف  jabberd14"
+
+#~ msgid "To ~s"
+#~ msgstr "الى ~s"
+
+#~ msgid "From ~s"
+#~ msgstr "من ~s"
+
+#~ msgid "Database Tables Configuration at "
+#~ msgstr "اعدادات جداول قواعد البيانات لـ "
+
+#~ msgid "Choose storage type of tables"
+#~ msgstr "اختر نوع تخزين البيانات بالجداول "
+
+#~ msgid "Disc only copy"
+#~ msgstr "بالهارد"
+
+#~ msgid "RAM and disc copy"
+#~ msgstr "بالرام والهارد"
+
+#~ msgid "RAM copy"
+#~ msgstr "بالرام"
+
+#~ msgid "Remote copy"
+#~ msgstr "نسخ خارجي"
+
+#~ msgid "Stop Modules at "
+#~ msgstr "ايقاف اضافة لـ "
+
+#~ msgid "Choose modules to stop"
+#~ msgstr "اختر الاضافه لايقافها"
+
+#~ msgid "Start Modules at "
+#~ msgstr "تشغيل اضافه لـ "
+
+#~ msgid "Enter list of {Module, [Options]}"
+#~ msgstr "ادخل قائمة الاضافات كالمثال {Module, [Options]}"
+
+#~ msgid "List of modules to start"
+#~ msgstr "قائمة الاضافات لتفعيلها"
+
+#~ msgid "Backup to File at "
+#~ msgstr "نسخ احتياطي كملف في  "
+
+#~ msgid "Enter path to backup file"
+#~ msgstr "مسار ملف النسخ الاحتياطي"
+
+#~ msgid "Path to File"
+#~ msgstr "مسار الملف"
+
+#~ msgid "Restore Backup from File at "
+#~ msgstr "استرجاع نسخ احتياطي من "
+
+#~ msgid "Dump Backup to Text File at "
+#~ msgstr "نسخ احتياطي في صورة ملف نصي في "
+
+#~ msgid "Enter path to text file"
+#~ msgstr "ادخل مسار ملف النسخ الاحتياطي النصي"
+
+#~ msgid "Import User from File at "
+#~ msgstr "استرجاع المستخدمين من ملفي في "
+
+#~ msgid "Enter path to jabberd14 spool file"
+#~ msgstr "ادخال مسار الى ملف jabberd14"
+
+#~ msgid "Import Users from Dir at "
+#~ msgstr "استرجاع المستخدمين من مجلد في "
+
+#~ msgid "Enter path to jabberd14 spool dir"
+#~ msgstr "ادخال مسار ملف jabberd14"
+
+#~ msgid "Path to Dir"
+#~ msgstr "مسار المجلد"
+
+#~ msgid "Time delay"
+#~ msgstr "زمن التأخير"
+
+#~ msgid "Access Control List Configuration"
+#~ msgstr "اعدادات قائمة التحكم بالصلاحيات"
+
+#~ msgid "Access control lists"
+#~ msgstr "قوائمة التحكم بالصلاحيات"
+
+#~ msgid "Access Configuration"
+#~ msgstr "اعدادات الصلاحيات"
+
+#~ msgid "Access rules"
+#~ msgstr "قواعد الصلاحيات"
+
+#~ msgid "Number of registered users"
+#~ msgstr "عدد المستخدمين المسجلين"
+
+#~ msgid "Number of online users"
+#~ msgstr "عدد الاعضاء المتصلين الآن"
 
 #~ msgid "Send announcement to all users"
 #~ msgstr "ارسل اعلان لجميع المستخدمين"

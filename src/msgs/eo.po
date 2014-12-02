@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Language: Esperanto\n"
 
-#: ejabberd_c2s.erl:424 ejabberd_c2s.erl:737
+#: ejabberd_c2s.erl:424 ejabberd_c2s.erl:740
 msgid "Use of STARTTLS required"
 msgstr "Uzo de STARTTLS bezonata"
 
@@ -19,11 +19,11 @@ msgstr "Uzo de STARTTLS bezonata"
 msgid "No resource provided"
 msgstr "Neniu risurco donita"
 
-#: ejabberd_c2s.erl:1215
+#: ejabberd_c2s.erl:1218
 msgid "Replaced by new connection"
 msgstr "Anstataŭigita je nova konekto"
 
-#: ejabberd_c2s.erl:1903
+#: ejabberd_c2s.erl:1906
 msgid "Your active privacy list has denied the routing of this stanza."
 msgstr "Via aktiva privatec-listo malpermesas enkursigi ĉi-tiun pakaĵon"
 
@@ -59,360 +59,139 @@ msgstr "Sondaĵo"
 msgid "Pong"
 msgstr "Resondaĵo"
 
-#: mod_announce.erl:487
+#: mod_announce.erl:443
 msgid "Really delete message of the day?"
 msgstr "Ĉu vere forigi mesaĝon de la tago?"
 
-#: mod_announce.erl:495 mod_configure.erl:977 mod_configure.erl:1022
+#: mod_announce.erl:451
 msgid "Subject"
 msgstr "Temo"
 
-#: mod_announce.erl:500 mod_configure.erl:982 mod_configure.erl:1027
+#: mod_announce.erl:456
 msgid "Message body"
 msgstr "Teksto de mesaĝo"
 
-#: mod_announce.erl:580
+#: mod_announce.erl:529
 msgid "No body provided for announce message"
 msgstr "Neniu teksto donita por anonc-mesaĝo"
 
-#: mod_announce.erl:609
+#: mod_announce.erl:552
 msgid "Announcements"
 msgstr "Anoncoj"
 
-#: mod_announce.erl:611
+#: mod_announce.erl:554
 msgid "Send announcement to all online users"
 msgstr "Sendu anoncon al ĉiu konektata uzanto"
 
-#: mod_announce.erl:613 mod_configure.erl:972 mod_configure.erl:1017
+#: mod_announce.erl:556
 msgid "Send announcement to all online users on all hosts"
 msgstr "Sendu anoncon al ĉiu konektata uzanto de ĉiu gastigo"
 
-#: mod_announce.erl:615
+#: mod_announce.erl:558
 msgid "Set message of the day and send to online users"
 msgstr "Enmetu mesaĝon de la tago kaj sendu al konektataj uzantoj"
 
-#: mod_announce.erl:617
-msgid "Set message of the day on all hosts and send to online users"
-msgstr ""
-"Enmetu mesaĝon de la tago je ĉiu gastigo kaj sendu al konektataj uzantoj"
-
-#: mod_announce.erl:619
+#: mod_announce.erl:560
 msgid "Update message of the day (don't send)"
 msgstr "Ŝanĝu mesaĝon de la tago (ne sendu)"
 
-#: mod_announce.erl:621
-msgid "Update message of the day on all hosts (don't send)"
-msgstr "Ŝanĝu mesaĝon de la tago je ĉiu gastigo (ne sendu)"
-
-#: mod_announce.erl:623
+#: mod_announce.erl:562
 msgid "Delete message of the day"
 msgstr "Forigu mesaĝo de la tago"
 
-#: mod_announce.erl:625
-msgid "Delete message of the day on all hosts"
-msgstr "Forigu mesaĝo de la tago je ĉiu gastigo"
-
-#: mod_configure.erl:114 mod_configure.erl:264 mod_configure.erl:286
-#: mod_configure.erl:474
+#: mod_configure.erl:114 mod_configure.erl:198 mod_configure.erl:220
 msgid "Configuration"
 msgstr "Agordo"
 
-#: mod_configure.erl:125 mod_configure.erl:519 web/ejabberd_web_admin.erl:1897
-msgid "Database"
-msgstr "Datumbazo"
-
-#: mod_configure.erl:127 mod_configure.erl:538
-msgid "Start Modules"
-msgstr "Startu Modulojn"
-
-#: mod_configure.erl:129 mod_configure.erl:539
-msgid "Stop Modules"
-msgstr "Haltigu Modulojn"
-
-#: mod_configure.erl:131 mod_configure.erl:547 web/ejabberd_web_admin.erl:1898
-msgid "Backup"
-msgstr "Faru Sekurkopion"
-
-#: mod_configure.erl:133 mod_configure.erl:548
-msgid "Restore"
-msgstr "Restaŭru"
-
-#: mod_configure.erl:135 mod_configure.erl:549
-msgid "Dump to Text File"
-msgstr "Skribu en plata tekst-dosiero"
-
-#: mod_configure.erl:137 mod_configure.erl:558
-msgid "Import File"
-msgstr "Importu dosieron"
-
-#: mod_configure.erl:139 mod_configure.erl:559
-msgid "Import Directory"
-msgstr "Importu dosierujo"
-
-#: mod_configure.erl:141 mod_configure.erl:524 mod_configure.erl:951
-msgid "Restart Service"
-msgstr "Restartu Servon"
-
-#: mod_configure.erl:143 mod_configure.erl:525 mod_configure.erl:996
-msgid "Shut Down Service"
-msgstr "Haltigu Servon"
-
-#: mod_configure.erl:145 mod_configure.erl:492 mod_configure.erl:1091
+#: mod_configure.erl:123 mod_configure.erl:372 mod_configure.erl:520
 #: web/ejabberd_web_admin.erl:1504
 msgid "Add User"
 msgstr "Aldonu Uzanton"
 
-#: mod_configure.erl:147 mod_configure.erl:493 mod_configure.erl:1113
+#: mod_configure.erl:125 mod_configure.erl:373 mod_configure.erl:542
 msgid "Delete User"
 msgstr "Forigu Uzanton"
 
-#: mod_configure.erl:149 mod_configure.erl:494 mod_configure.erl:1125
+#: mod_configure.erl:127 mod_configure.erl:374 mod_configure.erl:554
 msgid "End User Session"
 msgstr "Haltigu Uzant-seancon"
 
-#: mod_configure.erl:151 mod_configure.erl:495
+#: mod_configure.erl:129 mod_configure.erl:375
 msgid "Change User Password"
 msgstr "Ŝanĝu pasvorton de uzanto"
 
-#: mod_configure.erl:153 mod_configure.erl:496 mod_configure.erl:1154
+#: mod_configure.erl:131 mod_configure.erl:376 mod_configure.erl:583
 msgid "Get User Last Login Time"
 msgstr "Montru tempon de lasta ensaluto"
 
-#: mod_configure.erl:155 mod_configure.erl:497 mod_configure.erl:1166
+#: mod_configure.erl:133 mod_configure.erl:377 mod_configure.erl:595
 msgid "Get User Statistics"
 msgstr "Montru statistikojn de uzanto"
 
-#: mod_configure.erl:157 mod_configure.erl:498
-msgid "Get Number of Registered Users"
-msgstr "Montru nombron de registritaj uzantoj"
-
-#: mod_configure.erl:159 mod_configure.erl:499
-msgid "Get Number of Online Users"
-msgstr "Montru nombron de konektataj uzantoj"
-
-#: mod_configure.erl:161 mod_configure.erl:483 web/ejabberd_web_admin.erl:831
-#: web/ejabberd_web_admin.erl:872
-msgid "Access Control Lists"
-msgstr "Atingokontrol-listoj"
-
-#: mod_configure.erl:163 mod_configure.erl:484 web/ejabberd_web_admin.erl:940
-#: web/ejabberd_web_admin.erl:976
-msgid "Access Rules"
-msgstr "Atingo-reguloj"
-
-#: mod_configure.erl:287 mod_configure.erl:475
+#: mod_configure.erl:221
 msgid "User Management"
 msgstr "Uzanto-administrado"
 
-#: mod_configure.erl:476
-msgid "Outgoing s2s Connections"
-msgstr "Elirantaj s-al-s-konektoj"
-
-#: mod_configure.erl:477 web/ejabberd_web_admin.erl:1868
-msgid "Running Nodes"
-msgstr "Funkciantaj Nodoj"
-
-#: mod_configure.erl:478 web/ejabberd_web_admin.erl:1870
-msgid "Stopped Nodes"
-msgstr "Neaktivaj Nodoj"
-
-#: mod_configure.erl:520 mod_configure.erl:530 web/ejabberd_web_admin.erl:1914
-msgid "Modules"
-msgstr "Moduloj"
-
-#: mod_configure.erl:521
-msgid "Backup Management"
-msgstr "Mastrumado de sekurkopioj"
-
-#: mod_configure.erl:522
-msgid "Import Users From jabberd14 Spool Files"
-msgstr "Importu uzantojn de jabberd14-uzantdosieroj"
-
-#: mod_configure.erl:591
-msgid "To ~s"
-msgstr "Al ~s"
-
-#: mod_configure.erl:609
-msgid "From ~s"
-msgstr "De ~s"
-
-#: mod_configure.erl:807
-msgid "Database Tables Configuration at "
-msgstr "Agordo de datumbaz-tabeloj je "
-
-#: mod_configure.erl:812
-msgid "Choose storage type of tables"
-msgstr "Elektu konserv-tipon de tabeloj"
-
-#: mod_configure.erl:820 mod_configure.erl:822
-msgid "Disc only copy"
-msgstr "Nur disk-kopio"
-
-#: mod_configure.erl:820 mod_configure.erl:822
-msgid "RAM and disc copy"
-msgstr "RAM- kaj disk-kopio"
-
-#: mod_configure.erl:820 mod_configure.erl:822
-msgid "RAM copy"
-msgstr "RAM-kopio"
-
-#: mod_configure.erl:820 mod_configure.erl:822
-msgid "Remote copy"
-msgstr "Fora kopio"
-
-#: mod_configure.erl:844
-msgid "Stop Modules at "
-msgstr "Haltigu modulojn je "
-
-#: mod_configure.erl:848
-msgid "Choose modules to stop"
-msgstr "Elektu modulojn por fini"
-
-#: mod_configure.erl:863
-msgid "Start Modules at "
-msgstr "Startu modulojn je "
-
-#: mod_configure.erl:867
-msgid "Enter list of {Module, [Options]}"
-msgstr "Enmetu liston de {Modulo, [Elektebloj]}"
-
-#: mod_configure.erl:868
-msgid "List of modules to start"
-msgstr "Listo de moduloj por starti"
-
-#: mod_configure.erl:877
-msgid "Backup to File at "
-msgstr "Faru sekurkopion je "
-
-#: mod_configure.erl:881 mod_configure.erl:895
-msgid "Enter path to backup file"
-msgstr "Enmetu vojon por sekurkopio"
-
-#: mod_configure.erl:882 mod_configure.erl:896 mod_configure.erl:910
-#: mod_configure.erl:924
-msgid "Path to File"
-msgstr "Voje de dosiero"
-
-#: mod_configure.erl:891
-msgid "Restore Backup from File at "
-msgstr "Restaŭrigu de dosiero el "
-
-#: mod_configure.erl:905
-msgid "Dump Backup to Text File at "
-msgstr "Skribu sekurkopion en plata teksto al "
-
-#: mod_configure.erl:909
-msgid "Enter path to text file"
-msgstr "Enmetu vojon al plata teksto"
-
-#: mod_configure.erl:919
-msgid "Import User from File at "
-msgstr "Importu uzanton de dosiero el "
-
-#: mod_configure.erl:923
-msgid "Enter path to jabberd14 spool file"
-msgstr "Enmetu vojon al jabberd14-uzantdosiero"
-
-#: mod_configure.erl:933
-msgid "Import Users from Dir at "
-msgstr "Importu uzantojn de dosierujo ĉe "
-
-#: mod_configure.erl:937
-msgid "Enter path to jabberd14 spool dir"
-msgstr "Enmetu vojon al jabberd14-uzantdosierujo"
-
-#: mod_configure.erl:938
-msgid "Path to Dir"
-msgstr "Vojo al dosierujo"
-
-#: mod_configure.erl:954 mod_configure.erl:999
-msgid "Time delay"
-msgstr "Prokrasto"
-
-#: mod_configure.erl:1037
-msgid "Access Control List Configuration"
-msgstr "Agordo de atingokontrolo"
-
-#: mod_configure.erl:1041
-msgid "Access control lists"
-msgstr "Atingokontrol-listoj"
-
-#: mod_configure.erl:1065
-msgid "Access Configuration"
-msgstr "Agordo de atingo"
-
-#: mod_configure.erl:1069
-msgid "Access rules"
-msgstr "Atingo-reguloj"
-
-#: mod_configure.erl:1094 mod_configure.erl:1116 mod_configure.erl:1128
-#: mod_configure.erl:1140 mod_configure.erl:1157 mod_configure.erl:1169
-#: mod_configure.erl:1567 mod_configure.erl:1588 mod_roster.erl:1349
+#: mod_configure.erl:523 mod_configure.erl:545 mod_configure.erl:557
+#: mod_configure.erl:569 mod_configure.erl:586 mod_configure.erl:598
+#: mod_configure.erl:701 mod_configure.erl:722 mod_roster.erl:1349
 #: mod_vcard.erl:543 mod_vcard_ldap.erl:554
 msgid "Jabber ID"
 msgstr "Jabber ID"
 
-#: mod_configure.erl:1099 mod_configure.erl:1145 mod_configure.erl:1728
+#: mod_configure.erl:528 mod_configure.erl:574 mod_configure.erl:814
 #: mod_muc/mod_muc_room.erl:3343 mod_register.erl:235
 #: web/ejabberd_web_admin.erl:1497
 msgid "Password"
 msgstr "Pasvorto"
 
-#: mod_configure.erl:1104
+#: mod_configure.erl:533
 msgid "Password Verification"
 msgstr "Pasvortkontrolo"
 
-#: mod_configure.erl:1137
+#: mod_configure.erl:566
 msgid "Get User Password"
 msgstr "Montru pasvorton de uzanto"
 
-#: mod_configure.erl:1183
-msgid "Number of registered users"
-msgstr "Nombro de registritaj uzantoj"
-
-#: mod_configure.erl:1197
-msgid "Number of online users"
-msgstr "Nombro de konektataj uzantoj"
-
-#: mod_configure.erl:1549 web/ejabberd_web_admin.erl:1564
+#: mod_configure.erl:683 web/ejabberd_web_admin.erl:1564
 #: web/ejabberd_web_admin.erl:1704
 msgid "Never"
 msgstr "Neniam"
 
-#: mod_configure.erl:1563 web/ejabberd_web_admin.erl:1577
+#: mod_configure.erl:697 web/ejabberd_web_admin.erl:1577
 #: web/ejabberd_web_admin.erl:1717
 msgid "Online"
 msgstr "Konektata"
 
-#: mod_configure.erl:1568
+#: mod_configure.erl:702
 msgid "Last login"
 msgstr "Lasta ensaluto"
 
-#: mod_configure.erl:1589
+#: mod_configure.erl:723
 msgid "Roster size"
 msgstr "Kontaktlist-grando"
 
-#: mod_configure.erl:1590
+#: mod_configure.erl:724
 msgid "IP addresses"
 msgstr "IP-adresoj"
 
-#: mod_configure.erl:1591
+#: mod_configure.erl:725
 msgid "Resources"
 msgstr "Risurcoj"
 
-#: mod_configure.erl:1715
+#: mod_configure.erl:801
 msgid "Administration of "
 msgstr "Mastrumado de "
 
-#: mod_configure.erl:1718
+#: mod_configure.erl:804
 msgid "Action on user"
 msgstr "Ago je uzanto"
 
-#: mod_configure.erl:1722
+#: mod_configure.erl:808
 msgid "Edit Properties"
 msgstr "Redaktu atributojn"
 
-#: mod_configure.erl:1725 web/ejabberd_web_admin.erl:1730
+#: mod_configure.erl:811 web/ejabberd_web_admin.erl:1730
 msgid "Remove User"
 msgstr "Forigu uzanton"
 
@@ -1378,9 +1157,17 @@ msgstr "ejabberd Teksaĵa Administro"
 msgid "Administration"
 msgstr "Administro"
 
+#: web/ejabberd_web_admin.erl:831 web/ejabberd_web_admin.erl:872
+msgid "Access Control Lists"
+msgstr "Atingokontrol-listoj"
+
 #: web/ejabberd_web_admin.erl:878 web/ejabberd_web_admin.erl:982
 msgid "Raw"
 msgstr "Kruda"
+
+#: web/ejabberd_web_admin.erl:940 web/ejabberd_web_admin.erl:976
+msgid "Access Rules"
+msgstr "Atingo-reguloj"
 
 #: web/ejabberd_web_admin.erl:1017
 msgid "~s access rule configuration"
@@ -1494,9 +1281,25 @@ msgstr "Neniu datumo"
 msgid "Nodes"
 msgstr "Nodoj"
 
+#: web/ejabberd_web_admin.erl:1868
+msgid "Running Nodes"
+msgstr "Funkciantaj Nodoj"
+
+#: web/ejabberd_web_admin.erl:1870
+msgid "Stopped Nodes"
+msgstr "Neaktivaj Nodoj"
+
 #: web/ejabberd_web_admin.erl:1890 web/ejabberd_web_admin.erl:1912
 msgid "Node "
 msgstr "Nodo "
+
+#: web/ejabberd_web_admin.erl:1897
+msgid "Database"
+msgstr "Datumbazo"
+
+#: web/ejabberd_web_admin.erl:1898
+msgid "Backup"
+msgstr "Faru Sekurkopion"
 
 #: web/ejabberd_web_admin.erl:1899
 msgid "Listened Ports"
@@ -1514,6 +1317,10 @@ msgstr "Restartu"
 #: web/ejabberd_web_admin.erl:1906 web/ejabberd_web_admin.erl:2532
 msgid "Stop"
 msgstr "Haltigu"
+
+#: web/ejabberd_web_admin.erl:1914
+msgid "Modules"
+msgstr "Moduloj"
 
 #: web/ejabberd_web_admin.erl:1920
 msgid "RPC Call Error"
@@ -1810,6 +1617,148 @@ msgstr "Jena pagxo ebligas malregistri Jxabber-konton je ĉi-servilo."
 #: web/mod_register_web.erl:524
 msgid "Unregister"
 msgstr "Malregistru"
+
+#~ msgid "Set message of the day on all hosts and send to online users"
+#~ msgstr ""
+#~ "Enmetu mesaĝon de la tago je ĉiu gastigo kaj sendu al konektataj uzantoj"
+
+#~ msgid "Update message of the day on all hosts (don't send)"
+#~ msgstr "Ŝanĝu mesaĝon de la tago je ĉiu gastigo (ne sendu)"
+
+#~ msgid "Delete message of the day on all hosts"
+#~ msgstr "Forigu mesaĝo de la tago je ĉiu gastigo"
+
+#~ msgid "Start Modules"
+#~ msgstr "Startu Modulojn"
+
+#~ msgid "Stop Modules"
+#~ msgstr "Haltigu Modulojn"
+
+#~ msgid "Restore"
+#~ msgstr "Restaŭru"
+
+#~ msgid "Dump to Text File"
+#~ msgstr "Skribu en plata tekst-dosiero"
+
+#~ msgid "Import File"
+#~ msgstr "Importu dosieron"
+
+#~ msgid "Import Directory"
+#~ msgstr "Importu dosierujo"
+
+#~ msgid "Restart Service"
+#~ msgstr "Restartu Servon"
+
+#~ msgid "Shut Down Service"
+#~ msgstr "Haltigu Servon"
+
+#~ msgid "Get Number of Registered Users"
+#~ msgstr "Montru nombron de registritaj uzantoj"
+
+#~ msgid "Get Number of Online Users"
+#~ msgstr "Montru nombron de konektataj uzantoj"
+
+#~ msgid "Outgoing s2s Connections"
+#~ msgstr "Elirantaj s-al-s-konektoj"
+
+#~ msgid "Backup Management"
+#~ msgstr "Mastrumado de sekurkopioj"
+
+#~ msgid "Import Users From jabberd14 Spool Files"
+#~ msgstr "Importu uzantojn de jabberd14-uzantdosieroj"
+
+#~ msgid "To ~s"
+#~ msgstr "Al ~s"
+
+#~ msgid "From ~s"
+#~ msgstr "De ~s"
+
+#~ msgid "Database Tables Configuration at "
+#~ msgstr "Agordo de datumbaz-tabeloj je "
+
+#~ msgid "Choose storage type of tables"
+#~ msgstr "Elektu konserv-tipon de tabeloj"
+
+#~ msgid "Disc only copy"
+#~ msgstr "Nur disk-kopio"
+
+#~ msgid "RAM and disc copy"
+#~ msgstr "RAM- kaj disk-kopio"
+
+#~ msgid "RAM copy"
+#~ msgstr "RAM-kopio"
+
+#~ msgid "Remote copy"
+#~ msgstr "Fora kopio"
+
+#~ msgid "Stop Modules at "
+#~ msgstr "Haltigu modulojn je "
+
+#~ msgid "Choose modules to stop"
+#~ msgstr "Elektu modulojn por fini"
+
+#~ msgid "Start Modules at "
+#~ msgstr "Startu modulojn je "
+
+#~ msgid "Enter list of {Module, [Options]}"
+#~ msgstr "Enmetu liston de {Modulo, [Elektebloj]}"
+
+#~ msgid "List of modules to start"
+#~ msgstr "Listo de moduloj por starti"
+
+#~ msgid "Backup to File at "
+#~ msgstr "Faru sekurkopion je "
+
+#~ msgid "Enter path to backup file"
+#~ msgstr "Enmetu vojon por sekurkopio"
+
+#~ msgid "Path to File"
+#~ msgstr "Voje de dosiero"
+
+#~ msgid "Restore Backup from File at "
+#~ msgstr "Restaŭrigu de dosiero el "
+
+#~ msgid "Dump Backup to Text File at "
+#~ msgstr "Skribu sekurkopion en plata teksto al "
+
+#~ msgid "Enter path to text file"
+#~ msgstr "Enmetu vojon al plata teksto"
+
+#~ msgid "Import User from File at "
+#~ msgstr "Importu uzanton de dosiero el "
+
+#~ msgid "Enter path to jabberd14 spool file"
+#~ msgstr "Enmetu vojon al jabberd14-uzantdosiero"
+
+#~ msgid "Import Users from Dir at "
+#~ msgstr "Importu uzantojn de dosierujo ĉe "
+
+#~ msgid "Enter path to jabberd14 spool dir"
+#~ msgstr "Enmetu vojon al jabberd14-uzantdosierujo"
+
+#~ msgid "Path to Dir"
+#~ msgstr "Vojo al dosierujo"
+
+#~ msgid "Time delay"
+#~ msgstr "Prokrasto"
+
+#~ msgid "Access Control List Configuration"
+#~ msgstr "Agordo de atingokontrolo"
+
+#~ msgid "Access control lists"
+#~ msgstr "Atingokontrol-listoj"
+
+#~ msgid "Access Configuration"
+#~ msgstr "Agordo de atingo"
+
+#~ msgid "Access rules"
+#~ msgstr "Atingo-reguloj"
+
+#~ msgid "Number of registered users"
+#~ msgstr "Nombro de registritaj uzantoj"
+
+#~ msgid "Number of online users"
+#~ msgstr "Nombro de konektataj uzantoj"
 
 #~ msgid "Send announcement to all users"
 #~ msgstr "Sendu anoncon al ĉiu uzanto"

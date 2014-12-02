@@ -1,9 +1,5 @@
-{"Access Configuration","访问配置"}.
-{"Access Control List Configuration","访问控制列表(ACL)配置"}.
-{"Access control lists","访问控制列表(ACL)"}.
 {"Access Control Lists","访问控制列表(ACL)"}.
 {"Access denied by service policy","访问被服务策略拒绝"}.
-{"Access rules","访问规则"}.
 {"Access Rules","访问规则"}.
 {"Action on user","对用户的动作"}.
 {"Add Jabber ID","添加 Jabber ID"}.
@@ -28,9 +24,7 @@
 {"A password is required to enter this room","进入此房间需要密码"}.
 {"April","四月"}.
 {"August","八月"}.
-{"Backup Management","备份管理"}.
 {"Backup of ","备份来源 "}.
-{"Backup to File at ","备份文件位于"}.
 {"Backup","备份"}.
 {"Bad format","格式错误"}.
 {"Birthday","出生日期"}.
@@ -45,8 +39,6 @@
 {"Chatroom is stopped","聊天室已被停用"}.
 {"Chatrooms","聊天室"}.
 {"Choose a username and password to register with this server","请选择在此服务器上注册所需的用户名和密码"}.
-{"Choose modules to stop","请选择要停止的模块"}.
-{"Choose storage type of tables","请选择表格的存储类型"}.
 {"Choose whether to approve this entity's subscription.","选择是否允许该实体的订阅"}.
 {"City","城市"}.
 {"Commands","命令"}.
@@ -58,11 +50,9 @@
 {"Country","国家"}.
 {"CPU Time:","CPU 时间："}.
 {"Database Tables at ","数据库列表位于 "}.
-{"Database Tables Configuration at ","数据库表格配置位于"}.
 {"Database","数据库"}.
 {"December","十二月"}.
 {"Default users as participants","用户默认被视为参与人"}.
-{"Delete message of the day on all hosts","删除所有主机上的每日消息"}.
 {"Delete message of the day","删除每日消息"}.
 {"Delete Selected","删除已选内容"}.
 {"Delete User","删除用户"}.
@@ -70,11 +60,8 @@
 {"Deliver event notifications","传递事件通知"}.
 {"Deliver payloads with event notifications","用事件通告传输有效负载"}.
 {"Description:","描述:"}.
-{"Disc only copy","仅磁盘复制"}.
 {"Displayed Groups:","已显示的组:"}.
 {"Don't tell your password to anybody, not even the administrators of the Jabber server.","不要将密码告诉任何人, 就算是 Jabber 服务器的管理员也不可以."}.
-{"Dump Backup to Text File at ","转储备份到文本文件于"}.
-{"Dump to Text File","转储到文本文件"}.
 {"Edit Properties","编辑属性"}.
 {"Either approve or decline the voice request.","接受或拒绝声音请求"}.
 {"ejabberd IRC module","ejabberd IRC 模块"}.
@@ -88,12 +75,7 @@
 {"Enable logging","启用服务器端聊天记录"}.
 {"Encoding for server ~b","服务器 ~b 的编码"}.
 {"End User Session","结束用户会话"}.
-{"Enter list of {Module, [Options]}","请输入{模块, [选项]}列表"}.
 {"Enter nickname you want to register","请输入您想要注册的昵称"}.
-{"Enter path to backup file","请输入备份文件的路径"}.
-{"Enter path to jabberd14 spool dir","请输入 jabberd14 spool 目录的路径"}.
-{"Enter path to jabberd14 spool file","请输入 jabberd14 spool 文件的路径"}.
-{"Enter path to text file","请输入文本文件的路径"}.
 {"Enter the text you see","请输入您所看到的文本"}.
 {"Enter username and encodings you wish to use for connecting to IRC servers.  Press 'Next' to get more fields to fill in.  Press 'Complete' to save settings.","请输入您想使用的用来连接到 IRC 服务器的用户名和编码. 按 '下一步' 获取更多待填字段. 按 '完成' 保存设置."}.
 {"Enter username, encodings, ports and passwords you wish to use for connecting to IRC servers","请输入您想使用的用来连接到IRC服务器的用户名, 编码, 端口和密码."}.
@@ -109,11 +91,8 @@
 {"Fill in fields to search for any matching Jabber User","填充字段以搜索任何匹配的 Jabber 用户"}.
 {"Fill in the form to search for any matching Jabber User (Add * to the end of field to match substring)","填充表单以搜索任何匹配的 Jabber 用户(在字段末添加*来匹配子串)"}.
 {"Friday","星期五"}.
-{"From ~s","来自~s"}.
 {"From","从"}.
 {"Full Name","全名"}.
-{"Get Number of Online Users","获取在线用户数"}.
-{"Get Number of Registered Users","获取注册用户数"}.
 {"Get User Last Login Time","获取用户上次登陆时间"}.
 {"Get User Password","获取用户密码"}.
 {"Get User Statistics","获取用户统计"}.
@@ -129,14 +108,9 @@
 {"Host","主机"}.
 {"If you don't see the CAPTCHA image here, visit the web page.","如果您在这里没有看到验证码图片, 请访问网页."}.
 {"If you want to specify different ports, passwords, encodings for IRC servers, fill this list with values in format '{\"irc server\", \"encoding\", port, \"password\"}'.  By default this service use \"~s\" encoding, port ~p, empty password.","如果您想为 IRC 服务器指定不同的端口, 密码, 编码, 请用 '{\"irc 服务器\", \"编码\", 端口, \"密码\"}' 格式的值填充此表单. 默认情况下此服务使用\"~s\"编码, ~p 端口, 密码为空."}.
-{"Import Directory","导入目录"}.
-{"Import File","导入文件"}.
 {"Import user data from jabberd14 spool file:","从 jabberd14 Spool 文件导入用户数据:"}.
-{"Import User from File at ","导入用户的文件位于 "}.
 {"Import users data from a PIEFXIS file (XEP-0227):","从 PIEFXIS 文件 (XEP-0227) 导入用户数据:"}.
 {"Import users data from jabberd14 spool directory:","从 jabberd14 Spool 目录导入用户数据:"}.
-{"Import Users from Dir at ","导入用户的目录位于 "}.
-{"Import Users From jabberd14 Spool Files","从 jabberd14 Spool 文件导入用户"}.
 {"Improper message type","不恰当的消息类型"}.
 {"Incorrect password","密码不正确"}.
 {"Invalid affiliation: ~s","无效加入: ~s"}.
@@ -170,7 +144,6 @@
 {"leaves the room","离开房间"}.
 {"Listened Ports at ","监听的端口位于 "}.
 {"Listened Ports","被监听的端口"}.
-{"List of modules to start","要启动的模块列表"}.
 {"Low level update script","低级别更新脚本"}.
 {"Make participants list public","公开参与人列表"}.
 {"Make room CAPTCHA protected","保护房间验证码"}.
@@ -221,8 +194,6 @@
 {"Notify subscribers when the node is deleted","当节点被删除时通知订阅人"}.
 {"November","十一月"}.
 {"Number of occupants","驻留人数"}.
-{"Number of online users","在线用户数"}.
-{"Number of registered users","注册用户数"}.
 {"October","十月"}.
 {"Offline Messages:","离线消息:"}.
 {"Offline Messages","离线消息"}.
@@ -242,7 +213,6 @@
 {"Organization Name","组织名称"}.
 {"Organization Unit","组织单位"}.
 {"Outgoing s2s Connections:","出站 s2s 连接:"}.
-{"Outgoing s2s Connections","出站 s2s 连接"}.
 {"Outgoing s2s Servers:","出站 s2s 服务器"}.
 {"Owner privileges required","需要持有人权限"}.
 {"Packet","数据包"}.
@@ -251,8 +221,6 @@
 {"Password Verification","确认密码"}.
 {"Password:","密码:"}.
 {"Password","密码"}.
-{"Path to Dir","目录的路径"}.
-{"Path to File","文件路径"}.
 {"Pending","挂起"}.
 {"Period: ","持续时间: "}.
 {"Persist items to storage","持久化内容条目"}.
@@ -269,8 +237,6 @@
 {"PubSub subscriber request","PubSub 订阅人请求"}.
 {"Purge all items when the relevant publisher goes offline","相关发布人离线后清除所有选项"}.
 {"Queries to the conference members are not allowed in this room","本房间不可以查询会议成员信息"}.
-{"RAM and disc copy","内存与磁盘复制"}.
-{"RAM copy","内存(RAM)复制"}.
 {"Raw","原始格式"}.
 {"Really delete message of the day?","确实要删除每日消息吗?"}.
 {"Recipient is not in the conference room","接收人不在会议室"}.
@@ -279,19 +245,15 @@
 {"Registered Users","注册用户"}.
 {"Register","注册"}.
 {"Registration in mod_irc for ","mod_irc 中的注册是为 "}.
-{"Remote copy","远程复制"}.
 {"Remove All Offline Messages","移除所有离线消息"}.
 {"Remove User","删除用户"}.
 {"Remove","移除"}.
 {"Replaced by new connection","被新的连接替换"}.
 {"Resources","资源"}.
-{"Restart Service","重启服务"}.
 {"Restart","重启"}.
-{"Restore Backup from File at ","要恢复的备份文件位于"}.
 {"Restore binary backup after next ejabberd restart (requires less memory):","在下次 ejabberd 重启后恢复二进制备份(需要的内存更少):"}.
 {"Restore binary backup immediately:","立即恢复二进制备份:"}.
 {"Restore plain text backup immediately:","立即恢复普通文本备份:"}.
-{"Restore","恢复"}.
 {"Room Configuration","房间配置"}.
 {"Room creation is denied by service policy","创建房间被服务策略拒绝"}.
 {"Room description","房间描述"}.
@@ -314,24 +276,18 @@
 {"Server ~b","服务器 ~b"}.
 {"Server:","服务器:"}.
 {"Set message of the day and send to online users","设定每日消息并发送给所有在线用户"}.
-{"Set message of the day on all hosts and send to online users","设置所有主机上的每日消息并发送给在线用户"}.
 {"Shared Roster Groups","共享的花名册组群"}.
 {"Show Integral Table","显示完整列表"}.
 {"Show Ordinary Table","显示普通列表"}.
-{"Shut Down Service","关闭服务"}.
 {"~s invites you to the room ~s","~s 邀请你到 ~s 房间"}.
 {"Some Jabber clients can store your password in your computer. Use that feature only if you trust your computer is safe.","某些 Jabber 客户端可以在你的计算机里存储密码. 请仅在你确认你的计算机安全的情况下使用该功能."}.
 {"Specify the access model","指定访问范例"}.
 {"Specify the event message type","指定事件消息类型"}.
 {"Specify the publisher model","指定发布人范例"}.
 {"~s's Offline Messages Queue","~s 的离线消息队列"}.
-{"Start Modules at ","要启动的模块位于 "}.
-{"Start Modules","启动模块"}.
 {"Start","开始"}.
 {"Statistics of ~p","~p 的统计"}.
 {"Statistics","统计"}.
-{"Stop Modules at ","要停止的模块位于 "}.
-{"Stop Modules","停止模块"}.
 {"Stopped Nodes","已经停止的节点"}.
 {"Stop","停止"}.
 {"Storage Type","存储类型"}.
@@ -362,10 +318,8 @@
 {"This participant is kicked from the room because he sent an error presence","该用户由于发送了错误状态而被踢出了聊天室"}.
 {"This room is not anonymous","此房间不是匿名房间"}.
 {"Thursday","星期四"}.
-{"Time delay","时间延迟"}.
 {"Time","时间"}.
 {"Too many CAPTCHA requests","验证码请求太多"}.
-{"To ~s","发送给~s"}.
 {"To","到"}.
 {"Traffic rate limit is exceeded","已经超过传输率限制"}.
 {"Transactions Aborted:","取消的事务:"}.
@@ -378,7 +332,6 @@
 {"Unregister a Jabber account","注销 Jabber 帐户"}.
 {"Unregister","取消注册"}.
 {"Update message of the day (don't send)","更新每日消息(不发送)"}.
-{"Update message of the day on all hosts (don't send)","更新所有主机上的每日消息(不发送)"}.
 {"Update plan","更新计划"}.
 {"Update script","更新脚本"}.
 {"Update ","更新 "}.

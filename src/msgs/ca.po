@@ -15,7 +15,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.4\n"
 
-#: ejabberd_c2s.erl:424 ejabberd_c2s.erl:737
+#: ejabberd_c2s.erl:424 ejabberd_c2s.erl:740
 msgid "Use of STARTTLS required"
 msgstr "És obligatori utilitzar STARTTLS"
 
@@ -23,11 +23,11 @@ msgstr "És obligatori utilitzar STARTTLS"
 msgid "No resource provided"
 msgstr "Recurs no disponible"
 
-#: ejabberd_c2s.erl:1215
+#: ejabberd_c2s.erl:1218
 msgid "Replaced by new connection"
 msgstr "Reemplaçat per una nova connexió"
 
-#: ejabberd_c2s.erl:1903
+#: ejabberd_c2s.erl:1906
 msgid "Your active privacy list has denied the routing of this stanza."
 msgstr ""
 "La teva llista de privacitat activa ha denegat l'encaminament d'aquesta "
@@ -66,361 +66,139 @@ msgstr "Ping"
 msgid "Pong"
 msgstr "Pong"
 
-#: mod_announce.erl:487
+#: mod_announce.erl:443
 msgid "Really delete message of the day?"
 msgstr "Segur que vols eliminar el missatge del dia?"
 
-#: mod_announce.erl:495 mod_configure.erl:977 mod_configure.erl:1022
+#: mod_announce.erl:451
 msgid "Subject"
 msgstr "Assumpte"
 
-#: mod_announce.erl:500 mod_configure.erl:982 mod_configure.erl:1027
+#: mod_announce.erl:456
 msgid "Message body"
 msgstr "Missatge"
 
-#: mod_announce.erl:580
+#: mod_announce.erl:529
 msgid "No body provided for announce message"
 msgstr "No hi ha proveedor per al missatge anunci"
 
-#: mod_announce.erl:609
+#: mod_announce.erl:552
 msgid "Announcements"
 msgstr "Anuncis"
 
-#: mod_announce.erl:611
+#: mod_announce.erl:554
 msgid "Send announcement to all online users"
 msgstr "Enviar anunci a tots els usuaris connectats"
 
-#: mod_announce.erl:613 mod_configure.erl:972 mod_configure.erl:1017
+#: mod_announce.erl:556
 msgid "Send announcement to all online users on all hosts"
 msgstr "Enviar anunci a tots els usuaris connectats a tots els hosts"
 
-#: mod_announce.erl:615
+#: mod_announce.erl:558
 msgid "Set message of the day and send to online users"
 msgstr "Configurar el missatge del dia i enviar a tots els usuaris"
 
-#: mod_announce.erl:617
-msgid "Set message of the day on all hosts and send to online users"
-msgstr ""
-"Escriure missatge del dia en tots els hosts i enviar-ho als usuaris "
-"connectats"
-
-#: mod_announce.erl:619
+#: mod_announce.erl:560
 msgid "Update message of the day (don't send)"
 msgstr "Actualitzar el missatge del dia (no enviar)"
 
-#: mod_announce.erl:621
-msgid "Update message of the day on all hosts (don't send)"
-msgstr "Actualitza el missatge del dia en tots els hosts (no enviar)"
-
-#: mod_announce.erl:623
+#: mod_announce.erl:562
 msgid "Delete message of the day"
 msgstr "Eliminar el missatge del dia"
 
-#: mod_announce.erl:625
-msgid "Delete message of the day on all hosts"
-msgstr "Elimina el missatge del dis de tots els hosts"
-
-#: mod_configure.erl:114 mod_configure.erl:264 mod_configure.erl:286
-#: mod_configure.erl:474
+#: mod_configure.erl:114 mod_configure.erl:198 mod_configure.erl:220
 msgid "Configuration"
 msgstr "Configuració"
 
-#: mod_configure.erl:125 mod_configure.erl:519 web/ejabberd_web_admin.erl:1897
-msgid "Database"
-msgstr "Base de dades"
-
-#: mod_configure.erl:127 mod_configure.erl:538
-msgid "Start Modules"
-msgstr "Iniciar mòduls"
-
-#: mod_configure.erl:129 mod_configure.erl:539
-msgid "Stop Modules"
-msgstr "Parar mòduls"
-
-#: mod_configure.erl:131 mod_configure.erl:547 web/ejabberd_web_admin.erl:1898
-msgid "Backup"
-msgstr "Guardar còpia de seguretat"
-
-#: mod_configure.erl:133 mod_configure.erl:548
-msgid "Restore"
-msgstr "Restaurar"
-
-#: mod_configure.erl:135 mod_configure.erl:549
-msgid "Dump to Text File"
-msgstr "Exportar a fitxer de text"
-
-#: mod_configure.erl:137 mod_configure.erl:558
-msgid "Import File"
-msgstr "Importar fitxer"
-
-#: mod_configure.erl:139 mod_configure.erl:559
-msgid "Import Directory"
-msgstr "Importar directori"
-
-#: mod_configure.erl:141 mod_configure.erl:524 mod_configure.erl:951
-msgid "Restart Service"
-msgstr "Reiniciar el Servei"
-
-#: mod_configure.erl:143 mod_configure.erl:525 mod_configure.erl:996
-msgid "Shut Down Service"
-msgstr "Apager el Servei"
-
-#: mod_configure.erl:145 mod_configure.erl:492 mod_configure.erl:1091
+#: mod_configure.erl:123 mod_configure.erl:372 mod_configure.erl:520
 #: web/ejabberd_web_admin.erl:1504
 msgid "Add User"
 msgstr "Afegir usuari"
 
-#: mod_configure.erl:147 mod_configure.erl:493 mod_configure.erl:1113
+#: mod_configure.erl:125 mod_configure.erl:373 mod_configure.erl:542
 msgid "Delete User"
 msgstr "Eliminar Usuari"
 
-#: mod_configure.erl:149 mod_configure.erl:494 mod_configure.erl:1125
+#: mod_configure.erl:127 mod_configure.erl:374 mod_configure.erl:554
 msgid "End User Session"
 msgstr "Finalitzar Sesió d'Usuari"
 
-#: mod_configure.erl:151 mod_configure.erl:495
+#: mod_configure.erl:129 mod_configure.erl:375
 msgid "Change User Password"
 msgstr "Canviar Contrasenya d'Usuari"
 
-#: mod_configure.erl:153 mod_configure.erl:496 mod_configure.erl:1154
+#: mod_configure.erl:131 mod_configure.erl:376 mod_configure.erl:583
 msgid "Get User Last Login Time"
 msgstr "Obtenir la última connexió d'Usuari"
 
-#: mod_configure.erl:155 mod_configure.erl:497 mod_configure.erl:1166
+#: mod_configure.erl:133 mod_configure.erl:377 mod_configure.erl:595
 msgid "Get User Statistics"
 msgstr "Obtenir Estadístiques d'Usuari"
 
-#: mod_configure.erl:157 mod_configure.erl:498
-msgid "Get Number of Registered Users"
-msgstr "Obtenir Número d'Usuaris Registrats"
-
-#: mod_configure.erl:159 mod_configure.erl:499
-msgid "Get Number of Online Users"
-msgstr "Obtenir Número d'Usuaris Connectats"
-
-#: mod_configure.erl:161 mod_configure.erl:483 web/ejabberd_web_admin.erl:831
-#: web/ejabberd_web_admin.erl:872
-msgid "Access Control Lists"
-msgstr "Llista de Control d'Accés"
-
-#: mod_configure.erl:163 mod_configure.erl:484 web/ejabberd_web_admin.erl:940
-#: web/ejabberd_web_admin.erl:976
-msgid "Access Rules"
-msgstr "Regles d'Accés"
-
-#: mod_configure.erl:287 mod_configure.erl:475
+#: mod_configure.erl:221
 msgid "User Management"
 msgstr "Gestió d'Usuaris"
 
-#: mod_configure.erl:476
-msgid "Outgoing s2s Connections"
-msgstr "Connexions s2s d'eixida"
-
-#: mod_configure.erl:477 web/ejabberd_web_admin.erl:1868
-msgid "Running Nodes"
-msgstr "Nodes funcionant"
-
-#: mod_configure.erl:478 web/ejabberd_web_admin.erl:1870
-msgid "Stopped Nodes"
-msgstr "Nodes parats"
-
-#: mod_configure.erl:520 mod_configure.erl:530 web/ejabberd_web_admin.erl:1914
-msgid "Modules"
-msgstr "Mòduls"
-
-#: mod_configure.erl:521
-msgid "Backup Management"
-msgstr "Gestió de còpia de seguretat"
-
-#: mod_configure.erl:522
-msgid "Import Users From jabberd14 Spool Files"
-msgstr "Importar usuaris de jabberd14"
-
-#: mod_configure.erl:591
-msgid "To ~s"
-msgstr "A ~s"
-
-#: mod_configure.erl:609
-msgid "From ~s"
-msgstr "De ~s"
-
-#: mod_configure.erl:807
-msgid "Database Tables Configuration at "
-msgstr "Configuració de la base de dades en "
-
-#: mod_configure.erl:812
-msgid "Choose storage type of tables"
-msgstr "Selecciona el tipus d'almacenament de les taules"
-
-#: mod_configure.erl:820 mod_configure.erl:822
-msgid "Disc only copy"
-msgstr "Còpia sols en disc"
-
-#: mod_configure.erl:820 mod_configure.erl:822
-msgid "RAM and disc copy"
-msgstr "Còpia en RAM i disc"
-
-#: mod_configure.erl:820 mod_configure.erl:822
-msgid "RAM copy"
-msgstr "Còpia en RAM"
-
-#: mod_configure.erl:820 mod_configure.erl:822
-msgid "Remote copy"
-msgstr "Còpia remota"
-
-#: mod_configure.erl:844
-msgid "Stop Modules at "
-msgstr "Detindre mòduls en "
-
-#: mod_configure.erl:848
-msgid "Choose modules to stop"
-msgstr "Selecciona mòduls a detindre"
-
-#: mod_configure.erl:863
-msgid "Start Modules at "
-msgstr "Iniciar mòduls en "
-
-#: mod_configure.erl:867
-msgid "Enter list of {Module, [Options]}"
-msgstr "Introdueix llista de {mòdul, [opcions]}"
-
-#: mod_configure.erl:868
-msgid "List of modules to start"
-msgstr "Llista de mòduls a iniciar"
-
-#: mod_configure.erl:877
-msgid "Backup to File at "
-msgstr "Desar còpia de seguretat a fitxer en "
-
-#: mod_configure.erl:881 mod_configure.erl:895
-msgid "Enter path to backup file"
-msgstr "Introdueix ruta al fitxer de còpia de seguretat"
-
-#: mod_configure.erl:882 mod_configure.erl:896 mod_configure.erl:910
-#: mod_configure.erl:924
-msgid "Path to File"
-msgstr "Ruta al fitxer"
-
-#: mod_configure.erl:891
-msgid "Restore Backup from File at "
-msgstr "Restaura còpia de seguretat des del fitxer en "
-
-#: mod_configure.erl:905
-msgid "Dump Backup to Text File at "
-msgstr "Exporta còpia de seguretat a fitxer de text en "
-
-#: mod_configure.erl:909
-msgid "Enter path to text file"
-msgstr "Introdueix ruta al fitxer de text"
-
-#: mod_configure.erl:919
-msgid "Import User from File at "
-msgstr "Importa usuari des de fitxer en "
-
-#: mod_configure.erl:923
-msgid "Enter path to jabberd14 spool file"
-msgstr "Introdueix ruta al fitxer jabberd14 spool"
-
-#: mod_configure.erl:933
-msgid "Import Users from Dir at "
-msgstr "Importar usuaris des del directori en "
-
-#: mod_configure.erl:937
-msgid "Enter path to jabberd14 spool dir"
-msgstr "Introdueix la ruta al directori de jabberd14 spools"
-
-#: mod_configure.erl:938
-msgid "Path to Dir"
-msgstr "Ruta al directori"
-
-#: mod_configure.erl:954 mod_configure.erl:999
-msgid "Time delay"
-msgstr "Temps de retard"
-
-#: mod_configure.erl:1037
-msgid "Access Control List Configuration"
-msgstr "Configuració de la Llista de Control d'Accés"
-
-#: mod_configure.erl:1041
-msgid "Access control lists"
-msgstr "Llistes de Control de Accés"
-
-#: mod_configure.erl:1065
-msgid "Access Configuration"
-msgstr "Configuració d'accesos"
-
-#: mod_configure.erl:1069
-msgid "Access rules"
-msgstr "Regles d'accés"
-
-#: mod_configure.erl:1094 mod_configure.erl:1116 mod_configure.erl:1128
-#: mod_configure.erl:1140 mod_configure.erl:1157 mod_configure.erl:1169
-#: mod_configure.erl:1567 mod_configure.erl:1588 mod_roster.erl:1349
+#: mod_configure.erl:523 mod_configure.erl:545 mod_configure.erl:557
+#: mod_configure.erl:569 mod_configure.erl:586 mod_configure.erl:598
+#: mod_configure.erl:701 mod_configure.erl:722 mod_roster.erl:1349
 #: mod_vcard.erl:543 mod_vcard_ldap.erl:554
 msgid "Jabber ID"
 msgstr "ID Jabber"
 
-#: mod_configure.erl:1099 mod_configure.erl:1145 mod_configure.erl:1728
+#: mod_configure.erl:528 mod_configure.erl:574 mod_configure.erl:814
 #: mod_muc/mod_muc_room.erl:3343 mod_register.erl:235
 #: web/ejabberd_web_admin.erl:1497
 msgid "Password"
 msgstr "Contrasenya"
 
-#: mod_configure.erl:1104
+#: mod_configure.erl:533
 msgid "Password Verification"
 msgstr "Verificació de la Contrasenya"
 
-#: mod_configure.erl:1137
+#: mod_configure.erl:566
 msgid "Get User Password"
 msgstr "Obtenir Contrasenya d'usuari"
 
-#: mod_configure.erl:1183
-msgid "Number of registered users"
-msgstr "Número d'Usuaris Registrats"
-
-#: mod_configure.erl:1197
-msgid "Number of online users"
-msgstr "Número d'usuaris connectats"
-
-#: mod_configure.erl:1549 web/ejabberd_web_admin.erl:1564
+#: mod_configure.erl:683 web/ejabberd_web_admin.erl:1564
 #: web/ejabberd_web_admin.erl:1704
 msgid "Never"
 msgstr "Mai"
 
-#: mod_configure.erl:1563 web/ejabberd_web_admin.erl:1577
+#: mod_configure.erl:697 web/ejabberd_web_admin.erl:1577
 #: web/ejabberd_web_admin.erl:1717
 msgid "Online"
 msgstr "Connectat"
 
-#: mod_configure.erl:1568
+#: mod_configure.erl:702
 msgid "Last login"
 msgstr "Últim login"
 
-#: mod_configure.erl:1589
+#: mod_configure.erl:723
 msgid "Roster size"
 msgstr "Tamany de la llista"
 
-#: mod_configure.erl:1590
+#: mod_configure.erl:724
 msgid "IP addresses"
 msgstr "Adreça IP"
 
-#: mod_configure.erl:1591
+#: mod_configure.erl:725
 msgid "Resources"
 msgstr "Recursos"
 
-#: mod_configure.erl:1715
+#: mod_configure.erl:801
 msgid "Administration of "
 msgstr "Administració de "
 
-#: mod_configure.erl:1718
+#: mod_configure.erl:804
 msgid "Action on user"
 msgstr "Acció en l'usuari"
 
-#: mod_configure.erl:1722
+#: mod_configure.erl:808
 msgid "Edit Properties"
 msgstr "Editar propietats"
 
-#: mod_configure.erl:1725 web/ejabberd_web_admin.erl:1730
+#: mod_configure.erl:811 web/ejabberd_web_admin.erl:1730
 msgid "Remove User"
 msgstr "Eliminar usuari"
 
@@ -1390,9 +1168,17 @@ msgstr "Web d'administració del ejabberd"
 msgid "Administration"
 msgstr "Administració"
 
+#: web/ejabberd_web_admin.erl:831 web/ejabberd_web_admin.erl:872
+msgid "Access Control Lists"
+msgstr "Llista de Control d'Accés"
+
 #: web/ejabberd_web_admin.erl:878 web/ejabberd_web_admin.erl:982
 msgid "Raw"
 msgstr "en format text"
+
+#: web/ejabberd_web_admin.erl:940 web/ejabberd_web_admin.erl:976
+msgid "Access Rules"
+msgstr "Regles d'Accés"
 
 #: web/ejabberd_web_admin.erl:1017
 msgid "~s access rule configuration"
@@ -1506,9 +1292,25 @@ msgstr "No hi ha dades"
 msgid "Nodes"
 msgstr "Nodes"
 
+#: web/ejabberd_web_admin.erl:1868
+msgid "Running Nodes"
+msgstr "Nodes funcionant"
+
+#: web/ejabberd_web_admin.erl:1870
+msgid "Stopped Nodes"
+msgstr "Nodes parats"
+
 #: web/ejabberd_web_admin.erl:1890 web/ejabberd_web_admin.erl:1912
 msgid "Node "
 msgstr "Node "
+
+#: web/ejabberd_web_admin.erl:1897
+msgid "Database"
+msgstr "Base de dades"
+
+#: web/ejabberd_web_admin.erl:1898
+msgid "Backup"
+msgstr "Guardar còpia de seguretat"
 
 #: web/ejabberd_web_admin.erl:1899
 msgid "Listened Ports"
@@ -1526,6 +1328,10 @@ msgstr "Reiniciar"
 #: web/ejabberd_web_admin.erl:1906 web/ejabberd_web_admin.erl:2532
 msgid "Stop"
 msgstr "Detindre"
+
+#: web/ejabberd_web_admin.erl:1914
+msgid "Modules"
+msgstr "Mòduls"
 
 #: web/ejabberd_web_admin.erl:1920
 msgid "RPC Call Error"
@@ -1831,6 +1637,149 @@ msgstr ""
 #: web/mod_register_web.erl:524
 msgid "Unregister"
 msgstr "Anul·lar el registre"
+
+#~ msgid "Set message of the day on all hosts and send to online users"
+#~ msgstr ""
+#~ "Escriure missatge del dia en tots els hosts i enviar-ho als usuaris "
+#~ "connectats"
+
+#~ msgid "Update message of the day on all hosts (don't send)"
+#~ msgstr "Actualitza el missatge del dia en tots els hosts (no enviar)"
+
+#~ msgid "Delete message of the day on all hosts"
+#~ msgstr "Elimina el missatge del dis de tots els hosts"
+
+#~ msgid "Start Modules"
+#~ msgstr "Iniciar mòduls"
+
+#~ msgid "Stop Modules"
+#~ msgstr "Parar mòduls"
+
+#~ msgid "Restore"
+#~ msgstr "Restaurar"
+
+#~ msgid "Dump to Text File"
+#~ msgstr "Exportar a fitxer de text"
+
+#~ msgid "Import File"
+#~ msgstr "Importar fitxer"
+
+#~ msgid "Import Directory"
+#~ msgstr "Importar directori"
+
+#~ msgid "Restart Service"
+#~ msgstr "Reiniciar el Servei"
+
+#~ msgid "Shut Down Service"
+#~ msgstr "Apager el Servei"
+
+#~ msgid "Get Number of Registered Users"
+#~ msgstr "Obtenir Número d'Usuaris Registrats"
+
+#~ msgid "Get Number of Online Users"
+#~ msgstr "Obtenir Número d'Usuaris Connectats"
+
+#~ msgid "Outgoing s2s Connections"
+#~ msgstr "Connexions s2s d'eixida"
+
+#~ msgid "Backup Management"
+#~ msgstr "Gestió de còpia de seguretat"
+
+#~ msgid "Import Users From jabberd14 Spool Files"
+#~ msgstr "Importar usuaris de jabberd14"
+
+#~ msgid "To ~s"
+#~ msgstr "A ~s"
+
+#~ msgid "From ~s"
+#~ msgstr "De ~s"
+
+#~ msgid "Database Tables Configuration at "
+#~ msgstr "Configuració de la base de dades en "
+
+#~ msgid "Choose storage type of tables"
+#~ msgstr "Selecciona el tipus d'almacenament de les taules"
+
+#~ msgid "Disc only copy"
+#~ msgstr "Còpia sols en disc"
+
+#~ msgid "RAM and disc copy"
+#~ msgstr "Còpia en RAM i disc"
+
+#~ msgid "RAM copy"
+#~ msgstr "Còpia en RAM"
+
+#~ msgid "Remote copy"
+#~ msgstr "Còpia remota"
+
+#~ msgid "Stop Modules at "
+#~ msgstr "Detindre mòduls en "
+
+#~ msgid "Choose modules to stop"
+#~ msgstr "Selecciona mòduls a detindre"
+
+#~ msgid "Start Modules at "
+#~ msgstr "Iniciar mòduls en "
+
+#~ msgid "Enter list of {Module, [Options]}"
+#~ msgstr "Introdueix llista de {mòdul, [opcions]}"
+
+#~ msgid "List of modules to start"
+#~ msgstr "Llista de mòduls a iniciar"
+
+#~ msgid "Backup to File at "
+#~ msgstr "Desar còpia de seguretat a fitxer en "
+
+#~ msgid "Enter path to backup file"
+#~ msgstr "Introdueix ruta al fitxer de còpia de seguretat"
+
+#~ msgid "Path to File"
+#~ msgstr "Ruta al fitxer"
+
+#~ msgid "Restore Backup from File at "
+#~ msgstr "Restaura còpia de seguretat des del fitxer en "
+
+#~ msgid "Dump Backup to Text File at "
+#~ msgstr "Exporta còpia de seguretat a fitxer de text en "
+
+#~ msgid "Enter path to text file"
+#~ msgstr "Introdueix ruta al fitxer de text"
+
+#~ msgid "Import User from File at "
+#~ msgstr "Importa usuari des de fitxer en "
+
+#~ msgid "Enter path to jabberd14 spool file"
+#~ msgstr "Introdueix ruta al fitxer jabberd14 spool"
+
+#~ msgid "Import Users from Dir at "
+#~ msgstr "Importar usuaris des del directori en "
+
+#~ msgid "Enter path to jabberd14 spool dir"
+#~ msgstr "Introdueix la ruta al directori de jabberd14 spools"
+
+#~ msgid "Path to Dir"
+#~ msgstr "Ruta al directori"
+
+#~ msgid "Time delay"
+#~ msgstr "Temps de retard"
+
+#~ msgid "Access Control List Configuration"
+#~ msgstr "Configuració de la Llista de Control d'Accés"
+
+#~ msgid "Access control lists"
+#~ msgstr "Llistes de Control de Accés"
+
+#~ msgid "Access Configuration"
+#~ msgstr "Configuració d'accesos"
+
+#~ msgid "Access rules"
+#~ msgstr "Regles d'accés"
+
+#~ msgid "Number of registered users"
+#~ msgstr "Número d'Usuaris Registrats"
+
+#~ msgid "Number of online users"
+#~ msgstr "Número d'usuaris connectats"
 
 #~ msgid "Send announcement to all users"
 #~ msgstr "Enviar anunci a tots els usuaris"
