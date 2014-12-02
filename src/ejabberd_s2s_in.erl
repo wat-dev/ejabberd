@@ -607,7 +607,8 @@ handle_sync_event(get_state_infos, _From, StateName, StateData) ->
 	     {authenticated, StateData#state.authenticated},
 	     {shaper, StateData#state.shaper},
 	     {sockmod, SockMod},
-	     {domains, Domains}
+	     {domains, Domains},
+	     {myname, StateData#state.server}
 	    ],
     Reply = {state_infos, Infos},
     {reply,Reply,StateName,StateData};
