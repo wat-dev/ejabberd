@@ -570,7 +570,7 @@ report(From, To, Packet, Type) ->
 				{packet, Packet},
 				{type, Type}]) of
 		{ok, Data} ->
-			?WARNING_MSG("Announcement ~s confirmed: ~p", [Type, Data]),
+			?INFO_MSG("Announcement ~s confirmed: ~p", [Type, Data]),
 			ok;
 		{error, Data} ->
 			?WARNING_MSG("Announcement ~s forbidden: ~p", [Type, Data]),
