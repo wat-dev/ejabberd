@@ -237,10 +237,9 @@ handler(_State, auth, {call, c2s_stop, [{struct, [
 handler(_State, auth, {call, s2s_list, [{struct, [
 					{dir, UnsafeDir}
 				]}]}) ->
-	Children = s2s_children(UnsafeDir),
+	Infos = s2s_infos(UnsafeDir),
 	{false, {response, [{array,
-					lists:map(fun({_, Pid, _, _}) ->
-								StateInfos = s2s_state(Pid),
+					lists:map(fun(StateInfos) ->
 								CurrentDir = proplists:get_value(direction, StateInfos),
 								case CurrentDir of
 									out ->
@@ -248,7 +247,7 @@ handler(_State, auth, {call, s2s_list, [{struct, [
 										To = proplists:get_value(server, StateInfos);
 									in ->
 										From = {array, proplists:get_value(domains, StateInfos)},
-										To = "localhost"
+										To = proplists:get_value(myname, StateInfos)
 								end,
 								CurrentPortValue = proplists:get_value(port, StateInfos),
 								CurrentPort = case is_atom(CurrentPortValue) of
@@ -274,24 +273,24 @@ handler(_State, auth, {call, s2s_list, [{struct, [
 										{to, To},
 										{tls, proplists:get_value(tls_enabled, StateInfos)}
 									]}
-						end, Children)}]}};
+						end, Infos)}]}};
 
 handler(_State, auth, {call, s2s_stop, [{struct, [
 				{dir, UnsafeDir},
 				{stream_id, UnsafeStreamID}
 			]}]}) ->
-	Children = s2s_children(UnsafeDir),
+	Infos = s2s_infos(UnsafeDir),
 	StreamID = normalize(UnsafeStreamID),
-	StoppedCount = lists:foldl(fun({_, Pid, _, _}, A) ->
-				StateInfos = s2s_state(Pid),
+	StoppedCount = lists:foldl(fun(StateInfos, A) ->
 				case proplists:get_value(streamid, StateInfos) of
 					StreamID ->
+						Pid = proplists:get_value(s2s_pid, StateInfos),
 						gen_fsm:send_event(Pid, {xmlstreamend, whatever}),
 						A + 1;
 					_ ->
 						A
 				end
-		end, 0, Children),
+		end, 0, Infos),
 	{false, {response, [StoppedCount]}};
 
 handler(_State, auth, {call, s2s_filter, [{struct, [
@@ -337,10 +336,6 @@ handler(_State, auth, {call, s2s_filter, [{struct, [
 handler(_State, auth, Payload) ->
 	?WARNING_MSG("unknown call: ~p~n", [Payload]),
 	{false, {response, ["Unknown call"]}}.
-
-s2s_state(Pid) ->
-	{state_infos, R} = gen_fsm:sync_send_all_state_event(Pid, get_state_infos),
-	R.
 
 room_state(Pid) ->
 	{ok, R} = gen_fsm:sync_send_all_state_event(Pid, get_state),
@@ -450,15 +445,17 @@ s2s_filter_option_name(Server, VHost) ->
 			{{s2s_host, Server}, VHost}
 	end.
 
-s2s_children(Dir) ->
+s2s_infos(Dir) ->
 	case Dir of
 		"in" ->
-			supervisor:which_children(ejabberd_s2s_in_sup);
+			ejabberd_s2s:get_info_s2s_connections(in);
 		"out" ->
-			supervisor:which_children(ejabberd_s2s_out_sup);
+			ejabberd_s2s:get_info_s2s_connections(out);
 		_ ->
-			lists:append(supervisor:which_children(ejabberd_s2s_in_sup),
-				supervisor:which_children(ejabberd_s2s_out_sup))
+			lists:append(
+				ejabberd_s2s:get_info_s2s_connections(in),
+				ejabberd_s2s:get_info_s2s_connections(out)
+			)
 	end.
 
 normalize(String) ->
