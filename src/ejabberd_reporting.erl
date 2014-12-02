@@ -37,7 +37,10 @@ report(Data, Default) ->
     				Result = httpc:request(post,
     					{
     						URL,
-    						[{"Auth-Token", AuthToken}],
+    						[
+    							{"Auth-Token", AuthToken},
+    							{"Accept", "application/bert"}
+    						],
     						"application/bert",
     						erlang:term_to_binary(Data)
     					},
