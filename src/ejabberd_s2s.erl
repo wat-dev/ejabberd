@@ -574,9 +574,10 @@ complete_s2s_info([Connection|T],Type,Result)->
     complete_s2s_info(T,Type,[State|Result]).
 
 get_s2s_state(S2sPid)->
-    Infos = case gen_fsm:sync_send_all_state_event(S2sPid,get_state_infos) of
+    Infos = case catch gen_fsm:sync_send_all_state_event(S2sPid,get_state_infos) of
 		{state_infos, Is} -> [{status, open} | Is];
 		{noproc,_} -> [{status, closed}]; %% Connection closed
-		{badrpc,_} -> [{status, error}]
+		{badrpc,_} -> [{status, error}];
+		{'EXIT',_} -> [{status, error}]
 	    end,
     [{s2s_pid, S2sPid} | Infos].
