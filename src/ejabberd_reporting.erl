@@ -42,7 +42,7 @@ report(Data, Default) ->
     							{"Accept", "application/bert"}
     						],
     						"application/bert",
-    						erlang:term_to_binary(Data)
+    						erlang:term_to_binary({bert, dict, Data})
     					},
     					[{timeout, Timeout}, {connect_timeout, ConnectTimeout}],
     					[{body_format, binary}]),
