@@ -247,7 +247,22 @@ handler(_State, auth, {call, s2s_list, [{struct, [
 										To = proplists:get_value(server, StateInfos);
 									in ->
 										From = {array, proplists:get_value(domains, StateInfos)},
-										To = proplists:get_value(myname, StateInfos)
+										To = proplists:get_value(myname, StateInfos);
+									_ ->
+										From = undefined,
+										To = undefined
+								end,
+								CurrentFrom = case From of
+									undefined ->
+										"";
+									FromValue ->
+										FromValue
+								end,
+								CurrentTo = case To of
+									undefined ->
+										"";
+									ToValue ->
+										ToValue
 								end,
 								CurrentPortValue = proplists:get_value(port, StateInfos),
 								CurrentPort = case is_atom(CurrentPortValue) of
@@ -269,9 +284,9 @@ handler(_State, auth, {call, s2s_list, [{struct, [
 										{addr, jlib:ip_to_list(proplists:get_value(addr, StateInfos))},
 										{port, CurrentPort}, 
 										{stream_id, CurrentStreamID},
-										{from, From},
-										{to, To},
-										{tls, proplists:get_value(tls_enabled, StateInfos)}
+										{from, CurrentFrom},
+										{to, CurrentTo},
+										{tls, atom_to_list(proplists:get_value(tls_enabled, StateInfos))}
 									]}
 						end, Infos)}]}};
 
