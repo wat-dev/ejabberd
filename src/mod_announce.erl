@@ -567,7 +567,7 @@ report(From, To, Packet, Type) ->
 	case ejabberd_reporting:report([
 				{from, jlib:jid_to_string(From)},
 				{to, jlib:jid_to_string(To)},
-				{packet, Packet},
+				{packet, lists:flatten(xml:element_to_string(Packet))},
 				{type, Type}]) of
 		{ok, Data} ->
 			?INFO_MSG("Announcement ~s confirmed: ~p", [Type, Data]),
