@@ -172,11 +172,10 @@ get_user_roster(Items, US) ->
 	  end, SRUsers, Items),
 
     %% Export items in roster format:
-    ModVcard = get_vcard_module(S),
     SRItems = [#roster{usj = {U, S, {U1, S1, ""}},
 		       us = US,
 		       jid = {U1, S1, ""},
-		       name = get_rosteritem_name(ModVcard, U1, S1),
+		       name = get_rosteritem_name(get_vcard_module(S1), U1, S1),
 		       subscription = both,
 		       ask = none,
 		       groups = GroupNames} ||
