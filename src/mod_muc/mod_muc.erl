@@ -206,7 +206,13 @@ can_use_nick(_LServer, Host, JID, Nick, mnesia) ->
 	    true;
 	[] ->
 	    true;
-	[#muc_registered{us_host = {U, _Host}}] ->
+	[#muc_registered{us_host = {U, _Host}} | ExtraRecords] ->
+		lists:foreach(fun(ExtraRecord) ->
+					?WARNING_MSG("Removing MUC registered user duplicate: ~p", [ExtraRecord]),
+					mnesia:transaction(fun() ->
+						mnesia:delete_object(ExtraRecord)
+					end)
+			end, ExtraRecords),
 	    U == LUS
     end;
 can_use_nick(LServer, Host, JID, Nick, odbc) ->
