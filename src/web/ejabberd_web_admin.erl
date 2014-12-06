@@ -869,7 +869,7 @@ process_admin(Host,
     ACLs = lists:keysort(
 	     2, ets:select(acl, [{{acl, {'$1', Host}, '$2'},
 				  [], [{{acl, '$1', '$2'}}]}])),
-    V = make_xhtml(?H1GL(?T("Access Control Lists"), "ACLDefinition", "ACL Definition") ++
+    make_xhtml(?H1GL(?T("Access Control Lists"), "ACLDefinition", "ACL Definition") ++
 	       case Res of
 		   ok -> [?XREST("Submitted")];
 		   error -> [?XREST("Bad format")];
@@ -883,9 +883,7 @@ process_admin(Host,
 		      ?C(" "),
 		      ?INPUTT("submit", "submit", "Submit")
 		     ])
-	       ], Host, Lang, AJID),
-	?ERROR_MSG("XHTML: ~p", [V]),
-	V;
+	       ], Host, Lang, AJID);
 
 process_admin(Host,
 	      #request{path = ["access-raw"],
