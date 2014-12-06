@@ -63,6 +63,9 @@ handler(_State, auth, {call, authenticate, [{struct, [{host, Host}, {username, U
 	end,
 	{false, {response, [Response]}};
 
+handler(_State, auth, {call, hosts, [{struct, []}]}) ->
+	{false, {response, [{array, ejabberd_config:get_global_option(hosts)}]}};
+
 handler(_State, auth, {call, muc_list, [{struct, [{host, QueryHost}]}]}) ->
     Rooms = ets:tab2list(muc_online_room),
     {false, {response, [{array, lists:foldl(
