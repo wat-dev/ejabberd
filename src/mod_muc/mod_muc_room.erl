@@ -818,6 +818,14 @@ handle_info({captcha_failed, From}, normal_state, StateData) ->
 handle_info(_Info, StateName, StateData) ->
     {next_state, StateName, StateData}.
 
+get_max_user_conferences(User, Host) ->
+	case acl:match_rule(
+			Host, max_user_conferences, jlib:jid_remove_resource(jlib:jid_tolower(User))) of
+		Max when is_integer(Max) -> Max;
+		infinity -> infinity;
+		_ -> 10
+	end.
+
 %%----------------------------------------------------------------------
 %% Func: terminate/3
 %% Purpose: Shutdown the fsm
@@ -1740,15 +1748,13 @@ add_new_user(From, Nick, {xmlelement, _, Attrs, Els} = Packet, StateData) ->
     Affiliation = get_affiliation(From, StateData),
     ServiceAffiliation = get_service_affiliation(From, StateData),
     NConferences = tab_count_user(From),
-    MaxConferences = gen_mod:get_module_opt(
-		       StateData#state.server_host,
-		       mod_muc, max_user_conferences, 10),
+    MaxConferences = get_max_user_conferences(From, StateData#state.server_host),
     Collision = nick_collision(From, Nick, StateData),
     case {(ServiceAffiliation == owner orelse
 	   ((Affiliation == admin orelse Affiliation == owner) andalso
 	    NUsers < MaxAdminUsers) orelse
 	   NUsers < MaxUsers) andalso
-	  NConferences < MaxConferences,
+	  (MaxConferences == infinity orelse NConferences < MaxConferences),
 	  Collision,
 	  mod_muc:can_use_nick(
             StateData#state.server_host,
