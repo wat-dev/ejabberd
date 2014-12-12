@@ -1194,8 +1194,9 @@ acl_spec_to_text(Spec) ->
 
 acl_spec_to_xhtml(ID, Spec) ->
     {Type, UnsafeStr} = acl_spec_to_text(Spec),
-    Str = case is_list(UnsafeStr) of
-    	true ->
+    ?ERROR_MSG("UnsafeStr: ~p", [UnsafeStr]),
+    Str = case catch string:len(UnsafeStr) of
+    	Len when is_integer(Len) ->
     		UnsafeStr;
     	_ ->
     		"ERROR"
