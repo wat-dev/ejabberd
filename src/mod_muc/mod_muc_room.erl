@@ -3621,6 +3621,7 @@ make_opts(StateData) ->
      ?MAKE_CONFIG_OPT(voice_request_min_interval),
      {captcha_whitelist,
       ?SETS:to_list((StateData#state.config)#config.captcha_whitelist)},
+     ?MAKE_CONFIG_OPT(owner_jid),
      {affiliations, ?DICT:to_list(StateData#state.affiliations)},
      {subject, StateData#state.subject},
      {subject_author, StateData#state.subject_author}
