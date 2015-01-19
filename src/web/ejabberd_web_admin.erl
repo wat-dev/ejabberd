@@ -1194,11 +1194,11 @@ acl_spec_to_text(Spec) ->
 
 acl_spec_to_xhtml(ID, Spec) ->
     {Type, UnsafeStr} = acl_spec_to_text(Spec),
-    ?ERROR_MSG("UnsafeStr: ~p", [UnsafeStr]),
     Str = case catch string:len(UnsafeStr) of
     	Len when is_integer(Len) ->
     		UnsafeStr;
     	_ ->
+    		?ERROR_MSG("Invalid ACL specification: ~p", [UnsafeStr]),
     		"ERROR"
     end,
     [acl_spec_select(ID, Type), ?ACLINPUT(Str)].
