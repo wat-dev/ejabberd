@@ -38,7 +38,11 @@
 	 store_room/4,
 	 restore_room/3,
 	 forget_room/3,
-	 create_room/5,
+	 create_room/3,
+	 destroy_room/3,
+	 room_info/3,
+	 room_set_owner/3,
+	 room_infos/2,
 	 process_iq_disco_items/4,
 	 broadcast_service_message/2,
 	 can_use_nick/4]).
@@ -49,7 +53,6 @@
 
 -include("ejabberd.hrl").
 -include("jlib.hrl").
-
 
 -record(muc_room, {name_host, opts}).
 -record(muc_online_room, {name_host, pid}).
@@ -107,9 +110,67 @@ room_destroyed(Host, Room, Pid, ServerHost) ->
 %% @doc Create a room.
 %% If Opts = default, the default room options are used.
 %% Else use the passed options as defined in mod_muc_room.
-create_room(Host, Name, From, Nick, Opts) ->
+create_room(Host, Name, Owner) ->
+	case is_record(Owner, jid) of
+		true ->
+			OwnerJID = Owner;
+		_ ->
+			OwnerJID = jlib:string_to_jid(Owner)
+	end,
     Proc = gen_mod:get_module_proc(Host, ?PROCNAME),
-    gen_server:call(Proc, {create, Name, From, Nick, Opts}).
+    gen_server:call(Proc, {create, Name, OwnerJID, Name, [{owner_jid, Owner}]}).
+
+destroy_room(RoomHost, Name, Reason) ->
+	case mnesia:dirty_read(muc_online_room, {Name, RoomHost}) of
+		[R] ->
+			Pid = R#muc_online_room.pid,
+			case Reason of
+				"" ->
+					gen_fsm:send_all_state_event(Pid, destroy);
+				_ ->
+					gen_fsm:send_all_state_event(Pid, {destroy, Reason})
+			end,
+			ok;
+		[] ->
+			{error, not_found}
+	end.
+
+room_info(RoomHost, Name, Extended) ->
+	case mnesia:dirty_read(muc_online_room, {Name, RoomHost}) of
+		[R] ->
+			Pid = R#muc_online_room.pid,
+			gen_fsm:sync_send_all_state_event(Pid, {get_info, Extended});
+		[] ->
+			{error, not_found}
+	end.
+
+room_infos(RoomHost, Extended) ->
+	Rooms = ets:tab2list(muc_online_room),
+	lists:foldl(fun({_, {_RoomName, Host}, Pid}, Results) ->
+				case RoomHost of
+					"" ->
+						[gen_fsm:sync_send_all_state_event(Pid, {get_info, Extended}) | Results];
+					Host ->
+						[gen_fsm:sync_send_all_state_event(Pid, {get_info, Extended}) | Results];
+					_ ->
+						Results
+				end
+		end, [], Rooms).
+
+room_set_owner(RoomHost, Name, Owner) ->
+	case is_record(Owner, jid) of
+		true ->
+			OwnerJID = Owner;
+		_ ->
+			OwnerJID = jlib:string_to_jid(Owner)
+	end,
+	case mnesia:dirty_read(muc_online_room, {Name, RoomHost}) of
+		[R] ->
+			Pid = R#muc_online_room.pid,
+			gen_fsm:sync_send_all_state_event(Pid, {set_owner, OwnerJID});
+		[] ->
+			{error, not_found}
+	end.
 
 store_room(ServerHost, Host, Name, Opts) ->
     LServer = jlib:nameprep(ServerHost),
@@ -306,17 +367,22 @@ handle_call({create, Room, From, Nick, Opts},
 		   history_size = HistorySize,
 		   room_shaper = RoomShaper} = State) ->
     ?DEBUG("MUC: create new room '~s'~n", [Room]),
-    NewOpts = case Opts of
-		  default -> DefOpts;
-		  _ -> Opts
-	      end,
-    {ok, Pid} = mod_muc_room:start(
-		  Host, ServerHost, Access,
-		  Room, HistorySize,
-		  RoomShaper, From,
-		  Nick, NewOpts),
-    register_room(Host, Room, Pid),
-    {reply, ok, State}.
+    case mnesia:dirty_read(muc_online_room, {Room, Host}) of
+    	[] ->
+    		NewOpts = case Opts of
+		  	  	  default -> DefOpts;
+		  	  	  _ -> DefOpts ++ Opts
+	      	  	  end,
+    		{ok, Pid} = mod_muc_room:start(
+		  	  	  Host, ServerHost, Access,
+		  	  	  Room, HistorySize,
+		  	  	  RoomShaper, From,
+		  	  	  Nick, NewOpts),
+    		register_room(Host, Room, Pid),
+    		{reply, ok, State};
+    	_ ->
+    		{reply, {error, exists}, State}
+    end.
 
 %%--------------------------------------------------------------------
 %% Function: handle_cast(Msg, State) -> {noreply, State} |

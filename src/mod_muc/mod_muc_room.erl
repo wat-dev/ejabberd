@@ -123,7 +123,7 @@ init([Host, ServerHost, Access, Room, HistorySize, RoomShaper, Creator, _Nick, D
 				   just_created = true,
 				   room_shaper = Shaper}),
     State1 = set_opts(DefRoomOpts, State),
-    ?INFO_MSG("Created MUC room ~s@~s by ~s", 
+    ?WARNING_MSG("Created MUC room ~s@~s by ~s", 
 	      [Room, Host, jlib:jid_to_string(Creator)]),
     add_to_log(room_existence, created, State1),
     add_to_log(room_existence, started, State1),
@@ -696,9 +696,6 @@ handle_event({destroy, Reason}, _StateName, StateData) ->
 handle_event(destroy, StateName, StateData) ->
     handle_event({destroy, none}, StateName, StateData);
 
-handle_event({set_owner, Owner}, StateName, StateData) ->
-	{next_state, StateName, StateData#state{config = StateData#state.config#config{owner_jid = jlib:jid_tolower(Owner)}}};
-
 handle_event({set_affiliations, Affiliations}, StateName, StateData) ->
     {next_state, StateName, StateData#state{affiliations = Affiliations}};
 
@@ -722,6 +719,47 @@ handle_sync_event(get_config, _From, StateName, StateData) ->
     {reply, {ok, StateData#state.config}, StateName, StateData};
 handle_sync_event(get_state, _From, StateName, StateData) ->
     {reply, {ok, StateData}, StateName, StateData};
+handle_sync_event({get_info, Extended}, _From, StateName, StateData) ->
+    History = (StateData#state.history)#lqueue.queue,
+    LastMessageAt =
+    case queue:is_empty(History) of
+        true ->
+            undefined;
+        false ->
+            LastMessage = queue:last(History),
+            {_, _, _, LastMessageTime, _} = LastMessage,
+            jlib:timestamp_to_iso(LastMessageTime)
+    end,
+    ExtendedInfo =
+    case Extended of
+    	true ->
+    		[
+    			{affiliations, ?DICT:to_list(StateData#state.affiliations)},
+    			{users, lists:map(fun({_JID, #user{jid = JID, nick = Nick, role = Role}}) ->
+    							[
+    								{jid, jlib:jid_to_string(JID)},
+    								{nick, Nick},
+    								{role, Role}
+    							]
+    					end, ?DICT:to_list(StateData#state.users))},
+    			{config,
+    				lists:zip(record_info(fields, config), tl(tuple_to_list(StateData#state.config)))}
+    		];
+    	_ ->
+    		[]
+    end,
+	{reply, {ok, [
+		{name, StateData#state.room},
+		{host, StateData#state.host},
+		{num_participants, length(dict:fetch_keys(StateData#state.users))},
+		{last_message_at, LastMessageAt},
+		{subject, StateData#state.subject},
+		{subject_author, StateData#state.subject_author}
+	] ++ ExtendedInfo}, StateName, StateData};
+
+handle_sync_event({set_owner, Owner}, _From, StateName, StateData) ->
+	{reply, ok, StateName, StateData#state{config = StateData#state.config#config{owner_jid = jlib:jid_tolower(jlib:jid_remove_resource(Owner))}}};
+
 handle_sync_event({change_config, Config}, _From, StateName, StateData) ->
     {result, [], NSD} = change_config(Config, StateData),
     {reply, {ok, NSD#state.config}, StateName, NSD};
@@ -3587,6 +3625,15 @@ set_opts([{Opt, Val} | Opts], StateData) ->
 		  StateData#state{subject = Val};
 	      subject_author ->
 		  StateData#state{subject_author = Val};
+	      owner_jid ->
+	      	case Val of
+	      		JID when is_record(JID, jid) ->
+	      			StateData#state{config = (StateData#state.config)#config{owner_jid = jlib:jid_tolower(jlib:jid_remove_resource(Val))}};
+	      		JID when is_list(JID) ->
+	      			StateData#state{config = (StateData#state.config)#config{owner_jid = jlib:jid_tolower(jlib:jid_remove_resource(jlib:string_to_jid(Val)))}};
+	      		_ ->
+	      			StateData
+	      	end;
 	      _ -> StateData
 	  end,
     set_opts(Opts, NSD).
