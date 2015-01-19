@@ -37,49 +37,29 @@
 	 stop/1,
 	 announce/3,
 	 send_motd/1,
-	 disco_identity/5,
-	 disco_features/5,
-	 disco_items/5,
-	 send_announcement_to_all/3,
-	 announce_commands/4,
-	 announce_items/4]).
+	 send_presence/1,
+	 announce_motd/2,
+	 send_announcement/2,
+	 send_announcement_to_all/3]).
 
 -include("ejabberd.hrl").
 -include("jlib.hrl").
--include("adhoc.hrl").
 
 -record(motd, {server, packet}).
--record(motd_users, {us, dummy = []}).
 
 -define(PROCNAME, ejabberd_announce).
 
--define(NS_ADMINL(Sub), ["http:","jabber.org","protocol","admin", Sub]).
-tokenize(Node) -> string:tokens(Node, "/#").
-
-start(Host, Opts) ->
-    case gen_mod:db_type(Opts) of
-        mnesia ->
-            mnesia:create_table(motd,
-                                [{disc_copies, [node()]},
-                                 {attributes,
-                                  record_info(fields, motd)}]),
-            mnesia:create_table(motd_users,
-                                [{disc_copies, [node()]},
-                                 {attributes,
-                                  record_info(fields, motd_users)}]),
-            update_tables();
-        _ ->
-            ok
-    end,
+start(Host, _Opts) ->
+    mnesia:create_table(motd,
+                        [{disc_copies, [node()]},
+                         {attributes,
+                          record_info(fields, motd)}]),
     ejabberd_hooks:add(local_send_to_resource_hook, Host,
 		       ?MODULE, announce, 50),
-    ejabberd_hooks:add(disco_local_identity, Host, ?MODULE, disco_identity, 50),
-    ejabberd_hooks:add(disco_local_features, Host, ?MODULE, disco_features, 50),
-    ejabberd_hooks:add(disco_local_items, Host, ?MODULE, disco_items, 50),
-    ejabberd_hooks:add(adhoc_local_items, Host, ?MODULE, announce_items, 50),
-    ejabberd_hooks:add(adhoc_local_commands, Host, ?MODULE, announce_commands, 50),
     ejabberd_hooks:add(user_available_hook, Host,
 		       ?MODULE, send_motd, 50),
+    ejabberd_hooks:add(user_available_hook, Host,
+		       ?MODULE, send_presence, 50),
     register(gen_mod:get_module_proc(Host, ?PROCNAME),
 	     proc_lib:spawn(?MODULE, init, [])).
 
@@ -88,850 +68,218 @@ init() ->
 
 loop() ->
     receive
-	{announce_online, From, To, Packet} ->
-	    announce_online(From, To, Packet),
-	    loop();
-	{announce_all_hosts_online, From, To, Packet} ->
-	    announce_all_hosts_online(From, To, Packet),
-	    loop();
-	{announce_motd, From, To, Packet} ->
-	    announce_motd(From, To, Packet),
-	    loop();
-	{announce_motd_update, From, To, Packet} ->
-	    announce_motd_update(From, To, Packet),
-	    loop();
-	{announce_motd_delete, From, To, Packet} ->
-	    announce_motd_delete(From, To, Packet),
-	    loop();
-	_ ->
-	    loop()
+    	{announce_online, From, To, Body} ->
+	    	announce_online(From, To, Body),
+	    	loop();
+		{announce_all_hosts_online, From, To, Body} ->
+	    	announce_all_hosts_online(From, To, Body),
+	    	loop();
+	    {announce_motd, From, To, Body} ->
+			announce_motd(From, To, Body),
+			loop();
+		_ ->
+	    	loop()
     end.
 
 stop(Host) ->
-    ejabberd_hooks:delete(adhoc_local_commands, Host, ?MODULE, announce_commands, 50),
-    ejabberd_hooks:delete(adhoc_local_items, Host, ?MODULE, announce_items, 50),
-    ejabberd_hooks:delete(disco_local_identity, Host, ?MODULE, disco_identity, 50),
-    ejabberd_hooks:delete(disco_local_features, Host, ?MODULE, disco_features, 50),
-    ejabberd_hooks:delete(disco_local_items, Host, ?MODULE, disco_items, 50),
     ejabberd_hooks:delete(local_send_to_resource_hook, Host,
 			  ?MODULE, announce, 50),
     ejabberd_hooks:delete(user_available_hook, Host,
 			  ?MODULE, send_motd, 50),
+    ejabberd_hooks:delete(user_available_hook, Host,
+			  ?MODULE, send_presence, 50),
     Proc = gen_mod:get_module_proc(Host, ?PROCNAME),
     exit(whereis(Proc), stop),
     {wait, Proc}.
 
 %% Announcing via messages to a custom resource
 announce(From, To, Packet) ->
-    case To of
-	#jid{luser = "", lresource = Res} ->
-	    {xmlelement, Name, _Attrs, _Els} = Packet,
-	    Proc = gen_mod:get_module_proc(To#jid.lserver, ?PROCNAME),
-	    case {Res, Name} of
-		{"announce/online", "message"} ->
-		    Proc ! {announce_online, From, To, Packet},
-		    stop;
-		{"announce/all-hosts/online", "message"} ->
-		    Proc ! {announce_all_hosts_online, From, To, Packet},
-		    stop;
-		{"announce/motd", "message"} ->
-		    Proc ! {announce_motd, From, To, Packet},
-		    stop;
-		{"announce/motd/update", "message"} ->
-		    Proc ! {announce_motd_update, From, To, Packet},
-		    stop;
-		{"announce/motd/delete", "message"} ->
-		    Proc ! {announce_motd_delete, From, To, Packet},
-		    stop;
+	{xmlelement, Name, _Attrs, _Els} = Packet,
+    case Name of
+		"message" ->
+	    	Proc = gen_mod:get_module_proc(To#jid.lserver, ?PROCNAME),
+    		Body = xml:get_subtag_cdata(Packet, "body"),
+
+    		case allow_announcement(To#jid.lserver, From) of
+    			true ->
+	    			case Body of
+	    				"online " ++ MeaningfulBody ->
+	    					Proc ! {announce_online, From, To, MeaningfulBody},
+	    					stop;
+	    				"aho " ++ MeaningfulBody ->
+	    					Proc ! {announce_all_hosts_online, From, To, MeaningfulBody},
+	    					stop;
+	    				"motd " ++ MeaningfulBody ->
+	    					Proc ! {announce_motd, From, To, MeaningfulBody},
+	    					stop;
+	    				_ ->
+	    					ok
+	    			end;
+	    		_ ->
+	    			ok
+	    	end;
 		_ ->
-		    ok
-	    end;
-	_ ->
-	    ok
-    end.
-
-%%-------------------------------------------------------------------------
-%% Announcing via ad-hoc commands
--define(INFO_COMMAND(Lang, Node),
-        [{xmlelement, "identity",
-	  [{"category", "automation"},
-	   {"type", "command-node"},
-	   {"name", get_title(Lang, Node)}], []}]).
-
-disco_identity(Acc, _From, _To, Node, Lang) ->
-    LNode = tokenize(Node),
-    case LNode of
-	?NS_ADMINL("announce") ->
-	    ?INFO_COMMAND(Lang, Node);
-	?NS_ADMINL("announce-allhosts") ->
-	    ?INFO_COMMAND(Lang, Node);
-	?NS_ADMINL("set-motd") ->
-	    ?INFO_COMMAND(Lang, Node);
-	?NS_ADMINL("edit-motd") ->
-	    ?INFO_COMMAND(Lang, Node);
-	?NS_ADMINL("delete-motd") ->
-	    ?INFO_COMMAND(Lang, Node);
-	_ ->
-	    Acc
+	    	ok
     end.
 
 %%-------------------------------------------------------------------------
 
--define(INFO_RESULT(Allow, Feats),
-	case Allow of
-	    deny ->
-		{error, ?ERR_FORBIDDEN};
-	    allow ->
-		{result, Feats}
-	end).
-
-disco_features(Acc, From, #jid{lserver = LServer} = _To,
-	       "announce", _Lang) ->
-    case gen_mod:is_loaded(LServer, mod_adhoc) of
-	false ->
-	    Acc;
-	_ ->
-	    Access1 = gen_mod:get_module_opt(LServer, ?MODULE, access, none),
-	    Access2 = gen_mod:get_module_opt(global, ?MODULE, access, none),
-	    case {acl:match_rule(LServer, Access1, From),
-		  acl:match_rule(global, Access2, From)} of
-		{deny, deny} ->
-		    {error, ?ERR_FORBIDDEN};
-		_ ->
-		    {result, []}
-	    end
-    end;
-
-disco_features(Acc, From, #jid{lserver = LServer} = _To,
-	       Node, _Lang) ->
-    case gen_mod:is_loaded(LServer, mod_adhoc) of
-	false ->
-	    Acc;
-	_ ->
-	    Access = gen_mod:get_module_opt(LServer, ?MODULE, access, none),
-	    Allow = acl:match_rule(LServer, Access, From),
-	    AccessGlobal = gen_mod:get_module_opt(global, ?MODULE, access, none),
-	    AllowGlobal = acl:match_rule(global, AccessGlobal, From),
-	    case Node of
-		?NS_ADMIN ++ "#announce" ->
-		    ?INFO_RESULT(Allow, [?NS_COMMANDS]);
-		?NS_ADMIN ++ "#set-motd" ->
-		    ?INFO_RESULT(Allow, [?NS_COMMANDS]);
-		?NS_ADMIN ++ "#edit-motd" ->
-		    ?INFO_RESULT(Allow, [?NS_COMMANDS]);
-		?NS_ADMIN ++ "#delete-motd" ->
-		    ?INFO_RESULT(Allow, [?NS_COMMANDS]);
-		?NS_ADMIN ++ "#announce-allhosts" ->
-		    ?INFO_RESULT(AllowGlobal, [?NS_COMMANDS]);
-		_ ->
-		    Acc
-	    end
-    end.
-
-%%-------------------------------------------------------------------------
-
--define(NODE_TO_ITEM(Lang, Server, Node),
-	{xmlelement, "item",
-	 [{"jid", Server},
-	  {"node", Node},
-	  {"name", get_title(Lang, Node)}],
-	 []}).
-
--define(ITEMS_RESULT(Allow, Items),
-	case Allow of
-	    deny ->
-		{error, ?ERR_FORBIDDEN};
-	    allow ->
-		{result, Items}
-	end).
-
-disco_items(Acc, From, #jid{lserver = LServer, server = Server} = _To,
-	    "", Lang) ->
-    case gen_mod:is_loaded(LServer, mod_adhoc) of
-	false ->
-	    Acc;
-	_ ->
-	    Access1 = gen_mod:get_module_opt(LServer, ?MODULE, access, none),
-	    Access2 = gen_mod:get_module_opt(global, ?MODULE, access, none),
-	    case {acl:match_rule(LServer, Access1, From),
-		  acl:match_rule(global, Access2, From)} of
-		{deny, deny} ->
-		    Acc;
-		_ ->
-		    Items = case Acc of
-				{result, I} -> I;
-				_ -> []
-			    end,
-		    Nodes = [?NODE_TO_ITEM(Lang, Server, "announce")],
-		    {result, Items ++ Nodes}
-	    end
-    end;
-
-disco_items(Acc, From, #jid{lserver = LServer} = To, "announce", Lang) ->
-    case gen_mod:is_loaded(LServer, mod_adhoc) of
-	false ->
-	    Acc;
-	_ ->
-	    announce_items(Acc, From, To, Lang)
-    end;
-
-disco_items(Acc, From, #jid{lserver = LServer} = _To, Node, _Lang) ->
-    case gen_mod:is_loaded(LServer, mod_adhoc) of
-	false ->
-	    Acc;
-	_ ->
-	    Access = gen_mod:get_module_opt(LServer, ?MODULE, access, none),
-	    Allow = acl:match_rule(LServer, Access, From),
-	    AccessGlobal = gen_mod:get_module_opt(global, ?MODULE, access, none),
-	    AllowGlobal = acl:match_rule(global, AccessGlobal, From),
-	    case Node of
-		?NS_ADMIN ++ "#announce" ->
-		    ?ITEMS_RESULT(Allow, []);
-		?NS_ADMIN ++ "#set-motd" ->
-		    ?ITEMS_RESULT(Allow, []);
-		?NS_ADMIN ++ "#edit-motd" ->
-		    ?ITEMS_RESULT(Allow, []);
-		?NS_ADMIN ++ "#delete-motd" ->
-		    ?ITEMS_RESULT(Allow, []);
-		?NS_ADMIN ++ "#announce-allhosts" ->
-		    ?ITEMS_RESULT(AllowGlobal, []);
-		_ ->
-		    Acc
-	    end
-    end.
-
-%%-------------------------------------------------------------------------
-
-announce_items(Acc, From, #jid{lserver = LServer, server = Server} = _To, Lang) ->
-    Access1 = gen_mod:get_module_opt(LServer, ?MODULE, access, none),
-    Nodes1 = case acl:match_rule(LServer, Access1, From) of
-		 allow ->
-		     [?NODE_TO_ITEM(Lang, Server, ?NS_ADMIN ++ "#announce"),
-		      ?NODE_TO_ITEM(Lang, Server, ?NS_ADMIN ++ "#set-motd"),
-		      ?NODE_TO_ITEM(Lang, Server, ?NS_ADMIN ++ "#edit-motd"),
-		      ?NODE_TO_ITEM(Lang, Server, ?NS_ADMIN ++ "#delete-motd")];
-		 deny ->
-		     []
-	     end,
-    Access2 = gen_mod:get_module_opt(global, ?MODULE, access, none),
-    Nodes2 = case acl:match_rule(global, Access2, From) of
-		 allow ->
-		    [?NODE_TO_ITEM(Lang, Server, ?NS_ADMIN ++ "#announce-allhosts")];
-		 deny ->
-		     []
-	     end,
-    case {Nodes1, Nodes2} of
-	{[], []} ->
-	    Acc;
-	_ ->
-	    Items = case Acc of
-			{result, I} -> I;
-			_ -> []
-		    end,
-	    {result, Items ++ Nodes1 ++ Nodes2}
-    end.
-
-%%-------------------------------------------------------------------------
-
-commands_result(Allow, From, To, Request) ->
-    case Allow of
-	deny ->
-	    {error, ?ERR_FORBIDDEN};
-	allow ->
-	    announce_commands(From, To, Request)
-    end.
-
-
-announce_commands(Acc, From, #jid{lserver = LServer} = To,
-		  #adhoc_request{ node = Node} = Request) ->
-    LNode = tokenize(Node),
-    F = fun() ->
-		Access = gen_mod:get_module_opt(global, ?MODULE, access, none),
-		Allow = acl:match_rule(global, Access, From),
-		commands_result(Allow, From, To, Request)
-	end,
-    R = case LNode of
-	    ?NS_ADMINL("announce-allhosts") -> F();
-	    _ ->
-		Access = gen_mod:get_module_opt(LServer, ?MODULE, access, none),
-		Allow = acl:match_rule(LServer, Access, From),
-		case LNode of
-		    ?NS_ADMINL("announce") ->
-			commands_result(Allow, From, To, Request);
-		    ?NS_ADMINL("set-motd") ->
-			commands_result(Allow, From, To, Request);
-		    ?NS_ADMINL("edit-motd") ->
-			commands_result(Allow, From, To, Request);
-		    ?NS_ADMINL("delete-motd") ->
-			commands_result(Allow, From, To, Request);
-		    _ ->
-			unknown
-		end
-	end,
-    case R of
-	unknown -> Acc;
-	_ -> {stop, R}
-    end.
-
-%%-------------------------------------------------------------------------
-
-announce_commands(From, To,
-		  #adhoc_request{lang = Lang,
-				 node = Node,
-				 action = Action,
-				 xdata = XData} = Request) ->
-    %% If the "action" attribute is not present, it is
-    %% understood as "execute".  If there was no <actions/>
-    %% element in the first response (which there isn't in our
-    %% case), "execute" and "complete" are equivalent.
-    ActionIsExecute = lists:member(Action,
-				   ["", "execute", "complete"]),
-    if Action == "cancel" ->
-	    %% User cancels request
-	    adhoc:produce_response(Request, 
-				   #adhoc_response{status = canceled});
-       XData == false, ActionIsExecute ->
-	    %% User requests form
-	    Elements = generate_adhoc_form(Lang, Node, To#jid.lserver),
-	    adhoc:produce_response(
-	      Request,
-	      #adhoc_response{status = executing,
-			      elements = [Elements]});
-       XData /= false, ActionIsExecute ->
-	    %% User returns form.
-	    case jlib:parse_xdata_submit(XData) of
-		invalid ->
-		    {error, ?ERR_BAD_REQUEST};
-		Fields ->
-		    handle_adhoc_form(From, To, Request, Fields)
-	    end;
-       true ->
-	    {error, ?ERR_BAD_REQUEST}
-    end.
-
--define(VVALUE(Val),
-	{xmlelement, "value", [], [{xmlcdata, Val}]}).
--define(TVFIELD(Type, Var, Val),
-	{xmlelement, "field", [{"type", Type},
-			       {"var", Var}],
-	 vvaluel(Val)}).
--define(HFIELD(), ?TVFIELD("hidden", "FORM_TYPE", ?NS_ADMIN)).
-
-vvaluel(Val) ->
-    case Val of
-        "" -> [];
-        _ -> [?VVALUE(Val)]
-    end.
-
-generate_adhoc_form(Lang, Node, ServerHost) ->
-    LNode = tokenize(Node),
-    {OldSubject, OldBody} = if LNode == ?NS_ADMINL("edit-motd") ->
-				    get_stored_motd(ServerHost);
-			       true -> 
-				    {[], []}
-			    end,
-    {xmlelement, "x",
-     [{"xmlns", ?NS_XDATA},
-      {"type", "form"}],
-     [?HFIELD(),
-      {xmlelement, "title", [], [{xmlcdata, get_title(Lang, Node)}]}]
-     ++
-     if LNode == ?NS_ADMINL("delete-motd") ->
-	     [{xmlelement, "field",
-	       [{"var", "confirm"},
-		{"type", "boolean"},
-		{"label", translate:translate(Lang, "Really delete message of the day?")}],
-	       [{xmlelement, "value",
-		 [],
-		 [{xmlcdata, "true"}]}]}];
-	true ->
-	     [{xmlelement, "field", 
-	       [{"var", "subject"},
-		{"type", "text-single"},
-		{"label", translate:translate(Lang, "Subject")}],
-	       vvaluel(OldSubject)},
-	      {xmlelement, "field",
-	       [{"var", "body"},
-		{"type", "text-multi"},
-		{"label", translate:translate(Lang, "Message body")}],
-	       vvaluel(OldBody)}]
-     end}.
-
-join_lines([]) ->
-    [];
-join_lines(Lines) ->
-    join_lines(Lines, []).
-join_lines([Line|Lines], Acc) ->
-    join_lines(Lines, ["\n",Line|Acc]);
-join_lines([], Acc) ->
-    %% Remove last newline
-    lists:flatten(lists:reverse(tl(Acc))).
-
-handle_adhoc_form(From, #jid{lserver = LServer} = To,
-		  #adhoc_request{lang = Lang,
-				 node = Node,
-				 sessionid = SessionID},
-		  Fields) ->
-    Confirm = case lists:keysearch("confirm", 1, Fields) of
-		  {value, {"confirm", ["true"]}} ->
-		      true;
-		  {value, {"confirm", ["1"]}} ->
-		      true;
-		  _ ->
-		      false
-	      end,
-    Subject = case lists:keysearch("subject", 1, Fields) of
-		  {value, {"subject", SubjectLines}} ->
-		      %% There really shouldn't be more than one
-		      %% subject line, but can we stop them?
-		      join_lines(SubjectLines);
-		  _ ->
-		      []
-	      end,
-    Body = case lists:keysearch("body", 1, Fields) of
-	       {value, {"body", BodyLines}} ->
-		   join_lines(BodyLines);
-	       _ ->
-		   []
-	   end,
-    Response = #adhoc_response{lang = Lang,
-			       node = Node,
-			       sessionid = SessionID,
-			       status = completed},
-    Packet = {xmlelement, "message", [{"type", "chat"}],
-	      if Subject /= [] ->
-		      [{xmlelement, "subject", [], 
-			[{xmlcdata, Subject}]}];
-		 true ->
-		      []
-	      end ++
-	      if Body /= [] ->
-		      [{xmlelement, "body", [],
-			[{xmlcdata, Body}]}];
-		 true ->
-		      []
-	      end},
-
-    Proc = gen_mod:get_module_proc(LServer, ?PROCNAME),
-    case {Node, Body} of
-	{?NS_ADMIN ++ "#delete-motd", _} ->
-	    if	Confirm ->
-		    Proc ! {announce_motd_delete, From, To, Packet},
-		    adhoc:produce_response(Response);
-		true ->
-		    adhoc:produce_response(Response)
-	    end;
-	{_, []} ->
-	    %% An announce message with no body is definitely an operator error.
-	    %% Throw an error and give him/her a chance to send message again.
-	    {error, ?ERRT_NOT_ACCEPTABLE(
-		       Lang,
-		       "No body provided for announce message")};
-	%% Now send the packet to ?PROCNAME.
-	%% We don't use direct announce_* functions because it
-	%% leads to large delay in response and <iq/> queries processing
-	{?NS_ADMIN ++ "#announce", _} ->
-	    Proc ! {announce_online, From, To, Packet},
-	    adhoc:produce_response(Response);
-	{?NS_ADMIN ++ "#announce-allhosts", _} ->	    
-	    Proc ! {announce_all_hosts_online, From, To, Packet},
-	    adhoc:produce_response(Response);
-	{?NS_ADMIN ++ "#set-motd", _} ->
-	    Proc ! {announce_motd, From, To, Packet},
-	    adhoc:produce_response(Response);
-	{?NS_ADMIN ++ "#edit-motd", _} ->
-	    Proc ! {announce_motd_update, From, To, Packet},
-	    adhoc:produce_response(Response);
-	_ ->
-	    %% This can't happen, as we haven't registered any other
-	    %% command nodes.
-	    {error, ?ERR_INTERNAL_SERVER_ERROR}
-    end.
-
-get_title(Lang, "announce") ->
-    translate:translate(Lang, "Announcements");
-get_title(Lang, ?NS_ADMIN ++ "#announce") ->
-    translate:translate(Lang, "Send announcement to all online users");
-get_title(Lang, ?NS_ADMIN ++ "#announce-allhosts") ->
-    translate:translate(Lang, "Send announcement to all online users on all hosts");
-get_title(Lang, ?NS_ADMIN ++ "#set-motd") ->
-    translate:translate(Lang, "Set message of the day and send to online users");
-get_title(Lang, ?NS_ADMIN ++ "#edit-motd") ->
-    translate:translate(Lang, "Update message of the day (don't send)");
-get_title(Lang, ?NS_ADMIN ++ "#delete-motd") ->
-    translate:translate(Lang, "Delete message of the day").
-
-%%-------------------------------------------------------------------------
-
-report(From, To, Packet, Type) ->
+report(From, To, Body) ->
 	case ejabberd_reporting:report([
 				{from, jlib:jid_to_string(From)},
 				{to, jlib:jid_to_string(To)},
-				{packet, lists:flatten(xml:element_to_string(Packet))},
-				{type, Type}]) of
+				{body, Body}]) of
 		{ok, Data} ->
-			?INFO_MSG("Announcement ~s confirmed: ~p", [Type, Data]),
+			?INFO_MSG("Announcement ~s confirmed: ~p", [To#jid.resource, Data]),
 			ok;
 		{error, Data} ->
-			?WARNING_MSG("Announcement ~s forbidden: ~p", [Type, Data]),
-			forbidden
+			?WARNING_MSG("Announcement ~s forbidden: ~p", [To#jid.resource, Data]),
+			if
+				is_binary(Data) ->
+					binary_to_list(Data);
+				is_list(Data) ->
+					Data;
+				true ->
+					"the response may not be presented in a suitable form"
+			end
 	end.
 
-announce_online(From, To, Packet) ->
-    Host = To#jid.lserver,
-    Access = gen_mod:get_module_opt(Host, ?MODULE, access, none),
-    case acl:match_rule(Host, Access, From) of
-	deny ->
-	    Err = jlib:make_error_reply(Packet, ?ERR_FORBIDDEN),
-	    ejabberd_router:route(To, From, Err);
-	allow ->
-		case report(From, To, Packet, "online") of
-			ok ->
-				announce_online1(ejabberd_sm:get_vh_session_list(Host),
-			     	To#jid.server,
-			     	Packet);
-			_ ->
-				Err = jlib:make_error_reply(Packet, ?ERR_FORBIDDEN),
-				ejabberd_router:route(To, From, Err)
-		end
+allow_announcement(Host, From) ->
+	case acl:match_rule(Host, ejabberd_announce, From) of
+		deny ->
+			false;
+		allow ->
+			true
+	end.
+
+run_announcement(From, To, Host, Body, Code) ->
+    case allow_announcement(Host, From) of
+    	false ->
+    		ejabberd_router:route(To, From, get_packet("Forbidden by Ejabberd"));
+    	true ->
+    		case report(From, To, Body) of
+    			ok ->
+    				Reply =
+    				case catch Code() of
+    					{'EXIT', Reason} ->
+    						?ERROR_MSG("FIXME: ~p", [Reason]),
+    						"Something wrong happened";
+    					Sessions when is_list(Sessions) ->
+    						TargetUsersCount = length(Sessions),
+    						lists:flatten(io_lib:format("Announcement sent to ~p users", [TargetUsersCount]));
+    					_ ->
+    						?ERROR_MSG("ERROR", []),
+    						"Something really bad happened"
+    				end,
+    				ejabberd_router:route(To, From, get_packet(Reply));
+    			Error ->
+    				ejabberd_router:route(To, From, get_packet("Forbidden by CTS: " ++ Error))
+    		end
     end.
 
-announce_all_hosts_online(From, To, Packet) ->
-    Access = gen_mod:get_module_opt(global, ?MODULE, access, none),
-    case acl:match_rule(global, Access, From) of
-	deny ->
-	    Err = jlib:make_error_reply(Packet, ?ERR_FORBIDDEN),
-	    ejabberd_router:route(To, From, Err);
-	allow ->
-		case report(From, To, Packet, "all-online") of
-			ok ->
-	    		announce_online1(ejabberd_sm:dirty_get_sessions_list(),
-			     	To#jid.server,
-			     	Packet);
-		 	_ ->
-	    		Err = jlib:make_error_reply(Packet, ?ERR_FORBIDDEN),
-	    		ejabberd_router:route(To, From, Err)
-		end
-    end.
+announce_online(From, To, Body) ->
+	run_announcement(From, To, To#jid.lserver, Body, fun() ->
+				send_announcement(To#jid.lserver, Body)
+		end).
 
-announce_online1(Sessions, Server, Packet) ->
-    Local = jlib:make_jid("", Server, ""),
-    lists:foreach(
-      fun({U, S, R}) ->
-	      Dest = jlib:make_jid(U, S, R),
-	      ejabberd_router:route(Local, Dest, Packet)
-      end, Sessions).
+announce_all_hosts_online(From, To, Body) ->
+	run_announcement(From, To, global, Body, fun() ->
+				send_announcement(global, Body)
+		end).
 
-announce_motd(From, To, Packet) ->
-    Host = To#jid.lserver,
-    Access = gen_mod:get_module_opt(Host, ?MODULE, access, none),
-    case acl:match_rule(Host, Access, From) of
-	deny ->
-	    Err = jlib:make_error_reply(Packet, ?ERR_FORBIDDEN),
-	    ejabberd_router:route(To, From, Err);
-	allow ->
-		case report(From, To, Packet, "motd") of
-			ok ->
-				announce_motd(Host, Packet);
-			_ ->
-	    		Err = jlib:make_error_reply(Packet, ?ERR_FORBIDDEN),
-	    		ejabberd_router:route(To, From, Err)
-		end
-    end.
+announce_motd(From, To, Body) ->
+	run_announcement(From, To, To#jid.lserver, Body, fun() ->
+				announce_motd(To#jid.lserver, Body)
+		end).
 
-announce_motd(Host, Packet) ->
-    LServer = jlib:nameprep(Host),
-    announce_motd_update(LServer, Packet),
-    Sessions = ejabberd_sm:get_vh_session_list(LServer),
-    announce_online1(Sessions, LServer, Packet),
-    case gen_mod:db_type(LServer, ?MODULE) of
-        mnesia ->
-            F = fun() ->
-                        lists:foreach(
-                          fun({U, S, _R}) ->
-                                  mnesia:write(#motd_users{us = {U, S}})
-                          end, Sessions)
-                end,
-            mnesia:transaction(F);
-        odbc ->
-            F = fun() ->
-                        lists:foreach(
-                          fun({U, _S, _R}) ->
-                                  Username = ejabberd_odbc:escape(U),
-                                  odbc_queries:update_t(
-                                    "motd",
-                                    ["username", "xml"],
-                                    [Username, ""],
-                                    ["username='", Username, "'"])
-                          end, Sessions)
-                end,
-            ejabberd_odbc:sql_transaction(LServer, F)
-    end.
-
-announce_motd_update(From, To, Packet) ->
-    Host = To#jid.lserver,
-    Access = gen_mod:get_module_opt(Host, ?MODULE, access, none),
-    case acl:match_rule(Host, Access, From) of
-	deny ->
-	    Err = jlib:make_error_reply(Packet, ?ERR_FORBIDDEN),
-	    ejabberd_router:route(To, From, Err);
-	allow ->
-		case report(From, To, Packet, "motd-update") of
-			ok ->
-				announce_motd_update(Host, Packet);
-			_ ->
-				Err = jlib:make_error_reply(Packet, ?ERR_FORBIDDEN),
-				ejabberd_router:route(To, From, Err)
-		end
-    end.
-
-announce_motd_update(LServer, Packet) ->
+announce_motd(Server, Body) ->
+	LServer = jlib:nameprep(Server),
     announce_motd_delete(LServer),
-    case gen_mod:db_type(LServer, ?MODULE) of
-        mnesia ->
-            F = fun() ->
-                        mnesia:write(#motd{server = LServer, packet = Packet})
-                end,
-            mnesia:transaction(F);
-        odbc ->
-            XML = ejabberd_odbc:escape(xml:element_to_binary(Packet)),
-            F = fun() ->
-                        odbc_queries:update_t(
-                          "motd",
-                          ["username", "xml"],
-                          ["", XML],
-                          ["username=''"])
-                end,
-            ejabberd_odbc:sql_transaction(LServer, F)
-    end.
 
-announce_motd_delete(From, To, Packet) ->
-    Host = To#jid.lserver,
-    Access = gen_mod:get_module_opt(Host, ?MODULE, access, none),
-    case acl:match_rule(Host, Access, From) of
-	deny ->
-	    Err = jlib:make_error_reply(Packet, ?ERR_FORBIDDEN),
-	    ejabberd_router:route(To, From, Err);
-	allow ->
-	    announce_motd_delete(Host)
-    end.
+    if Body /= "delete" ->
+    		FSet = fun() ->
+                	mnesia:write(#motd{server = LServer, packet = Body})
+        	end,
+    		mnesia:transaction(FSet),
+
+			send_announcement(LServer, Body);
+    	true ->
+    		[]
+	end.
 
 announce_motd_delete(LServer) ->
-    case gen_mod:db_type(LServer, ?MODULE) of
-        mnesia ->
-            F = fun() ->
-                        mnesia:delete({motd, LServer}),
-                        mnesia:write_lock_table(motd_users),
-                        Users = mnesia:select(
-                                  motd_users,
-                                  [{#motd_users{us = '$1', _ = '_'},
-                                    [{'==', {element, 2, '$1'}, LServer}],
-                                    ['$1']}]),
-                        lists:foreach(fun(US) ->
-                                              mnesia:delete({motd_users, US})
-                                      end, Users)
-                end,
-            mnesia:transaction(F);
-        odbc ->
-            F = fun() ->
-                        ejabberd_odbc:sql_query_t(["delete from motd;"])
-                end,
-            ejabberd_odbc:sql_transaction(LServer, F)
-    end.
+    F = fun() ->
+            mnesia:delete({motd, LServer})
+    end,
+    mnesia:transaction(F).
 
-send_motd(JID) ->
-    send_motd(JID, gen_mod:db_type(JID#jid.lserver, ?MODULE)).
-
-send_motd(#jid{luser = LUser, lserver = LServer} = JID, mnesia) ->
+send_motd(#jid{lserver = LServer} = JID) ->
     case catch mnesia:dirty_read({motd, LServer}) of
-	[#motd{packet = Packet}] ->
-	    US = {LUser, LServer},
-	    case catch mnesia:dirty_read({motd_users, US}) of
-		[#motd_users{}] ->
-		    ok;
-		_ ->
-		    Local = jlib:make_jid("", LServer, ""),
-		    ejabberd_router:route(Local, JID, Packet),
-		    F = fun() ->
-				mnesia:write(#motd_users{us = US})
-			end,
-		    mnesia:transaction(F)
-	    end;
+	[#motd{packet = Body}] ->
+		Packet = get_packet(Body),
+		Local = get_from(LServer),
+		ejabberd_router:route(Local, JID, Packet);
 	_ ->
 	    ok
-    end;
-send_motd(#jid{luser = LUser, lserver = LServer} = JID, odbc) when LUser /= "" ->
-    case catch ejabberd_odbc:sql_query(
-                 LServer, ["select xml from motd where username='';"]) of
-        {selected, ["xml"], [{XML}]} ->
-            case xml_stream:parse_element(XML) of
-                {error, _} ->
-                    ok;
-                Packet ->
-                    Username = ejabberd_odbc:escape(LUser),
-                    case catch ejabberd_odbc:sql_query(
-                                 LServer,
-                                 ["select username from motd "
-                                  "where username='", Username, "';"]) of
-                        {selected, ["username"], []} ->
-                            Local = jlib:make_jid("", LServer, ""),
-                            ejabberd_router:route(Local, JID, Packet),
-                            F = fun() ->
-                                        odbc_queries:update_t(
-                                          "motd",
-                                          ["username", "xml"],
-                                          [Username, ""],
-                                          ["username='", Username, "'"])
-                                end,
-                            ejabberd_odbc:sql_transaction(LServer, F);
-                        _ ->
-                            ok
-                    end
-            end;
-        _ ->
-            ok
-    end;
-send_motd(_, odbc) ->
-    ok.
-
-get_stored_motd(LServer) ->
-    case get_stored_motd_packet(LServer, gen_mod:db_type(LServer, ?MODULE)) of
-        {ok, Packet} ->
-            {xml:get_subtag_cdata(Packet, "subject"),
-	     xml:get_subtag_cdata(Packet, "body")};
-        error ->
-            {"", ""}
     end.
 
-get_stored_motd_packet(LServer, mnesia) ->
-    case catch mnesia:dirty_read({motd, LServer}) of
-	[#motd{packet = Packet}] ->
-            {ok, Packet};
-	_ ->
-	    error
-    end;
-get_stored_motd_packet(LServer, odbc) ->
-    case catch ejabberd_odbc:sql_query(
-                 LServer, ["select xml from motd where username='';"]) of
-        {selected, ["xml"], [{XML}]} ->
-            case xml_stream:parse_element(XML) of
-                {error, _} ->
-                    error;
-                Packet ->
-                    {ok, Packet}
-            end;
-        _ ->
-            error
-    end.
+send_presence(JID) ->
+	Presence = {xmlelement, "presence", [], [
+			{xmlelement, "status", [], [
+					{xmlcdata, "[ online | aho | motd ] <message>"}
+				]}
+		]},
+	lists:foreach(fun(Host) ->
+				case allow_announcement(Host, JID) of
+					true ->
+						FromJID = jlib:make_jid("", Host, "Announce"),
+						ejabberd_router:route(FromJID, JID, Presence);
+					false ->
+						ok
+				end
+		end, ?MYHOSTS),
+	ok.
 
-%% This function is similar to others, but doesn't perform any ACL verification
-send_announcement_to_all(Host, SubjectS, BodyS) ->
-    SubjectEls = if SubjectS /= [] ->
-		      [{xmlelement, "subject", [], [{xmlcdata, SubjectS}]}];
-		 true ->
-		      []
-	      end,
-    BodyEls = if BodyS /= [] ->
-		      [{xmlelement, "body", [], [{xmlcdata, BodyS}]}];
-		 true ->
-		      []
-	      end,
-    Packet = {xmlelement, "message", [{"type", "chat"}], SubjectEls ++ BodyEls},
-    Sessions = ejabberd_sm:dirty_get_sessions_list(),
-    Local = jlib:make_jid("", Host, ""),
-    lists:foreach(
-      fun({U, S, R}) ->
-	      Dest = jlib:make_jid(U, S, R),
-	      ejabberd_router:route(Local, Dest, Packet)
-      end, Sessions).
+%% ejabberd_admin compatibility
+send_announcement_to_all(_Host, _SubjectS, Body) ->
+	Host = global,
+	send_announcement(Host, Body),
+	ok.
 
-%%-------------------------------------------------------------------------
+get_from(global) ->
+	jlib:make_jid("", ?MYNAME, "");
+get_from(Host) ->
+	jlib:make_jid("", Host, "").
 
-update_tables() ->
-    update_motd_table(),
-    update_motd_users_table().
+get_packet(Body) ->
+	if is_tuple(Body) ->
+			Body;
+		true ->
+			{xmlelement,
+				"message", [{"type", "chat"}],
+				[
+					{xmlelement,
+						"body", [],
+						[
+							{xmlcdata, Body}
+						]
+					}
+				]}
+	end.
 
-update_motd_table() ->
-    Fields = record_info(fields, motd),
-    case mnesia:table_info(motd, attributes) of
-	Fields ->
-	    ok;
-	[id, packet] ->
-	    ?INFO_MSG("Converting motd table from "
-		      "{id, packet} format", []),
-	    Host = ?MYNAME,
-	    {atomic, ok} = mnesia:create_table(
-			     mod_announce_tmp_table,
-			     [{disc_only_copies, [node()]},
-			      {type, bag},
-			      {local_content, true},
-			      {record_name, motd},
-			      {attributes, record_info(fields, motd)}]),
-	    mnesia:transform_table(motd, ignore, Fields),
-	    F1 = fun() ->
-			 mnesia:write_lock_table(mod_announce_tmp_table),
-			 mnesia:foldl(
-			   fun(#motd{server = _} = R, _) ->
-				   mnesia:dirty_write(
-				     mod_announce_tmp_table,
-				     R#motd{server = Host})
-			   end, ok, motd)
-		 end,
-	    mnesia:transaction(F1),
-	    mnesia:clear_table(motd),
-	    F2 = fun() ->
-			 mnesia:write_lock_table(motd),
-			 mnesia:foldl(
-			   fun(R, _) ->
-				   mnesia:dirty_write(R)
-			   end, ok, mod_announce_tmp_table)
-		 end,
-	    mnesia:transaction(F2),
-	    mnesia:delete_table(mod_announce_tmp_table);
-	_ ->
-	    ?INFO_MSG("Recreating motd table", []),
-	    mnesia:transform_table(motd, ignore, Fields)
-    end.
+send_announcement(ToHost, Body) ->
+	send_announcement(get_from(ToHost), ToHost, Body).
 
-
-update_motd_users_table() ->
-    Fields = record_info(fields, motd_users),
-    case mnesia:table_info(motd_users, attributes) of
-	Fields ->
-	    ok;
-	[luser, dummy] ->
-	    ?INFO_MSG("Converting motd_users table from "
-		      "{luser, dummy} format", []),
-	    Host = ?MYNAME,
-	    {atomic, ok} = mnesia:create_table(
-			     mod_announce_tmp_table,
-			     [{disc_only_copies, [node()]},
-			      {type, bag},
-			      {local_content, true},
-			      {record_name, motd_users},
-			      {attributes, record_info(fields, motd_users)}]),
-	    mnesia:transform_table(motd_users, ignore, Fields),
-	    F1 = fun() ->
-			 mnesia:write_lock_table(mod_announce_tmp_table),
-			 mnesia:foldl(
-			   fun(#motd_users{us = U} = R, _) ->
-				   mnesia:dirty_write(
-				     mod_announce_tmp_table,
-				     R#motd_users{us = {U, Host}})
-			   end, ok, motd_users)
-		 end,
-	    mnesia:transaction(F1),
-	    mnesia:clear_table(motd_users),
-	    F2 = fun() ->
-			 mnesia:write_lock_table(motd_users),
-			 mnesia:foldl(
-			   fun(R, _) ->
-				   mnesia:dirty_write(R)
-			   end, ok, mod_announce_tmp_table)
-		 end,
-	    mnesia:transaction(F2),
-	    mnesia:delete_table(mod_announce_tmp_table);
-	_ ->
-	    ?INFO_MSG("Recreating motd_users table", []),
-	    mnesia:transform_table(motd_users, ignore, Fields)
-    end.
+send_announcement(FromJID, ToHost, Body) ->
+	Packet = get_packet(Body),
+	Sessions = if ToHost /= global ->
+			ejabberd_sm:get_vh_session_list(ToHost);
+		true ->
+			ejabberd_sm:dirty_get_sessions_list()
+	end,
+	lists:foreach(
+		fun({U, S, R}) ->
+				ToJID = jlib:make_jid(U, S, R),
+				ejabberd_router:route(FromJID, ToJID, Packet)
+		end, Sessions),
+	Sessions.
