@@ -283,7 +283,7 @@ run1([{_Seq, Node, Module, Function} | Ls], Hook, Args) ->
 		      "The response is:~n~s", [self(), node(), Node, Res]), % debug code
 	    run1(Ls, Hook, Args)
     end;
-run1([{_Seq, Module, Function} | Ls], Hook, Args) ->
+run1([{Seq, Module, Function} | Ls], Hook, Args) ->
     Res = if is_function(Function) ->
 		  catch apply(Function, Args);
 	     true ->
@@ -291,8 +291,13 @@ run1([{_Seq, Module, Function} | Ls], Hook, Args) ->
 	  end,
     case Res of
 	{'EXIT', Reason} ->
-	    ?ERROR_MSG("~p~nrunning hook: ~p",
-		       [Reason, {Hook, Args}]),
+		case Reason of
+			{undef, [{Module, Function, _, _} | _]} ->
+				?WARNING_MSG("undef hook (attempting to remove): ~p for ~p", [{Seq, Module, Function}, Hook]),
+				delete_undef(Hook, Module, Function, Seq);
+			_ ->
+				?ERROR_MSG("~p~nrunning hook: ~p", [Reason, {Hook, Args}])
+		end,
 	    run1(Ls, Hook, Args);
 	stop ->
 	    ok;
@@ -324,7 +329,7 @@ run_fold1([{_Seq, Node, Module, Function} | Ls], Hook, Val, Args) ->
 		      "The NewVal is:~n~p", [self(), node(), Node, NewVal]), % debug code
 	    run_fold1(Ls, Hook, NewVal, Args)
     end;
-run_fold1([{_Seq, Module, Function} | Ls], Hook, Val, Args) ->
+run_fold1([{Seq, Module, Function} | Ls], Hook, Val, Args) ->
     Res = if is_function(Function) ->
 		  catch apply(Function, [Val | Args]);
 	     true ->
@@ -332,8 +337,13 @@ run_fold1([{_Seq, Module, Function} | Ls], Hook, Val, Args) ->
 	  end,
     case Res of
 	{'EXIT', Reason} ->
-	    ?ERROR_MSG("~p~nrunning hook: ~p",
-		       [Reason, {Hook, Args}]),
+		case Reason of
+			{undef, [{Module, Function, _, _} | _]} ->
+				?WARNING_MSG("undef hook (attempting to remove): ~p for ~p", [{Seq, Module, Function}, Hook]),
+				delete_undef(Hook, Module, Function, Seq);
+			_ ->
+				?ERROR_MSG("~p~nrunning hook: ~p", [Reason, {Hook, Args}])
+		end,
 	    run_fold1(Ls, Hook, Val, Args);
 	stop ->
 	    stopped;
@@ -342,3 +352,8 @@ run_fold1([{_Seq, Module, Function} | Ls], Hook, Val, Args) ->
 	NewVal ->
 	    run_fold1(Ls, Hook, NewVal, Args)
     end.
+
+delete_undef(Hook, Module, Function, Seq) ->
+	lists:foreach(fun(Host) ->
+				delete(Hook, Host, Module, Function, Seq)
+		end, ?MYHOSTS ++ [global]).
