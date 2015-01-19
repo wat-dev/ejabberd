@@ -64,6 +64,7 @@ start() ->
 
 
 start_module(Host, Module, Opts) ->
+	?WARNING_MSG("Starting module ~p@~s with options: ~p", [Module, Host, Opts]),
     set_module_opts_mnesia(Host, Module, Opts),
     ets:insert(ejabberd_modules,
 	       #ejabberd_module{module_host = {Module, Host},
@@ -105,9 +106,14 @@ stop_module(Host, Module) ->
 %% This function is useful when ejabberd is being stopped
 %% and it stops all modules.
 stop_module_keep_config(Host, Module) ->
+	?WARNING_MSG("Stopping module ~p@~s", [Module, Host]),
     case catch Module:stop(Host) of
+    {'EXIT', {noproc, Proc}} ->
+    	?ERROR_MSG("Stopping already stopped module ~p@~s (~p)", [Module, Host, Proc]),
+    	ets:delete(ejabberd_modules, {Module, Host}),
+    	ok;
 	{'EXIT', Reason} ->
-	    ?ERROR_MSG("~p", [Reason]),
+	    ?ERROR_MSG("Stopping ~p@~s: ~p", [Module, Host, Reason]),
 	    error;
 	{wait, ProcList} when is_list(ProcList) ->
 	    lists:foreach(fun wait_for_process/1, ProcList),
