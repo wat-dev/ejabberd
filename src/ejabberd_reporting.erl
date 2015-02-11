@@ -20,7 +20,7 @@ inets_start() ->
 	end.
 
 report(Data) ->
-	report(Data, {error, reporting_not_configured}).
+	report(Data, "reporting not configured").
 
 report(Data, Default) ->
     case inets_start() of
