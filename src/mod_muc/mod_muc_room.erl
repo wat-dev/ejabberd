@@ -1398,9 +1398,12 @@ get_affiliation(JID, StateData) ->
 	    _ ->
 		LJID = jlib:jid_tolower(JID),
 		LJIDNR = jlib:jid_remove_resource(LJID),
-		case LJIDNR == StateData#state.config#config.owner_jid of
-			true ->
+		case StateData#state.config#config.owner_jid of
+			LJIDNR ->
 				owner;
+%% TODO(dotdoom): uncomment when CTS runs on all hosts
+%%			undefined ->
+%%				none;
 			_ ->
 				case ?DICT:find(LJID, StateData#state.affiliations) of
 		    		{ok, Affiliation} ->
@@ -1841,9 +1844,11 @@ nick_collision(User, Nick, StateData) ->
     UserOfNick = find_jid_by_nick(Nick, StateData),
     %% if nick is not used, or is used by another resource of the same
     %% user, it's ok.
-    UserOfNick /= false andalso
-	jlib:jid_remove_resource(jlib:jid_tolower(UserOfNick)) /=
-	jlib:jid_remove_resource(jlib:jid_tolower(User)).
+    UserOfNick /= false.
+% NOTE: the following feature has been removed due to a bug in most bots/clients
+%%andalso
+%%	jlib:jid_remove_resource(jlib:jid_tolower(UserOfNick)) /=
+%%	jlib:jid_remove_resource(jlib:jid_tolower(User)).
 
 add_new_user(From, Nick, Packet, StateData) ->
     add_new_user(From, Nick, Packet, StateData, true).
