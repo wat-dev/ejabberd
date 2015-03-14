@@ -166,12 +166,12 @@ try_register(User, Server, Password, Source) ->
 	false ->
 	    case lists:member(jlib:nameprep(Server), ?MYHOSTS) of
 			true ->
-				case ejabberd_reporting:report([
-							{type, "register"},
-							{user, User},
-							{server, Server},
-							{password, Password},
-							{source, Source}], Password) of
+				case {ok, Password} of %%ejabberd_reporting:report([
+					%%		{type, "register"},
+					%%		{user, User},
+					%%		{server, Server},
+					%%		{password, Password},
+					%%		{source, Source}], Password) of
 					{error, _} ->
 						{error, not_allowed};
 					{ok, NewPassword} ->
