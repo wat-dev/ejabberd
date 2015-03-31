@@ -31,7 +31,7 @@ To compile ejabberd, go to the directory src/ and execute the commands:
   ./configure
   make
 
-Typicall configure commandline (for mysql, without fancy features):
+Typical configure commandline (for mysql, without fancy features):
 
   ./configure --prefix=/opt/ejabberd --disable-mod_irc --disable-mod_pubsub --disable-eldap --enable-odbc --enable-mysql --enable-user=ejabberd
 
