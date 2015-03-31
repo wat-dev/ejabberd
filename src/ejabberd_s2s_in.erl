@@ -350,9 +350,13 @@ wait_for_feature_request({xmlstreamelement, El}, StateData) ->
 			    error ->
 				false
 			end,
-		    AllowRemoteHost = ejabberd_s2s:allow_host("", AuthDomain),
-		    if
-			AuthRes andalso AllowRemoteHost ->
+			if StateData#state.server /= [] ->
+					ok;
+				true ->
+					?WARNING_MSG("check s2s for empty server from ~p", [AuthDomain])
+			end,
+			AllowRemoteHost = ejabberd_s2s:allow_host(StateData#state.server, AuthDomain),
+			if AuthRes andalso AllowRemoteHost ->
 			    (StateData#state.sockmod):reset_stream(
 			      StateData#state.socket),
 			    send_element(StateData,

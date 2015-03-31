@@ -53,6 +53,7 @@
          terminate/2, code_change/3]).
 %% ejabberd API
 -export([get_info_s2s_connections/1]).
+-export([stop_s2s/2]).
 
 -include("ejabberd.hrl").
 -include("jlib.hrl").
@@ -381,7 +382,8 @@ open_several_connections(N, MyServer, Server, From, FromTo,
 	 || _N <- lists:seq(1, N)],
     case [PID || {atomic, PID} <- ConnectionsResult] of
 	[] ->
-	    hd(ConnectionsResult);
+		?ERROR_MSG("s2s connection me:~p remote:~p (~p -> ~p) denied", [MyServer, Server, From, FromTo]),
+		{aborted, "s2s connection denied"};
 	PIDs ->
 	    {atomic, choose_pid(From, PIDs)}
     end.
@@ -581,3 +583,15 @@ get_s2s_state(S2sPid)->
 		{'EXIT',_} -> [{status, error}]
 	    end,
     [{s2s_pid, S2sPid} | Infos].
+
+stop_s2s(Dir, StreamID) ->
+	lists:foldl(fun(StateInfos, Count) ->
+				case proplists:get_value(streamid, StateInfos) of
+					StreamID ->
+						Pid = proplists:get_value(s2s_pid, StateInfos),
+						gen_fsm:send_event(Pid, {xmlstreamend, whatever}),
+						Count + 1;
+					_ ->
+						Count
+				end
+		end, 0, get_info_s2s_connections(Dir)).
