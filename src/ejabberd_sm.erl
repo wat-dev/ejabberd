@@ -43,6 +43,7 @@
 	 dirty_get_sessions_list/0,
 	 dirty_get_my_sessions_list/0,
 	 get_vh_session_list/1,
+	 get_vh_session_extended_list/1,
 	 get_vh_session_number/1,
 	 register_iq_handler/4,
 	 register_iq_handler/5,
@@ -54,6 +55,7 @@
 	 get_session_pid/3,
 	 get_user_info/3,
 	 get_user_ip/3,
+	 stop_c2s/3,
 	 is_existing_resource/3
 	]).
 
@@ -128,6 +130,27 @@ bounce_offline_message(From, To, Packet) ->
     Err = jlib:make_error_reply(Packet, ?ERR_SERVICE_UNAVAILABLE),
     ejabberd_router:route(To, From, Err),
     stop.
+
+%%is_subscribed(Session, JID) when is_record(jid, JID) ->
+%%	Subs = proplists:get_value(subscriptions, Session#session.info),
+%%	case Subs of
+%%		undefined ->
+%%			false;
+%%		_ ->
+%%			NoResourceJID = jlib:jid_remove_resource(JID),
+%%			{lists:any(fun(JID) -> JID == NoResourceJID end, Subs), Session}
+%%	end;
+
+%%is_subscribed(UserJID, JID) ->
+%%	UserJIDLower = jlib:jid_tolower(UserJID),
+%%	USR = {UserJIDLower#jid.user, UserJIDLower#jid.server, UserJIDLower#jid.resource},
+%%	case mnesia:dirty_index_read(session, USR, #session.usr) of
+%%		[] ->
+%%			false;
+%%		Ss ->
+%%			Session = lists:max(Ss),
+%%			is_subscribed(Session, JID)
+%%	end.
 
 disconnect_removed_user(User, Server) ->
     ejabberd_sm:route(jlib:make_jid("", "", ""),
@@ -212,6 +235,14 @@ dirty_get_my_sessions_list() ->
       session,
       [{#session{sid = {'_', '$1'}, _ = '_'},
 	[{'==', {node, '$1'}, node()}],
+	['$_']}]).
+
+get_vh_session_extended_list(Server) ->
+    LServer = jlib:nameprep(Server),
+    mnesia:dirty_select(
+      session,
+      [{#session{usr = '$1', _ = '_'},
+	[{'==', {element, 2, '$1'}, LServer}],
 	['$_']}]).
 
 get_vh_session_list(Server) ->
@@ -651,6 +682,23 @@ check_existing_resources(LUser, LServer, LResource) ->
 		      Pid ! replaced;
 		 (_) -> ok
 	      end, SIDs)
+    end.
+
+stop_c2s(User, Server, Resource) ->
+    LUser = jlib:nodeprep(User),
+    LServer = jlib:nameprep(Server),
+    LResource = jlib:resourceprep(Resource),
+
+    SIDs = get_resource_sessions(LUser, LServer, LResource),
+    if
+	SIDs == [] -> 0;
+	true ->
+	    lists:foreach(
+	      fun({_, Pid} = S) ->
+		      Pid ! replaced;
+		 (_) -> ok
+	      end, SIDs),
+		length(SIDs)
     end.
 
 is_existing_resource(LUser, LServer, LResource) ->
