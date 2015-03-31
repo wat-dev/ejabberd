@@ -124,7 +124,7 @@ init([Host, ServerHost, Access, Room, HistorySize, RoomShaper, Creator, _Nick, D
 				   just_created = true,
 				   room_shaper = Shaper}),
     State1 = set_opts(DefRoomOpts, State),
-    ?WARNING_MSG("Created MUC room ~s@~s by ~s", 
+    ?INFO_MSG("Created MUC room ~s@~s by ~s", 
 	      [Room, Host, jlib:jid_to_string(Creator)]),
     add_to_log(room_existence, created, State1),
     add_to_log(room_existence, started, State1),
@@ -666,7 +666,7 @@ handle_event({destroy, Reason}, _StateName, StateData) ->
                    [{xmlelement, "reason",
                      [], [{xmlcdata, Reason}]}]
            end}, StateData),
-    ?WARNING_MSG("Destroyed MUC room ~s with reason: ~p", 
+    ?INFO_MSG("Destroyed MUC room ~s with reason: ~p", 
 	      [jlib:jid_to_string(StateData#state.jid), Reason]),
     add_to_log(room_existence, destroyed, StateData),
     {stop, shutdown, StateData};
@@ -720,7 +720,9 @@ handle_sync_event({get_info, Extended}, _From, StateName, StateData) ->
     							]
     					end, ?DICT:to_list(StateData#state.users))},
     			{config,
-    				lists:zip(record_info(fields, config), tl(tuple_to_list(StateData#state.config)))}
+    				lists:zip(record_info(fields, config), tl(tuple_to_list(StateData#state.config)))},
+    			{captcha_whitelist,
+    				?SETS:to_list((StateData#state.config)#config.captcha_whitelist)}
     		];
     	_ ->
     		[]
@@ -735,7 +737,7 @@ handle_sync_event({get_info, Extended}, _From, StateName, StateData) ->
 	] ++ ExtendedInfo}, StateName, StateData};
 
 handle_sync_event({set_owner, Owner}, _From, StateName, StateData) ->
-	{reply, ok, StateName, StateData#state{config = StateData#state.config#config{owner_jid = jlib:jid_tolower(jlib:jid_remove_resource(Owner))}}};
+	{reply, ok, StateName, StateData#state{config = StateData#state.config#config{owner_jid = jlib:jid_remove_resource(Owner)}}};
 
 handle_sync_event({change_config, Config}, _From, StateName, StateData) ->
     {result, [], NSD} = change_config(Config, StateData),
@@ -1840,7 +1842,7 @@ is_nick_change(JID, Nick, StateData) ->
 	    Nick /= OldNick
     end.
 
-nick_collision(User, Nick, StateData) ->
+nick_collision(_User, Nick, StateData) ->
     UserOfNick = find_jid_by_nick(Nick, StateData),
     %% if nick is not used, or is used by another resource of the same
     %% user, it's ok.
@@ -3758,9 +3760,9 @@ set_opts([{Opt, Val} | Opts], StateData) ->
 	      owner_jid ->
 	      	case Val of
 	      		JID when is_record(JID, jid) ->
-	      			StateData#state{config = (StateData#state.config)#config{owner_jid = jlib:jid_tolower(jlib:jid_remove_resource(Val))}};
+	      			StateData#state{config = (StateData#state.config)#config{owner_jid = jlib:jid_remove_resource(Val)}};
 	      		JID when is_list(JID) ->
-	      			StateData#state{config = (StateData#state.config)#config{owner_jid = jlib:jid_tolower(jlib:jid_remove_resource(jlib:string_to_jid(Val)))}};
+	      			StateData#state{config = (StateData#state.config)#config{owner_jid = jlib:jid_remove_resource(jlib:string_to_jid(Val))}};
 	      		_ ->
 	      			StateData
 	      	end;
