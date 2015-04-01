@@ -1562,6 +1562,8 @@ terminate(_Reason, StateName, StateData) ->
 %%%----------------------------------------------------------------------
 
 change_shaper(StateData, JID) ->
+	%% put JID to the process' dictionary for easier crash troubleshooting
+	put(jid, jlib:jid_to_string(JID)),
     Shaper = acl:match_rule(StateData#state.server,
 			    StateData#state.shaper, JID),
     (StateData#state.sockmod):change_shaper(StateData#state.socket, Shaper).
