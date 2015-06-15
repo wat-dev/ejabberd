@@ -1914,53 +1914,36 @@ check_privacy_route(From, StateData, FromRoute, To, Packet) ->
     end.
 
 privacy_check_packet(StateData, From, To, Packet, Dir) ->
-%%	LFrom = jlib:jid_tolower(From),
-%%	LBFrom = jlib:jid_remove_resource(LFrom),
-%%	HasSubscription =
-%%	case ?SETS:is_element(LFrom, StateData#state.pres_f) of
-%%		true ->
-%%			true;
-%%		false ->
-%%			?SETS:is_element(LBFrom, StateData#state.pres_f)
-%%	end,
-%%	SameServerFun = fun() ->
-%%			ToLower = jlib:jid_tolower(To),
-%%			if ToLower#jid.lserver == LFrom#jid.lserver ->
-%%					true;
-%%				true ->
-%%					false
-%%			end
-%%	end,
-%%	SameServer =
-%%SameServer	case catch SameServerFun() of
-%%		{'EXIT', Reason} ->
-%%			?WARNING_MSG("Error: ~p for ~p -> ~p", [Reason, LFrom, To]),
-%%			false;
-%%		Value ->
-%%			Value
-%%	end,
-%%	AllowPacket =
-%%	case {HasSubscription, SameServer} of
-%%		{true, _} ->
-%%			true;
-%%		{false, false} ->
-%%			true;
-%%		_ ->
-%%			false
-%%	end,
-%%	case AllowPacket of
-%%		true ->
-	    ejabberd_hooks:run_fold(
-      privacy_check_packet, StateData#state.server,
-      allow,
-      [StateData#state.user,
-       StateData#state.server,
-       StateData#state.privacy_list,
-       {From, To, Packet},
-       Dir]).
-%%        _ -> deny
-%%    end.
+	AllowPacket =
+	case Packet of
+		{xmlelement, "message", _, _} ->
+			case To#jid.lserver == From#jid.lserver of
+				true ->
+					BareFrom = jlib:jid_remove_resource(From),
+					SFrom = jlib:jid_tolower(From),
+					BSFrom = jlib:jid_tolower(BareFrom),
+					?SETS:is_element(SFrom, StateData#state.pres_f) orelse
+					?SETS:is_element(BSFrom, StateData#state.pres_f);
+				_ ->
+					true
+			end;
+		_ ->
+			true
+	end,
 
+	case AllowPacket of
+		true ->
+	    	ejabberd_hooks:run_fold(
+      	  	  privacy_check_packet, StateData#state.server,
+      	  	  allow,
+      	  	  [StateData#state.user,
+       	   	   StateData#state.server,
+       	   	   StateData#state.privacy_list,
+       	   	   {From, To, Packet},
+       	   	   Dir]);
+      	_ ->
+       		deny
+    end.
 
 %% Check if privacy rules allow this delivery
 is_privacy_allow(StateData, From, To, Packet, Dir) ->
