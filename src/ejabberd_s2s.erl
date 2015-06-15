@@ -564,16 +564,10 @@ get_info_s2s_connections(Type) ->
 		    out -> ejabberd_s2s_out_sup
 		end,
     Connections = supervisor:which_children(ChildType),
-    get_s2s_info(Connections,Type).
-
-get_s2s_info(Connections,Type)->
-    complete_s2s_info(Connections,Type,[]).
-complete_s2s_info([],_,Result)->
-    Result;
-complete_s2s_info([Connection|T],Type,Result)->
-    {_,PID,_,_}=Connection,
-    State = get_s2s_state(PID),
-    complete_s2s_info(T,Type,[State|Result]).
+    plists:map(fun(C) ->
+    			{_, PID, _, _} = C,
+    			get_s2s_state(PID)
+    	end, Connections).
 
 get_s2s_state(S2sPid)->
     Infos = case catch gen_fsm:sync_send_all_state_event(S2sPid,get_state_infos) of

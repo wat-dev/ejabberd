@@ -146,16 +146,17 @@ room_info(RoomHost, Name, Extended) ->
 
 room_infos(RoomHost, Extended) ->
 	Rooms = ets:tab2list(muc_online_room),
-	lists:foldl(fun({_, {_RoomName, Host}, Pid}, Results) ->
-				case RoomHost of
-					"" ->
-						[gen_fsm:sync_send_all_state_event(Pid, {get_info, Extended}) | Results];
-					Host ->
-						[gen_fsm:sync_send_all_state_event(Pid, {get_info, Extended}) | Results];
-					_ ->
-						Results
-				end
-		end, [], Rooms).
+	lists:filter(fun(X) -> X /= nil end,
+		plists:map(fun({_, {_RoomName, Host}, Pid}) ->
+					case RoomHost of
+						"" ->
+							gen_fsm:sync_send_all_state_event(Pid, {get_info, Extended});
+						Host ->
+							gen_fsm:sync_send_all_state_event(Pid, {get_info, Extended});
+						_ ->
+							nil
+					end
+			end, Rooms)).
 
 room_set_owner(RoomHost, Name, Owner) ->
 	case is_record(Owner, jid) of

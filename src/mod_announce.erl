@@ -100,21 +100,16 @@ announce(From, To, Packet) ->
 	    	Proc = gen_mod:get_module_proc(To#jid.lserver, ?PROCNAME),
     		Body = xml:get_subtag_cdata(Packet, "body"),
 
-    		case allow_announcement(To#jid.lserver, From) of
-    			true ->
-	    			case Body of
-	    				"online " ++ MeaningfulBody ->
-	    					Proc ! {announce_online, From, To, MeaningfulBody},
-	    					stop;
-	    				"aho " ++ MeaningfulBody ->
-	    					Proc ! {announce_all_hosts_online, From, To, MeaningfulBody},
-	    					stop;
-	    				"motd " ++ MeaningfulBody ->
-	    					Proc ! {announce_motd, From, To, MeaningfulBody},
-	    					stop;
-	    				_ ->
-	    					ok
-	    			end;
+	    	case Body of
+	    		"online " ++ MeaningfulBody ->
+	    			Proc ! {announce_online, From, To, MeaningfulBody},
+	    			stop;
+	    		"aho " ++ MeaningfulBody ->
+	    			Proc ! {announce_all_hosts_online, From, To, MeaningfulBody},
+	    			stop;
+	    		"motd " ++ MeaningfulBody ->
+	    			Proc ! {announce_motd, From, To, MeaningfulBody},
+	    			stop;
 	    		_ ->
 	    			ok
 	    	end;
@@ -124,11 +119,12 @@ announce(From, To, Packet) ->
 
 %%-------------------------------------------------------------------------
 
-report(From, To, Body) ->
+report(From, To, Body, Type) ->
 	case ejabberd_reporting:report([
 				{from, jlib:jid_to_string(From)},
 				{to, jlib:jid_to_string(To)},
-				{body, Body}]) of
+				{body, Body},
+				{type, Type}]) of
 		{ok, Data} ->
 			?INFO_MSG("Announcement ~s confirmed: ~p", [To#jid.resource, Data]),
 			ok;
@@ -157,20 +153,11 @@ run_announcement(From, To, Host, Body, Code) ->
     	false ->
     		ejabberd_router:route(To, From, get_packet("Forbidden by Ejabberd"));
     	true ->
-    		case report(From, To, Body) of
+    		case report(From, To, Body, lists:flatten(io_lib:format("~p", [Code]))) of
     			ok ->
-    				Reply =
-    				case catch Code() of
-    					{'EXIT', Reason} ->
-    						?ERROR_MSG("FIXME: ~p", [Reason]),
-    						"Something wrong happened";
-    					Sessions when is_list(Sessions) ->
-    						TargetUsersCount = length(Sessions),
-    						lists:flatten(io_lib:format("Announcement sent to ~p users", [TargetUsersCount]));
-    					_ ->
-    						?ERROR_MSG("ERROR", []),
-    						"Something really bad happened"
-    				end,
+    				Sessions = Code(Host, Body),
+    				TargetUsersCount = length(Sessions),
+    				Reply = lists:flatten(io_lib:format("Announcement sent to ~p users", [TargetUsersCount])),
     				ejabberd_router:route(To, From, get_packet(Reply));
     			Error ->
     				ejabberd_router:route(To, From, get_packet("Forbidden by CTS: " ++ Error))
@@ -178,19 +165,13 @@ run_announcement(From, To, Host, Body, Code) ->
     end.
 
 announce_online(From, To, Body) ->
-	run_announcement(From, To, To#jid.lserver, Body, fun() ->
-				send_announcement(To#jid.lserver, Body)
-		end).
+	run_announcement(From, To, To#jid.lserver, Body, fun send_announcement/2).
 
 announce_all_hosts_online(From, To, Body) ->
-	run_announcement(From, To, global, Body, fun() ->
-				send_announcement(global, Body)
-		end).
+	run_announcement(From, To, global, Body, fun send_announcement/2).
 
 announce_motd(From, To, Body) ->
-	run_announcement(From, To, To#jid.lserver, Body, fun() ->
-				announce_motd(To#jid.lserver, Body)
-		end).
+	run_announcement(From, To, To#jid.lserver, Body, fun announce_motd/2).
 
 announce_motd(Server, Body) ->
 	LServer = jlib:nameprep(Server),

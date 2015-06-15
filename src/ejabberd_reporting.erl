@@ -31,7 +31,7 @@ report(Data, Default) ->
     				{ok, Default};
     			_ ->
     				URL = proplists:get_value(url, ReportingSettings),
-    				AuthToken = proplists:get_value(auth_token, ReportingSettings),
+    				AuthToken = erlang:atom_to_list(erlang:get_cookie()),
     				Timeout = proplists:get_value(processing_timeout, ReportingSettings, 2000),
     				ConnectTimeout = proplists:get_value(connect_timeout, ReportingSettings, 500),
     				Result = httpc:request(post,
