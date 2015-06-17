@@ -80,6 +80,8 @@
 	 set_vcard/26,
 	 get_vcard/2,
 	 escape/1,
+	 set_failure_time/3,
+	 get_failure_time/2,
 	 add_security_log/7,
 	 count_records_where/3,
 	 get_roster_version/2,
@@ -173,6 +175,17 @@ get_password(LServer, Username) ->
       LServer,
       ["select AES_DECRYPT(UNHEX(password), " ?PASSWORD_ENCRYPTION_KEY(LServer) ") AS password from users "
        "where username='", Username, "';"]).
+
+get_failure_time(LServer, Username) ->
+	ejabberd_odbc:sql_query(
+	  LServer,
+	  ["SELECT last_login_failure FROM users WHERE username='", Username, "';"]).
+
+set_failure_time(LServer, Username, Time) ->
+    ejabberd_odbc:sql_query(
+      LServer,
+      ["UPDATE users SET last_login_failure = ", lists:flatten(io_lib:format("~p", [Time])),
+       " WHERE username = '", Username, "';"]).
 
 set_password_t(LServer, Username, Pass) ->
     ejabberd_odbc:sql_transaction(
