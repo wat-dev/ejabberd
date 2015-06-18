@@ -588,7 +588,7 @@ add_security_log(LServer, Username, Server, Source, Action, Description, Timesta
 	STimestamp = lists:flatten(io_lib:format("~4..0b-~2..0b-~2..0b ~2..0b:~2..0b:~2..0b",
 			[TYear, TMonth, TDay, THour, TMin, TSec])),
 	ejabberd_odbc:sql_query(LServer,
-		["INSERT INTO security_logs.ejabberd (username, server, source, action, description, timestamp) "
+		["INSERT DELAYED INTO security_logs.ejabberd (username, server, source, action, description, timestamp) "
 		"VALUES ('", Username, "', '", Server, "', '", Source, "', '", Action, "', '", Description, "', '", STimestamp, "');"]).
 
 %% Characters to escape
