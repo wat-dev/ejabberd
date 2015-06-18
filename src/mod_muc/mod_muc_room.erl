@@ -737,7 +737,13 @@ handle_sync_event({get_info, Extended}, _From, StateName, StateData) ->
 	] ++ ExtendedInfo}, StateName, StateData};
 
 handle_sync_event({set_owner, Owner}, _From, StateName, StateData) ->
-	{reply, ok, StateName, StateData#state{config = StateData#state.config#config{owner_jid = jlib:jid_remove_resource(Owner)}}};
+	NSD = StateData#state{config = StateData#state.config#config{owner_jid = jlib:jid_remove_resource(Owner)}},
+	mod_muc:store_room(
+      NSD#state.server_host,
+	  NSD#state.host,
+	  NSD#state.room,
+	  make_opts(NSD)),
+	{reply, ok, StateName, NSD};
 
 handle_sync_event({change_config, Config}, _From, StateName, StateData) ->
     {result, [], NSD} = change_config(Config, StateData),
