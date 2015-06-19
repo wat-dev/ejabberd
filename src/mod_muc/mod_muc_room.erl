@@ -1128,9 +1128,8 @@ process_presence(From, Nick, {xmlelement, "presence", Attrs, _Els} = Packet,
 				      mod_muc:can_use_nick(
                                         StateData#state.server_host,
 					StateData#state.host, From, Nick),
-                                      {(StateData#state.config)#config.allow_visitor_nickchange,
-                                       is_visitor(From, StateData)}} of
-                                    {_, _, {false, true}} ->
+					  is_member_or_above(From, StateData)} of
+                                    {_, _, false} ->
 					ErrText = "Visitors are not allowed to change their nicknames in this room",
 					Err = jlib:make_error_reply(
 						Packet,
@@ -1534,6 +1533,16 @@ get_default_role(Affiliation, StateData) ->
 
 is_visitor(Jid, StateData) ->
     get_role(Jid, StateData) =:= visitor.
+
+is_member_or_above(Jid, StateData) ->
+	case get_affiliation(Jid, StateData) of
+		none ->
+			false;
+		outcast ->
+			false;
+		_ ->
+			true
+	end.
 
 is_moderator(Jid, StateData) ->
     get_role(Jid, StateData) =:= moderator.
