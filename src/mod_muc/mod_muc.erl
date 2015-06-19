@@ -250,6 +250,8 @@ process_iq_disco_items(Host, From, To, #iq{lang = Lang} = IQ) ->
 
 can_use_nick(_ServerHost, _Host, _JID, "") ->
     false;
+can_use_nick(_ServerHost, _Host, _JID, Nick) when length(Nick) > 30 ->
+	false;
 can_use_nick(ServerHost, Host, JID, Nick) ->
     LServer = jlib:nameprep(ServerHost),
     can_use_nick(LServer, Host, JID, Nick, gen_mod:db_type(LServer, ?MODULE)).
