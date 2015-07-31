@@ -231,10 +231,10 @@ is_user_exists(User, Server) ->
 	LUser ->
 	    Username = ejabberd_odbc:escape(LUser),
 	    LServer = jlib:nameprep(Server),
-	    try odbc_queries:get_password(LServer, Username) of
-		{selected, ["password"], [{_Password}]} ->
+	    try odbc_queries:get_user(LServer, Username) of
+		{selected, ["1"], [{"1"}]} ->
 		    true; %% Account exists
-		{selected, ["password"], []} ->
+		{selected, ["1"], []} ->
 		    false; %% Account does not exist
 		{error, Error} ->
 		    {error, Error} %% Typical error is that table doesn't exist

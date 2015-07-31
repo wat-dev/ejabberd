@@ -34,6 +34,7 @@
 	 set_last_t/4,
 	 del_last/2,
 	 get_password/2,
+	 get_user/2,
 	 set_password_t/3,
 	 add_user/4,
 	 del_user/2,
@@ -175,6 +176,11 @@ get_password(LServer, Username) ->
       LServer,
       ["select AES_DECRYPT(UNHEX(password), " ?PASSWORD_ENCRYPTION_KEY(LServer) ") AS password from users "
        "where username='", Username, "';"]).
+
+get_user(LServer, Username) ->
+	ejabberd_odbc:sql_query(
+	  LServer,
+	  ["select 1 from users where username='", Username, "';"]).
 
 get_failure_time(LServer, Username) ->
 	ejabberd_odbc:sql_query(
