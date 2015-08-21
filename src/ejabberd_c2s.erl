@@ -1917,8 +1917,9 @@ privacy_check_packet(StateData, From, To, Packet, Dir) ->
 	AllowPacket =
 	case Packet of
 		{xmlelement, "message", _, _} ->
-			case To#jid.lserver == From#jid.lserver of
-				true ->
+			case (string:substr(To#jid.lserver, 1, 11) == "conference.") or
+				 (string:substr(From#jid.lserver, 1, 11) == "conference.") of
+				false ->
 					BareFrom = jlib:jid_remove_resource(From),
 					SFrom = jlib:jid_tolower(From),
 					BSFrom = jlib:jid_tolower(BareFrom),
@@ -1933,17 +1934,17 @@ privacy_check_packet(StateData, From, To, Packet, Dir) ->
 
 	case AllowPacket of
 		true ->
-	    	ejabberd_hooks:run_fold(
-      	  	  privacy_check_packet, StateData#state.server,
-      	  	  allow,
-      	  	  [StateData#state.user,
-       	   	   StateData#state.server,
-       	   	   StateData#state.privacy_list,
-       	   	   {From, To, Packet},
-       	   	   Dir]);
-      	_ ->
-       		deny
-    end.
+			ejabberd_hooks:run_fold(
+				privacy_check_packet, StateData#state.server,
+				allow,
+				[StateData#state.user,
+				 StateData#state.server,
+				 StateData#state.privacy_list,
+				 {From, To, Packet},
+				 Dir]);
+		_ ->
+			deny
+	end.
 
 %% Check if privacy rules allow this delivery
 is_privacy_allow(StateData, From, To, Packet, Dir) ->
