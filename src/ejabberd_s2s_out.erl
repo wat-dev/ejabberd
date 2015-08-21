@@ -344,7 +344,7 @@ wait_for_stream({xmlstreamend,_Name}, StateData) ->
     {stop, normal, StateData};
 
 wait_for_stream({xmlstreamelement, {xmlelement, "stream:error", _Attr, E}}, StateData) ->
-	?WARNING_MSG("Closing s2s connection: ~s -> ~s (stream:error ~p)",
+	?INFO_MSG("Closing s2s connection: ~s -> ~s (stream:error ~p)",
 		[StateData#state.myname, StateData#state.server, E]),
 	{stop, normal, StateData};
 
