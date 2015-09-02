@@ -165,6 +165,10 @@ BEGIN
 	SET @target_table = "privacy_list_data";
 	CALL optimization_copy_table();
 	CREATE INDEX i_privacy_l_d_id ON privacy_list_data_for_optimization(id);
+
+	SET @target_table = "private_storage";
+	CALL optimization_copy_table();
+	CREATE INDEX i_private_storage_username USING BTREE ON private_storage(username);
 END//
 
 DROP PROCEDURE IF EXISTS optimization_apply;
@@ -197,6 +201,9 @@ BEGIN
 	CALL optimization_apply_table();
 
 	SET @target_table = "privacy_list_data";
+	CALL optimization_apply_table();
+
+	SET @target_table = "private_storage";
 	CALL optimization_apply_table();
 END//
 
@@ -285,6 +292,7 @@ BEGIN
 	CALL autoclean_users_dependencies("rostergroups");
 	CALL autoclean_users_dependencies("vcard");
 	CALL autoclean_users_dependencies("privacy_list");
+	CALL autoclean_users_dependencies("private_storage");
 
 	CALL autoclean_operation("removing dangling privacy list data", "privacy_list_data",
 		"id NOT IN (SELECT id FROM privacy_list_for_optimization)");
@@ -303,8 +311,8 @@ DROP PROCEDURE IF EXISTS autoclean;
 CREATE PROCEDURE autoclean()
 BEGIN
 	CALL optimization_copy();
-	CALL autoclean_users(12);
-	CALL autoclean_spool(6);
+	CALL autoclean_users(6);
+	CALL autoclean_spool(3);
 	CALL optimization_apply();
 END//
 

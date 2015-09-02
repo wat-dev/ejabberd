@@ -103,7 +103,7 @@ update(Server, JID, Dir) ->
 		    write(Dir, R#pres_counter{logged = true}),
 		    case Dir of
 			in ->
-			    ?WARNING_MSG(
+			    ?INFO_MSG(
 			       "User ~s is being flooded, "
 			       "ignoring received presence subscriptions",
 			       [jlib:jid_to_string(JID)]);
@@ -112,7 +112,7 @@ update(Server, JID, Dir) ->
 				   JID#jid.luser,
 				   JID#jid.lserver,
 				   JID#jid.lresource),
-			    ?WARNING_MSG(
+			    ?INFO_MSG(
 			       "Flooder detected: ~s, on IP: ~s "
 			       "ignoring sent presence subscriptions~n",
 			       [jlib:jid_to_string(JID),

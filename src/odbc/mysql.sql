@@ -258,6 +258,7 @@ CREATE TABLE muc_registered (
 ) CHARACTER SET utf8;
 
 CREATE INDEX i_muc_registered_nick USING BTREE ON muc_registered(nick(75));
+CREATE UNIQUE INDEX i_muc_registered_nick_host USING BTREE ON muc_registered(nick(75), host(75));
 CREATE UNIQUE INDEX i_muc_registered_jid_host USING BTREE ON muc_registered(jid(75), host(75));
 
 CREATE TABLE irc_custom (

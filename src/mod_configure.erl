@@ -662,7 +662,7 @@ set_form(From, Host, ?NS_ADMINL("change-user-password"), _Lang, XData) ->
     true = (Server == Host) orelse (get_permission_level(From) == global),
     true = ejabberd_auth:is_user_exists(User, Server),
     true = (get_permission_level(From) == global) orelse (get_permission_level(JID) /= global),
-    ejabberd_auth:set_password(User, Server, Password),
+    %%ejabberd_auth:set_password(User, Server, Password),
     {result, []};
 
 set_form(From, Host, ?NS_ADMINL("get-user-lastlogin"), Lang, XData) ->

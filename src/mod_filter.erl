@@ -54,8 +54,8 @@ user_send_packet(_From, _To, _Packet) ->
 	ok.
 
 bad_words() ->
-	{ok, R} = re:compile("goo\.gl|rb2\.in|wed\.sy|v\.ht|syriat..?k\.[a-z]{2,3}|matrix[a-z]*\.[a-z]{2,3}|syriaroom\.[a-z]{2,3}|syriabuzz\.org|emoje\.[a-z]{2,3}|jsmart.web.id|talko\.ml", [caseless]),
-	[{R, "syriatalk.biz"}].
+	{ok, R} = re:compile(" dot ", [caseless]),
+	[{R, " d0t "}].
 filter_out_word({BadWord, GoodWord}, String) ->
     re:replace(String, BadWord, GoodWord, [global, {return, list}]).
 filter_string(String) ->

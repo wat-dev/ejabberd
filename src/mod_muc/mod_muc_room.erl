@@ -490,7 +490,7 @@ normal_state({route, From, Nick,
 	(Now >= Activity#activity.presence_time + MinPresenceInterval) and
 	(Activity#activity.presence == undefined) ->
 	    %NewActivity = Activity#activity{presence_time = Now},
-            NewActivity = Activity#activity{presence = {Nick, Packet}},
+            NewActivity = Activity#activity{presence = {Nick, Packet}, presence_time = Now},
             StateData1 = store_user_activity(From, NewActivity, StateData),
             handle_info({process_user_presence, From}, normal_state,
                         StateData1);
@@ -1206,7 +1206,7 @@ process_presence(From, Nick, {xmlelement, "presence", Attrs, _Els} = Packet,
     case (not (StateData1#state.config)#config.persistent) andalso
 	(?DICT:to_list(StateData1#state.users) == []) of
 	true ->
-	    ?WARNING_MSG("Destroyed MUC room ~s because it's temporary and empty", 
+	    ?INFO_MSG("Destroyed MUC room ~s because it's temporary and empty", 
 		      [jlib:jid_to_string(StateData#state.jid)]),
 	    add_to_log(room_existence, destroyed, StateData),
 	    {stop, normal, StateData1};
@@ -1406,8 +1406,8 @@ get_affiliation(JID, StateData) ->
 		LJID = jlib:jid_tolower(JID),
 		LJIDNR = jlib:jid_remove_resource(LJID),
 		case StateData#state.config#config.owner_jid of
-			LJIDNR ->
-				owner;
+%%			LJIDNR ->
+%%				owner;
 %% TODO(dotdoom): uncomment when CTS runs on all hosts
 %%			undefined ->
 %%				none;

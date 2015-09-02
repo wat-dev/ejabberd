@@ -248,13 +248,35 @@ process_iq_disco_items(Host, From, To, #iq{lang = Lang} = IQ) ->
 			  From,
 			  jlib:iq_to_xml(Res)).
 
+utf8_length(Data) ->
+	case catch erlang:list_to_binary(Data) of
+		Bin when is_binary(Bin) ->
+			case catch unicode:characters_to_list(Bin, utf8) of
+				List when is_list(List) ->
+					length(List);
+				_ ->
+					length(Data)
+			end;
+		_ ->
+			length(Data)
+	end.
+
 can_use_nick(_ServerHost, _Host, _JID, "") ->
     false;
-can_use_nick(_ServerHost, _Host, _JID, Nick) when length(Nick) > 30 ->
-	false;
 can_use_nick(ServerHost, Host, JID, Nick) ->
-    LServer = jlib:nameprep(ServerHost),
-    can_use_nick(LServer, Host, JID, Nick, gen_mod:db_type(LServer, ?MODULE)).
+	case utf8_length(Nick) > 30 of
+		true ->
+			false;
+		_ ->
+			case string:str(string:to_lower(Nick), "syriaroom") > 0 of
+				true ->
+					false;
+				_ ->
+    		LServer = jlib:nameprep(ServerHost),
+    		can_use_nick(LServer, Host, JID, Nick, odbc)%%gen_mod:db_type(LServer, ?MODULE))
+    		end
+
+	end.
 
 can_use_nick(_LServer, Host, JID, Nick, mnesia) ->
     {LUser, LServer, _} = jlib:jid_tolower(JID),
@@ -725,7 +747,7 @@ start_new_room(Host, ServerHost, Access, Room,
 	    mod_muc_room:start(Host, ServerHost, Access,
 			       Room, HistorySize,
 			       RoomShaper, From,
-			       Nick, DefRoomOpts);
+			       Nick, DefRoomOpts ++ [{persistent, false}]);
         Opts ->
 	    ?DEBUG("MUC: restore room '~s'~n", [Room]),
 	    mod_muc_room:start(Host, ServerHost, Access,
@@ -861,7 +883,7 @@ iq_get_unique(From) ->
 
 get_nick(ServerHost, Host, From) ->
     LServer = jlib:nameprep(ServerHost),
-    get_nick(LServer, Host, From, gen_mod:db_type(LServer, ?MODULE)).
+    get_nick(LServer, Host, From, odbc).%%gen_mod:db_type(LServer, ?MODULE)).
 
 get_nick(_LServer, Host, From, mnesia) ->
     {LUser, LServer, _} = jlib:jid_tolower(From),
@@ -916,7 +938,7 @@ iq_get_register_info(ServerHost, Host, From, Lang) ->
 
 set_nick(ServerHost, Host, From, Nick) ->
     LServer = jlib:nameprep(ServerHost),
-    set_nick(LServer, Host, From, Nick, gen_mod:db_type(LServer, ?MODULE)).
+    set_nick(LServer, Host, From, Nick, odbc).%%gen_mod:db_type(LServer, ?MODULE)).
 
 set_nick(_LServer, Host, From, Nick, mnesia) ->
     {LUser, LServer, _} = jlib:jid_tolower(From),
