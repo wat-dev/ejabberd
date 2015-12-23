@@ -96,7 +96,7 @@ start(Host, Opts) ->
 				  ?MODULE, process_sm_iq, IQDisc),
     ejabberd_hooks:add(disco_sm_features, Host, ?MODULE, get_sm_features, 50),
     MyHost = gen_mod:get_opt_host(Host, Opts, "vjud.@HOST@"),
-    Search = gen_mod:get_opt(search, Opts, true),
+    Search = gen_mod:get_opt(search, Opts, false),
     register(gen_mod:get_module_proc(Host, ?PROCNAME),
 	     spawn(?MODULE, init, [MyHost, Host, Search])).
 
